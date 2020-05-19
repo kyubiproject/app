@@ -1,0 +1,35 @@
+{
+	"name": "kyubi/app",
+	"description": "App template to Kyubi Framework",
+	"type": "project",
+	"keywords": [
+		"Kyubi",
+		"Frtamework",
+		"PHP"
+	],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Rafael J Torres",
+			"email": "rafaelt88@gmail.com",
+			"role": "Creator & developer"
+		}
+	],
+	"repositories": [
+		{
+			"type": "path",
+			"url": "../kyubi-core",
+			"symlink": true
+		}
+	],
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"require": {
+		"kyubi/core": "@dev",
+		"yiisoft/yii2": "~2.0"
+	},
+	"require-dev": {
+		"yiisoft/yii2-gii": "~2.2",
+		"yiisoft/yii2-debug": "~2.1"
+	}
+}

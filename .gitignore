@@ -1,0 +1,10 @@
+/*
+!.gitignore
+!*.json
+!*.md
+!*.php
+
+!/app
+!/modules
+!/public
+/public/assets

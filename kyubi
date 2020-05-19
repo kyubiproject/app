@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'console');
+
+define('DIR_ROOT', __DIR__);
+require_once __DIR__ . '/vendor/kyubi/core/autoload.php';
+
+Kyubi::app('console');
