@@ -1,20 +1,30 @@
-#INSTALACION
-- PHP 7.x
-	- extension: php_yaml
+#REQUIREMENTS
+- PHP 7.x or higher
+- extension: php_yaml
 - MySQL 5.7 or higher
 
-#INSTALACION
+#INSTALL
 
-composer create-project --prefer-dist kyubi/app
-- solicitar configurar BD
+composer create-project --prefer-dist kyubi/app `app_name`
 
-composer create-project --prefer-dist kyubi/backend
-composer create-project --prefer-dist kyubi/studio
+$ cd app_name
 
+$ php kyubi config/check-requirements
 
-**Cambiar forma de escribir comandos**
-vendor/bin/yii <command> --appconfig=app/config/main.php
-`php yii ...` o `yii ...`
+$ php kyubi config/app-key [appkey]
+Options:
+- appkey, -k: (empty)
 
-**Crear comando para configurar BD**
-`yii config:bd -driver=mysql -host=localhost -dbname=logalty_stats -(u)sername=root -(p)assword=root -alias`
+$ php kyubi db/config -u=`username` --p=`password`
+Options:
+-- name, -conn: db
+-- class, -c: yii\db\Connection
+-- driver, -d: mysql
+-- host, -h: localhost
+-- port, -p: 3306
+-- user, -u: root
+-- pass, -p: (empty)
+
+$ php kyubi db/check --conn=`connection_name`
+Options:
+-- name, -conn: db
