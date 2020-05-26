@@ -9,11 +9,12 @@ composer create-project --prefer-dist kyubi/app `app_name`
 
 $ cd app_name
 
-$ php kyubi config/check-requirements
+$ php kyubi config/requirements
 
-$ php kyubi config/app-key [appkey]
-Options:
-- appkey, -k: (empty)
+$ php kyubi config/key [base]
+
+- base: string (defaults to '')
+  Base to generate the secure key.
 
 $ php kyubi db/config -u=`username` --p=`password`
 Options:
