@@ -1,22 +1,10 @@
 ---
-id: app
-name: Kyubi APP
-language: es
-charset: utf-8
 components:
-  urlManager:
-    enablePrettyUrl: true
-    showScriptName: false
   db:
     dsn: mysql:host=localhost;dbname=logalty_stats
     username: root
     password: root
     charset: utf8
-  foo:
-    class: yii\db\Connection
-    dsn: mysql:host=localhost:3308;dbname=aaaa
-    username: root
-    password: root
 params:
   admin:
     name: Admin
