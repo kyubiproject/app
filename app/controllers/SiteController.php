@@ -12,4 +12,9 @@ class SiteController extends Controller
     {
         echo powered();
     }
+
+    public function actionOffline()
+    {
+        echo ':(';
+    }
 }
