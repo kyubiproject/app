@@ -24,20 +24,11 @@
 	"prefer-stable" : true,
 	"require" : {
 		"kyubi/core" : "@dev",
-		"yiisoft/yii2" : "~2.0"
+		"yiisoft/yii2" : "^2.0",
+		"symfony/string": "^5.1"
 	},
 	"require-dev" : {
-		"yiisoft/yii2-gii" : "~2.2",
-		"yiisoft/yii2-debug" : "~2.1"
-	},
-	"autoload" : {
-		"psr-4" : {
-			"app\\" : "app/",
-			"*\\" : "modules/*"
-		},
-		"namespaces" : {
-			"Yii" : "vendor/yiisoft/yii2",
-			"Kyubi" : "vendor/kyubi/core/src"
-		}
+		"yiisoft/yii2-gii" : "*",
+		"yiisoft/yii2-debug" : "*"
 	}
 }
