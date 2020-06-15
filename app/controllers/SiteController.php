@@ -2,19 +2,19 @@
 namespace app\controllers;
 
 use yii\web\Controller;
-use kyubi;
-use kyubi\helpers\Str;
 
 class SiteController extends Controller
 {
 
+    public $layout = '/layouts/main';
+
     public function actionIndex()
     {
-        echo powered();
+        return $this->render('index');
     }
 
     public function actionOffline()
     {
-        echo ':(';
+        return $this->render('offline');
     }
 }

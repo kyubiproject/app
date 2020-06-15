@@ -10,3 +10,4 @@ if (YII_DEBUG) {
         'class' => 'yii\debug\Module'
     ];
 }
+return $config ?? [];

@@ -16,20 +16,16 @@
 	],
 	"repositories" : [{
 			"type" : "path",
-			"url" : "../kyubi-*",
+			"url" : "../kyubi-src/*",
 			"symlink" : true
 		}
 	],
 	"minimum-stability" : "dev",
 	"prefer-stable" : true,
 	"require" : {
-		"yiisoft/yii2" : "*",
 		"kyubi/core" : "@dev",
 		"kyubi/make" : "@dev",
-		"kyubi/api" : "@dev"
-	},
-	"require-dev" : {
-		"yiisoft/yii2-gii" : "*",
-		"yiisoft/yii2-debug" : "*"
+		"kyubi/api" : "@dev",
+		"kyubi/theme-basic" : "@dev"
 	}
 }
