@@ -1,0 +1,28 @@
+---
+rules:
+- safe: name, roles, note, is_active
+hidden: ~
+metafields: true
+attributes:
+  roles:
+    multiple: true
+    classContainer: col-xs-12 col-sm-6 col-md-8
+  note:
+    type: textarea
+    classContainer: col-xs-12 col-sm-6 col-md-8
+sections:
+  base:
+    title: false
+    layout: false
+    elements: ~
+    #classContainer: col-xs-6
+  permissions:
+    title: t($model, 'permissions')
+    layout: false
+    content: permissions/_form
+    scenario: insert, update
+  permissions@view:
+    title: t($model, 'permissions')
+    layout: false
+    content: permissions/_view
+...

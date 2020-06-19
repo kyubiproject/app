@@ -1,0 +1,81 @@
+body[route$=-login], body[route$=-restore-password] {
+	background-color: var(--dark);
+}
+
+body[route$=-login] > div, body[route$=-restore-password] > div {
+    padding: 15px; 
+}
+
+.panel-login {
+	min-width: 300px;
+    max-width: 500px;
+}
+
+.panel-login .isotope {
+	margin-right: 15px;
+}
+
+.panel-login .page-header {
+    margin: auto 0 10px;
+    padding: 10px 15px; 
+}
+
+.panel-login .isotope:BEFORE {
+	margin-right: 15px;
+}
+
+.panel-login form {
+    margin-bottom: 10px;
+}
+
+.panel-login .control-group input {
+    padding-left: 25px;
+}
+
+.panel-login .control-group::BEFORE {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 7px;
+    opacity: 0.7;
+}
+.control-group.field_username::BEFORE {
+    content: "\f007";
+}
+
+.control-group.field_password::BEFORE {
+    content: "\f023";
+}
+
+.control-group.field_email::BEFORE {
+    content: "\f0e0";
+}
+
+.panel-login {
+    width: 45%;
+    position: absolute;
+    left: 30%;
+    transform: translate(0, 30%);
+    text-align: justify;
+    margin-bottom: 50px;
+}
+
+.btn-reset-password {
+	position: absolute;
+	right: 0px;
+	bottom: -40px;
+}
+
+.btn-login {
+	position: absolute;
+	left: 0px;
+	bottom: -40px;
+}
+
+
+@media (max-width: 640px) {
+    .panel-login {
+    	position: inherit;
+    	width: 100%;
+    	transform: translate(0, 0);
+    }
+}

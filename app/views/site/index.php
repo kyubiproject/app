@@ -1,4 +1,10 @@
 <article>
+	<h1>Thanks by use Kyubi Framework.</h1>
+	<p>Not is magic, it's simple, it's brutal, it's wonderful.</p>
+	<q>If you can imagine it, you can do it</q>
+</article>
+<!-- 
+<article>
 	<h1>Welcome to Kyubi Framework.</h1>
 	<p>
 		<b>Kyubi</b> it has been designed to build applications violently, it
@@ -32,3 +38,4 @@
 	<i>The world wants to know your product, not having it on time will
 		affect viability and success.</i>
 </p>
+-->

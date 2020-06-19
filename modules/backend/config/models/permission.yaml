@@ -1,0 +1,10 @@
+---
+rules:
+- safe: permission__id, route, actions
+hidden: ~
+sections:
+  base:
+    title: false
+    layout: false
+    elements: ~
+...

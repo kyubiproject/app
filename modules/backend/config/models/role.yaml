@@ -1,0 +1,15 @@
+---
+rules:
+- safe: name, users, is_active, note
+hidden: ~
+metafields: true
+attributes: 
+  note:
+    type: textarea
+    classContainer: col-xs-12
+sections:
+  base:
+    title: false
+    layout: false
+    elements: ~
+...

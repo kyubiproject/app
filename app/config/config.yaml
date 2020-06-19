@@ -14,8 +14,31 @@ params:
     name: Admin
     email: admin@mail.com
 aliases:
-  kyubi-backend: vendor/kyubi/backend
+  rpdf: modules/rpdf
+  bude: modules/bude
+  common: modules/common
+  budf: modules/budf
+  budp: modules/budp
+  shop: modules/shop
+  rrhh: modules/rrhh
+  rbac: modules/rbac
 modules:
   backend:
     class: kyubi\backend\Module
+  bude:
+    class: bude\Module
+  common:
+    class: common\Module
+  budf:
+    class: budf\Module
+  budp:
+    class: budp\Module
+  shop:
+    class: shop\Module
+  rrhh:
+    class: rrhh\Module
+  rbac:
+    class: rbac\Module
+  rpdf:
+    class: rpdf\Module
 ...

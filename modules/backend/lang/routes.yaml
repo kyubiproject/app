@@ -1,0 +1,4 @@
+---
+es:
+    perfil-de-usuario: backend/default/profile
+    cambiar-contrasena: backend/default/change-password

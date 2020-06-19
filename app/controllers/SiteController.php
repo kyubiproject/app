@@ -6,8 +6,6 @@ use yii\web\Controller;
 class SiteController extends Controller
 {
 
-    public $layout = '/layouts/main';
-
     public function actionIndex()
     {
         return $this->render('index');
