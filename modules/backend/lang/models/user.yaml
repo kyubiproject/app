@@ -1,0 +1,29 @@
+---
+es:
+  username: Usuario
+  group: Tipo
+  _group:
+    ROOT: Propietario
+    ADMIN: Administrador
+    USER: Usuario
+  name: Nombre completo
+  email: Correo electrónico
+  roles: Roles
+  password: Contraseña
+  token: Token API
+  last_login: Última conexión
+  status: Estado
+  _status:
+    ACTIVE: ACTIVE
+    VERIFED: VERIFED
+    DISABLED: DISABLED
+    BANNED: BANNED
+  #accesses: Permisos
+  Send invitation to set your password and use the system.: Enviar invitación para configurar su contraseña y utilizar el sistema.
+  Welcome subject: Bienvenido a "{app}"
+  Welcome body: '<h2>Has sido invitado a utilizar <strong>{app}</strong></h2><p>Estimado <strong>{name}</strong>.</p>
+              <p><b>{refer}</b> a creado una cuenta para usted en <b><a href="{link}" target="_blank">{app}</a></b>, sus datos de acceso son los siguientes:
+              <ul style="list-style: none; padding: 10px;"><li>Usuario: <b>{username}</b></li><li>Contraseña: <b>{password}</b></li></ul>
+              <br>Usted puede acceder al sistema <a href="{link}" target="_blank">desde aquí</a> y cambiar la contraseña cuando usted desee. 
+              </p><small><b>Nota:</b> Agradecemos no comparta sus datos con nadie ni comparta este correo.</small>'
+...

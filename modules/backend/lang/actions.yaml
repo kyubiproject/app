@@ -1,0 +1,13 @@
+---
+es:
+    default.index: <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+    clear: <i class="fa fa-eraser"></i> <span>Borrar caché</span>
+    login: <i class="fa fa-sign-in"></i> <span>Iniciar sesión</span>
+    logout: <i class="fa fa-sign-out"></i> <span>Salir del sistema</span>
+    profile: <i class="fa fa-user-circle"></i> <span>Perfil de usuario</span>
+    change-password: <i class="fa fa-key"></i> <span>Cambiar contraseña</span>
+    restore-password: <i class="fa fa-refresh"></i> Restablecer contraseña
+    #
+    simulate.logout: <i class="fa fa-user-secret"></i> Cambiar de usuario
+    simulate: <i class="fa fa-user-secret"></i> Simular usuario
+    token: <i class="fa fa-universal-access"></i> Token de acceso

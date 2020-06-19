@@ -1,7 +1,7 @@
 <?php
 /* @var $this \yii\web\View */
 /* @var $content string */
-app\assets\AppAsset::register($this);
+//\app\assets\AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -9,8 +9,6 @@ app\assets\AppAsset::register($this);
 <head>
 <title><?= $this->title ?></title>
 <meta charset="<?= Yii::$app->charset ?>">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
     <?php $this->head() ?>
 </head>

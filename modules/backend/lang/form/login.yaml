@@ -1,0 +1,8 @@
+es:
+    username: Usuario ó correo electrónico
+    password: Contraseña
+    rememberMe: Mantener la sesión activa
+    Remember your session.: Su acceso se mantendrá hasta que usted cierre su sesión.
+    The data entered is not valid.: Los datos introducidos son incorrectos.
+    Your account is deactivated.: Su cuenta se encuentra desactivada.
+    Are you sure to exit the system?: Está seguro de salir del sistema?
