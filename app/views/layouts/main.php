@@ -16,10 +16,10 @@ app\assets\AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-	<main class="container">
-        <?= $content ?>
-    </main>
-	<footer><?= powered() ?></footer>
+<main class="container">
+    <?= $content ?>
+</main>
+<footer><?= powered() ?></footer>
 <?php $this->endBody() ?>
 </body>
 </html>

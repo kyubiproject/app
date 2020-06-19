@@ -1,8 +1,11 @@
 body {
 	background-color: #f0f0f0;
 	color: #484644;
-	margin: 20px 20%;
-	padding: 1em 2em;
+	padding: 10px 5em;
+}
+
+body > * {
+	width: 100%;
 }
 
 h1 {
@@ -21,6 +24,5 @@ q {
 }
 
 footer {
-	position: absolute;
-	bottom: 1em;
+	height: 2em;
 }
