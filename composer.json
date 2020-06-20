@@ -26,6 +26,7 @@
 		"kyubi/core" : "@dev",
 		"kyubi/make" : "@dev",
 		"kyubi/api" : "@dev",
+		"kyubi/admin" : "@dev",
 		"kyubi/theme-basic" : "@dev"
 	}
 }
