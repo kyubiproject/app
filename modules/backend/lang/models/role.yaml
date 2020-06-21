@@ -1,8 +1,0 @@
-es:
-    name: Nombre
-    note: Descripción
-    users: Usuarios
-    is_active: Estado
-    _is_active:
-        1: Activo
-        0: Inactivo

@@ -3,42 +3,21 @@ components:
   request:
     cookieValidationKey: 8423c873da45b11f3a3bbbba0c4d5be3
   db:
-    dsn: mysql:host=localhost;dbname=allone
+    dsn: mysql:host=localhost;dbname=viajes
     username: root
     password: root
     charset: utf8
-  view:
-    theme: kyubi\theme\basic\Theme
 params:
   admin:
     name: Admin
     email: admin@mail.com
-aliases:
-  rpdf: modules/rpdf
-  bude: modules/bude
-  common: modules/common
-  budf: modules/budf
-  budp: modules/budp
-  shop: modules/shop
-  rrhh: modules/rrhh
-  rbac: modules/rbac
-modules:
-  backend:
-    class: kyubi\backend\Module
-  bude:
-    class: bude\Module
-  common:
-    class: common\Module
-  budf:
-    class: budf\Module
-  budp:
-    class: budp\Module
-  shop:
-    class: shop\Module
-  rrhh:
-    class: rrhh\Module
-  rbac:
-    class: rbac\Module
-  rpdf:
-    class: rpdf\Module
+  foo:
+    hola:
+    - como=estas
+    - tu=xyz
+aliases: []
+modules: []
+catchAll:
+- site/offline
+- ::1
 ...
