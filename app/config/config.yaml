@@ -7,17 +7,33 @@ components:
     username: root
     password: root
     charset: utf8
+  allone:
+    class: yii\db\Connection
+    dsn: mysql:host=localhost;dbname=allone
+    username: root
+    password: root
+    charset: utf8
+  view:
+    theme: kyubi\theme\basic\Theme
 params:
   admin:
     name: Admin
     email: admin@mail.com
-  foo:
-    hola:
-    - como=estas
-    - tu=xyz
-aliases: []
-modules: []
-catchAll:
-- site/offline
-- ::1
+aliases:
+  cart: modules/cart
+  common: modules/common
+  transfers: modules/transfers
+  tours: modules/tours
+  kyubi-studio: vendor/kyubi/studio/src
+modules:
+  cart:
+    class: cart\Module
+  common:
+    class: common\Module
+  transfers:
+    class: transfers\Module
+  tours:
+    class: tours\Module
+  studio:
+    class: kyubi\studio\Module
 ...
