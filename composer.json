@@ -27,6 +27,11 @@
 		"kyubi/make" : "@dev",
 		"kyubi/api" : "@dev",
 		"kyubi/studio" : "@dev",
-		"kyubi/theme-basic" : "@dev"
+		"kyubi/theme-basic" : "@dev",
+		"yiisoft/yii2-authclient": "^2.2"
+	},
+	"require-dev" : {
+		"yiisoft/yii2-gii" : "~2.2",
+		"yiisoft/yii2-debug" : "~2.1"
 	}
 }
