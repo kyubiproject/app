@@ -1,23 +1,23 @@
 <?php
 namespace app;
 
-use yii\base\BootstrapInterface;
-
-class Bootstrap implements BootstrapInterface
+class Bootstrap extends \kyubi\base\Bootstrap
 {
 
     /**
      *
      * {@inheritdoc}
-     * @see \yii\base\BootstrapInterface::bootstrap()
-     * @param $app \yii\base\Application
+     * @see \kyubi\base\Bootstrap::bootWeb()
      */
-    public function bootstrap($app)
+    public function bootWeb($app): void
     {
-        if ($app instanceof \yii\web\Application) {
-            //
-        } elseif ($app instanceof \yii\console\Application) {
-            //
-        }
     }
+
+    /**
+     *
+     * {@inheritdoc}
+     * @see \kyubi\base\Bootstrap::bootConsole()
+     */
+    public function bootConsole($app): void
+    {}
 }
