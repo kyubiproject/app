@@ -1,5 +1,8 @@
 <?php
 define('DIR_ROOT', dirname(__DIR__));
-require_once dirname(__DIR__) . '/vendor/kyubi/core/autoload.php';
+
+ini_set('display_errors', 1);
+
+require_once DIR_ROOT . '/vendor/autoload.php';
 
 Kyubi::app(get('__debug', true), get('__env', 'dev'));

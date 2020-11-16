@@ -6,17 +6,3 @@ components:
     view: { theme: kyubi\theme\basic\Theme }
 params:
     admin: { name: Admin, email: admin@mail.com }
-aliases:
-    cart: modules/cart
-    common: modules/common
-    transfers: modules/transfers
-    tours: modules/tours
-    kyubi-studio: vendor/kyubi/studio/src
-    foo: modules/foo
-modules:
-    cart: { class: cart\Module }
-    common: { class: common\Module }
-    transfers: { class: transfers\Module }
-    tours: { class: tours\Module }
-    studio: { class: kyubi\studio\Module }
-    foo: { class: foo\Module }
