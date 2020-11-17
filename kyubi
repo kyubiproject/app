@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 define('DIR_ROOT', __DIR__);
-require_once __DIR__ . '/vendor/kyubi/core/autoload.php';
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 Kyubi::console();

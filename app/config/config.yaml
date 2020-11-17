@@ -1,8 +1,26 @@
 components:
-    request: { cookieValidationKey: 8423c873da45b11f3a3bbbba0c4d5be3 }
-    db: { dsn: 'mysql:host=localhost;dbname=viajes', username: root, password: root, charset: utf8 }
-    allone: { class: yii\db\Connection, dsn: 'mysql:host=localhost;dbname=allone', username: root, password: root, charset: utf8 }
-    test: { class: yii\db\Connection, dsn: 'mysql:host=localhost;dbname=test', username: root, password: root, charset: utf8 }
-    view: { theme: kyubi\theme\basic\Theme }
+  request:
+    cookieValidationKey: 5d7cff7c24278171c8044ef8f5301014
+  db:
+    dsn: 'mysql:host=localhost;dbname=viajes'
+    username: root
+    password: root
+    charset: utf8
+  allone:
+    class: yii\db\Connection
+    dsn: 'mysql:host=localhost;dbname=allone'
+    username: root
+    password: root
+    charset: utf8
+  test:
+    class: yii\db\Connection
+    dsn: 'mysql:host=localhost;dbname=test'
+    username: root
+    password: root
+    charset: utf8
+  view:
+    theme: themes\bootstrap\Theme
 params:
-    admin: { name: Admin, email: admin@mail.com }
+  admin:
+    name: Admin
+    email: admin@mail.com

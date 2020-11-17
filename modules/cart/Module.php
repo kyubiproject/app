@@ -4,5 +4,6 @@ namespace cart;
 /**
  * `cart` module definition class.
  */
-class Module extends \kyubi\base\Module{
+class Module extends \kyubi\base\Module
+{
 }
