@@ -1,4 +1,7 @@
 <?php
+if (request()->isAjax) {
+    die($content);
+}
 /* @var $this \yii\web\View */
 /* @var $content string */
 ?>
@@ -15,14 +18,14 @@
 	route="<?=\kyubi\helper\Str::slug(controller()->route)?>">
 <?php $this->beginBody() ?>
 	<header class="mt-5">
-    	<?= $this->blocks['navbar'] ?? null ?>
+    	<?= blocks('navbar') ?>
     </header>
-    <main class="container">
-    	<?= $this->blocks['header'] ?? null ?>
+	<main class="container">
+    	<?= blocks('header') ?>
     	<?= $content ?>
 	</main>
 	<footer>
-    	<?= $this->blocks['footer'] ?? null ?>
+    	<?= blocks('footer') ?>
     </footer>
 <?php $this->endBody() ?>
 </body>

@@ -24,3 +24,14 @@ params:
   admin:
     name: Admin
     email: admin@mail.com
+aliases:
+  client: modules/client
+  fleet: modules/fleet
+  foa: modules/foa
+modules:
+  client:
+    class: client\Module
+  fleet:
+    class: fleet\Module
+  foa:
+    class: foa\Module

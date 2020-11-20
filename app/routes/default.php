@@ -24,7 +24,7 @@ routes('grupo', [
     'GET saludo2' => function () {
         die("saludo");
     }
-], 'foo');
+]);
 route('GET normal', 'SiteController');
 route('GET metodo/<id:\d+>', 'SiteController.metodo');
 route('GET accion/<tipo:\w+>/<id:\d+>', 'SiteController@accion');

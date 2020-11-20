@@ -17,10 +17,6 @@ class Asset extends \yii\web\AssetBundle
         [
             'js/bootstrap.min.js',
             'position' => \yii\web\View::POS_END
-        ],
-        [
-            'js/font-awesome.min.js',
-            'position' => \yii\web\View::POS_END
         ]
     ];
 

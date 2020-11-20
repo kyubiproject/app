@@ -1,0 +1,34 @@
+name: Flota
+navbar:
+  label: Flota
+  order: 1
+  links:
+  - label: Vehículos
+    url: vehicle
+  - label: ITV
+    url: '#'
+    disabled: true
+    separator: after
+  - label: Planing
+    url: '#'
+    separator: after
+  - label: Mantenimientos
+  - label: Marcas de vehículo
+    url: '#'
+    disabled: true
+  - label: Modelos de vehículo
+    url: '#'
+    disabled: true
+  - label: Famílias de vehículo
+    url: '#'
+    disabled: true
+  - label: Tipos de vehículo
+    url: '#'
+    disabled: true
+    separator: after
+  - label: Grupo de tarificación
+    url: '#'
+    disabled: true
+  - label: Tipos de combustible
+    url: '#'
+    disabled: truee

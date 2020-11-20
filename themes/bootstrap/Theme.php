@@ -7,25 +7,11 @@ class Theme extends \kyubi\base\Theme
     /**
      *
      * {@inheritdoc}
-     * @see \kyubi\base\Theme::bootstap()
-     */
-    public function bootstap(): void
-    {
-        require_file(__DIR__ . '/helpers/helpers.php');
-        app()->params['navbar'] = require_file(__DIR__ . '/helpers/navbar.php');
-        if (controller()->hasProperty('templatesView')) {
-            controller()->templatesView = '@themes/bootstrap/layouts/crud';
-        }
-        parent::bootstap();
-    }
-
-    /**
-     *
-     * {@inheritdoc}
      * @see \kyubi\base\Theme::beforeRender()
      */
     public function beforeRender(): bool
     {
+        app()->params['navbar'] = require_file(__DIR__ . '/helpers/navbar.php');
         if (parent::beforeRender()) {
             // require_file(__DIR__ . '/helpers/helpers.php');
             // view()->registerMetaTag([

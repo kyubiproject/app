@@ -1,0 +1,13 @@
+#navbar-toggle .breadcrumb {
+	background-color: transparent;
+	padding-left: 0;
+}
+
+[id$=-grid] > table {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.grid-buttons .btn:not(:last-child) {
+	margin-left: 0.15rem;
+}
