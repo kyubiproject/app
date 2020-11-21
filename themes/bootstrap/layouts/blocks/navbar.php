@@ -15,7 +15,7 @@
 </nav>
 <div class="collapse show" id="navbar-toggle">
 	<div
-		class="container pt-2 d-flex justify-content-between align-items-center">
+		class="container d-flex justify-content-between align-items-center">
 		<?= $this->blocks['breadcrumb'] ?? null ?>
 		<blockquote class="blockquote">
 			<footer class="blockquote-footer"> Compañía localidad Localidad </footer>

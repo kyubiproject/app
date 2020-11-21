@@ -1,11 +1,15 @@
 <?php
-if (request()->isAjax) {
-    die($content);
-}
-/* @var $this \yii\web\View */
-/* @var $content string */
-?>
-<?php $this->beginPage() ?>
+/**
+ * @var $this \yii\web\View
+ * @var $content string
+ */
+$this->beginPage();
+if (request()->isPatch) {
+    $this->beginBody();
+    echo $content;
+    $this->endBody();
+} else {
+    ?>
 <!DOCTYPE html>
 <html lang="<?= app()->language ?>">
 <head>
@@ -14,13 +18,13 @@ if (request()->isAjax) {
     <?php $this->registerCsrfMetaTags() ?>
     <?php $this->head() ?>
 </head>
-<body class="<?=basename(controller()->layout, '.php')?>"
+<body class="<?=basename(controller()->layout, '.php')?> pt-5"
 	route="<?=\kyubi\helper\Str::slug(controller()->route)?>">
 <?php $this->beginBody() ?>
-	<header class="mt-5">
+	<header class="pt-3">
     	<?= blocks('navbar') ?>
     </header>
-	<main class="container">
+	<main class="container pt-2">
     	<?= blocks('header') ?>
     	<?= $content ?>
 	</main>
@@ -30,4 +34,6 @@ if (request()->isAjax) {
 <?php $this->endBody() ?>
 </body>
 </html>
-<?php $this->endPage() ?>
+<?php
+}
+$this->endPage();

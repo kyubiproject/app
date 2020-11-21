@@ -1,13 +1,39 @@
-#navbar-toggle .breadcrumb {
+#navbar-toggle .container  > * {
 	background-color: transparent;
-	padding-left: 0;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
-[id$=-grid] > table {
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
+.pagination {
+	margin: 0;
 }
 
 .grid-buttons .btn:not(:last-child) {
 	margin-left: 0.15rem;
+}
+
+table {
+	margin: 0 !important;
+}
+
+table thead th {
+	text-align: center;
+	white-space: nowrap; 
+}
+
+table thead a {
+	text-decoration: none !important; 
+}
+
+table thead a:before {
+	font-family: "FontAwesome";
+	float: right;
+}
+
+table thead a.asc:before {
+	content: "\f0de";
+}
+
+table thead a.desc:before {
+	content: "\f0dd";
 }
