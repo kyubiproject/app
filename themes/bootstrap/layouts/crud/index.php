@@ -16,7 +16,7 @@ Pjax::begin([
 echo GridView::widget([
     'dataProvider' => $model->search(),
     'columns' => $model->safeAttributes(),
-    'layout' => '<header class="row"><div class="col d-none d-lg-block">{summary}</div><div class="col d-none d-md-flex justify-content-lg-center">{pager}</div><div class="col">{buttons}</div></header><main class="table-responsive my-2">{items}</main><footer class="d-flex justify-content-between">{summary}{pager}</footer>',
+    'layout' => '<header class="row"><div class="col">{summary}</div><div class="col d-none d-md-flex justify-content-lg-center">{pager}</div><div class="col">{buttons}</div></header><main class="table-responsive my-2">{items}</main><footer class="d-flex justify-content-between">{summary}{pager}</footer>',
     'options' => [
         'id' => Str::kebab(class_info(controller()->modelClass)->getShortName() . '-grid')
     ],

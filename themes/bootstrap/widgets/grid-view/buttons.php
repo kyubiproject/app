@@ -9,7 +9,7 @@
 		data-toggle="modal" data-target="#grid-filters" href="#">
 		<i class="fa fa-filter"></i>
 	</a>
-	<a class="btn btn-sm btn-primary" href="#"
+	<a class="btn btn-sm btn-outline-primary" href="#"
 		data-id="<?= $grid->id ?>" data-grid="refresh">
 		<i class="fa fa-refresh"></i>
 	</a>

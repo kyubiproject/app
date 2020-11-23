@@ -4,8 +4,25 @@
 	padding: 0 !important;
 }
 
+#navbar-toggle .breadcrumb {
+	border: none;
+}
+
+[data-toggle=tooltip]:not(a) {
+	cursor: help;
+}
+
 .pagination {
 	margin: 0;
+}
+
+ .dropdown-menu {
+ 	margin-top: 0.65rem;
+}
+
+.dropdown-item {
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
 }
 
 .grid-buttons .btn:not(:last-child) {

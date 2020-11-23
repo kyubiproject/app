@@ -27,12 +27,14 @@ if ($links = (controller()->breadcrumb ?? true)) {
             ];
         }
     }
-    echo Breadcrumbs::widget([
-        'tag' => 'ol',
-        'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
-        'activeItemTemplate' => '<li class="breadcrumb-item active">{link}</li>',
-        'encodeLabels' => false,
-        'homeLink' => false,
-        'links' => $links
-    ]);
+    if (count($links) > 1) {
+        echo Breadcrumbs::widget([
+            'tag' => 'ol',
+            'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
+            'activeItemTemplate' => '<li class="breadcrumb-item active">{link}</li>',
+            'encodeLabels' => false,
+            'homeLink' => false,
+            'links' => $links
+        ]);
+    }
 }

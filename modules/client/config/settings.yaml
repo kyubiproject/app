@@ -2,15 +2,6 @@ name: Clientes
 icon: fa-user
 controllers:
   default:
-  user:
-    name: Usuario
-    icon: fa-user
-  role:
-    name: Rol
-    icon: fa-users
-  profile:
-    name: Perfil
-    icon: fa-universal-access
 navbar:
   label: Clientes
   order: 2
@@ -24,7 +15,7 @@ navbar:
     - label: Cobros
       url: charge
     - label: Remesas cliente
-      url: client/clients
+      url: consignment
       separator: after
     - label: Informes
     - label: Factura acumulada

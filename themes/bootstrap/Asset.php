@@ -15,6 +15,10 @@ class Asset extends \yii\web\AssetBundle
     public $js = [
         'js/main.js',
         [
+            'js/popper.min.js',
+            'position' => \yii\web\View::POS_END
+        ],
+        [
             'js/bootstrap.min.js',
             'position' => \yii\web\View::POS_END
         ]

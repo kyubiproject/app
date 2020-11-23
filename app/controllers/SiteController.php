@@ -7,8 +7,10 @@ class SiteController extends \kyubi\web\Controller
     public function actions(): array
     {
         return [
-            // declara la acción "error" utilizando un nombre de clase
-            'error' => 'yii\web\ErrorAction'
+            'error' => [
+                'class' => '\yii\web\ErrorAction',
+                'view' => '@yii/views/errorHandler/error'
+            ]
         ];
     }
 
@@ -36,5 +38,10 @@ class SiteController extends \kyubi\web\Controller
             __FUNCTION__,
             func_get_args()
         ]));
+    }
+
+    public function getHeader()
+    {
+        return false;
     }
 }

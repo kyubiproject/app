@@ -1,8 +1,12 @@
-<h1 class="page-header">
-	<span><i class="fa fa-user"></i> Usuarios</span>
-	<div class="dropdown pull-right btn-toolbar" role="toolbar">
-		<a class="btn btn-sm btn-default btn-default"
-			href="/control-de-acceso/usuario/registrar"><i class="fa fa-plus"></i>
-			Registrar</a>
+<?php if (is_null($header = controller()->header ?? null)): ?>
+<header class="mb-2 d-flex justify-content-between align-items-center">
+	<h1>
+		<?= controller()->name ?? controller()->id ?>
+	</h1>
+	<div class="btn-toolbar">
+		<?=controller()->toolbar ?? null?>
 	</div>
-</h1>
+</header>
+<?php else: ?>
+<?php echo $header; ?>
+<?php endif; ?>
