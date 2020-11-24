@@ -1,22 +1,22 @@
-name: Clientes
 icon: fa-user
+defaultRoute: client
 controllers:
-  default:
+  client:
+    class: kyubi\api\controllers\CrudController
+    modelClass: cart\models\Clients
+  invoice:
+  charge:
+  consignment:
+  accumulated:
 navbar:
-  label: Clientes
   order: 2
   links:
-    - label: Clientes
-      url: client
+    - url: client
       separator: after
-    - label: Facturas cliente
-      url: invoice
+    - url: invoice
       separator: after
-    - label: Cobros
-      url: charge
-    - label: Remesas cliente
-      url: consignment
+    - url: charge
+    - url: consignment
       separator: after
-    - label: Informes
-    - label: Factura acumulada
-      url: accumulated
+    - label: reports
+    - url: accumulated

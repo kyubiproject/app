@@ -1,5 +1,6 @@
 <?php
 use kyubi\helper\Arr;
+use kyubi\helper\Str;
 
 $navbar = [];
 foreach (Kyubi::config('modules') ?? [] as $name => $module) {
@@ -15,18 +16,27 @@ foreach (Kyubi::config('modules') ?? [] as $name => $module) {
 	<ul class="navbar-nav">
 	<?php foreach (Arr::sort($navbar) as $name => $item): ?>
     	<li class="nav-item dropdown">
-    		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"><?= $item['label'] ?? $name ?></a>
+    		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"><?= t($name, $item['label'] ?? $name) ?></a>
     		<div class="dropdown-menu">
     		<?php foreach ($item['links'] ?? [] as $link): ?>
-    			<?php if (empty($link['label'] ?? null)) continue; ?>
+    			<?php if (empty($link['label'] ?? $link['url'])) continue; ?>
     			<?php if (($link['separator'] ?? null) == 'before'): ?>
     				<div class="dropdown-divider"></div>
 				<?php endif; ?>
-    			<?php if (boolval($link['url'] ?? false)): ?>
-					<a class="dropdown-item<?= isset($link['disabled']) ? ' disabled' : null?>" href="<?= isset($link['url']) ? "$name/{$link['url']}" : '#' ?>"><?= $link['label'] ?></a>    				
-    			<?php else: ?>
-    				<div class="dropdown-item disabled font-weight-bold"><?= $link['label'] ?></div>
+				<?php
+				if (! isset($link['url'])) {
+				    $link['url'] = false;
+				} elseif (! Str::startWith($link['url'], '/')) {
+				    $link['url'] = "/$name/{$link['url']}";
+				}
+				$label = t($name, $link['label'] ?? ltrim($link['url'], '/'));
+				?>
+				<?php if ($link['url'] !== false): ?>
+					<a class="dropdown-item<?= isset($link['disabled']) ? ' disabled' : null?>" href="<?= $link['url'] ?? '#' ?>"><?= $label ?></a>    				
+    			<?php elseif (isset($link['label'])): ?>
+    				<div class="dropdown-item disabled font-weight-bold"><?= $label ?></div>
     			<?php endif; ?>
+    			
     			<?php if (($link['separator'] ?? null) == 'after'): ?>
     				<div class="dropdown-divider"></div>
 				<?php endif; ?>

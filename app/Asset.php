@@ -1,9 +1,9 @@
 <?php
-namespace app\assets;
+namespace app;
 
 use yii\web\AssetBundle;
 
-class AppAsset extends AssetBundle
+class Asset extends AssetBundle
 {
 
     public $basePath = '@webroot';

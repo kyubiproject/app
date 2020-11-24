@@ -1,3 +1,4 @@
+language: es
 components:
   request:
     cookieValidationKey: 5d7cff7c24278171c8044ef8f5301014
@@ -6,15 +7,9 @@ components:
     username: root
     password: root
     charset: utf8
-  allone:
+  webapp:
     class: yii\db\Connection
-    dsn: 'mysql:host=localhost;dbname=allone'
-    username: root
-    password: root
-    charset: utf8
-  test:
-    class: yii\db\Connection
-    dsn: 'mysql:host=localhost;dbname=test'
+    dsn: 'mysql:host=localhost;dbname=webapp'
     username: root
     password: root
     charset: utf8
@@ -24,14 +19,3 @@ params:
   admin:
     name: Admin
     email: admin@mail.com
-aliases:
-  client: modules/client
-  fleet: modules/fleet
-  foa: modules/foa
-modules:
-  client:
-    class: client\Module
-  fleet:
-    class: fleet\Module
-  foa:
-    class: foa\Module

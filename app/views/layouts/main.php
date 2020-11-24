@@ -1,7 +1,7 @@
 <?php
 /* @var $this \yii\web\View */
 /* @var $content string */
-\app\assets\AppAsset::register($this);
+\app\assets\Asset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

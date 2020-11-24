@@ -1,13 +1,13 @@
 <?php
 namespace themes\bootstrap;
 
-class Theme extends \kyubi\ui\base\Theme
+class Theme extends \kyubi\ui\BaseTheme
 {
 
     /**
      *
      * {@inheritdoc}
-     * @see \kyubi\ui\base\Theme::beforeRender()
+     * @see \kyubi\ui\BaseTheme::beforeRender()
      */
     public function beforeRender(): bool
     {

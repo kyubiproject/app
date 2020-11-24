@@ -29,8 +29,10 @@
 		"kyubi/helper": "@dev",
 		"kyubi/route": "@dev",
 		"kyubi/ui": "@dev",
+		"kyubi/validate": "@dev",
 		"kyubi/make": "@dev",
 		"kyubi/api": "@dev",
+		"kyubi/auth": "@dev",
 		"kyubi/cloud": "@dev",
 		"kyubi/theme-basic": "@dev"
 	},

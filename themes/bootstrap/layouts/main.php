@@ -3,6 +3,7 @@
  * @var $this \yii\web\View
  * @var $content string
  */
+\themes\bootstrap\Asset::register($this);
 $this->beginPage();
 if (request()->isPatch) {
     $this->beginBody();
