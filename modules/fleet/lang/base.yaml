@@ -1,0 +1,12 @@
+es:
+  fleet: Flota
+  fleet/vehicle: Vehículos
+  fleet/itv: ITV
+  fleet/planning: Planeación
+  fleet/maintenance: Mantenimientos
+  fleet/vehicle-brand: Marcas de vehículo
+  fleet/vehicle-model: Modelos de vehículo
+  fleet/vehicle-family: Famílias de vehículo
+  fleet/vehicle-type: Tipos de vehículo
+  fleet/vehicle-rate: Grupo de tarificación
+  fleet/vehicle-gas: Tipos de combustible

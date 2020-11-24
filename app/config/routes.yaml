@@ -1,3 +1,0 @@
----
-GET,POST hello: function() {return 'Hello World';}
-...

@@ -1,5 +1,5 @@
 <?php
-namespace app;
+namespace client;
 
 class Bootstrap extends \kyubi\base\Bootstrap
 {
@@ -10,7 +10,8 @@ class Bootstrap extends \kyubi\base\Bootstrap
      * @see \kyubi\base\Bootstrap::bootWeb()
      */
     public function bootWeb($app): void
-    {}
+    {
+    }
 
     /**
      *
