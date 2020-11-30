@@ -1,34 +1,20 @@
-name: Flota
+controllers:
+  vehicle: 
+     class: kyubi\api\controllers\CrudController
+     config: fleet/config/models/vehicle.yaml
+  planning:
 navbar:
-  label: Flota
   order: 1
   links:
-  - label: Vehículos
-    url: vehicle
-  - label: ITV
-    url: '#'
-    disabled: true
-    separator: after
-  - label: Planing
-    url: '#'
-    separator: after
-  - label: Mantenimientos
-  - label: Marcas de vehículo
-    url: '#'
-    disabled: true
-  - label: Modelos de vehículo
-    url: '#'
-    disabled: true
-  - label: Famílias de vehículo
-    url: '#'
-    disabled: true
-  - label: Tipos de vehículo
-    url: '#'
-    disabled: true
-    separator: after
-  - label: Grupo de tarificación
-    url: '#'
-    disabled: true
-  - label: Tipos de combustible
-    url: '#'
-    disabled: truee
+  - vehicle:
+  - itv: "#"
+  - separator
+  - planning:
+  - maintenance: false
+  - vehicle-brand: false
+  - vehicle-model: false
+  - vehicle-family: false
+  - vehicle-type: false
+  - separator
+  - vehicle-rate: false
+  - vehicle-gas: false

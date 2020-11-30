@@ -10,13 +10,13 @@ if ($links = (controller()->breadcrumb ?? true)) {
         ];
         if (module()->id !== 'app') {
             $links[] = [
-                'label' => module()->id,
+                'label' => t(module()->id, module()->id),
                 'url' => url('/' . module()->id)
             ];
         }
         if (controller()->id !== module()->defaultRoute) {
             $links[] = [
-                'label' => controller()->id,
+                'label' => t(module()->id, controller()->uniqueId),
                 'url' => url('/' . controller()->uniqueId)
             ];
         }

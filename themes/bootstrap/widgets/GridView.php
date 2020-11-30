@@ -12,6 +12,7 @@ class GridView extends \yii\grid\GridView
 
     const PAGE_LIMIT = 5;
 
+    // public showOnEmpty = false;
     public function renderSection($name)
     {
         if (file_exists($filename = __DIR__ . '/grid-view/' . substr($name, 1, - 1) . '.php')) {
