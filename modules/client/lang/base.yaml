@@ -4,5 +4,5 @@ es:
   client/invoice: Facturas cliente
   client/charge: Cobros
   client/consignment: Remesas cliente
-  reports: Informes
+  client/reports: Informes
   client/accumulated: Factura acumulada

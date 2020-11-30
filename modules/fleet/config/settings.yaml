@@ -1,27 +1,34 @@
-controllers:
-  vehicle:
-  planning:
+name: Flota
 navbar:
+  label: Flota
   order: 1
   links:
-  - url: vehicle
-  - url: itv
+  - label: Vehículos
+    url: vehicle
+  - label: ITV
+    url: '#'
     disabled: true
     separator: after
-  - url: planning
+  - label: Planing
+    url: '#'
     separator: after
-  - url: maintenance
+  - label: Mantenimientos
+  - label: Marcas de vehículo
+    url: '#'
     disabled: true
-  - url: vehicle-brand
+  - label: Modelos de vehículo
+    url: '#'
     disabled: true
-  - url: vehicle-model
+  - label: Famílias de vehículo
+    url: '#'
     disabled: true
-  - url: vehicle-family
-    disabled: true
-  - url: vehicle-type
+  - label: Tipos de vehículo
+    url: '#'
     disabled: true
     separator: after
-  - url: vehicle-rate
+  - label: Grupo de tarificación
+    url: '#'
     disabled: true
-  - url: vehicle-gas
-    disabled: true
+  - label: Tipos de combustible
+    url: '#'
+    disabled: truee

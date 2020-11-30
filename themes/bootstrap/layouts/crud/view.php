@@ -13,7 +13,7 @@ if (is_array($model)) {
         ]),
         'itemView' => basename(__FILE__, '.php'),
         'options' => [
-            'id' => Str::kebab(ref(controller()->modelClass)->getShortName() . '-list')
+            'id' => Str::kebab(class_info(controller()->modelClass)->getShortName() . '-list')
         ]
     ]);
 } elseif (is_object($model)) {
@@ -21,7 +21,7 @@ if (is_array($model)) {
         'model' => $model,
         'attributes' => $model->safeAttributes(),
         'options' => [
-            'id' => Str::kebab(ref($model)->getShortName() . '-' . ($index ?? 'view')),
+            'id' => Str::kebab(class_info($model)->getShortName() . '-' . ($index ?? 'view')),
             'data-key' => $model->id
         ],
         'template' => function ($attribute, $index, $widget) {
