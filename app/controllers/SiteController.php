@@ -19,27 +19,6 @@ class SiteController extends \kyubi\web\Controller
         return $this->render('index');
     }
 
-    public function actionAccion()
-    {
-        return $this->renderContent(json_encode([
-            __FUNCTION__,
-            func_get_args()
-        ]));
-    }
-
-    public function metodo($id)
-    {
-        return $this->renderContent("hola");
-    }
-
-    public static function demo($id)
-    {
-        echo controller()->renderContent(json_encode([
-            __FUNCTION__,
-            func_get_args()
-        ]));
-    }
-
     public function getHeader()
     {
         return false;

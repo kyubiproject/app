@@ -54,3 +54,22 @@ table thead a.asc:before {
 table thead a.desc:before {
 	content: "\f0dd";
 }
+
+table tr[data-key]:hover {
+	cursor: pointer;
+	background-color: var(--light);
+}
+
+table tr[data-key]:not(:hover) {
+	opacity: 0.7;
+}
+
+.form-group label {
+	font-weight: bold;
+}
+
+.form-group div.form-control {
+	height: auto;
+	min-height: 38px;
+	background: var(--light);
+}

@@ -4,6 +4,7 @@ controllers:
   client:
     class: kyubi\api\controllers\CrudController
     modelClass: app\models\base\cart\Clients
+    modelConfig: client/config/models/clients.yaml
   invoice:
   charge:
   consignment:

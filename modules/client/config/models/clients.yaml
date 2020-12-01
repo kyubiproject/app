@@ -1,0 +1,12 @@
+scenarios:
+  view: name
+attributes:
+  name:
+    layout: LABEL{label}:{value}
+    htmlOptions:
+      class: form-group
+    labelOptions:
+      class: text-danger
+    contentOptions:
+      class: form-control
+      

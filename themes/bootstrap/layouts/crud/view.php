@@ -2,9 +2,10 @@
 // @var $this \yii\web\View
 // @var $model \kyubi\base\ActiveRecord
 use yii\widgets\ListView;
-use yii\widgets\DetailView;
+use themes\bootstrap\widgets\DetailView;
 use kyubi\helper\Str;
 use yii\data\ArrayDataProvider;
+use yii\helpers\Html;
 
 if (is_array($model)) {
     echo ListView::widget([
@@ -19,13 +20,12 @@ if (is_array($model)) {
 } elseif (is_object($model)) {
     echo DetailView::widget([
         'model' => $model,
-        'attributes' => $model->safeAttributes(),
+        'attributes' => $model->fields(),
         'options' => [
-            'id' => Str::kebab(ref($model)->getShortName() . '-' . ($index ?? 'view')),
+            'tag' => 'section',
+            'class' => 'form-row',
+            'data-model' => basename(get_class($model)),
             'data-key' => $model->id
         ],
-        'template' => function ($attribute, $index, $widget) {
-            return "<tr data-field='{$attribute['attribute']}' data-type='{$attribute['format']}'><th>{$attribute['label']}</th><td>{$attribute['value']}</td></tr>";
-        }
     ]);
 }
