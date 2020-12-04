@@ -1,54 +1,62 @@
 <?php
 namespace themes\bootstrap\widgets;
 
-use kyubi\helper\Arr;
 use yii\helpers\Html;
 
 class DetailView extends \yii\widgets\DetailView
 {
 
-    public $tagName = 'div';
+    public $containerOptions = [
+        'class' => 'form-group col col-md-6 col-lg-4'
+    ];
 
-    public $tagValue = 'div';
+    public $valueOptions = [
+        'class' => 'form-control'
+    ];
 
-    public $template = '<{tagName}{containerOptions}>{label}{value}</{tagName}>';
+    public $labelOptions = [
+        'class' => 'control-label'
+    ];
+
+    public $template = '<div{containerOptions}>{label}{value}</div>';
 
     protected function renderAttribute($attribute, $index)
     {
         if (is_string($this->template)) {
-            $terms['{tagName}'] = 'div';
+            $terms = [];
             foreach ($attribute as $key => $value) {
-                if (is_array($value)) {
-                    switch ($key) {
-                        case 'containerOptions':
-                            $value = array_merge([
-                                'class' => 'form-group col-md-6',
-                                'data-field' => $attribute['name'],
-                                'data-type' => $attribute['type']
-                            ], $value);
-                            break;
-                        case 'value':
-                            $value = Html::tag($value ?? $this->model->getAttributeLabel($attribute['name']));
-
-                            array_merge([
-                                'class' => 'form-control'
-                            ], $value);
-                            break;
-                        case 'label':
-                            $value = $this->renderLabel($value ?? $this->model->getAttributeLabel($attribute['name']));
-                            break;
-                    }
+                switch ($key) {
+                    case 'value':
+                        $options = array_merge($this->options, $attribute['options']['value'] ?? []);
+                        $value = Html::tag('div', $value ?? $this->model->getAttribute($attribute['name']), $options);
+                        break;
+                    case 'label':
+                        $options = array_merge($this->labelOptions, $attribute['options']['label'] ?? []);
+                        $value = $value ? Html::label($value, Html::getInputName($this->model, $attribute['name']), $options) : Html::activeLabel($this->model, $attribute['name'], $options);
+                        break;
+                    case 'template':
+                        if (! is_null($value)) {
+                            $template = $value;
+                            foreach ($attribute['params'] as $k => $val) {
+                                if (! isset($terms[$k = '{' . $k . '}'])) {
+                                    $terms[$k] = $val;
+                                }
+                            }
+                        }
+                        break;
+                    default:
+                        $value = null;
                 }
-                $terms['{' . $key . '}'] = is_array($value) ? Html::renderTagAttributes($value) : $value;
+                if (! is_null($value)) {
+                    $terms['{' . $key . '}'] = $value;
+                }
             }
-            dd($terms, strtr($this->template, $terms));
-            return strtr($this->template, $terms);
+            $terms['{containerOptions}'] = Html::renderTagAttributes(array_merge($this->containerOptions, [
+                'data-field' => $attribute['name'],
+                'data-type' => $attribute['type']
+            ], $attribute['options']['container'] ?? []));
+            return strtr($template ?? $this->template, $terms);
         }
         return call_user_func($this->template, $attribute, $index, $this);
-    }
-
-    protected function renderLabel($attribute, $options = [])
-    {
-        echo Html::activeLabel($this->model, $attribute['name'], null, $options);
     }
 }

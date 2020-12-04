@@ -1,0 +1,24 @@
+---
+es:
+  actions: <i class="fa fa-cog"></i>
+  columns: <i class="fa fa-columns"></i>
+  index: <i class="fa fa-list-alt"></i> Listar
+  create: <i class="fa fa-plus"></i> Nuevo
+  update: <i class="fa fa-pencil"></i> Editar
+  view: <i class="fa fa-eye"></i> Mostrar
+  delete: <i class="fa fa-trash"></i> Eliminar
+  # [Header content]
+  '{controller}': '{controller}'
+  '{action} {controller}': '{controller} <small>{action}</small>'
+  '{action} {controller} {model}': '{controller} <strong>{model}</strong> <small>{action}</small>'
+  'create {controller}': '{controller} <small><i class="fa fa-plus text-success" title="Nuevo registro"></i></small>'
+  'view {controller} {model}': '{controller} <strong>{model}</strong>'
+  'update {controller} {model}': '{controller} <strong>{model}</strong> <small><i class="fa fa-pencil text-warning" title="Modificar registro"></i></small>'
+  # [Other content]
+  Select all: Seleccionar todos
+  All: Todos
+  Search: Buscar
+  Search by column: Buscar por columna
+  Customize columns: Personalizar columnas
+  Items per page: Registros por página
+...

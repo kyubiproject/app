@@ -20,10 +20,15 @@ if ($links = (controller()->breadcrumb ?? true)) {
                 'url' => url('/' . controller()->uniqueId)
             ];
         }
-        if (action()->id !== controller()->defaultAction) {
+        if (model() && ! model()->isNewrecord) {
             $links[] = [
-                'label' => action()->id,
-                'url' => request()->getUrl()
+                'label' => model()->name(),
+                'url' => false
+            ];
+        } elseif (action()->id !== controller()->defaultAction) {
+            $links[] = [
+                'label' => t(module()->id, action()->id),
+                'url' => false
             ];
         }
     }

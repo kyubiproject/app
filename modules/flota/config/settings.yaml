@@ -1,0 +1,15 @@
+controllers:
+navbar:
+  order: 1
+  links:
+  - vehiculo:
+  - itv: "#"
+  - separator
+  - planeacion:
+  - mantenimiento: false
+  - marca: 
+  - modelo: 
+  - familia: 
+  - tipo: 
+  - separator
+  - tarifas: false

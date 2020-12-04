@@ -1,6 +1,8 @@
 <?php
-/* @var $this \yii\web\View */
-/* @var $content string */
+/**
+ * @var \yii\web\View $this
+ * @var string $content
+ */
 \app\Asset::register($this);
 ?>
 <?php $this->beginPage() ?>

@@ -3,7 +3,7 @@ components:
   request:
     cookieValidationKey: 5d7cff7c24278171c8044ef8f5301014
   db:
-    dsn: 'mysql:host=localhost;dbname=webapp'
+    dsn: 'mysql:host=localhost;dbname=rentavan'
     username: root
     password: root
     charset: utf8

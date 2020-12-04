@@ -1,0 +1,24 @@
+icon: fa-user
+defaultRoute: cliente
+controllers:
+  cliente:
+    class: kyubi\api\controllers\CrudController
+    modelClass: app\models\base\cart\Clients
+    modelConfig: cliente/config/models/clientes.yaml
+  invoice:
+  charge:
+  consignment:
+  accumulated:
+navbar:
+  order: 2
+  links:
+    - cliente:
+    - separator
+    - invoice:
+    - separator
+    - charge:
+    - consignment:
+    - separator
+    - reports
+    - accumulated:
+    

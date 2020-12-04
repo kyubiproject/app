@@ -1,12 +1,14 @@
 <?php
 /**
- * @var $this \yii\web\View
- * @var $model \kyubi\base\ActiveRecord
+ * @var \yii\web\View $this
+ * @var \kyubi\base\ActiveRecord $model
  */
 use themes\bootstrap\widgets\GridView;
 use yii\widgets\Pjax;
 use kyubi\helper\Str;
 
+
+view()->blocks['toolbar'] = $model->toolbar ?? null;
 Pjax::begin([
     'id' => 'ajax-grid',
     'clientOptions' => [
@@ -32,7 +34,9 @@ $("[id$=\"-grid\"] .pagination [data-page], [id$=\"-grid\"] thead [data-sort]").
     $(ele).prop("href", ele.href.replace(/\/index(.*)/g, "$1"));
 });
 $(document).on("click", "tr[data-key]", function() {
-    location.href = location.href.replace(/(.*)(\/index|\?).*$/g, "$1") + "/view?id=" + this.dataset.key;
+    location.href = location.href.replace(/(.*)(\/index|\?).*$/g, "$1") + "/" + this.dataset.key;
 });
 ', $this::POS_END);
 Pjax::end();
+
+require_file(controller()->getTemplatesPath('search-form.php'));

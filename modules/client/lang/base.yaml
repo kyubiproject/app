@@ -1,8 +1,0 @@
-es: 
-  client: Cliente
-  client/client: Clientes
-  client/invoice: Facturas cliente
-  client/charge: Cobros
-  client/consignment: Remesas cliente
-  client/reports: Informes
-  client/accumulated: Factura acumulada

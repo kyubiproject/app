@@ -1,0 +1,8 @@
+es: 
+  cliente: Cliente
+  cliente/cliente: Clientes
+  cliente/invoice: Facturas clientee
+  cliente/charge: Cobros
+  cliente/consignment: Remesas clientee
+  cliente/reports: Informes
+  cliente/accumulated: Factura acumulada

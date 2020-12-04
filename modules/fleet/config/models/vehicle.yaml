@@ -1,7 +1,0 @@
-attributes:
-  name:
-  dni: text
-  birth:
-     type: date
-scenarios:
-  create: dni, birth  
