@@ -4,7 +4,7 @@
 		<?= controller()->title ?? controller()->name ?? controller()->id ?>
 	</h1>
 	<div class="btn-toolbar">
-		<?=controller()->toolbar ?? blocks('toolbar')?>
+		<?=controller()->toolbar ?? get_block('toolbar')?>
 	</div>
 </header>
 <?php else: ?>

@@ -1,7 +1,8 @@
 scenarios:
   view: name
 attributes:
-  name:
+  matricula:
+    value: XYZ
     layout: LABEL{label}:{value}
     htmlOptions:
       class: form-group

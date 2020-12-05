@@ -4,8 +4,11 @@
 	padding: 0 !important;
 }
 
-.breadcrumb {
+#navbar-toggle > * {
 	border: none;
+	background-color: transparent;
+	padding: unset;
+	margin: unset;
 }
 
 [data-toggle=tooltip]:not(a) {
@@ -72,4 +75,8 @@ table tr[data-key]:not(:hover) {
 	height: auto;
 	min-height: 38px;
 	background: var(--light);
+}
+
+#search-form input[disabled] {
+	background-color: transparent;
 }

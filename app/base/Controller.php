@@ -95,4 +95,9 @@ class Controller extends \kyubi\api\controllers\CrudController
         unset($options['label'], $options['url'], $options['params'], $options['on']);
         return Html::a($label, $url ?? '#', $options);
     }
+
+    public function getSections(): array
+    {
+        return method_exists(model(), 'config') ? (model()->config('sections') ?? []) : [];
+    }
 }

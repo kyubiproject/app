@@ -1,1 +1,17 @@
 scenarios:
+  search: matricula, bastidor
+attributes:
+  matricula:
+    value: XYZ
+    htmlOptions:
+      class: form-group
+    labelOptions:
+      class: text-danger
+    contentOptions:
+      class: form-control
+sections:
+  datos:
+  accesorios: flota/views/vehiculo/datos
+  historico: 
+  gastos: 
+  observacion:            

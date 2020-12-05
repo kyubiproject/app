@@ -22,15 +22,16 @@ if (request()->isPatch) {
 <body class="<?=basename(controller()->layout, '.php')?> pt-5"
 	route="<?=\kyubi\helper\Str::slug(controller()->route)?>">
 <?php $this->beginBody() ?>
-	<header class="pt-3">
-    	<?= blocks('navbar') ?>
+	<header class="container-lg pt-3">
+    	<?= get_block('navbar') ?>
     </header>
-	<main class="container pt-2">
-    	<?= blocks('header') ?>
+	<main class="container-lg pt-2">
+    	<?= get_block('header') ?>
     	<?= $content ?>
+    	<?= get_block('sections') ?>
 	</main>
 	<footer>
-    	<?= blocks('footer') ?>
+    	<?= get_block('footer') ?>
     </footer>
 <?php $this->endBody() ?>
 </body>

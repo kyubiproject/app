@@ -1,10 +1,9 @@
 es:
-   attributes:
+   __attributes:
      id: Nombre
-   sections:
-     datos: Datos
-     accesorios: Gastos
-     historico: Histórico
-     gastos: Gastos
-     observacion: Observaciones  
+   datos: Datos
+   accesorios: Gastos
+   historico: Histórico
+   gastos: Gastos
+   observacion: Observaciones  
       

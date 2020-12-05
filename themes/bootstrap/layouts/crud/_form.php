@@ -2,10 +2,10 @@
 /**
  * @param \yii\web\View $this
  * @var \kyubi\base\ActiveRecord $model
- * @var \themes\bootstrap\widgets\ActiveForm $form
+ * @var \kyubi\ui\widgets\ActiveForm $form
  */
 use yii\helpers\Html;
-use themes\bootstrap\widgets\ActiveForm;
+use kyubi\ui\widgets\ActiveForm;
 
 $form = ActiveForm::begin([]);
 echo Html::beginTag('div', [
