@@ -1,0 +1,9 @@
+es:
+  __attributes:
+    id: Id
+    nombre: Nombre
+    unidad: Unidad
+    magnitud: Magnitud
+    facturable: Facturable
+    tarifa__id: 'Tarifa id'
+  __options: null

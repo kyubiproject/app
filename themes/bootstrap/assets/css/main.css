@@ -80,3 +80,11 @@ table tr[data-key]:not(:hover) {
 #search-form input[disabled] {
 	background-color: transparent;
 }
+
+.btn-group:not(:empty) + .btn-group:not(:empty), .btn-group:not(:empty) + .btn:not(:empty)  {
+	margin-left: 15px;
+}
+
+input[type=color] {
+	padding: unset;
+}

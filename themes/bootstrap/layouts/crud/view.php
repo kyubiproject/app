@@ -7,7 +7,6 @@ use kyubi\ui\widgets\DetailView;
 
 echo DetailView::widget([
     'model' => $model,
-    'attributes' => $model->fields(),
     'options' => [
         'tag' => 'section',
         'class' => 'form-row',

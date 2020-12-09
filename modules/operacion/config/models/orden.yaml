@@ -1,0 +1,11 @@
+scenarios:
+attributes:
+  id: 
+  tipo: 
+  cliente: 
+  contrato: 
+  periodo: 
+  grupo__id: 
+  estado: 
+  fecha_alta: 
+sections:

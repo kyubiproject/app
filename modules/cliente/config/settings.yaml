@@ -2,7 +2,7 @@ icon: fa-user
 defaultRoute: cliente
 controllers:
   cliente:
-    class: kyubi\api\controllers\CrudController
+    class: \kyubi\api\controllers\CrudController
     modelClass: app\models\base\cart\Clients
     modelConfig: cliente/config/models/clientes.yaml
   invoice:

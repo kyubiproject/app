@@ -12,18 +12,30 @@ namespace flota\models\base;
 * @property boolean|null $aire  
 * @property float|null $fianza  
 * @property float|null $franquicia  
+   
+ *
+ * Relations:
+ * @property Grupo $grupo
  */
 class GrupoEspecificaciones extends \kyubi\base\ActiveRecord
 {
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'flota/config/models/grupoespecificaciones';
+
     /**
      *
-     * {@inheritdoc}
-     * @see \yii\base\ActiveRecord:tableName()
+     * @var string
      */
-    public static function tableName(): string
-    {
-        return 'flota__grupo_especificaciones';
-    }
+    protected static $_table = 'flota__grupo_especificaciones';
+
+    /**
+     *
+     * @var string
+     */
+    protected static $_lang = 'flota/lang/models/grupoespecificaciones';
 
     /**
      * 
@@ -35,9 +47,21 @@ class GrupoEspecificaciones extends \kyubi\base\ActiveRecord
         return [
 			[['id'], 'required'],
 			[['id'], 'string', 'max' => 3],
+			[['plazas', 'puertas'], 'is', 'type' => 'tinyint'],
+			[['fianza', 'franquicia'], 'is', 'type' => 'float', 'size' => '7, 2'],
+			[['transmision'], 'in', 'range' => ['MANUAL', 'AUTOMATIC', 'DUAL'], 'strict' => true],
 			[['aire'], 'boolean'],
-			[['aire'], 'default', 'value' => 0],
 			[['id'], 'exist', 'targetClass' => Grupo::className(), 'targetAttribute' => ['id' => 'id']]        
         ];
+    }
+
+    /**
+     * Gets query for [[Grupo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGrupo()
+    {
+        return $this->hasOne(Grupo::className(), ['id' => 'id']);
     }
 }

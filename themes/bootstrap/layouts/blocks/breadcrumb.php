@@ -22,7 +22,7 @@ if ($links = (controller()->breadcrumb ?? true)) {
         }
         if (model() && ! model()->isNewrecord) {
             $links[] = [
-                'label' => model()->name(),
+                'label' => model()->name ?? null,
                 'url' => false
             ];
         } elseif (action()->id !== controller()->defaultAction) {

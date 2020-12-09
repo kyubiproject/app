@@ -1,0 +1,26 @@
+es:
+  __attributes:
+    id: Id
+    tipo: Tipo
+    cliente: Cliente
+    contrato: Contrato
+    periodo: Periodo
+    grupo__id: Grupo id
+    estado: Estado
+    fecha_alta: Fecha alta
+  __options:
+    tipo:
+      PRESUPUESTO: PRESUPUESTO
+      RESERVA: RESERVA
+      CONTRATO: CONTRATO
+    contrato:
+      CORTO: CORTO
+      LARGO: LARGO
+    periodo:
+      H: H
+      D: D
+      M: M
+    estado:
+      EN VIGOR: EN VIGOR
+      ANULADO: ANULADO
+      FINALIZADO: FINALIZADO

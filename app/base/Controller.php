@@ -37,7 +37,7 @@ class Controller extends \kyubi\api\controllers\CrudController
                     return;
                 }
                 $string = $action . ' {controller} {model}';
-                $params['{model}'] = model()->name();
+                $params['{model}'] = model()->name ?? null;
                 break;
             default:
                 return;
@@ -45,6 +45,10 @@ class Controller extends \kyubi\api\controllers\CrudController
         return t($params['t'] ?? 'app/base', $string, $params);
     }
 
+    /**
+     *
+     * @return NULL|string
+     */
     public function getToolbar()
     {
         if (method_exists($this->modelClass, 'buttons') && model() && count($buttons = model()->buttons())) {
@@ -53,6 +57,11 @@ class Controller extends \kyubi\api\controllers\CrudController
         return $output ?? null;
     }
 
+    /**
+     *
+     * @param array $buttons
+     * @return NULL|string
+     */
     public function renderButtons(array $buttons = [])
     {
         $output = null;
@@ -77,6 +86,12 @@ class Controller extends \kyubi\api\controllers\CrudController
         return $output;
     }
 
+    /**
+     *
+     * @param string $action
+     * @param array $options
+     * @return string
+     */
     public function renderButton(string $action, array $options = [])
     {
         $label = $options['label'] ?? t(module()->id, $action);
@@ -96,6 +111,10 @@ class Controller extends \kyubi\api\controllers\CrudController
         return Html::a($label, $url ?? '#', $options);
     }
 
+    /**
+     *
+     * @return array
+     */
     public function getSections(): array
     {
         return method_exists(model(), 'config') ? (model()->config('sections') ?? []) : [];

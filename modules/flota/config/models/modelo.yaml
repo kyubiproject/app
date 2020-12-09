@@ -1,0 +1,11 @@
+scenarios: null
+attributes:
+  id: null
+  nombre: null
+  descripcion: null
+  familia__id: null
+  potencia: null
+  combustible: null
+  combustible_cap: null
+  marca__id: null
+sections: null

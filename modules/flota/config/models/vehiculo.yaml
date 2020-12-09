@@ -1,17 +1,34 @@
 scenarios:
-  search: matricula, bastidor
+  search: 'matricula, bastidor, color, fecha_matricula, modelo, delegacion, estado, fecha_estado'
+  view: 'matricula, bastidor, color, fecha_matricula, modelo, delegacion, estado, fecha_estado'
 attributes:
+  id: null
   matricula:
-    value: XYZ
-    htmlOptions:
-      class: form-group
-    labelOptions:
-      class: text-danger
-    contentOptions:
-      class: form-control
+    value: xyz
+  bastidor: null
+  color: color
+  fecha_matricula: date
+  gps: null
+  modelo__id:
+    type: relation
+  delegacion__id: 
+    type: select
+    relation: delegacion
+  estado:
+    type: select
+    options:
+      - UNO
+      - DOS
+      - TRES
+  ultimo_estado: null
+  anio2: null
+  anio: null
 sections:
-  datos:
+  datos: null
   accesorios: flota/views/vehiculo/datos
-  historico: 
-  gastos: 
-  observacion:            
+  historico: null
+  gastos: null
+  observacion: null
+'name::view': '{matricula}HOLA'
+table:
+  flota__vehiculo__view: 'view, search'

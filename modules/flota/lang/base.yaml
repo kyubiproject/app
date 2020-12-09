@@ -4,8 +4,8 @@ es:
   flota/itv: ITV
   flota/planeacion: Planeación
   flota/mantenimiento: Mantenimientos
-  flota/marca: Marcas de vehículo
-  flota/modelo: Modelos de vehículo
-  flota/familia: Famílias de vehículo
-  flota/tipo: Tipos de vehículo
-  flota/tarifas: Grupo de tarificación
+  flota/marca: 'Marcas de vehículo'
+  flota/modelo: 'Modelos de vehículo'
+  flota/familia: 'Famílias de vehículo'
+  flota/tipo: 'Tipos de vehículo'
+  flota/tarifas: 'Grupo de tarificación'

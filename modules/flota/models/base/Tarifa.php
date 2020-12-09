@@ -9,18 +9,31 @@ namespace flota\models\base;
 * @property string $grupo__id  
 * @property integer $hasta  
 * @property string $periodo  
+   
+ *
+ * Relations:
+ * @property Grupo $grupo
+ * @property TarifaItem[] $tarifaItems
  */
 class Tarifa extends \kyubi\base\ActiveRecord
 {
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'flota/config/models/tarifa';
+
     /**
      *
-     * {@inheritdoc}
-     * @see \yii\base\ActiveRecord:tableName()
+     * @var string
      */
-    public static function tableName(): string
-    {
-        return 'flota__tarifa';
-    }
+    protected static $_table = 'flota__tarifa';
+
+    /**
+     *
+     * @var string
+     */
+    protected static $_lang = 'flota/lang/models/tarifa';
 
     /**
      * 
@@ -31,8 +44,31 @@ class Tarifa extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id', 'grupo__id', 'hasta', 'periodo'], 'required'],
+			[['id'], 'number'],
 			[['grupo__id'], 'string', 'max' => 3],
+			[['hasta'], 'is', 'type' => 'tinyint'],
+			[['periodo'], 'in', 'range' => ['H', 'D', 'M'], 'strict' => true],
 			[['grupo__id'], 'exist', 'targetClass' => Grupo::className(), 'targetAttribute' => ['grupo__id' => 'id']]        
         ];
+    }
+
+    /**
+     * Gets query for [[Grupo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGrupo()
+    {
+        return $this->hasOne(Grupo::className(), ['id' => 'grupo__id']);
+    }
+
+    /**
+     * Gets query for [[Grupo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTarifaItems()
+    {
+        return $this->hasOne(Grupo::className(), ['id' => 'grupo__id']);
     }
 }

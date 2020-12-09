@@ -1,0 +1,12 @@
+scenarios:
+attributes:
+  id: 
+  nombre: 
+  direccion: 
+  horario: 
+  gmaps: 
+  whatsapp: 
+  telefono: 
+  correo: 
+  delegacion__id: 
+sections:

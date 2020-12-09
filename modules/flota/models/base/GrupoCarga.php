@@ -14,15 +14,23 @@ namespace flota\models\base;
  */
 class GrupoCarga extends \kyubi\base\ActiveRecord
 {
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'flota/config/models/grupocarga';
+
     /**
      *
-     * {@inheritdoc}
-     * @see \yii\base\ActiveRecord:tableName()
+     * @var string
      */
-    public static function tableName(): string
-    {
-        return 'flota__grupo_carga';
-    }
+    protected static $_table = 'flota__grupo_carga';
+
+    /**
+     *
+     * @var string
+     */
+    protected static $_lang = 'flota/lang/models/grupocarga';
 
     /**
      * 
@@ -34,7 +42,8 @@ class GrupoCarga extends \kyubi\base\ActiveRecord
         return [
 			[['id'], 'required'],
 			[['id'], 'string', 'max' => 3],
-			[['capacidad', 'carga_util'], 'string', 'max' => 10]        
+			[['capacidad', 'carga_util'], 'string', 'max' => 10],
+			[['largo', 'ancho', 'alto'], 'is', 'type' => 'float', 'size' => '5, 2']        
         ];
     }
 }

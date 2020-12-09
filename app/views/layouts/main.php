@@ -7,10 +7,10 @@
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= app()->language ?>">
 <head>
 <title><?= $this->title ?></title>
-<meta charset="<?= Yii::$app->charset ?>">
+<meta charset="<?= app()->charset ?>">
     <?php $this->registerCsrfMetaTags() ?>
     <?php $this->head() ?>
 </head>

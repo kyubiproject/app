@@ -12,15 +12,23 @@ namespace flota\models\base;
  */
 class GrupoMedidas extends \kyubi\base\ActiveRecord
 {
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'flota/config/models/grupomedidas';
+
     /**
      *
-     * {@inheritdoc}
-     * @see \yii\base\ActiveRecord:tableName()
+     * @var string
      */
-    public static function tableName(): string
-    {
-        return 'flota__grupo_medidas';
-    }
+    protected static $_table = 'flota__grupo_medidas';
+
+    /**
+     *
+     * @var string
+     */
+    protected static $_lang = 'flota/lang/models/grupomedidas';
 
     /**
      * 
@@ -31,7 +39,8 @@ class GrupoMedidas extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id'], 'required'],
-			[['id'], 'string', 'max' => 3]        
+			[['id'], 'string', 'max' => 3],
+			[['largo', 'ancho', 'alto'], 'is', 'type' => 'float', 'size' => '5, 2']        
         ];
     }
 }

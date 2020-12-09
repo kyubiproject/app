@@ -2,12 +2,17 @@
 /**
  * @param \yii\web\View $this
  * @var \kyubi\base\ActiveRecord $model
- * @var \kyubi\ui\widgets\ActiveForm $form
+ * @var \yii\widgets\ActiveForm $form
  */
 use yii\helpers\Html;
-use kyubi\ui\widgets\ActiveForm;
+use yii\widgets\ActiveForm;
 
-$form = ActiveForm::begin([]);
+$form = ActiveForm::begin([
+    'fieldClass' => '\kyubi\ui\widgets\ActiveField',
+    'errorCssClass' => 'is-invalid',
+    'successCssClass' => 'is-valid',
+    'validationStateOn' => 'input'
+]);
 echo Html::beginTag('div', [
     'class' => 'form-row'
 ]);
@@ -15,7 +20,10 @@ foreach ($model->safeAttributes() as $attribute) {
     echo $form->field($model, $attribute);
 }
 echo Html::endTag('div');
-echo Html::submitButton(t('kyubi', 'Save'), [
-    'class' => 'btn btn-success'
-]);
+view()->registerJs('
+$("#' . $form->id . '").prev().find(".btn-toolbar").append("<button class=\"btn btn-success\" data-form=\"#' . $form->id . '\">' . str_replace('"', '\"', t('kyubi', 'Save')) . '</button>");
+$(document).on("click", "button[data-form]", function() {
+    $(this.dataset.form).trigger("submit");
+})', view()::POS_END);
+
 $form->end();

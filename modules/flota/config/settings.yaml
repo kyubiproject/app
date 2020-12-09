@@ -1,15 +1,24 @@
-controllers:
+controllers: null
 navbar:
   order: 1
   links:
-  - vehiculo:
-  - itv: "#"
-  - separator
-  - planeacion:
-  - mantenimiento: false
-  - marca: 
-  - modelo: 
-  - familia: 
-  - tipo: 
-  - separator
-  - tarifas: false
+    -
+      vehiculo: null
+    -
+      itv: '#'
+    - separator
+    -
+      planeacion: null
+    -
+      mantenimiento: false
+    -
+      marca: null
+    -
+      modelo: null
+    -
+      familia: null
+    -
+      tipo: null
+    - separator
+    -
+      tarifas: false

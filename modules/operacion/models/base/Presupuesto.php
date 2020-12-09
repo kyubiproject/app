@@ -7,18 +7,30 @@ namespace operacion\models\base;
  * Columns:
 * @property integer $id  
 * @property string $codigo  
+   
+ *
+ * Relations:
+ * @property Orden $orden
  */
 class Presupuesto extends \kyubi\base\ActiveRecord
 {
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'operacion/config/models/presupuesto';
+
     /**
      *
-     * {@inheritdoc}
-     * @see \yii\base\ActiveRecord:tableName()
+     * @var string
      */
-    public static function tableName(): string
-    {
-        return 'operacion__presupuesto';
-    }
+    protected static $_table = 'operacion__presupuesto';
+
+    /**
+     *
+     * @var string
+     */
+    protected static $_lang = 'operacion/lang/models/presupuesto';
 
     /**
      * 
@@ -33,5 +45,15 @@ class Presupuesto extends \kyubi\base\ActiveRecord
 			[['codigo'], 'string', 'max' => 20],
 			[['id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['id' => 'id']]        
         ];
+    }
+
+    /**
+     * Gets query for [[Orden]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrden()
+    {
+        return $this->hasOne(Orden::className(), ['id' => 'id']);
     }
 }

@@ -1,9 +1,25 @@
 es:
-   __attributes:
-     id: Nombre
-   datos: Datos
-   accesorios: Gastos
-   historico: Histórico
-   gastos: Gastos
-   observacion: Observaciones  
-      
+  __attributes:
+    id: Id
+    matricula: Matricula
+    bastidor: Bastidor
+    color: Color
+    fecha_matricula: 'Fecha matricula'
+    gps: Gps
+    modelo__id: 'Modelo id'
+    delegacion__id: 'Delegacion id'
+    estado: Estado
+    ultimo_estado: 'Ultimo estado'
+    anio2: Anio2
+    anio: Anio
+  __options:
+    estado:
+      AVAILABLE: Disponible
+      DAMAGED: DAMAGED
+      RESERVED: RESERVED
+      MAINTENANCE: MAINTENANCE
+  datos: Datos
+  accesorios: Gastos
+  historico: Histórico
+  gastos: Gastos
+  observacion: Observaciones

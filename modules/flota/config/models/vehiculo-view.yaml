@@ -1,0 +1,15 @@
+scenarios:
+attributes:
+  id: 
+  matricula: 
+  bastidor: 
+  color: 
+  fecha_matricula: 
+  gps: 
+  modelo: 
+  delegacion: 
+  estado: 
+  ultimo_estado: 
+  anio2: 
+  anio: 
+sections:

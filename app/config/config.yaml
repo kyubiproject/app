@@ -1,4 +1,5 @@
 language: es
+timeZone: America/Caracas
 components:
   request:
     cookieValidationKey: 5d7cff7c24278171c8044ef8f5301014
@@ -7,12 +8,17 @@ components:
     username: root
     password: root
     charset: utf8
-  viajes:
+  dbsys:
     class: yii\db\Connection
-    dsn: 'mysql:host=localhost;dbname=viajes'
+    dsn: 'mysql:host=localhost;dbname=webapp'
     username: root
     password: root
     charset: utf8
+  formatter:
+    dateFormat: php:d/m/Y
+    datetimeFormat: php:d/m/Y H:m
+    timeFormat: php:H:m
+    nullDisplay: ""
   view:
     theme: themes\bootstrap\Theme
 params:

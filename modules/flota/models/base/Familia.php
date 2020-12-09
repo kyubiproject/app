@@ -8,18 +8,32 @@ namespace flota\models\base;
 * @property integer $id  
 * @property string $nombre  
 * @property string $descripcion  
+* @property integer|null $tipo__id  
+   
+ *
+ * Relations:
+ * @property Modelo[] $modelos
+ * @property Tipo $tipo
  */
 class Familia extends \kyubi\base\ActiveRecord
 {
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'flota/config/models/familia';
+
     /**
      *
-     * {@inheritdoc}
-     * @see \yii\base\ActiveRecord:tableName()
+     * @var string
      */
-    public static function tableName(): string
-    {
-        return 'flota__familia';
-    }
+    protected static $_table = 'flota__familia';
+
+    /**
+     *
+     * @var string
+     */
+    protected static $_lang = 'flota/lang/models/familia';
 
     /**
      * 
@@ -29,8 +43,31 @@ class Familia extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['id', 'nombre', 'descripcion'], 'required'],
-			[['nombre'], 'string', 'max' => 100]        
+			[['nombre', 'descripcion'], 'required'],
+			[['id'], 'number'],
+			[['nombre'], 'string', 'max' => 100],
+			[['tipo__id'], 'is', 'type' => 'tinyint'],
+			[['tipo__id'], 'exist', 'targetClass' => Tipo::className(), 'targetAttribute' => ['tipo__id' => 'id']]        
         ];
+    }
+
+    /**
+     * Gets query for [[Modelo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getModelos()
+    {
+        return $this->hasMany(Modelo::className(), ['familia__id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Modelo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipo()
+    {
+        return $this->hasMany(Modelo::className(), ['familia__id' => 'id']);
     }
 }

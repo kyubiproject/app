@@ -1,0 +1,11 @@
+es:
+  __attributes:
+    id: Id
+    nombre: Nombre
+    descripcion: Descripcion
+    familia__id: 'Familia id'
+    potencia: Potencia
+    combustible: Combustible
+    combustible_cap: 'Combustible cap'
+    marca__id: 'Marca id'
+  __options: null

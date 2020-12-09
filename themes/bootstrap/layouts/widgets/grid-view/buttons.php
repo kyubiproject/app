@@ -1,11 +1,12 @@
 <?php
 /**
  * @var \yii\web\View $this
+ * @var \yii\widgets\ActiveForm $form
  * @var \kyubi\ui\widgets\GridView $grid
- * @var \kyubi\ui\widgets\ActiveForm $form
+ * @var \yii\data\Pagination $pagination
  * @var \kyubi\base\ActiveRecord $model
  */
-use kyubi\ui\widgets\ActiveForm;
+use \yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
 $formId = $grid->id . '-form';
@@ -23,6 +24,10 @@ $form = ActiveForm::begin([
     'action' => '#',
     'method' => 'GET',
     'enableClientValidation' => false,
+    'fieldClass' => '\kyubi\ui\widgets\ActiveField',
+    'errorCssClass' => 'is-invalid',
+    'successCssClass' => 'is-valid',
+    'validationStateOn' => 'input',
     'options' => [
         'id' => $formId,
         'class' => 'modal fade'
@@ -52,6 +57,7 @@ echo Html::beginTag('div', [
 ]);
 eval('$model = new ' . get_class(model()) . ';');
 $model->setScenario(basename(__DIR__));
+$model->unsetAttributes();
 $model->setAttributes(get('t', []));
 foreach ($model->safeAttributes() as $attribute) {
     echo $form->field($model, $attribute, [

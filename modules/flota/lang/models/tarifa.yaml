@@ -1,0 +1,7 @@
+es:
+  __attributes:
+    id: Id
+    grupo__id: 'Grupo id'
+    hasta: Hasta
+    periodo: Periodo
+  __options: null

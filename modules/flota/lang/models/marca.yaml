@@ -1,0 +1,7 @@
+es:
+  __attributes:
+    id: Id
+    nombre: Nombre
+    telefono: Telefono
+    descripcion: Descripcion
+  __options: null

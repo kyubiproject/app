@@ -1,7 +1,7 @@
 <?php 
 /**
- * @var $grid \yii\grid\GridView
- * @var $pagination \yii\data\Pagination
+ * @var \yii\grid\GridView $grid
+ * @var \yii\data\Pagination $pagination
  */
 ?>
 <span  class="text-muted d-flex align-items-center">

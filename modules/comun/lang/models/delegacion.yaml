@@ -1,0 +1,8 @@
+es:
+  __attributes:
+    id: Id
+    nombre: Nombre
+    whatsapp: Whatsapp
+    telefono: Telefono
+    correo: Correo
+  __options:

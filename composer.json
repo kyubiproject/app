@@ -1,44 +1,37 @@
 {
-	"name": "kyubi/app",
-	"description": "App template to Kyubi Framework",
-	"type": "project",
-	"keywords": [
+	"name" : "kyubi/app",
+	"description" : "App template to Kyubi Framework",
+	"type" : "project",
+	"keywords" : [
 		"Kyubi",
 		"PHP",
 		"Framework"
 	],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Rafael J Torres",
-			"email": "rafaelt88@gmail.com",
-			"role": "Creator & developer"
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Rafael J Torres",
+			"email" : "rafaelt88@gmail.com",
+			"role" : "Creator & developer"
 		}
 	],
-	"repositories": [
-		{
-			"type": "path",
-			"url": "../kyubi-src/*",
-			"symlink": true
+	"repositories" : [{
+			"type" : "path",
+			"url" : "../kyubi-src/*",
+			"symlink" : true
 		}
 	],
-	"minimum-stability": "dev",
-	"prefer-stable": true,
-	"require": {
-		"kyubi/core": "@dev",
-		"kyubi/helper": "@dev",
-		"kyubi/route": "@dev",
-		"kyubi/ui": "@dev",
-		"kyubi/validate": "@dev",
-		"kyubi/metadata": "@dev",
-		"kyubi/make": "@dev",
-		"kyubi/api": "@dev",
-		"kyubi/auth": "@dev",
-		"kyubi/cloud": "@dev",
-		"kyubi/theme-basic": "@dev"
+	"minimum-stability" : "dev",
+	"prefer-stable" : true,
+	"require" : {
+		"kyubi/core" : "@dev",
+		"kyubi/helper" : "@dev",
+		"kyubi/ui" : "@dev",
+		"kyubi/validate" : "@dev",
+		"kyubi/make" : "@dev",
+		"kyubi/api" : "@dev"
 	},
-	"require-dev": {
-		"yiisoft/yii2-gii": "~2.2",
-		"yiisoft/yii2-debug": "~2.1"
+	"require-dev" : {
+		"yiisoft/yii2-gii" : "~2.2",
+		"yiisoft/yii2-debug" : "~2.1"
 	}
 }

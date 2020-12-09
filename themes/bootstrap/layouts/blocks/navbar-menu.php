@@ -1,6 +1,5 @@
 <?php
 use kyubi\helper\Arr;
-use kyubi\helper\Str;
 
 $navbar = [];
 foreach (Kyubi::config('modules') ?? [] as $name => $module) {
