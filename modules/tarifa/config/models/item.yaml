@@ -3,7 +3,7 @@ scenarios:
 attributes: ~
 relations:
   tarifaItems: 'hasMany tarifa\models\base\TarifaItem item_id'
-  tarifas: 'hasMany tarifa\models\base\Tarifa tarifa_id tarifaItems'
+  tarifas: 'hasMany tarifa\models\base\Tarifa tarifa_id'
 sections:
   tarifa-items@view:
     relation: tarifaItems

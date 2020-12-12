@@ -4,17 +4,11 @@ attributes: ~
 relations:
   persona: comun\models\base\Persona
   clienteConductors: 'hasMany comun\models\base\ClienteConductor conductor_id'
-  clientes: 'hasMany comun\models\base\Cliente cliente_id clienteConductors'
+  clientes: 'hasMany comun\models\base\Cliente cliente_id'
 sections:
   'persona@create update view':
     relation: persona
   cliente-conductors@view:
     relation: clienteConductors
   clientes@view:
-    relation: clientes
-  persona@view:
-    relation: persona
-  'cliente-conductors@create update view':
-    relation: clienteConductors
-  'clientes@create update view':
     relation: clientes

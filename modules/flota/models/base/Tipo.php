@@ -72,7 +72,7 @@ class Tipo extends \kyubi\base\ActiveRecord
      */
     public function getModelos()
     {
-        return $this->hasMany(Modelo::className(), ['id' => 'modelo_id'])->via('modeloTipos');
+        return $this->hasMany(Modelo::className(), ['id' => 'modelo_id'])->viaTable('flota__modelo_tipo', ['tipo_id' => 'id']);
     }
 
     /**

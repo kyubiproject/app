@@ -4,7 +4,7 @@ attributes: ~
 relations:
   items: 'hasMany tarifa\models\base\TarifaItem tarifa_id'
   ordens: 'hasMany operacion\models\base\Orden tarifa_id'
-  tipos: 'hasMany flota\models\base\Tipo grupo_id tarifaTipos'
+  tipos: 'hasMany flota\models\base\Tipo grupo_id'
 sections:
   items@view:
     relation: items

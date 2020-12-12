@@ -1,39 +1,34 @@
 scenarios:
-  default: 'nombre descripcion marca_id'
-attributes: ~
+  default: marca_id nombre descripcion
+  search view: marca.nombre nombre descripcion
+attributes:
+  marca.nombre:
+    options:
+      container:
+        class: col-12 col-sm-6 col-md-4 col-lg-3
+  marca_id:
+    options:
+      container:
+        class: col-12 col-sm-6 col-md-4 col-lg-3
+  nombre:
+    options:
+      container:
+        class: col-12 col-sm-6 col-md-8 col-lg-9
+  descripcion:
+    options:
+      container:
+        class: col-12
 relations:
   caracteristicas: flota\models\base\ModeloCaracteristicas
   carga: flota\models\base\ModeloCarga
-  tipos: 'hasMany flota\models\base\Tipo tipo_id modeloTipos'
-  vehiculos: 'hasMany flota\models\base\Vehiculo modelo_id'
-  grupoModelos: 'hasMany tarifa\models\base\GrupoModelo modelo_id'
-  grupos: 'hasMany tarifa\models\base\Grupo grupo_id grupoModelos'
-  modeloCaracteristicas: flota\models\base\ModeloCaracteristicas
-  modeloCarga: flota\models\base\ModeloCarga
+  tipos: hasMany flota\models\base\Tipo tipo_id
+  vehiculos: hasMany flota\models\base\Vehiculo modelo_id
 sections:
-  'caracteristicas@create update view':
+  caracteristicas@create update view:
     relation: caracteristicas
-  'carga@create update view':
+  carga@create update view:
     relation: carga
   tipos@view:
     relation: tipos
   vehiculos@view:
     relation: vehiculos
-  caracteristicas@view:
-    relation: caracteristicas
-  carga@view:
-    relation: carga
-  grupo-modelos@view:
-    relation: grupoModelos
-  grupos@view:
-    relation: grupos
-  'grupo-modelos@create update view':
-    relation: grupoModelos
-  'grupos@create update view':
-    relation: grupos
-  'vehiculos@create update view':
-    relation: vehiculos
-  'modelo-caracteristicas@create update view':
-    relation: modeloCaracteristicas
-  'modelo-carga@create update view':
-    relation: modeloCarga

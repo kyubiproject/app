@@ -109,7 +109,7 @@ class Vehiculo extends \kyubi\base\ActiveRecord
      */
     public function getOrdens()
     {
-        return $this->hasMany(\operacion\models\base\Orden::className(), ['id' => 'orden_id'])->via('ordenVehiculos');
+        return $this->hasMany(\operacion\models\base\Orden::className(), ['id' => 'orden_id'])->viaTable('operacion__orden_vehiculo', ['vehiculo_id' => 'id']);
     }
 
     /**
@@ -119,6 +119,6 @@ class Vehiculo extends \kyubi\base\ActiveRecord
      */
     public function getMovimientos()
     {
-        return $this->hasMany(\operacion\models\base\Orden::className(), ['id' => 'orden_id'])->via('ordenVehiculos');
+        return $this->hasMany(\operacion\models\base\Orden::className(), ['id' => 'orden_id'])->viaTable('', ['' => '']);
     }
 }

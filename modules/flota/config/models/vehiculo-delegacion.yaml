@@ -1,14 +1,3 @@
 scenarios:
   default: 'vehiculo_id delegacion_id'
 attributes: ~
-foo:
-  delegacion:
-    type: hasOne
-    refClass: comun\models\base\Delegacion
-    refColumn: id
-    column: delegacion_id
-  vehiculo:
-    type: hasOne
-    refClass: flota\models\base\Vehiculo
-    refColumn: id
-    column: vehiculo_id

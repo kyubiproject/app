@@ -7,7 +7,7 @@ use kyubi\base\model\RelationBehavior;
 $relation = 'get' . ucfirst($relation);
 $relation = model()->$relation();
 if ($relation->multiple) {
-    echo __FILE__ . count($relation->all());
+    //echo __FILE__ . count($relation->all());
     // // view()->renderFile(__DIR__ . '/index.php', [
     // // 'dataProvider' => $relation->all()
     // // ]);

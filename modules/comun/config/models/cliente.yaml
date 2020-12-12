@@ -3,9 +3,8 @@ scenarios:
 attributes: ~
 relations:
   persona: comun\models\base\Persona
-  conductors: 'hasMany comun\models\base\Conductor conductor_id clienteConductors'
+  conductors: 'hasMany comun\models\base\Conductor conductor_id'
   ordens: 'hasMany operacion\models\base\Orden cliente_id'
-  clienteConductors: 'hasMany comun\models\base\ClienteConductor cliente_id'
 sections:
   'persona@create update view':
     relation: persona
@@ -13,13 +12,3 @@ sections:
     relation: conductors
   ordens@view:
     relation: ordens
-  persona@view:
-    relation: persona
-  'conductors@create update view':
-    relation: conductors
-  'ordens@create update view':
-    relation: ordens
-  'cliente-conductors@create update view':
-    relation: clienteConductors
-  cliente-conductors@view:
-    relation: clienteConductors

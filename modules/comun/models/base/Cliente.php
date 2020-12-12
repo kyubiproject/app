@@ -67,7 +67,7 @@ class Cliente extends \kyubi\base\ActiveRecord
      */
     public function getConductors()
     {
-        return $this->hasMany(Conductor::className(), ['id' => 'conductor_id'])->via('clienteConductors');
+        return $this->hasMany(Conductor::className(), ['id' => 'conductor_id'])->viaTable('comun__cliente_conductor', ['cliente_id' => 'id']);
     }
 
     /**
@@ -77,6 +77,6 @@ class Cliente extends \kyubi\base\ActiveRecord
      */
     public function getOrdens()
     {
-        return $this->hasMany(Conductor::className(), ['id' => 'conductor_id'])->via('clienteConductors');
+        return $this->hasMany(Conductor::className(), ['id' => 'conductor_id'])->viaTable('', ['' => '']);
     }
 }

@@ -3,7 +3,7 @@ scenarios:
 attributes: ~
 relations:
   documents: 'hasMany operacion\models\base\OrdenDocument orden_id'
-  vehiculos: 'hasMany flota\models\base\Vehiculo vehiculo_id ordenVehiculos'
+  vehiculos: 'hasMany flota\models\base\Vehiculo vehiculo_id'
 sections:
   documents@view:
     relation: documents

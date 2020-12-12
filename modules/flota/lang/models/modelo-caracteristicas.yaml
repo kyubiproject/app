@@ -1,9 +1,9 @@
 es:
   __attributes:
     id: Id
-    potencia: Potencia
-    combustible: Combustible
-    combustible_cap: 'Combustible cap'
+    potencia: 'Potencia (CV)'
+    combustible: 'Tipo de combustible'
+    combustible_cap: 'Capacidad tanque'
     largo: Largo
     ancho: Ancho
     alto: Alto

@@ -4,7 +4,7 @@ attributes: ~
 relations:
   s: 'hasMany operacion\models\base\Document document_id'
   ordenDocuments: 'hasMany operacion\models\base\OrdenDocument document_id'
-  ordens: 'hasMany operacion\models\base\Orden orden_id ordenDocuments'
+  ordens: 'hasMany operacion\models\base\Orden orden_id'
   vehiculoMovimientos: 'hasMany flota\models\base\VehiculoMovimiento documento_codigo codigo'
 sections:
   s@view:

@@ -3,17 +3,28 @@ controllers:
   modelo: ~
   tipo: ~
   vehiculo: ~
+  modelo-caracteristicas: ~
+  modelo-carga: ~
+  vehiculo-caracteristicas: ~
 navbar:
   links:
-  - vehiculo:
-  - itv: "#"
-  - separator
-  - planeacion:
-  - mantenimiento: false
-  - marca: 
-  - modelo: 
-  - familia: false 
-  - tipo: 
-  - separator
-  - tarifas: false
-  
+    -
+      vehiculo: ~
+    -
+      itv: '#'
+    - separator
+    -
+      planeacion: ~
+    -
+      mantenimiento: false
+    -
+      marca: ~
+    -
+      modelo: ~
+    -
+      familia: false
+    -
+      tipo: ~
+    - separator
+    -
+      tarifas: false

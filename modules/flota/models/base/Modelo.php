@@ -90,7 +90,7 @@ class Modelo extends \kyubi\base\ActiveRecord
      */
     public function getTipos()
     {
-        return $this->hasMany(Tipo::className(), ['id' => 'tipo_id'])->via('modeloTipos');
+        return $this->hasMany(Tipo::className(), ['id' => 'tipo_id'])->viaTable('flota__modelo_tipo', ['modelo_id' => 'id']);
     }
 
     /**
@@ -100,6 +100,6 @@ class Modelo extends \kyubi\base\ActiveRecord
      */
     public function getVehiculos()
     {
-        return $this->hasMany(Tipo::className(), ['id' => 'tipo_id'])->via('modeloTipos');
+        return $this->hasMany(Tipo::className(), ['id' => 'tipo_id'])->viaTable('', ['' => '']);
     }
 }

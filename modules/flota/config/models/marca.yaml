@@ -1,10 +1,25 @@
 scenarios:
   default: 'nombre descripcion correo telefono'
-attributes: ~
+attributes:
+  nombre:
+    options:
+      container:
+        class: col-12
+  descripcion:
+    options:
+      container:
+        class: col-12
+  correo:
+    type: email
+    options:
+      container:
+        class: 'col-12 col-md-6'
+  telefono:
+    options:
+      container:
+        class: 'col-12 col-md-6'
 relations:
   modelos: 'hasMany flota\models\base\Modelo marca_id'
 sections:
   modelos@view:
-    relation: modelos
-  'modelos@create update view':
     relation: modelos

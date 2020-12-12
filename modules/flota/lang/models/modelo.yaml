@@ -3,14 +3,13 @@ es:
     id: Id
     nombre: Nombre
     descripcion: Descripcion
-    marca_id: 'Marca id'
+    marca_id: Marca
   __sections:
     marca: Marca
-    caracteristicas: Caracteristicas
-    carga: Carga
+    caracteristicas: Características
+    carga: 'Espacio de carga'
     tipos: Tipos
-    vehiculos: Vehiculos
-    grupo-modelos: 'Grupo modelos'
-    grupos: Grupos
+    vehiculos: 'Vehículos registrados'
     modelo-caracteristicas: 'Modelo caracteristicas'
     modelo-carga: 'Modelo carga'
+    modelo-tipos: 'Modelo tipos'

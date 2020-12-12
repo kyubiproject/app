@@ -97,7 +97,7 @@ class Document extends \kyubi\base\ActiveRecord
      */
     public function getOrdens()
     {
-        return $this->hasMany(Orden::className(), ['id' => 'orden_id'])->via('ordenDocuments');
+        return $this->hasMany(Orden::className(), ['id' => 'orden_id'])->viaTable('operacion__orden_document', ['document_id' => 'id']);
     }
 
     /**
@@ -107,6 +107,6 @@ class Document extends \kyubi\base\ActiveRecord
      */
     public function getVehiculoMovimientos()
     {
-        return $this->hasMany(Orden::className(), ['id' => 'orden_id'])->via('ordenDocuments');
+        return $this->hasMany(Orden::className(), ['id' => 'orden_id'])->viaTable('', ['' => '']);
     }
 }
