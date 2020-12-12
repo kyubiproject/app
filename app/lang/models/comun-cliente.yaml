@@ -1,0 +1,14 @@
+es:
+  __attributes:
+    id: Id
+    tipo: Tipo
+    observacion: Observacion
+  __options:
+    tipo:
+      PERSONA: Persona
+      EMPRESA: Empresa
+  __sections:
+    comun-persona: 'Comun persona'
+    conductors: Conductors
+    comun-conductors: 'Comun conductors'
+    operacion-ordens: 'Operacion ordens'

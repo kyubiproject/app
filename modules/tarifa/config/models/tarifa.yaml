@@ -1,0 +1,14 @@
+scenarios:
+  default: 'hasta tipo_tarifa periodo_id'
+attributes: ~
+relations:
+  items: 'hasMany tarifa\models\base\TarifaItem tarifa_id'
+  ordens: 'hasMany operacion\models\base\Orden tarifa_id'
+  tipos: 'hasMany flota\models\base\Tipo grupo_id tarifaTipos'
+sections:
+  items@view:
+    relation: items
+  ordens@view:
+    relation: ordens
+  tipos@view:
+    relation: tipos

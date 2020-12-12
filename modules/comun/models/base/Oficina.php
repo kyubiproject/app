@@ -32,13 +32,13 @@ class Oficina extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'oficina';
+    protected static $_config = 'comun/config/models/oficina';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'oficina';
+    protected static $_lang = 'comun/lang/models/oficina';
 
     /**
      * 

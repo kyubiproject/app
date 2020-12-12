@@ -1,0 +1,14 @@
+scenarios:
+  default: 'nombre descripcion correo telefono whatsapp'
+attributes: ~
+relations:
+  comunOficinas: 'hasmany app\models\base\ComunOficina delegacion_id'
+  flotaVehiculoDelegacions: 'hasmany app\models\base\FlotaVehiculoDelegacion delegacion_id'
+  flotaVehiculos: 'hasmany app\models\base\FlotaVehiculo vehiculo_id flotaVehiculoDelegacions'
+sections:
+  'comun-oficinas@create update view':
+    relation: comunOficinas
+  'flota-vehiculo-delegacions@create update view':
+    relation: flotaVehiculoDelegacions
+  'flota-vehiculos@create update view':
+    relation: flotaVehiculos

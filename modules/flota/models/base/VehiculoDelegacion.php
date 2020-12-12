@@ -43,7 +43,7 @@ class VehiculoDelegacion extends \kyubi\base\ActiveRecord
         return [
 			[['vehiculo_id', 'delegacion_id'], 'required'],
 			[['vehiculo_id', 'delegacion_id'], 'number'],
-			[['delegacion_id', 'vehiculo_id'], 'unique', 'targetAttribute' => ['delegacion_id', 'vehiculo_id']],
+			[['vehiculo_id', 'delegacion_id'], 'unique', 'targetAttribute' => ['vehiculo_id', 'delegacion_id']],
 			[['delegacion_id'], 'exist', 'targetClass' => \comun\models\base\Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']],
 			[['vehiculo_id'], 'exist', 'targetClass' => Vehiculo::className(), 'targetAttribute' => ['vehiculo_id' => 'id']]        
         ];

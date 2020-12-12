@@ -28,13 +28,13 @@ class PersonaContacto extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'persona-contacto';
+    protected static $_config = 'comun/config/models/persona-contacto';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'persona-contacto';
+    protected static $_lang = 'comun/lang/models/persona-contacto';
 
     /**
      * 

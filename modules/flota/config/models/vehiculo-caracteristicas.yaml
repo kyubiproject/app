@@ -6,3 +6,11 @@ relations:
 sections:
   'vehiculo@create update view':
     relation: vehiculo
+  vehiculo@view:
+    relation: vehiculo
+foo:
+  vehiculo:
+    type: hasOne
+    refClass: flota\models\base\Vehiculo
+    refColumn: id
+    column: id

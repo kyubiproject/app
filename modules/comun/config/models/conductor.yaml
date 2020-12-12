@@ -8,11 +8,13 @@ relations:
 sections:
   'persona@create update view':
     relation: persona
-  'cliente-conductors@create update view':
-    relation: clienteConductors
-  'clientes@create update view':
-    relation: clientes
   cliente-conductors@view:
     relation: clienteConductors
   clientes@view:
+    relation: clientes
+  persona@view:
+    relation: persona
+  'cliente-conductors@create update view':
+    relation: clienteConductors
+  'clientes@create update view':
     relation: clientes

@@ -1,0 +1,16 @@
+es:
+  __attributes:
+    id: Id
+    hasta: Hasta
+    tipo_tarifa: 'Tipo tarifa'
+    periodo_id: 'Periodo id'
+  __options:
+    tipo_tarifa:
+      HORA: Hora
+      DIA: Dia
+      MES: Mes
+  __sections:
+    periodo: Periodo
+    items: Items
+    ordens: Ordens
+    tipos: Tipos

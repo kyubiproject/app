@@ -4,3 +4,5 @@ controllers:
   delegacion: ~
   oficina: ~
   persona: ~
+  persona-contacto: ~
+  persona-direccion: ~

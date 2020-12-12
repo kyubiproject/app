@@ -1,0 +1,7 @@
+es:
+  __attributes:
+    grupo_id: 'Grupo id'
+    tarifa_id: 'Tarifa id'
+  __sections:
+    tarifa-grupo: 'Tarifa grupo'
+    tarifa-tarifa: 'Tarifa tarifa'

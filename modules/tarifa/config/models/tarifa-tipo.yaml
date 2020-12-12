@@ -1,0 +1,3 @@
+scenarios:
+  default: 'tarifa_id grupo_id'
+attributes: ~

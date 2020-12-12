@@ -13,10 +13,9 @@ namespace flota\models\base;
  *
  * Relations:
  * @property Marca $marca
- * @property ModeloCaracteristicas $modeloCaracteristicas
- * @property ModeloCarga $modeloCarga
- * @property \tarifa\models\base\GrupoModelo $grupoModelos
- * @property \tarifa\models\base\Grupo $grupos
+ * @property ModeloCaracteristicas $caracteristicas
+ * @property ModeloCarga $carga
+ * @property Tipo $tipos
  * @property Vehiculo $vehiculos
  */
 class Modelo extends \kyubi\base\ActiveRecord
@@ -31,13 +30,13 @@ class Modelo extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'modelo';
+    protected static $_config = 'flota/config/models/modelo';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'modelo';
+    protected static $_lang = 'flota/lang/models/modelo';
 
     /**
      * 
@@ -69,7 +68,7 @@ class Modelo extends \kyubi\base\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getModelocaracteristicas()
+    public function getCaracteristicas()
     {
         return $this->hasOne(ModeloCaracteristicas::className(), ['id' => 'id']);
     }
@@ -79,38 +78,28 @@ class Modelo extends \kyubi\base\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getModelocarga()
+    public function getCarga()
     {
         return $this->hasOne(ModeloCarga::className(), ['id' => 'id']);
     }
 
     /**
-     * Gets query for [[\tarifa\models\base\GrupoModelo]].
+     * Gets query for [[Tipo]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getGrupomodelos()
+    public function getTipos()
     {
-        return $this->hasMany(\tarifa\models\base\GrupoModelo::className(), ['modelo_id' => 'id']);
+        return $this->hasMany(Tipo::className(), ['id' => 'tipo_id'])->via('modeloTipos');
     }
 
     /**
-     * Gets query for [[\tarifa\models\base\Grupo]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getGrupos()
-    {
-        return $this->hasMany(\tarifa\models\base\Grupo::className(), ['id' => 'grupo_id'])->via('grupoModelos');
-    }
-
-    /**
-     * Gets query for [[\tarifa\models\base\Grupo]].
+     * Gets query for [[Tipo]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getVehiculos()
     {
-        return $this->hasMany(\tarifa\models\base\Grupo::className(), ['id' => 'grupo_id'])->via('grupoModelos');
+        return $this->hasMany(Tipo::className(), ['id' => 'tipo_id'])->via('modeloTipos');
     }
 }

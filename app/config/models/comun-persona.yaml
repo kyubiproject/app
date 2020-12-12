@@ -1,0 +1,17 @@
+scenarios:
+  default: 'nombre dni pais_dni nacionalidad fecha_nacimiento'
+attributes: ~
+relations:
+  comunCliente: app\models\base\ComunCliente
+  comunConductor: app\models\base\ComunConductor
+  contactos: 'hasmany app\models\base\ComunPersonaContacto persona_id'
+  direccions: 'hasmany app\models\base\ComunPersonaDireccion persona_id'
+sections:
+  'comun-cliente@create update view':
+    relation: comunCliente
+  'comun-conductor@create update view':
+    relation: comunConductor
+  'contactos@create update view':
+    relation: contactos
+  'direccions@create update view':
+    relation: direccions

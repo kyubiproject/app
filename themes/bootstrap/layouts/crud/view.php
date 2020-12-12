@@ -9,9 +9,7 @@ echo DetailView::widget([
     'model' => $model,
     'options' => [
         'tag' => 'section',
-        'class' => 'form-row',
-        'data-model' => basename(get_class($model)),
-        'data-key' => $model->id
+        'class' => 'form-row'
     ]
 ]);
 echo get_block('sections');

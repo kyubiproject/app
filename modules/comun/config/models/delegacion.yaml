@@ -6,15 +6,15 @@ relations:
   vehiculoDelegacions: 'hasMany flota\models\base\VehiculoDelegacion delegacion_id'
   vehiculos: 'hasMany flota\models\base\Vehiculo vehiculo_id vehiculoDelegacions'
 sections:
-  'oficinas@create update view':
-    relation: oficinas
-  'vehiculo-delegacions@create update view':
-    relation: vehiculoDelegacions
-  'vehiculos@create update view':
-    relation: vehiculos
   oficinas@view:
     relation: oficinas
   vehiculo-delegacions@view:
     relation: vehiculoDelegacions
   vehiculos@view:
+    relation: vehiculos
+  'oficinas@create update view':
+    relation: oficinas
+  'vehiculo-delegacions@create update view':
+    relation: vehiculoDelegacions
+  'vehiculos@create update view':
     relation: vehiculos

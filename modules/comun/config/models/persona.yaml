@@ -4,6 +4,8 @@ attributes: ~
 relations:
   cliente: comun\models\base\Cliente
   conductor: comun\models\base\Conductor
+  contactos: 'hasmany comun\models\base\PersonaContacto persona_id'
+  direccions: 'hasmany comun\models\base\PersonaDireccion persona_id'
   personaContactos: 'hasMany comun\models\base\PersonaContacto persona_id'
   personaDireccions: 'hasMany comun\models\base\PersonaDireccion persona_id'
 sections:
@@ -11,6 +13,18 @@ sections:
     relation: cliente
   'conductor@create update view':
     relation: conductor
+  contactos@view:
+    relation: contactos
+  direccions@view:
+    relation: direccions
+  cliente@view:
+    relation: cliente
+  conductor@view:
+    relation: conductor
+  'contactos@create update view':
+    relation: contactos
+  'direccions@create update view':
+    relation: direccions
   'persona-contactos@create update view':
     relation: personaContactos
   'persona-direccions@create update view':

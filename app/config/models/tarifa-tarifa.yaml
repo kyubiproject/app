@@ -1,0 +1,20 @@
+scenarios:
+  default: 'hasta tipo_tarifa periodo_id'
+attributes: ~
+relations:
+  operacionOrdens: 'hasmany app\models\base\OperacionOrden tarifa_id'
+  tarifaGrupoTarifas: 'hasmany app\models\base\TarifaGrupoTarifa tarifa_id'
+  tarifaGrupos: 'hasmany app\models\base\TarifaGrupo grupo_id tarifaGrupoTarifas'
+  tarifaItems: 'hasmany app\models\base\TarifaItem item_id tarifaTarifaItems'
+  items: 'hasmany app\models\base\TarifaTarifaItem tarifa_id'
+sections:
+  'operacion-ordens@create update view':
+    relation: operacionOrdens
+  'tarifa-grupo-tarifas@create update view':
+    relation: tarifaGrupoTarifas
+  'tarifa-grupos@create update view':
+    relation: tarifaGrupos
+  'tarifa-items@create update view':
+    relation: tarifaItems
+  'items@create update view':
+    relation: items

@@ -9,6 +9,6 @@ es:
       EMPRESA: Empresa
   __sections:
     persona: Persona
-    cliente-conductors: 'Cliente conductors'
     conductors: Conductors
     ordens: Ordens
+    cliente-conductors: 'Cliente conductors'

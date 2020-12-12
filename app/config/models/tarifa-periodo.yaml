@@ -1,0 +1,8 @@
+scenarios:
+  default: 'nombre fecha_inicio fecha_fin'
+attributes: ~
+relations:
+  tarifaTarifas: 'hasmany app\models\base\TarifaTarifa periodo_id'
+sections:
+  'tarifa-tarifas@create update view':
+    relation: tarifaTarifas

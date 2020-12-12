@@ -16,6 +16,4 @@ es:
     cliente: Cliente
     tarifa: Tarifa
     documents: Documents
-    orden-documents: 'Orden documents'
-    orden-vehiculos: 'Orden vehiculos'
     vehiculos: Vehiculos

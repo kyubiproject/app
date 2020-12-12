@@ -1,0 +1,23 @@
+es:
+  __attributes:
+    id: Id
+    nombre: Nombre
+    descripcion: Descripcion
+    tarifa: Tarifa
+    cantidad: Cantidad
+    magnitud: Magnitud
+    tipo: Tipo
+  __options:
+    magnitud:
+      HORA: Hora
+      DIA: Dia
+      MES: Mes
+      KM: Km
+      LT: Lt
+    tipo:
+      UNICO: Unico
+      CICLO: Ciclo
+      REFERENCIA: Referencia
+  __sections:
+    tarifa-items: 'Tarifa items'
+    tarifas: Tarifas

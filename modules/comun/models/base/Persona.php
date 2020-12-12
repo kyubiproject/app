@@ -16,8 +16,8 @@ namespace comun\models\base;
  * Relations:
  * @property Cliente $cliente
  * @property Conductor $conductor
- * @property PersonaContacto $personaContactos
- * @property PersonaDireccion $personaDireccions
+ * @property PersonaContacto $contactos
+ * @property PersonaDireccion $direccions
  */
 class Persona extends \kyubi\base\ActiveRecord
 {
@@ -31,13 +31,13 @@ class Persona extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'persona';
+    protected static $_config = 'comun/config/models/persona';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'persona';
+    protected static $_lang = 'comun/lang/models/persona';
 
     /**
      * 
@@ -82,7 +82,7 @@ class Persona extends \kyubi\base\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getPersonacontactos()
+    public function getContactos()
     {
         return $this->hasMany(PersonaContacto::className(), ['persona_id' => 'id']);
     }
@@ -92,7 +92,7 @@ class Persona extends \kyubi\base\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getPersonadireccions()
+    public function getDireccions()
     {
         return $this->hasMany(PersonaContacto::className(), ['persona_id' => 'id']);
     }

@@ -1,0 +1,17 @@
+scenarios:
+  default: 'tipo_contrato tarifa_id fecha_entrega fecha_recogida cliente_id'
+attributes: ~
+relations:
+  flotaVehiculos: 'hasmany app\models\base\FlotaVehiculo vehiculo_id operacionOrdenVehiculos'
+  operacionDocuments: 'hasmany app\models\base\OperacionDocument document_id operacionOrdenDocuments'
+  documents: 'hasmany app\models\base\OperacionOrdenDocument orden_id'
+  vehiculos: 'hasmany app\models\base\OperacionOrdenVehiculo orden_id'
+sections:
+  'flota-vehiculos@create update view':
+    relation: flotaVehiculos
+  'operacion-documents@create update view':
+    relation: operacionDocuments
+  'documents@create update view':
+    relation: documents
+  'vehiculos@create update view':
+    relation: vehiculos

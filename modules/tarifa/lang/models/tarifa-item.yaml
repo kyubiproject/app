@@ -1,0 +1,7 @@
+es:
+  __attributes:
+    tarifa_id: 'Tarifa id'
+    item_id: 'Item id'
+  __sections:
+    item: Item
+    tarifa: Tarifa

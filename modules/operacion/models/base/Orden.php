@@ -18,9 +18,7 @@ namespace operacion\models\base;
  * Relations:
  * @property \comun\models\base\Cliente $cliente
  * @property \tarifa\models\base\Tarifa $tarifa
- * @property Document $documents
- * @property OrdenDocument $ordenDocuments
- * @property OrdenVehiculo $ordenVehiculos
+ * @property OrdenDocument $documents
  * @property \flota\models\base\Vehiculo $vehiculos
  */
 class Orden extends \kyubi\base\ActiveRecord
@@ -35,13 +33,13 @@ class Orden extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'orden';
+    protected static $_config = 'operacion/config/models/orden';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'orden';
+    protected static $_lang = 'operacion/lang/models/orden';
 
     /**
      * 
@@ -81,13 +79,13 @@ class Orden extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[Document]].
+     * Gets query for [[OrdenDocument]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getDocuments()
     {
-        return $this->hasMany(Document::className(), ['id' => 'document_id'])->via('ordenDocuments');
+        return $this->hasMany(OrdenDocument::className(), ['orden_id' => 'id']);
     }
 
     /**
@@ -95,28 +93,8 @@ class Orden extends \kyubi\base\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getOrdendocuments()
-    {
-        return $this->hasMany(OrdenDocument::className(), ['orden_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[OrdenVehiculo]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getOrdenvehiculos()
-    {
-        return $this->hasMany(OrdenVehiculo::className(), ['orden_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[OrdenVehiculo]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
     public function getVehiculos()
     {
-        return $this->hasMany(OrdenVehiculo::className(), ['orden_id' => 'id']);
+        return $this->hasMany(OrdenDocument::className(), ['orden_id' => 'id']);
     }
 }

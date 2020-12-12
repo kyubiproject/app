@@ -60,11 +60,7 @@ $model->setScenario(basename(__DIR__));
 $model->unsetAttributes();
 $model->setAttributes(get('t', []));
 foreach ($model->safeAttributes() as $attribute) {
-    echo $form->field($model, $attribute, [
-        'options' => [
-            'class' => 'form-group col-12 col-lg-6'
-        ]
-    ]);
+    echo $form->field($model, $attribute);
 }
 echo Html::endTag('div');
 ?>

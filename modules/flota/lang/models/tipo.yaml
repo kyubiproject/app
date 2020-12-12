@@ -1,0 +1,20 @@
+es:
+  __attributes:
+    id: Id
+    nombre: Nombre
+    descripcion: Descripcion
+    tipo_vehiculo: 'Tipo vehiculo'
+    fianza: Fianza
+    franquicia: Franquicia
+  __options:
+    tipo_vehiculo:
+      COMERCIAL: Comercial
+      ESPECIAL: Especial
+      MONOVOLUMEN: Monovolumen
+      TODOTERRENO: Todoterreno
+      TURISMO: Turismo
+  __sections:
+    modelo-tipos: 'Modelo tipos'
+    modelos: Modelos
+    tarifa-tipos: 'Tarifa tipos'
+    tarifas: Tarifas

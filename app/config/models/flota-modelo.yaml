@@ -1,0 +1,20 @@
+scenarios:
+  default: 'nombre descripcion marca_id'
+attributes: ~
+relations:
+  caracteristicas: app\models\base\FlotaModeloCaracteristicas
+  carga: app\models\base\FlotaModeloCarga
+  flotaVehiculos: 'hasmany app\models\base\FlotaVehiculo modelo_id'
+  tarifaGrupoModelos: 'hasmany app\models\base\TarifaGrupoModelo modelo_id'
+  tarifaGrupos: 'hasmany app\models\base\TarifaGrupo grupo_id tarifaGrupoModelos'
+sections:
+  'caracteristicas@create update view':
+    relation: caracteristicas
+  'carga@create update view':
+    relation: carga
+  'flota-vehiculos@create update view':
+    relation: flotaVehiculos
+  'tarifa-grupo-modelos@create update view':
+    relation: tarifaGrupoModelos
+  'tarifa-grupos@create update view':
+    relation: tarifaGrupos

@@ -1,0 +1,8 @@
+scenarios:
+  default: 'largo ancho alto peso volumen'
+attributes: ~
+relations:
+  flotaModelo: app\models\base\FlotaModelo
+sections:
+  'flota-modelo@create update view':
+    relation: flotaModelo

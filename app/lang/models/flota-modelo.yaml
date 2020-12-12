@@ -1,0 +1,13 @@
+es:
+  __attributes:
+    id: Id
+    nombre: Nombre
+    descripcion: Descripcion
+    marca_id: 'Marca id'
+  __sections:
+    flota-marca: 'Flota marca'
+    caracteristicas: Caracteristicas
+    carga: Carga
+    flota-vehiculos: 'Flota vehiculos'
+    tarifa-grupo-modelos: 'Tarifa grupo modelos'
+    tarifa-grupos: 'Tarifa grupos'

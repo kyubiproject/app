@@ -1,0 +1,17 @@
+scenarios:
+  default: 'codigo tipo estado document_id'
+attributes: ~
+relations:
+  s: 'hasMany operacion\models\base\Document document_id'
+  ordenDocuments: 'hasMany operacion\models\base\OrdenDocument document_id'
+  ordens: 'hasMany operacion\models\base\Orden orden_id ordenDocuments'
+  vehiculoMovimientos: 'hasMany flota\models\base\VehiculoMovimiento documento_codigo codigo'
+sections:
+  s@view:
+    relation: s
+  orden-documents@view:
+    relation: ordenDocuments
+  ordens@view:
+    relation: ordens
+  vehiculo-movimientos@view:
+    relation: vehiculoMovimientos

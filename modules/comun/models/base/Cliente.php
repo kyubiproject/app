@@ -12,7 +12,6 @@ namespace comun\models\base;
  *
  * Relations:
  * @property Persona $persona
- * @property ClienteConductor $clienteConductors
  * @property Conductor $conductors
  * @property \operacion\models\base\Orden $ordens
  */
@@ -28,13 +27,13 @@ class Cliente extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'cliente';
+    protected static $_config = 'comun/config/models/cliente';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'cliente';
+    protected static $_lang = 'comun/lang/models/cliente';
 
     /**
      * 
@@ -59,16 +58,6 @@ class Cliente extends \kyubi\base\ActiveRecord
     public function getPersona()
     {
         return $this->hasOne(Persona::className(), ['id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[ClienteConductor]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getClienteconductors()
-    {
-        return $this->hasMany(ClienteConductor::className(), ['cliente_id' => 'id']);
     }
 
     /**

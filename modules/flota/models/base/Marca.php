@@ -27,13 +27,13 @@ class Marca extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'marca';
+    protected static $_config = 'flota/config/models/marca';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'marca';
+    protected static $_lang = 'flota/lang/models/marca';
 
     /**
      * 

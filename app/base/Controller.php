@@ -23,9 +23,9 @@ class Controller extends \kyubi\api\controllers\CrudController
      */
     public function getTitle(array $params = [])
     {
-        $params['{controller}'] = t($this->module->id, $this->uniqueId);
         switch ($action = action()->id) {
             case 'index':
+                $params['{controller}'] = Str::pluralize(t($this->module->id, $this->uniqueId));
                 $string = '{controller}';
                 break;
             case 'create':
@@ -42,6 +42,7 @@ class Controller extends \kyubi\api\controllers\CrudController
             default:
                 return;
         }
+        $params['{controller}'] = $params['{controller}'] ?? t($this->module->id, $this->uniqueId);
         return t($params['t'] ?? 'app/base', $string, $params);
     }
 
@@ -117,6 +118,25 @@ class Controller extends \kyubi\api\controllers\CrudController
      */
     public function getSections(): array
     {
-        return method_exists(model(), 'config') ? (model()->config('sections') ?? []) : [];
+        if (is_array($config = model()::config('sections'))) {
+            foreach ($config as $name => $section) {
+                $term = explode('@', $name, 2);
+                $name = array_shift($term);
+                if (! count($term) || in_array(model()->getScenario(), Str::toArray(array_pop($term), ' '))) {
+                    if (is_array($section)) {
+                        if (isset($section['relation'])) {
+                            $section['view'] = '@themes/bootstrap/layouts/crud/relation';
+                            $section['params']['relation'] = $section['relation'];
+                        }
+                        $sections[$name] = $section;
+                    } elseif (is_string($section)) {
+                        $sections[$name] = [
+                            'view' => $section
+                        ];
+                    }
+                }
+            }
+        }
+        return $sections ?? [];
     }
 }

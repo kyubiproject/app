@@ -1,0 +1,8 @@
+scenarios:
+  default: 'color anio transmision plazas puertas extra'
+attributes: ~
+relations:
+  flotaVehiculo: app\models\base\FlotaVehiculo
+sections:
+  'flota-vehiculo@create update view':
+    relation: flotaVehiculo

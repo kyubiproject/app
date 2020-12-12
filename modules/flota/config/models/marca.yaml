@@ -4,7 +4,7 @@ attributes: ~
 relations:
   modelos: 'hasMany flota\models\base\Modelo marca_id'
 sections:
-  'modelos@create update view':
-    relation: modelos
   modelos@view:
+    relation: modelos
+  'modelos@create update view':
     relation: modelos

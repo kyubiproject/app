@@ -1,0 +1,14 @@
+scenarios:
+  default: 'carnet carnet_pais fecha_expedicion fecha_vencimiento'
+attributes: ~
+relations:
+  comunPersona: app\models\base\ComunPersona
+  comunClienteConductors: 'hasmany app\models\base\ComunClienteConductor conductor_id'
+  comunClientes: 'hasmany app\models\base\ComunCliente cliente_id comunClienteConductors'
+sections:
+  'comun-persona@create update view':
+    relation: comunPersona
+  'comun-cliente-conductors@create update view':
+    relation: comunClienteConductors
+  'comun-clientes@create update view':
+    relation: comunClientes

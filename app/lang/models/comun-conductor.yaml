@@ -1,0 +1,11 @@
+es:
+  __attributes:
+    id: Id
+    carnet: Carnet
+    carnet_pais: 'Carnet pais'
+    fecha_expedicion: 'Fecha expedicion'
+    fecha_vencimiento: 'Fecha vencimiento'
+  __sections:
+    comun-persona: 'Comun persona'
+    comun-cliente-conductors: 'Comun cliente conductors'
+    comun-clientes: 'Comun clientes'

@@ -88,3 +88,19 @@ table tr[data-key]:not(:hover) {
 input[type=color] {
 	padding: unset;
 }
+
+.btn-group:not(:empty) + .btn-group:not(:empty), *:not(.btn-group) > .btn:not(:empty) + .btn:not(:empty)  {
+	margin-left: 15px;
+}
+
+input[type=color] {
+	padding: unset;
+}
+
+form[data-required]:after {
+	content: attr(data-required);
+}
+
+form .form-group label:after {
+	content: " *";
+}

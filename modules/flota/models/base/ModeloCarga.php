@@ -28,13 +28,13 @@ class ModeloCarga extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'modelo-carga';
+    protected static $_config = 'flota/config/models/modelo-carga';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'modelo-carga';
+    protected static $_lang = 'flota/lang/models/modelo-carga';
 
     /**
      * 

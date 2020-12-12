@@ -30,13 +30,13 @@ class Delegacion extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'delegacion';
+    protected static $_config = 'comun/config/models/delegacion';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'delegacion';
+    protected static $_lang = 'comun/lang/models/delegacion';
 
     /**
      * 
@@ -68,7 +68,7 @@ class Delegacion extends \kyubi\base\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getVehiculodelegacions()
+    public function getVehiculoDelegacions()
     {
         return $this->hasMany(\flota\models\base\VehiculoDelegacion::className(), ['delegacion_id' => 'id']);
     }

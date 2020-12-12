@@ -9,5 +9,7 @@ es:
   __sections:
     cliente: Cliente
     conductor: Conductor
+    contactos: Contactos
+    direccions: Direccions
     persona-contactos: 'Persona contactos'
     persona-direccions: 'Persona direccions'

@@ -1,0 +1,25 @@
+es:
+  __attributes:
+    id: Id
+    codigo: Codigo
+    fecha: Fecha
+    tipo: Tipo
+    estado: Estado
+    fecha_estado: 'Fecha estado'
+    document_id: 'Document id'
+  __options:
+    tipo:
+      PRESUPUESTO: Presupuesto
+      RESERVA: Reserva
+      CONTRATO: Contrato
+    estado:
+      'EN VIGOR': 'En Vigor'
+      ANULADO: Anulado
+      FINALIZADO: Finalizado
+      RENOVADO: Renovado
+  __sections:
+    '': ''
+    s: S
+    orden-documents: 'Orden documents'
+    ordens: Ordens
+    vehiculo-movimientos: 'Vehiculo movimientos'

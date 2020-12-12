@@ -25,13 +25,13 @@ class ClienteConductor extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'cliente-conductor';
+    protected static $_config = 'comun/config/models/cliente-conductor';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'cliente-conductor';
+    protected static $_lang = 'comun/lang/models/cliente-conductor';
 
     /**
      * 
@@ -43,7 +43,7 @@ class ClienteConductor extends \kyubi\base\ActiveRecord
         return [
 			[['cliente_id', 'conductor_id'], 'required'],
 			[['cliente_id', 'conductor_id'], 'number'],
-			[['cliente_id', 'conductor_id'], 'unique', 'targetAttribute' => ['cliente_id', 'conductor_id']],
+			[['conductor_id', 'cliente_id'], 'unique', 'targetAttribute' => ['conductor_id', 'cliente_id']],
 			[['cliente_id'], 'exist', 'targetClass' => Cliente::className(), 'targetAttribute' => ['cliente_id' => 'id']],
 			[['conductor_id'], 'exist', 'targetClass' => Conductor::className(), 'targetAttribute' => ['conductor_id' => 'id']]        
         ];

@@ -1,0 +1,12 @@
+es:
+  __attributes:
+    id: Id
+    nombre: Nombre
+    descripcion: Descripcion
+    correo: Correo
+    telefono: Telefono
+    whatsapp: Whatsapp
+  __sections:
+    comun-oficinas: 'Comun oficinas'
+    flota-vehiculo-delegacions: 'Flota vehiculo delegacions'
+    flota-vehiculos: 'Flota vehiculos'

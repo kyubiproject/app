@@ -1,0 +1,8 @@
+scenarios:
+  default: 'nombre descripcion correo telefono'
+attributes: ~
+relations:
+  flotaModelos: 'hasmany app\models\base\FlotaModelo marca_id'
+sections:
+  'flota-modelos@create update view':
+    relation: flotaModelos

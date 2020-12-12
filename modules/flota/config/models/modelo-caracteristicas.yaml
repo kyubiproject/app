@@ -6,3 +6,5 @@ relations:
 sections:
   'modelo@create update view':
     relation: modelo
+  modelo@view:
+    relation: modelo

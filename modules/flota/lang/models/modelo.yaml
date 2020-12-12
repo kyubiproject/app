@@ -6,8 +6,11 @@ es:
     marca_id: 'Marca id'
   __sections:
     marca: Marca
-    modelo-caracteristicas: 'Modelo caracteristicas'
-    modelo-carga: 'Modelo carga'
+    caracteristicas: Caracteristicas
+    carga: Carga
+    tipos: Tipos
+    vehiculos: Vehiculos
     grupo-modelos: 'Grupo modelos'
     grupos: Grupos
-    vehiculos: Vehiculos
+    modelo-caracteristicas: 'Modelo caracteristicas'
+    modelo-carga: 'Modelo carga'

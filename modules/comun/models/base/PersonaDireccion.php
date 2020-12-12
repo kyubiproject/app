@@ -28,13 +28,13 @@ class PersonaDireccion extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'persona-direccion';
+    protected static $_config = 'comun/config/models/persona-direccion';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'persona-direccion';
+    protected static $_lang = 'comun/lang/models/persona-direccion';
 
     /**
      * 

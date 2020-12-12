@@ -9,8 +9,8 @@ namespace flota\models\base;
 * @property string|null $color  
 * @property integer|null $anio  
 * @property string|null $transmision  
-* @property boolean|null $plazas  
-* @property boolean|null $puertas  
+* @property integer|null $plazas  
+* @property integer|null $puertas  
 * @property array|null $extra  
    
  *

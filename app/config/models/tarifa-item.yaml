@@ -1,0 +1,11 @@
+scenarios:
+  default: 'nombre descripcion tarifa cantidad magnitud tipo'
+attributes: ~
+relations:
+  tarifaTarifaItems: 'hasmany app\models\base\TarifaTarifaItem item_id'
+  tarifaTarifas: 'hasmany app\models\base\TarifaTarifa tarifa_id tarifaTarifaItems'
+sections:
+  'tarifa-tarifa-items@create update view':
+    relation: tarifaTarifaItems
+  'tarifa-tarifas@create update view':
+    relation: tarifaTarifas

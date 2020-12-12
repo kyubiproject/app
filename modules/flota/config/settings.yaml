@@ -1,27 +1,19 @@
 controllers:
   marca: ~
   modelo: ~
+  tipo: ~
   vehiculo: ~
 navbar:
-  order: 1
   links:
-    -
-      vehiculo: ~
-    -
-      itv: '#'
-    - separator
-    -
-      planeacion: /flota
-    -
-      mantenimiento: false
-    -
-      marca: ~
-    -
-      modelo: ~
-    -
-      familia: false
-    -
-      tipo: ~
-    - separator
-    -
-      tarifas: false
+  - vehiculo:
+  - itv: "#"
+  - separator
+  - planeacion:
+  - mantenimiento: false
+  - marca: 
+  - modelo: 
+  - familia: false 
+  - tipo: 
+  - separator
+  - tarifas: false
+  

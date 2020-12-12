@@ -29,13 +29,13 @@ class Conductor extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'conductor';
+    protected static $_config = 'comun/config/models/conductor';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'conductor';
+    protected static $_lang = 'comun/lang/models/conductor';
 
     /**
      * 
@@ -70,7 +70,7 @@ class Conductor extends \kyubi\base\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getClienteconductors()
+    public function getClienteConductors()
     {
         return $this->hasMany(ClienteConductor::className(), ['conductor_id' => 'id']);
     }

@@ -50,7 +50,7 @@ class Vehiculo extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['matricula', 'fecha_estado'], 'required'],
+			[['matricula'], 'required'],
 			[['id', 'modelo_id'], 'number'],
 			[['matricula'], 'string', 'max' => 10],
 			[['bastidor'], 'string', 'max' => 30],

@@ -8,7 +8,7 @@ namespace flota\models\base;
 * @property integer $id  
 * @property string|null $potencia  
 * @property string|null $combustible  
-* @property boolean|null $combustible_cap  
+* @property integer|null $combustible_cap  
 * @property float|null $largo  
 * @property float|null $ancho  
 * @property float|null $alto  
@@ -29,13 +29,13 @@ class ModeloCaracteristicas extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_config = 'modelo-caracteristicas';
+    protected static $_config = 'flota/config/models/modelo-caracteristicas';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'modelo-caracteristicas';
+    protected static $_lang = 'flota/lang/models/modelo-caracteristicas';
 
     /**
      * 

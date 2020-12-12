@@ -1,0 +1,17 @@
+scenarios:
+  default: 'tipo observacion'
+attributes: ~
+relations:
+  comunPersona: app\models\base\ComunPersona
+  conductors: 'hasmany app\models\base\ComunClienteConductor cliente_id'
+  comunConductors: 'hasmany app\models\base\ComunConductor conductor_id comunClienteConductors'
+  operacionOrdens: 'hasmany app\models\base\OperacionOrden cliente_id'
+sections:
+  'comun-persona@create update view':
+    relation: comunPersona
+  'conductors@create update view':
+    relation: conductors
+  'comun-conductors@create update view':
+    relation: comunConductors
+  'operacion-ordens@create update view':
+    relation: operacionOrdens
