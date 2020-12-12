@@ -2,6 +2,8 @@ es:
   __attributes:
     id: Id
     nombre: Nombre
-    telefono: Telefono
     descripcion: Descripcion
-  __options: null
+    correo: Correo
+    telefono: Telefono
+  __sections:
+    modelos: Modelos

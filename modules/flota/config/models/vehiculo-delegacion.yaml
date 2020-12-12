@@ -1,0 +1,3 @@
+scenarios:
+  default: 'vehiculo_id delegacion_id'
+attributes: ~

@@ -8,37 +8,36 @@ namespace flota\models\base;
 * @property integer $id  
 * @property string $nombre  
 * @property string|null $descripcion  
-* @property integer|null $familia__id  
-* @property integer|null $potencia  
-* @property string|null $combustible  
-* @property integer|null $combustible_cap  
-* @property integer|null $marca__id  
+* @property integer|null $marca_id  
    
  *
  * Relations:
- * @property Familia $familia
  * @property Marca $marca
- * @property Vehiculo[] $vehiculos
+ * @property ModeloCaracteristicas $modeloCaracteristicas
+ * @property ModeloCarga $modeloCarga
+ * @property \tarifa\models\base\GrupoModelo $grupoModelos
+ * @property \tarifa\models\base\Grupo $grupos
+ * @property Vehiculo $vehiculos
  */
 class Modelo extends \kyubi\base\ActiveRecord
 {
-	/**
-     *
-     * @var string
-     */
-    protected static $_config = 'flota/config/models/modelo';
-
     /**
      *
      * @var string
      */
     protected static $_table = 'flota__modelo';
+    
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'modelo';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'flota/lang/models/modelo';
+    protected static $_lang = 'modelo';
 
     /**
      * 
@@ -49,23 +48,10 @@ class Modelo extends \kyubi\base\ActiveRecord
     {
         return [
 			[['nombre'], 'required'],
-			[['id', 'familia__id', 'marca__id'], 'number'],
+			[['id', 'marca_id'], 'number'],
 			[['nombre'], 'string', 'max' => 100],
-			[['potencia', 'combustible_cap'], 'is', 'type' => 'tinyint'],
-			[['combustible'], 'in', 'range' => ['GAS', 'DIESEL', 'ELECTRIC', 'HYBRID'], 'strict' => true],
-			[['marca__id'], 'exist', 'targetClass' => Marca::className(), 'targetAttribute' => ['marca__id' => 'id']],
-			[['familia__id'], 'exist', 'targetClass' => Familia::className(), 'targetAttribute' => ['familia__id' => 'id']]        
+			[['marca_id'], 'exist', 'targetClass' => Marca::className(), 'targetAttribute' => ['marca_id' => 'id']]        
         ];
-    }
-
-    /**
-     * Gets query for [[Familia]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getFamilia()
-    {
-        return $this->hasOne(Familia::className(), ['id' => 'familia__id']);
     }
 
     /**
@@ -75,16 +61,56 @@ class Modelo extends \kyubi\base\ActiveRecord
      */
     public function getMarca()
     {
-        return $this->hasOne(Marca::className(), ['id' => 'marca__id']);
+        return $this->hasOne(Marca::className(), ['id' => 'marca_id']);
     }
 
     /**
-     * Gets query for [[Marca]].
+     * Gets query for [[ModeloCaracteristicas]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getModelocaracteristicas()
+    {
+        return $this->hasOne(ModeloCaracteristicas::className(), ['id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[ModeloCarga]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getModelocarga()
+    {
+        return $this->hasOne(ModeloCarga::className(), ['id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\tarifa\models\base\GrupoModelo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGrupomodelos()
+    {
+        return $this->hasMany(\tarifa\models\base\GrupoModelo::className(), ['modelo_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\tarifa\models\base\Grupo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGrupos()
+    {
+        return $this->hasMany(\tarifa\models\base\Grupo::className(), ['id' => 'grupo_id'])->via('grupoModelos');
+    }
+
+    /**
+     * Gets query for [[\tarifa\models\base\Grupo]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getVehiculos()
     {
-        return $this->hasOne(Marca::className(), ['id' => 'marca__id']);
+        return $this->hasMany(\tarifa\models\base\Grupo::className(), ['id' => 'grupo_id'])->via('grupoModelos');
     }
 }

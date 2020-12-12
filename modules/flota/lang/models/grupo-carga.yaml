@@ -1,9 +1,0 @@
-es:
-  __attributes:
-    id: Id
-    largo: Largo
-    ancho: Ancho
-    alto: Alto
-    capacidad: Capacidad
-    carga_util: 'Carga util'
-  __options: null

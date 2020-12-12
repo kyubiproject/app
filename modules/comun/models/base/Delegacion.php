@@ -7,34 +7,36 @@ namespace comun\models\base;
  * Columns:
 * @property integer $id  
 * @property string $nombre  
-* @property string|null $whatsapp  
-* @property string|null $telefono  
+* @property string|null $descripcion  
 * @property string|null $correo  
+* @property string|null $telefono  
+* @property string|null $whatsapp  
    
  *
  * Relations:
- * @property Oficina[] $oficinas
- * @property \flota\models\base\Vehiculo[] $vehiculos
+ * @property Oficina $oficinas
+ * @property \flota\models\base\VehiculoDelegacion $vehiculoDelegacions
+ * @property \flota\models\base\Vehiculo $vehiculos
  */
 class Delegacion extends \kyubi\base\ActiveRecord
 {
-	/**
-     *
-     * @var string
-     */
-    protected static $_config = 'comun/config/models/delegacion';
-
     /**
      *
      * @var string
      */
     protected static $_table = 'comun__delegacion';
+    
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'delegacion';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'comun/lang/models/delegacion';
+    protected static $_lang = 'delegacion';
 
     /**
      * 
@@ -47,7 +49,7 @@ class Delegacion extends \kyubi\base\ActiveRecord
 			[['nombre'], 'required'],
 			[['id'], 'number'],
 			[['nombre', 'correo'], 'string', 'max' => 100],
-			[['whatsapp', 'telefono'], 'string', 'max' => 20]        
+			[['telefono', 'whatsapp'], 'string', 'max' => 20]        
         ];
     }
 
@@ -58,16 +60,26 @@ class Delegacion extends \kyubi\base\ActiveRecord
      */
     public function getOficinas()
     {
-        return $this->hasMany(Oficina::className(), ['delegacion__id' => 'id']);
+        return $this->hasMany(Oficina::className(), ['delegacion_id' => 'id']);
     }
 
     /**
-     * Gets query for [[Oficina]].
+     * Gets query for [[\flota\models\base\VehiculoDelegacion]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getVehiculodelegacions()
+    {
+        return $this->hasMany(\flota\models\base\VehiculoDelegacion::className(), ['delegacion_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\flota\models\base\VehiculoDelegacion]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getVehiculos()
     {
-        return $this->hasMany(Oficina::className(), ['delegacion__id' => 'id']);
+        return $this->hasMany(\flota\models\base\VehiculoDelegacion::className(), ['delegacion_id' => 'id']);
     }
 }

@@ -1,11 +1,26 @@
-scenarios: null
-attributes:
-  id: null
-  nombre: null
-  descripcion: null
-  familia__id: null
-  potencia: null
-  combustible: null
-  combustible_cap: null
-  marca__id: null
-sections: null
+scenarios:
+  default: 'nombre descripcion marca_id'
+attributes: ~
+relations:
+  modeloCaracteristicas: flota\models\base\ModeloCaracteristicas
+  modeloCarga: flota\models\base\ModeloCarga
+  grupoModelos: 'hasMany tarifa\models\base\GrupoModelo modelo_id'
+  grupos: 'hasMany tarifa\models\base\Grupo grupo_id grupoModelos'
+  vehiculos: 'hasMany flota\models\base\Vehiculo modelo_id'
+sections:
+  'modelo-caracteristicas@create update view':
+    relation: modeloCaracteristicas
+  'modelo-carga@create update view':
+    relation: modeloCarga
+  'grupo-modelos@create update view':
+    relation: grupoModelos
+  'grupos@create update view':
+    relation: grupos
+  'vehiculos@create update view':
+    relation: vehiculos
+  grupo-modelos@view:
+    relation: grupoModelos
+  grupos@view:
+    relation: grupos
+  vehiculos@view:
+    relation: vehiculos

@@ -2,7 +2,11 @@ es:
   __attributes:
     id: Id
     nombre: Nombre
-    whatsapp: Whatsapp
-    telefono: Telefono
+    descripcion: Descripcion
     correo: Correo
-  __options:
+    telefono: Telefono
+    whatsapp: Whatsapp
+  __sections:
+    oficinas: Oficinas
+    vehiculo-delegacions: 'Vehiculo delegacions'
+    vehiculos: Vehiculos

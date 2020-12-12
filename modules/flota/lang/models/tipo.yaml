@@ -1,7 +1,0 @@
-es:
-  __attributes:
-    id: Id
-    nombre: Nombre
-    clase: Clase
-    descripcion: Descripcion
-  __options: null

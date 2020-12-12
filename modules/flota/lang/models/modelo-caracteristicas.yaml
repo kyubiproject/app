@@ -1,0 +1,17 @@
+es:
+  __attributes:
+    id: Id
+    potencia: Potencia
+    combustible: Combustible
+    combustible_cap: 'Combustible cap'
+    largo: Largo
+    ancho: Ancho
+    alto: Alto
+  __options:
+    combustible:
+      GASOLINA: Gasolina
+      DIESEL: Diesel
+      ELECTRICO: Electrico
+      HIBRIDO: Hibrido
+  __sections:
+    modelo: Modelo

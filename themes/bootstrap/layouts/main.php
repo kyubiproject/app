@@ -3,7 +3,10 @@
  * @var \yii\web\View $this
  * @var string $content
  */
+use kyubi\helper\Str;
+
 \themes\bootstrap\Asset::register($this);
+
 $this->beginPage();
 if (request()->isPatch) {
     $this->beginBody();
@@ -20,7 +23,7 @@ if (request()->isPatch) {
     <?php $this->head() ?>
 </head>
 <body class="<?=basename(controller()->layout, '.php')?> pt-5"
-	route="<?=\kyubi\helper\Str::slug(controller()->route)?>">
+	route="<?=Str::slug(controller()->route)?>">
 <?php $this->beginBody() ?>
 	<header class="container-lg pt-3">
     	<?= get_block('navbar') ?>

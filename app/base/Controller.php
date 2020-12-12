@@ -74,7 +74,7 @@ class Controller extends \kyubi\api\controllers\CrudController
                 $output .= $this->renderButtons($options['buttons']);
                 $output .= Html::endTag('div');
             } else {
-                if (isset($options['on']) && ! in_array(action()->id, Str::toArray($options['on']))) {
+                if (isset($options['on']) && ! in_array(model()->getScenario(), Str::toArray($options['on'], ' '))) {
                     continue;
                 }
                 if (method_exists($options, 'can') && ! $options->can(action()->id)) {

@@ -1,0 +1,10 @@
+es:
+  __attributes:
+    id: Id
+    largo: Largo
+    ancho: Ancho
+    alto: Alto
+    peso: Peso
+    volumen: Volumen
+  __sections:
+    modelo: Modelo

@@ -7,32 +7,33 @@ namespace flota\models\base;
  * Columns:
 * @property integer $id  
 * @property string $nombre  
-* @property string|null $telefono  
 * @property string|null $descripcion  
+* @property string|null $correo  
+* @property string|null $telefono  
    
  *
  * Relations:
- * @property Modelo[] $modelos
+ * @property Modelo $modelos
  */
 class Marca extends \kyubi\base\ActiveRecord
 {
-	/**
-     *
-     * @var string
-     */
-    protected static $_config = 'flota/config/models/marca';
-
     /**
      *
      * @var string
      */
     protected static $_table = 'flota__marca';
+    
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'marca';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'flota/lang/models/marca';
+    protected static $_lang = 'marca';
 
     /**
      * 
@@ -44,7 +45,7 @@ class Marca extends \kyubi\base\ActiveRecord
         return [
 			[['nombre'], 'required'],
 			[['id'], 'number'],
-			[['nombre'], 'string', 'max' => 100],
+			[['nombre', 'correo'], 'string', 'max' => 100],
 			[['telefono'], 'string', 'max' => 20]        
         ];
     }
@@ -56,6 +57,6 @@ class Marca extends \kyubi\base\ActiveRecord
      */
     public function getModelos()
     {
-        return $this->hasMany(Modelo::className(), ['marca__id' => 'id']);
+        return $this->hasMany(Modelo::className(), ['marca_id' => 'id']);
     }
 }

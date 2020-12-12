@@ -1,34 +1,15 @@
 scenarios:
-  search: 'matricula, bastidor, color, fecha_matricula, modelo, delegacion, estado, fecha_estado'
-  view: 'matricula, bastidor, color, fecha_matricula, modelo, delegacion, estado, fecha_estado'
-attributes:
-  id: null
-  matricula:
-    value: xyz
-  bastidor: null
-  color: color
-  fecha_matricula: date
-  gps: null
-  modelo__id:
-    type: relation
-  delegacion__id: 
-    type: select
-    relation: delegacion
-  estado:
-    type: select
-    options:
-      - UNO
-      - DOS
-      - TRES
-  ultimo_estado: null
-  anio2: null
-  anio: null
+  default: 'matricula fecha_matricula bastidor estado modelo_id'
+attributes: ~
+relations: ~
 sections:
-  datos: null
-  accesorios: flota/views/vehiculo/datos
-  historico: null
-  gastos: null
-  observacion: null
-'name::view': '{matricula}HOLA'
-table:
-  flota__vehiculo__view: 'view, search'
+  'caracteristicas@create update view':
+    relation: caracteristicas
+  'delegacions@create update view':
+    relation: delegacions
+  'orden-vehiculos@create update view':
+    relation: ordenVehiculos
+  'ordens@create update view':
+    relation: ordens
+  'movimientos@create update view':
+    relation: movimientos

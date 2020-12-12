@@ -1,0 +1,7 @@
+es:
+  __attributes:
+    cliente_id: 'Cliente id'
+    conductor_id: 'Conductor id'
+  __sections:
+    cliente: Cliente
+    conductor: Conductor

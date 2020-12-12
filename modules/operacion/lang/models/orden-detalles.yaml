@@ -1,7 +1,0 @@
-es:
-  __attributes:
-    id: Id
-    vehiculo__matricula: Vehiculo matricula
-    fecha_entrega: Fecha entrega
-    fecha_recogida: Fecha recogida
-  __options:

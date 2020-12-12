@@ -7,13 +7,14 @@ namespace comun\models\base;
  * Columns:
 * @property integer $id  
 * @property string $nombre  
+* @property string|null $descripcion  
 * @property string|null $direccion  
 * @property string|null $horario  
-* @property string|null $gmaps  
-* @property string|null $whatsapp  
-* @property string|null $telefono  
+* @property string|null $ubicacion  
 * @property string|null $correo  
-* @property integer $delegacion__id  
+* @property string|null $telefono  
+* @property string|null $whatsapp  
+* @property integer $delegacion_id  
    
  *
  * Relations:
@@ -21,23 +22,23 @@ namespace comun\models\base;
  */
 class Oficina extends \kyubi\base\ActiveRecord
 {
-	/**
-     *
-     * @var string
-     */
-    protected static $_config = 'comun/config/models/oficina';
-
     /**
      *
      * @var string
      */
     protected static $_table = 'comun__oficina';
+    
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'oficina';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'comun/lang/models/oficina';
+    protected static $_lang = 'oficina';
 
     /**
      * 
@@ -47,12 +48,12 @@ class Oficina extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['nombre', 'delegacion__id'], 'required'],
-			[['id', 'delegacion__id'], 'number'],
-			[['nombre', 'correo'], 'string', 'max' => 100],
-			[['gmaps'], 'string', 'max' => 30],
-			[['whatsapp', 'telefono'], 'string', 'max' => 20],
-			[['delegacion__id'], 'exist', 'targetClass' => Delegacion::className(), 'targetAttribute' => ['delegacion__id' => 'id']]        
+			[['nombre', 'delegacion_id'], 'required'],
+			[['id', 'delegacion_id'], 'number'],
+			[['nombre', 'telefono'], 'string', 'max' => 100],
+			[['ubicacion'], 'string', 'max' => 30],
+			[['correo', 'whatsapp'], 'string', 'max' => 20],
+			[['delegacion_id'], 'exist', 'targetClass' => Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']]        
         ];
     }
 
@@ -63,6 +64,6 @@ class Oficina extends \kyubi\base\ActiveRecord
      */
     public function getDelegacion()
     {
-        return $this->hasOne(Delegacion::className(), ['id' => 'delegacion__id']);
+        return $this->hasOne(Delegacion::className(), ['id' => 'delegacion_id']);
     }
 }

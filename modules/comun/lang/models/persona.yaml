@@ -1,0 +1,13 @@
+es:
+  __attributes:
+    id: Id
+    nombre: Nombre
+    dni: Dni
+    pais_dni: 'Pais dni'
+    nacionalidad: Nacionalidad
+    fecha_nacimiento: 'Fecha nacimiento'
+  __sections:
+    cliente: Cliente
+    conductor: Conductor
+    persona-contactos: 'Persona contactos'
+    persona-direccions: 'Persona direccions'

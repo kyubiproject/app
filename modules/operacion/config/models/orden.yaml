@@ -1,11 +1,17 @@
 scenarios:
-attributes:
-  id: 
-  tipo: 
-  cliente: 
-  contrato: 
-  periodo: 
-  grupo__id: 
-  estado: 
-  fecha_alta: 
+  default: 'tipo_contrato tarifa_id fecha_entrega fecha_recogida cliente_id'
+attributes: ~
+relations:
+  documents: 'hasmany operacion\models\base\Document document_id ordenDocuments'
+  ordenDocuments: 'hasmany operacion\models\base\OrdenDocument orden_id'
+  ordenVehiculos: 'hasmany operacion\models\base\OrdenVehiculo orden_id'
+  vehiculos: 'hasmany flota\models\base\Vehiculo vehiculo_id ordenVehiculos'
 sections:
+  'documents@create update view':
+    relation: documents
+  'orden-documents@create update view':
+    relation: ordenDocuments
+  'orden-vehiculos@create update view':
+    relation: ordenVehiculos
+  'vehiculos@create update view':
+    relation: vehiculos

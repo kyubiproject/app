@@ -7,36 +7,34 @@ namespace flota\models\base;
  * Columns:
 * @property integer $id  
 * @property string $matricula  
-* @property string|null $bastidor  
-* @property string|null $color  
 * @property string|null $fecha_matricula  
-* @property boolean|null $gps  
-* @property integer|null $modelo__id  
-* @property integer|null $delegacion__id  
+* @property string|null $bastidor  
 * @property string|null $estado  
-* @property string|null $ultimo_estado  
-* @property integer|null $anio2  
-* @property integer|null $anio  
+* @property string $fecha_estado  
+* @property integer|null $modelo_id  
    
  *
  * Relations:
- * @property \comun\models\base\Delegacion $delegacion
  * @property Modelo $modelo
- * @property \operacion\models\base\OrdenDetalles[] $ordenDetalles
+ * @property VehiculoCaracteristicas $caracteristicas
+ * @property VehiculoDelegacion $delegacions
+ * @property \operacion\models\base\OrdenVehiculo $ordenVehiculos
+ * @property \operacion\models\base\Orden $ordens
+ * @property VehiculoMovimiento $movimientos
  */
 class Vehiculo extends \kyubi\base\ActiveRecord
 {
-	/**
-     *
-     * @var string
-     */
-    protected static $_config = 'flota/config/models/vehiculo';
-
     /**
      *
      * @var string
      */
     protected static $_table = 'flota__vehiculo';
+    
+	/**
+     *
+     * @var string
+     */
+    protected static $_config = 'flota/config/models/vehiculo';
 
     /**
      *
@@ -52,31 +50,16 @@ class Vehiculo extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['matricula'], 'required'],
-			[['id', 'modelo__id', 'delegacion__id'], 'number'],
+			[['matricula', 'fecha_estado'], 'required'],
+			[['id', 'modelo_id'], 'number'],
 			[['matricula'], 'string', 'max' => 10],
 			[['bastidor'], 'string', 'max' => 30],
-			[['color'], 'string', 'max' => 20],
 			[['fecha_matricula'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['ultimo_estado'], 'date', 'type' => 'datetime', 'format' => 'yyyy-mm-dd hh:mm:ss'],
-			[['gps'], 'boolean'],
-			[['estado'], 'in', 'range' => ['AVAILABLE', 'DAMAGED', 'RESERVED', 'MAINTENANCE'], 'strict' => true],
-			[['anio2'], 'is', 'type' => 'year', 'size' => 2],
-			[['anio'], 'is', 'type' => 'year'],
+			[['fecha_estado'], 'date', 'type' => 'datetime', 'format' => 'yyyy-mm-dd hh:mm:ss'],
+			[['estado'], 'in', 'range' => ['DISPONIBLE', 'RESERVADO', 'CONTRATADO', 'AVERIADO', 'MANTENIMIENTO', 'BAJA'], 'strict' => true],
 			[['bastidor', 'matricula'], 'unique'],
-			[['modelo__id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['modelo__id' => 'id']],
-			[['delegacion__id'], 'exist', 'targetClass' => \comun\models\base\Delegacion::className(), 'targetAttribute' => ['delegacion__id' => 'id']]        
+			[['modelo_id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['modelo_id' => 'id']]        
         ];
-    }
-
-    /**
-     * Gets query for [[\comun\models\base\Delegacion]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getDelegacion()
-    {
-        return $this->hasOne(\comun\models\base\Delegacion::className(), ['id' => 'delegacion__id']);
     }
 
     /**
@@ -86,16 +69,56 @@ class Vehiculo extends \kyubi\base\ActiveRecord
      */
     public function getModelo()
     {
-        return $this->hasOne(Modelo::className(), ['id' => 'modelo__id']);
+        return $this->hasOne(Modelo::className(), ['id' => 'modelo_id']);
     }
 
     /**
-     * Gets query for [[Modelo]].
+     * Gets query for [[VehiculoCaracteristicas]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getOrdenDetalles()
+    public function getCaracteristicas()
     {
-        return $this->hasOne(Modelo::className(), ['id' => 'modelo__id']);
+        return $this->hasOne(VehiculoCaracteristicas::className(), ['id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[VehiculoDelegacion]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDelegacions()
+    {
+        return $this->hasMany(VehiculoDelegacion::className(), ['vehiculo_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\operacion\models\base\OrdenVehiculo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrdenVehiculos()
+    {
+        return $this->hasMany(\operacion\models\base\OrdenVehiculo::className(), ['vehiculo_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\operacion\models\base\Orden]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrdens()
+    {
+        return $this->hasMany(\operacion\models\base\Orden::className(), ['id' => 'orden_id'])->via('ordenVehiculos');
+    }
+
+    /**
+     * Gets query for [[\operacion\models\base\Orden]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMovimientos()
+    {
+        return $this->hasMany(\operacion\models\base\Orden::className(), ['id' => 'orden_id'])->via('ordenVehiculos');
     }
 }

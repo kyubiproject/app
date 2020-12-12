@@ -2,24 +2,33 @@ es:
   __attributes:
     id: Id
     matricula: Matricula
-    bastidor: Bastidor
-    color: Color
     fecha_matricula: 'Fecha matricula'
-    gps: Gps
-    modelo__id: 'Modelo id'
-    delegacion__id: 'Delegacion id'
+    bastidor: Bastidor
     estado: Estado
-    ultimo_estado: 'Ultimo estado'
-    anio2: Anio2
-    anio: Anio
+    fecha_estado: 'Fecha estado'
+    modelo_id: 'Modelo id'
   __options:
     estado:
-      AVAILABLE: Disponible
-      DAMAGED: DAMAGED
-      RESERVED: RESERVED
-      MAINTENANCE: MAINTENANCE
-  datos: Datos
-  accesorios: Gastos
-  historico: Histórico
-  gastos: Gastos
-  observacion: Observaciones
+      DISPONIBLE: Disponible
+      RESERVADO: Reservado
+      CONTRATADO: Contratado
+      AVERIADO: Averiado
+      MANTENIMIENTO: Mantenimiento
+      BAJA: Baja
+  __sections:
+    modelo: Modelo
+    caracteristicas: Caracteristicas
+    delegacions: Delegacions
+    orden-vehiculos: 'Orden vehiculos'
+    ordens: Ordens
+    movimientos: Movimientos
+    ordenvehiculos: Ordenvehiculos
+    vehiculocaracteristicas: Vehiculocaracteristicas
+    vehiculodelegacions: Vehiculodelegacions
+    vehiculomovimientos: Vehiculomovimientos
+    rdenvehiculos: Rdenvehiculos
+    rdens: Rdens
+    s: S
+    vehiculo-caracteristicas: 'Vehiculo caracteristicas'
+    vehiculo-delegacions: 'Vehiculo delegacions'
+    vehiculo-movimientos: 'Vehiculo movimientos'

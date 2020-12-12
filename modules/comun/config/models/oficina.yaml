@@ -1,12 +1,3 @@
 scenarios:
-attributes:
-  id: 
-  nombre: 
-  direccion: 
-  horario: 
-  gmaps: 
-  whatsapp: 
-  telefono: 
-  correo: 
-  delegacion__id: 
-sections:
+  default: 'nombre descripcion direccion horario ubicacion correo telefono whatsapp delegacion_id'
+attributes: ~

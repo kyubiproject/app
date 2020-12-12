@@ -1,0 +1,7 @@
+es:
+  __attributes:
+    vehiculo_id: 'Vehiculo id'
+    delegacion_id: 'Delegacion id'
+  __sections:
+    delegacion: Delegacion
+    vehiculo: Vehiculo

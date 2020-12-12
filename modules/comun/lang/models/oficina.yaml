@@ -2,11 +2,13 @@ es:
   __attributes:
     id: Id
     nombre: Nombre
+    descripcion: Descripcion
     direccion: Direccion
     horario: Horario
-    gmaps: Gmaps
-    whatsapp: Whatsapp
-    telefono: Telefono
+    ubicacion: Ubicacion
     correo: Correo
-    delegacion__id: Delegacion id
-  __options:
+    telefono: Telefono
+    whatsapp: Whatsapp
+    delegacion_id: 'Delegacion id'
+  __sections:
+    delegacion: Delegacion

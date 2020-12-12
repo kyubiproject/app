@@ -1,0 +1,3 @@
+scenarios:
+  default: 'informacion descripcion tipo clase persona_id'
+attributes: ~

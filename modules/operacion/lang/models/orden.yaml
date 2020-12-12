@@ -1,26 +1,21 @@
 es:
   __attributes:
     id: Id
-    tipo: Tipo
-    cliente: Cliente
-    contrato: Contrato
-    periodo: Periodo
-    grupo__id: Grupo id
-    estado: Estado
-    fecha_alta: Fecha alta
+    tipo_contrato: 'Tipo contrato'
+    tarifa_id: 'Tarifa id'
+    fecha_entrega: 'Fecha entrega'
+    fecha_recogida: 'Fecha recogida'
+    fecha_alta: 'Fecha alta'
+    fecha_baja: 'Fecha baja'
+    cliente_id: 'Cliente id'
   __options:
-    tipo:
-      PRESUPUESTO: PRESUPUESTO
-      RESERVA: RESERVA
-      CONTRATO: CONTRATO
-    contrato:
-      CORTO: CORTO
-      LARGO: LARGO
-    periodo:
-      H: H
-      D: D
-      M: M
-    estado:
-      EN VIGOR: EN VIGOR
-      ANULADO: ANULADO
-      FINALIZADO: FINALIZADO
+    tipo_contrato:
+      CORTO: Corto
+      LARGO: Largo
+  __sections:
+    cliente: Cliente
+    tarifa: Tarifa
+    documents: Documents
+    orden-documents: 'Orden documents'
+    orden-vehiculos: 'Orden vehiculos'
+    vehiculos: Vehiculos

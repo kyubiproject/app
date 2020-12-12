@@ -3,9 +3,11 @@ es:
     id: Id
     nombre: Nombre
     descripcion: Descripcion
-    familia__id: 'Familia id'
-    potencia: Potencia
-    combustible: Combustible
-    combustible_cap: 'Combustible cap'
-    marca__id: 'Marca id'
-  __options: null
+    marca_id: 'Marca id'
+  __sections:
+    marca: Marca
+    modelo-caracteristicas: 'Modelo caracteristicas'
+    modelo-carga: 'Modelo carga'
+    grupo-modelos: 'Grupo modelos'
+    grupos: Grupos
+    vehiculos: Vehiculos
