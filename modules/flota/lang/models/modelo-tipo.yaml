@@ -1,7 +1,0 @@
-es:
-  __attributes:
-    modelo_id: 'Modelo id'
-    tipo_id: 'Tipo id'
-  __sections:
-    modelo: Modelo
-    tipo: Tipo

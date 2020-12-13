@@ -7,7 +7,7 @@ es:
     nacionalidad: Nacionalidad
     fecha_nacimiento: 'Fecha nacimiento'
   __sections:
-    cliente: Cliente
-    conductor: Conductor
     contactos: Contactos
     direccions: Direccions
+    cliente: Cliente
+    conductor: Conductor

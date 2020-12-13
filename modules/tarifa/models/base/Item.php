@@ -52,7 +52,7 @@ class Item extends \kyubi\base\ActiveRecord
 			[['tarifa', 'cantidad'], 'is', 'type' => 'float', 'size' => '7, 2'],
 			[['magnitud'], 'in', 'range' => ['HORA', 'DIA', 'MES', 'KM', 'LT'], 'strict' => true],
 			[['tipo'], 'in', 'range' => ['UNICO', 'CICLO', 'REFERENCIA'], 'strict' => true],
-			[['tarifa', 'magnitud'], 'unique', 'targetAttribute' => ['tarifa', 'magnitud']]        
+			[['magnitud', 'tarifa'], 'unique', 'targetAttribute' => ['magnitud', 'tarifa']]        
         ];
     }
 
@@ -67,12 +67,12 @@ class Item extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[TarifaItem]].
+     * Gets query for [[Tarifa]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getTarifas()
     {
-        return $this->hasMany(TarifaItem::className(), ['item_id' => 'id']);
+        return $this->hasMany(Tarifa::className(), ['id' => 'tarifa_id'])->viaTable('tarifa__tarifa_item', ['item_id' => 'id']);
     }
 }

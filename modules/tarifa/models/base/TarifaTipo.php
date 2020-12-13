@@ -6,7 +6,7 @@ namespace tarifa\models\base;
  *
  * Columns:
 * @property integer $tarifa_id  
-* @property string $grupo_id  
+* @property string $tipo_id  
    
  *
  * Relations:
@@ -41,11 +41,11 @@ class TarifaTipo extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['tarifa_id', 'grupo_id'], 'required'],
+			[['tarifa_id', 'tipo_id'], 'required'],
 			[['tarifa_id'], 'number'],
-			[['grupo_id'], 'string', 'max' => 3],
-			[['grupo_id', 'tarifa_id'], 'unique', 'targetAttribute' => ['grupo_id', 'tarifa_id']],
-			[['grupo_id'], 'exist', 'targetClass' => Tipo::className(), 'targetAttribute' => ['grupo_id' => 'id']],
+			[['tipo_id'], 'string', 'max' => 3],
+			[['tarifa_id', 'tipo_id'], 'unique', 'targetAttribute' => ['tarifa_id', 'tipo_id']],
+			[['tipo_id'], 'exist', 'targetClass' => Tipo::className(), 'targetAttribute' => ['tipo_id' => 'id']],
 			[['tarifa_id'], 'exist', 'targetClass' => Tarifa::className(), 'targetAttribute' => ['tarifa_id' => 'id']]        
         ];
     }
@@ -61,12 +61,12 @@ class TarifaTipo extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[Tarifa]].
+     * Gets query for [[\flota\models\base\Tipo]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getTipo()
     {
-        return $this->hasOne(Tarifa::className(), ['id' => 'tarifa_id']);
+        return $this->hasOne(\flota\models\base\Tipo::className(), ['id' => 'tipo_id']);
     }
 }

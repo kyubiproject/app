@@ -43,7 +43,7 @@ class TarifaItem extends \kyubi\base\ActiveRecord
         return [
 			[['tarifa_id', 'item_id'], 'required'],
 			[['tarifa_id', 'item_id'], 'number'],
-			[['tarifa_id', 'item_id'], 'unique', 'targetAttribute' => ['tarifa_id', 'item_id']],
+			[['item_id', 'tarifa_id'], 'unique', 'targetAttribute' => ['item_id', 'tarifa_id']],
 			[['tarifa_id'], 'exist', 'targetClass' => Tarifa::className(), 'targetAttribute' => ['tarifa_id' => 'id']],
 			[['item_id'], 'exist', 'targetClass' => Item::className(), 'targetAttribute' => ['item_id' => 'id']]        
         ];
@@ -60,12 +60,12 @@ class TarifaItem extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[Item]].
+     * Gets query for [[Tarifa]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getTarifa()
     {
-        return $this->hasOne(Item::className(), ['id' => 'item_id']);
+        return $this->hasOne(Tarifa::className(), ['id' => 'tarifa_id']);
     }
 }

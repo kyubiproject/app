@@ -44,7 +44,7 @@ class ModeloTipo extends \kyubi\base\ActiveRecord
 			[['modelo_id', 'tipo_id'], 'required'],
 			[['modelo_id'], 'number'],
 			[['tipo_id'], 'string', 'max' => 3],
-			[['tipo_id', 'modelo_id'], 'unique', 'targetAttribute' => ['tipo_id', 'modelo_id']],
+			[['modelo_id', 'tipo_id'], 'unique', 'targetAttribute' => ['modelo_id', 'tipo_id']],
 			[['modelo_id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['modelo_id' => 'id']],
 			[['tipo_id'], 'exist', 'targetClass' => Tipo::className(), 'targetAttribute' => ['tipo_id' => 'id']]        
         ];
@@ -61,12 +61,12 @@ class ModeloTipo extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[Modelo]].
+     * Gets query for [[Tipo]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getTipo()
     {
-        return $this->hasOne(Modelo::className(), ['id' => 'modelo_id']);
+        return $this->hasOne(Tipo::className(), ['id' => 'tipo_id']);
     }
 }

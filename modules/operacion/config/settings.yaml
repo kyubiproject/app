@@ -1,3 +1,4 @@
 controllers:
   document: ~
   orden: ~
+  orden-vehiculo: ~

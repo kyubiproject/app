@@ -8,7 +8,7 @@ namespace flota\models\base;
 * @property integer $id  
 * @property string|null $potencia  
 * @property string|null $combustible  
-* @property integer|null $combustible_cap  
+* @property boolean|null $combustible_cap  
 * @property float|null $largo  
 * @property float|null $ancho  
 * @property float|null $alto  

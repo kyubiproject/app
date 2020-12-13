@@ -6,7 +6,7 @@ namespace comun\models\base;
  *
  * Columns:
 * @property integer $id  
-* @property array $tipo  
+* @property string $tipo  
 * @property string|null $observacion  
    
  *
@@ -45,7 +45,7 @@ class Cliente extends \kyubi\base\ActiveRecord
         return [
 			[['id', 'tipo'], 'required'],
 			[['id'], 'number'],
-			[['tipo'], 'in', 'range' => ['PERSONA', 'EMPRESA']],
+			[['tipo'], 'in', 'range' => ['PERSONA', 'EMPRESA'], 'strict' => true],
 			[['id'], 'exist', 'targetClass' => Persona::className(), 'targetAttribute' => ['id' => 'id']]        
         ];
     }
@@ -71,12 +71,12 @@ class Cliente extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[Conductor]].
+     * Gets query for [[\operacion\models\base\Orden]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getOrdens()
     {
-        return $this->hasMany(Conductor::className(), ['id' => 'conductor_id'])->viaTable('', ['' => '']);
+        return $this->hasMany(\operacion\models\base\Orden::className(), ['cliente_id' => 'id']);
     }
 }

@@ -16,9 +16,8 @@ namespace operacion\models\base;
  *
  * Relations:
  * @property Document $
+ * @property MomentoOrden $momentoOrden
  * @property Document $s
- * @property OrdenDocument $ordenDocuments
- * @property Orden $ordens
  * @property \flota\models\base\VehiculoMovimiento $vehiculoMovimientos
  */
 class Document extends \kyubi\base\ActiveRecord
@@ -54,7 +53,7 @@ class Document extends \kyubi\base\ActiveRecord
 			[['codigo'], 'string', 'max' => 16],
 			[['fecha', 'fecha_estado'], 'date', 'type' => 'datetime', 'format' => 'yyyy-mm-dd hh:mm:ss'],
 			[['tipo'], 'in', 'range' => ['PRESUPUESTO', 'RESERVA', 'CONTRATO'], 'strict' => true],
-			[['estado'], 'in', 'range' => ['EN VIGOR', 'ANULADO', 'FINALIZADO', 'RENOVADO'], 'strict' => true],
+			[['estado'], 'in', 'range' => ['EN VIGOR', 'ANULADO', 'FINALIZADO'], 'strict' => true],
 			[['codigo'], 'unique'],
 			[['document_id'], 'exist', 'targetClass' => Document::className(), 'targetAttribute' => ['document_id' => 'id']]        
         ];
@@ -71,6 +70,16 @@ class Document extends \kyubi\base\ActiveRecord
     }
 
     /**
+     * Gets query for [[MomentoOrden]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMomentoOrden()
+    {
+        return $this->hasOne(MomentoOrden::className(), ['id' => 'id']);
+    }
+
+    /**
      * Gets query for [[Document]].
      *
      * @return \yii\db\ActiveQuery
@@ -81,32 +90,12 @@ class Document extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[OrdenDocument]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getOrdenDocuments()
-    {
-        return $this->hasMany(OrdenDocument::className(), ['document_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Orden]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getOrdens()
-    {
-        return $this->hasMany(Orden::className(), ['id' => 'orden_id'])->viaTable('operacion__orden_document', ['document_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Orden]].
+     * Gets query for [[\flota\models\base\VehiculoMovimiento]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getVehiculoMovimientos()
     {
-        return $this->hasMany(Orden::className(), ['id' => 'orden_id'])->viaTable('', ['' => '']);
+        return $this->hasMany(\flota\models\base\VehiculoMovimiento::className(), ['contrato_numero' => 'codigo']);
     }
 }

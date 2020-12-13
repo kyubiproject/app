@@ -1,3 +1,17 @@
 scenarios:
   default: 'orden_id vehiculo_id'
 attributes: ~
+relations:
+  orden: 'operacion\models\base\Orden orden_id'
+  vehiculo: 'flota\models\base\Vehiculo vehiculo_id'
+  ordenMovimientos: 'hasMany operacion\models\base\OrdenMovimiento orden_vehiculo_id'
+  vehiculoMovimientos: 'hasMany flota\models\base\VehiculoMovimiento movimiento_id'
+sections:
+  'orden@create update view':
+    relation: orden
+  'vehiculo@create update view':
+    relation: vehiculo
+  orden-movimientos@view:
+    relation: ordenMovimientos
+  vehiculo-movimientos@view:
+    relation: vehiculoMovimientos

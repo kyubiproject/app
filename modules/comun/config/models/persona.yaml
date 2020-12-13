@@ -7,11 +7,11 @@ relations:
   contactos: 'hasMany comun\models\base\PersonaContacto persona_id'
   direccions: 'hasMany comun\models\base\PersonaDireccion persona_id'
 sections:
-  'cliente@create update view':
-    relation: cliente
-  'conductor@create update view':
-    relation: conductor
   contactos@view:
     relation: contactos
   direccions@view:
     relation: direccions
+  'cliente@create update view':
+    relation: cliente
+  'conductor@create update view':
+    relation: conductor

@@ -1,0 +1,11 @@
+scenarios:
+  default: orden_id
+attributes: ~
+relations:
+  document: operacion\models\base\Document
+  orden: 'operacion\models\base\Orden orden_id'
+sections:
+  'orden@create update view':
+    relation: orden
+  'document@create update view':
+    relation: document

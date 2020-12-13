@@ -1,15 +1,24 @@
 scenarios:
-  default: matricula fecha_matricula bastidor modelo_id estado
-  view search: matricula fecha_matricula bastidor modelo.nombre estado
+  default: 'matricula fecha_matricula bastidor modelo_id estado'
+  'view search': 'matricula fecha_matricula bastidor modelo.nombre estado'
+  search-rel: 'matricula fecha_matricula bastidor estado fecha_Estado'
 attributes:
   modelo.nombre:
     label: modelo_id
 relations:
+  modelo: 'flota\models\base\Modelo modelo_id'
   caracteristicas: flota\models\base\VehiculoCaracteristicas
-  delegacions: hasMany flota\models\base\VehiculoDelegacion vehiculo_id
-  ordenVehiculos: hasMany operacion\models\base\OrdenVehiculo vehiculo_id
-  ordens: hasMany operacion\models\base\Orden orden_id
-  movimientos: hasMany flota\models\base\VehiculoMovimiento
+  delegacions: 'hasMany flota\models\base\VehiculoDelegacion vehiculo_id'
+  ordenVehiculos: 'hasMany operacion\models\base\OrdenVehiculo vehiculo_id'
+  movimientos: 'hasMany flota\models\base\VehiculoMovimiento'
 sections:
-  caracteristicas@create update view:
+  'modelo@create update view':
+    relation: modelo
+  delegacions@view:
+    relation: delegacions
+  orden-vehiculos@view:
+    relation: ordenVehiculos
+  movimientos@view:
+    relation: movimientos
+  'caracteristicas@create update view':
     relation: caracteristicas

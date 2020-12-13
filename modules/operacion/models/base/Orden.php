@@ -18,8 +18,8 @@ namespace operacion\models\base;
  * Relations:
  * @property \comun\models\base\Cliente $cliente
  * @property \tarifa\models\base\Tarifa $tarifa
- * @property OrdenDocument $documents
- * @property \flota\models\base\Vehiculo $vehiculos
+ * @property MomentoOrden $momentoOrdens
+ * @property OrdenVehiculo $vehiculos
  */
 class Orden extends \kyubi\base\ActiveRecord
 {
@@ -79,22 +79,22 @@ class Orden extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[OrdenDocument]].
+     * Gets query for [[MomentoOrden]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getDocuments()
+    public function getMomentoOrdens()
     {
-        return $this->hasMany(OrdenDocument::className(), ['orden_id' => 'id']);
+        return $this->hasMany(MomentoOrden::className(), ['orden_id' => 'id']);
     }
 
     /**
-     * Gets query for [[OrdenDocument]].
+     * Gets query for [[OrdenVehiculo]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getVehiculos()
     {
-        return $this->hasMany(OrdenDocument::className(), ['orden_id' => 'id']);
+        return $this->hasMany(OrdenVehiculo::className(), ['orden_id' => 'id']);
     }
 }

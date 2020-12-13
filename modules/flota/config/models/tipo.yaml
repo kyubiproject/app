@@ -1,14 +1,14 @@
 scenarios:
-  default: id tipo_vehiculo nombre descripcion fianza franquicia
+  default: 'id tipo_vehiculo nombre descripcion fianza franquicia'
 attributes:
   id:
     options:
       container:
-        class: col-6 col-md-2
+        class: 'col-6 col-md-2'
   nombre:
     options:
       container:
-        class: col-12 col-md-6
+        class: 'col-12 col-md-6'
   descripcion:
     options:
       container:
@@ -16,26 +16,26 @@ attributes:
   tipo_vehiculo:
     options:
       container:
-        class: col-6 col-md-4
+        class: 'col-6 col-md-4'
   fianza:
     options:
       container:
-        class: col-12 col-md-6
+        class: 'col-12 col-md-6'
   franquicia:
     options:
       container:
-        class: col-12 col-md-6
+        class: 'col-12 col-md-6'
 relations:
-  modeloTipos: hasMany flota\models\base\ModeloTipo tipo_id
-  modelos: hasMany flota\models\base\Modelo modelo_id
-  tarifaTipos: hasMany tarifa\models\base\TarifaTipo grupo_id
-  tarifas: hasMany tarifa\models\base\Tarifa tarifa_id
+  modeloTipos: 'hasMany flota\models\base\ModeloTipo tipo_id'
+  tarifaTipos: 'hasMany tarifa\models\base\TarifaTipo grupo_id'
+  modelos: 'hasMany flota\models\base\Modelo modelo_id'
+  tarifas: 'hasMany tarifa\models\base\Tarifa tarifa_id'
 sections:
   modelo-tipos@view:
     relation: modeloTipos
-  modelos@view:
-    relation: modelos
   tarifa-tipos@view:
     relation: tarifaTipos
+  modelos@view:
+    relation: modelos
   tarifas@view:
     relation: tarifas

@@ -43,7 +43,7 @@ class VehiculoDelegacion extends \kyubi\base\ActiveRecord
         return [
 			[['vehiculo_id', 'delegacion_id'], 'required'],
 			[['vehiculo_id', 'delegacion_id'], 'number'],
-			[['vehiculo_id', 'delegacion_id'], 'unique', 'targetAttribute' => ['vehiculo_id', 'delegacion_id']],
+			[['delegacion_id', 'vehiculo_id'], 'unique', 'targetAttribute' => ['delegacion_id', 'vehiculo_id']],
 			[['delegacion_id'], 'exist', 'targetClass' => \comun\models\base\Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']],
 			[['vehiculo_id'], 'exist', 'targetClass' => Vehiculo::className(), 'targetAttribute' => ['vehiculo_id' => 'id']]        
         ];
@@ -60,12 +60,12 @@ class VehiculoDelegacion extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[\comun\models\base\Delegacion]].
+     * Gets query for [[Vehiculo]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getVehiculo()
     {
-        return $this->hasOne(\comun\models\base\Delegacion::className(), ['id' => 'delegacion_id']);
+        return $this->hasOne(Vehiculo::className(), ['id' => 'vehiculo_id']);
     }
 }

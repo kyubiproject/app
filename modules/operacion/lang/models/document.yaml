@@ -20,6 +20,7 @@ es:
   __sections:
     '': ''
     s: S
+    vehiculo-movimientos: 'Vehiculo movimientos'
+    momento-orden: 'Momento orden'
     orden-documents: 'Orden documents'
     ordens: Ordens
-    vehiculo-movimientos: 'Vehiculo movimientos'

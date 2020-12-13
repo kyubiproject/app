@@ -94,12 +94,12 @@ class Modelo extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[Tipo]].
+     * Gets query for [[Vehiculo]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getVehiculos()
     {
-        return $this->hasMany(Tipo::className(), ['id' => 'tipo_id'])->viaTable('', ['' => '']);
+        return $this->hasMany(Vehiculo::className(), ['modelo_id' => 'id']);
     }
 }

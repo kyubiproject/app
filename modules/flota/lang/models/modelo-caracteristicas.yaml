@@ -13,5 +13,3 @@ es:
       DIESEL: Diesel
       ELECTRICO: Electrico
       HIBRIDO: Hibrido
-  __sections:
-    modelo: Modelo

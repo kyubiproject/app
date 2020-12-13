@@ -19,7 +19,6 @@ namespace flota\models\base;
  * @property VehiculoCaracteristicas $caracteristicas
  * @property VehiculoDelegacion $delegacions
  * @property \operacion\models\base\OrdenVehiculo $ordenVehiculos
- * @property \operacion\models\base\Orden $ordens
  * @property VehiculoMovimiento $movimientos
  */
 class Vehiculo extends \kyubi\base\ActiveRecord
@@ -103,22 +102,12 @@ class Vehiculo extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[\operacion\models\base\Orden]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getOrdens()
-    {
-        return $this->hasMany(\operacion\models\base\Orden::className(), ['id' => 'orden_id'])->viaTable('operacion__orden_vehiculo', ['vehiculo_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[\operacion\models\base\Orden]].
+     * Gets query for [[VehiculoMovimiento]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getMovimientos()
     {
-        return $this->hasMany(\operacion\models\base\Orden::className(), ['id' => 'orden_id'])->viaTable('', ['' => '']);
+        return $this->hasMany(VehiculoMovimiento::className(), ['vehiculo_id' => 'id']);
     }
 }

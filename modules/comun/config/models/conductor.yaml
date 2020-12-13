@@ -6,9 +6,9 @@ relations:
   clienteConductors: 'hasMany comun\models\base\ClienteConductor conductor_id'
   clientes: 'hasMany comun\models\base\Cliente cliente_id'
 sections:
-  'persona@create update view':
-    relation: persona
   cliente-conductors@view:
     relation: clienteConductors
+  'persona@create update view':
+    relation: persona
   clientes@view:
     relation: clientes

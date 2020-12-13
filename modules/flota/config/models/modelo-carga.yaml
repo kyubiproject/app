@@ -3,6 +3,3 @@ scenarios:
 attributes: ~
 relations:
   modelo: flota\models\base\Modelo
-sections:
-  'modelo@create update view':
-    relation: modelo

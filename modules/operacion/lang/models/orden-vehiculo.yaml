@@ -1,7 +1,10 @@
 es:
   __attributes:
+    id: Id
     orden_id: 'Orden id'
     vehiculo_id: 'Vehiculo id'
   __sections:
     orden: Orden
     vehiculo: Vehiculo
+    orden-movimientos: 'Orden movimientos'
+    vehiculo-movimientos: 'Vehiculo movimientos'

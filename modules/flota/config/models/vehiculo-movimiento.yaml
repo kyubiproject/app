@@ -1,0 +1,17 @@
+scenarios:
+  default: 'nombre descripcion fecha combustible km estado contrato_numero vehiculo_id'
+attributes: ~
+relations:
+  document: 'operacion\models\base\Document codigo contrato_numero'
+  vehiculo: 'flota\models\base\Vehiculo vehiculo_id'
+  ordenMovimientos: 'hasMany operacion\models\base\OrdenMovimiento movimiento_id'
+  ordenVehiculos: 'hasMany operacion\models\base\OrdenVehiculo orden_vehiculo_id'
+sections:
+  'document@create update view':
+    relation: document
+  'vehiculo@create update view':
+    relation: vehiculo
+  orden-movimientos@view:
+    relation: ordenMovimientos
+  orden-vehiculos@view:
+    relation: ordenVehiculos

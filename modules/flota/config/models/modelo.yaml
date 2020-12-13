@@ -1,33 +1,36 @@
 scenarios:
-  default: marca_id nombre descripcion
-  view search: marca.nombre nombre descripcion
+  default: 'marca_id nombre descripcion'
+  'view search': 'marca.nombre nombre descripcion'
 attributes:
   marca.nombre:
     label: marca_id
     options:
       container:
-        class: col-12 col-sm-6 col-md-4 col-lg-3
+        class: 'col-12 col-sm-6 col-md-4 col-lg-3'
   marca_id:
     options:
       container:
-        class: col-12 col-sm-6 col-md-4 col-lg-3
+        class: 'col-12 col-sm-6 col-md-4 col-lg-3'
   nombre:
     options:
       container:
-        class: col-12 col-sm-6 col-md-8 col-lg-9
+        class: 'col-12 col-sm-6 col-md-8 col-lg-9'
   descripcion:
     options:
       container:
         class: col-12
 relations:
+  marca: 'flota\models\base\Marca marca_id'
   caracteristicas: flota\models\base\ModeloCaracteristicas
   carga: flota\models\base\ModeloCarga
-  tipos: hasMany flota\models\base\Tipo tipo_id
-  vehiculos: hasMany flota\models\base\Vehiculo modelo_id
+  vehiculos: 'hasMany flota\models\base\Vehiculo modelo_id'
+  tipos: 'hasMany flota\models\base\Tipo tipo_id'
 sections:
-  caracteristicas@create update view:
-    relation: caracteristicas
-  carga@create update view:
-    relation: carga
+  'marca@create update view':
+    relation: marca
   vehiculos@view:
     relation: vehiculos
+  'caracteristicas@create update view':
+    relation: caracteristicas
+  'carga@create update view':
+    relation: carga

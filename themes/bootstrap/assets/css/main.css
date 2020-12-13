@@ -101,6 +101,6 @@ form[data-required]:after {
 	content: attr(data-required);
 }
 
-form[data-required] .form-group label:after {
+form[data-required] .form-group.required label:after {
 	content: " *";
 }

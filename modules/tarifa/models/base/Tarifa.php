@@ -6,7 +6,7 @@ namespace tarifa\models\base;
  *
  * Columns:
 * @property integer $id  
-* @property integer $hasta  
+* @property boolean $hasta  
 * @property string $tipo_tarifa  
 * @property integer $periodo_id  
    
@@ -49,7 +49,7 @@ class Tarifa extends \kyubi\base\ActiveRecord
 			[['id', 'periodo_id'], 'number'],
 			[['hasta'], 'is', 'type' => 'tinyint'],
 			[['tipo_tarifa'], 'in', 'range' => ['HORA', 'DIA', 'MES'], 'strict' => true],
-			[['tipo_tarifa', 'periodo_id', 'hasta'], 'unique', 'targetAttribute' => ['tipo_tarifa', 'periodo_id', 'hasta']],
+			[['hasta', 'periodo_id', 'tipo_tarifa'], 'unique', 'targetAttribute' => ['hasta', 'periodo_id', 'tipo_tarifa']],
 			[['periodo_id'], 'exist', 'targetClass' => Periodo::className(), 'targetAttribute' => ['periodo_id' => 'id']]        
         ];
     }
@@ -85,12 +85,12 @@ class Tarifa extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[\operacion\models\base\Orden]].
+     * Gets query for [[\flota\models\base\Tipo]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getTipos()
     {
-        return $this->hasMany(\operacion\models\base\Orden::className(), ['tarifa_id' => 'id']);
+        return $this->hasMany(\flota\models\base\Tipo::className(), ['id' => 'tipo_id'])->viaTable('tarifa__tarifa_tipo', ['tarifa_id' => 'id']);
     }
 }

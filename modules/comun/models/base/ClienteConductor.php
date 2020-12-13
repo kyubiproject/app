@@ -43,7 +43,7 @@ class ClienteConductor extends \kyubi\base\ActiveRecord
         return [
 			[['cliente_id', 'conductor_id'], 'required'],
 			[['cliente_id', 'conductor_id'], 'number'],
-			[['conductor_id', 'cliente_id'], 'unique', 'targetAttribute' => ['conductor_id', 'cliente_id']],
+			[['cliente_id', 'conductor_id'], 'unique', 'targetAttribute' => ['cliente_id', 'conductor_id']],
 			[['cliente_id'], 'exist', 'targetClass' => Cliente::className(), 'targetAttribute' => ['cliente_id' => 'id']],
 			[['conductor_id'], 'exist', 'targetClass' => Conductor::className(), 'targetAttribute' => ['conductor_id' => 'id']]        
         ];
@@ -60,12 +60,12 @@ class ClienteConductor extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[Cliente]].
+     * Gets query for [[Conductor]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getConductor()
     {
-        return $this->hasOne(Cliente::className(), ['id' => 'cliente_id']);
+        return $this->hasOne(Conductor::className(), ['id' => 'conductor_id']);
     }
 }

@@ -15,5 +15,6 @@ es:
   __sections:
     cliente: Cliente
     tarifa: Tarifa
-    documents: Documents
+    momento-ordens: 'Momento ordens'
     vehiculos: Vehiculos
+    documents: Documents

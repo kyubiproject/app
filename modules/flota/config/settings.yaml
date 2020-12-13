@@ -3,18 +3,15 @@ controllers:
   modelo: ~
   tipo: ~
   vehiculo: ~
-  modelo-caracteristicas: ~
-  modelo-carga: ~
-  vehiculo-caracteristicas: ~
 navbar:
   links:
     -
       vehiculo: ~
     -
-      itv: '#'
+      itv: false
     - separator
     -
-      planeacion: ~
+      planeacion: false
     -
       mantenimiento: false
     -

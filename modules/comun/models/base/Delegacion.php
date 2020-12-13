@@ -74,12 +74,12 @@ class Delegacion extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[\flota\models\base\VehiculoDelegacion]].
+     * Gets query for [[\flota\models\base\Vehiculo]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getVehiculos()
     {
-        return $this->hasMany(\flota\models\base\VehiculoDelegacion::className(), ['delegacion_id' => 'id']);
+        return $this->hasMany(\flota\models\base\Vehiculo::className(), ['id' => 'vehiculo_id'])->viaTable('flota__vehiculo_delegacion', ['delegacion_id' => 'id']);
     }
 }

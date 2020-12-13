@@ -88,12 +88,12 @@ class Persona extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[PersonaContacto]].
+     * Gets query for [[PersonaDireccion]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getDireccions()
     {
-        return $this->hasMany(PersonaContacto::className(), ['persona_id' => 'id']);
+        return $this->hasMany(PersonaDireccion::className(), ['persona_id' => 'id']);
     }
 }

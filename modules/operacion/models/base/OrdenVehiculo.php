@@ -5,6 +5,7 @@ namespace operacion\models\base;
  * This is the model class for table "operacion__orden_vehiculo".
  *
  * Columns:
+* @property integer $id  
 * @property integer $orden_id  
 * @property integer $vehiculo_id  
    
@@ -12,6 +13,8 @@ namespace operacion\models\base;
  * Relations:
  * @property Orden $orden
  * @property \flota\models\base\Vehiculo $vehiculo
+ * @property OrdenMovimiento $ordenMovimientos
+ * @property \flota\models\base\VehiculoMovimiento $vehiculoMovimientos
  */
 class OrdenVehiculo extends \kyubi\base\ActiveRecord
 {
@@ -42,7 +45,7 @@ class OrdenVehiculo extends \kyubi\base\ActiveRecord
     {
         return [
 			[['orden_id', 'vehiculo_id'], 'required'],
-			[['orden_id', 'vehiculo_id'], 'number'],
+			[['id', 'orden_id', 'vehiculo_id'], 'number'],
 			[['orden_id', 'vehiculo_id'], 'unique', 'targetAttribute' => ['orden_id', 'vehiculo_id']],
 			[['vehiculo_id'], 'exist', 'targetClass' => \flota\models\base\Vehiculo::className(), 'targetAttribute' => ['vehiculo_id' => 'id']],
 			[['orden_id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['orden_id' => 'id']]        
@@ -60,12 +63,32 @@ class OrdenVehiculo extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[Orden]].
+     * Gets query for [[\flota\models\base\Vehiculo]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getVehiculo()
     {
-        return $this->hasOne(Orden::className(), ['id' => 'orden_id']);
+        return $this->hasOne(\flota\models\base\Vehiculo::className(), ['id' => 'vehiculo_id']);
+    }
+
+    /**
+     * Gets query for [[OrdenMovimiento]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrdenMovimientos()
+    {
+        return $this->hasMany(OrdenMovimiento::className(), ['orden_vehiculo_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\flota\models\base\VehiculoMovimiento]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getVehiculoMovimientos()
+    {
+        return $this->hasMany(\flota\models\base\VehiculoMovimiento::className(), ['id' => 'movimiento_id'])->viaTable('operacion__orden_movimiento', ['orden_vehiculo_id' => 'id']);
     }
 }

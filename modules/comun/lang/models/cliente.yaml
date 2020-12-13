@@ -8,6 +8,6 @@ es:
       PERSONA: Persona
       EMPRESA: Empresa
   __sections:
-    persona: Persona
     conductors: Conductors
     ordens: Ordens
+    persona: Persona

@@ -82,16 +82,16 @@ class Tipo extends \kyubi\base\ActiveRecord
      */
     public function getTarifaTipos()
     {
-        return $this->hasMany(\tarifa\models\base\TarifaTipo::className(), ['grupo_id' => 'id']);
+        return $this->hasMany(\tarifa\models\base\TarifaTipo::className(), ['tipo_id' => 'id']);
     }
 
     /**
-     * Gets query for [[\tarifa\models\base\TarifaTipo]].
+     * Gets query for [[\tarifa\models\base\Tarifa]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getTarifas()
     {
-        return $this->hasMany(\tarifa\models\base\TarifaTipo::className(), ['grupo_id' => 'id']);
+        return $this->hasMany(\tarifa\models\base\Tarifa::className(), ['id' => 'tarifa_id'])->viaTable('tarifa__tarifa_tipo', ['tipo_id' => 'id']);
     }
 }

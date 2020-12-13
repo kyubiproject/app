@@ -76,12 +76,12 @@ class Conductor extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[ClienteConductor]].
+     * Gets query for [[Cliente]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getClientes()
     {
-        return $this->hasMany(ClienteConductor::className(), ['conductor_id' => 'id']);
+        return $this->hasMany(Cliente::className(), ['id' => 'cliente_id'])->viaTable('comun__cliente_conductor', ['conductor_id' => 'id']);
     }
 }

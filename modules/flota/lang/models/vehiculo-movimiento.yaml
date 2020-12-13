@@ -1,0 +1,29 @@
+es:
+  __attributes:
+    id: Id
+    nombre: Nombre
+    descripcion: Descripcion
+    fecha: Fecha
+    combustible: Combustible
+    km: Km
+    estado: Estado
+    fecha_estado: 'Fecha estado'
+    contrato_numero: 'Contrato numero'
+    vehiculo_id: 'Vehiculo id'
+  __options:
+    estado:
+      DISPONIBLE: Disponible
+      RESERVADO: Reservado
+      CONTRATADO: Contratado
+      AVERIADO: Averiado
+      MANTENIMIENTO: Mantenimiento
+      BAJA: Baja
+      ENTREGADO: Entregado
+      RECIBIDO: Recibido
+      RENOVADO: Renovado
+      SISTEMA: Sistema
+  __sections:
+    document: Document
+    vehiculo: Vehiculo
+    orden-movimientos: 'Orden movimientos'
+    orden-vehiculos: 'Orden vehiculos'

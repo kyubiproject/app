@@ -6,6 +6,6 @@ es:
     fecha_expedicion: 'Fecha expedicion'
     fecha_vencimiento: 'Fecha vencimiento'
   __sections:
-    persona: Persona
     cliente-conductors: 'Cliente conductors'
     clientes: Clientes
+    persona: Persona

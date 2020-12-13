@@ -1,0 +1,7 @@
+es:
+  __attributes:
+    id: Id
+    orden_id: 'Orden id'
+  __sections:
+    orden: Orden
+    document: Document
