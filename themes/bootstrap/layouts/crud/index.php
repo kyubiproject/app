@@ -15,7 +15,6 @@ Pjax::begin([
 ]);
 echo GridView::widget([
     'dataProvider' => $model->search(),
-    'columns' => $model->safeAttributes(),
     'tableOptions' => [
         'class' => 'table table-striped table-bordered'
     ],

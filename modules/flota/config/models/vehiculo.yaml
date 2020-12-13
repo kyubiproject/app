@@ -1,6 +1,9 @@
 scenarios:
-  default: matricula fecha_matricula bastidor estado modelo.nombre
-attributes: ~
+  default: matricula fecha_matricula bastidor modelo_id estado
+  view search: matricula fecha_matricula bastidor modelo.nombre estado
+attributes:
+  modelo.nombre:
+    label: modelo_id
 relations:
   caracteristicas: flota\models\base\VehiculoCaracteristicas
   delegacions: hasMany flota\models\base\VehiculoDelegacion vehiculo_id
@@ -10,11 +13,3 @@ relations:
 sections:
   caracteristicas@create update view:
     relation: caracteristicas
-  delegacions@view:
-    relation: delegacions
-  orden-vehiculos@view:
-    relation: ordenVehiculos
-  ordens@view:
-    relation: ordens
-  movimientos@view:
-    relation: movimientos

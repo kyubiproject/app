@@ -1,17 +1,15 @@
 <?php
+use kyubi\ui\widgets\GridView;
+use kyubi\helper\Str;
 use kyubi\ui\widgets\DetailView;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kyubi\base\model\RelationBehavior;
+use yii\data\ActiveDataProvider;
 
 $relation = 'get' . ucfirst($relation);
 $relation = model()->$relation();
-if ($relation->multiple) {
-    //echo __FILE__ . count($relation->all());
-    // // view()->renderFile(__DIR__ . '/index.php', [
-    // // 'dataProvider' => $relation->all()
-    // // ]);
-} else {
+if (! $relation->multiple) {
     $modelClass = $relation->modelClass;
     $model = $relation->one() ?? (new $modelClass());
     switch (model()->getScenario()) {
@@ -37,8 +35,9 @@ if ($relation->multiple) {
             echo Html::endTag('div');
             view()->registerJs('
 $("header .btn-toolbar").append("<button class=\"btn btn-light text-danger\" data-forms>' . str_replace('"', '\"', t('app', 'Save all')) . '</button>");
+//$("header .btn-toolbar button[data-form]").attr("data-form", null).attr("data-forms", true);
 $(document).on("click", "button[data-forms]", function(e) {
-    $("form:first").prepend("<input type=\"hidden\" name=\"' . RelationBehavior::INPUT_NAME . '\">");
+    $("form:first").prepend("<input type=\"hidden\" name=\"' . RelationBehavior::INPUT_NAME . '\" value=true>");
     $.post("", $("form").serialize());
     return true;
 });
@@ -56,4 +55,24 @@ $(document).on("click", "button[data-forms]", function(e) {
                 ]);
             }
     }
+} elseif(is_object($relation)) {
+    echo GridView::widget([
+        'dataProvider' => new ActiveDataProvider([
+            'query' => $relation
+        ]),
+        'tableOptions' => [
+            'class' => 'table table-striped table-bordered'
+        ],
+        'layout' => '<header class="row"><div class="col">{summary}</div></header><main class="table-responsive my-2">{items}</main><footer class="d-flex justify-content-between">{summary}{pager}</footer>',
+        'options' => [
+            'id' => Str::kebab(ref(controller()->modelClass)->getShortName() . '-grid')
+        ],
+        'rowOptions' => function ($model, $key, $index, $grid) {
+            return [
+                'id' => Str::kebab(ref(controller()->modelClass)->getShortName() . '-' . $index)
+            ];
+        }
+    ]);
+} else {
+    
 }

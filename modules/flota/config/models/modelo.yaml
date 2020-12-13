@@ -1,8 +1,9 @@
 scenarios:
   default: marca_id nombre descripcion
-  search view: marca.nombre nombre descripcion
+  view search: marca.nombre nombre descripcion
 attributes:
   marca.nombre:
+    label: marca_id
     options:
       container:
         class: col-12 col-sm-6 col-md-4 col-lg-3
@@ -28,7 +29,5 @@ sections:
     relation: caracteristicas
   carga@create update view:
     relation: carga
-  tipos@view:
-    relation: tipos
   vehiculos@view:
     relation: vehiculos
