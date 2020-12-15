@@ -1,2 +1,7 @@
 scenarios:
   default: 'fecha_entrega hora_entrega entrega_directa fecha_recogida hora_recogida recogida_directa comisionista'
+attributes:
+  comisionista:
+    options:
+      container: 
+        class: col-12

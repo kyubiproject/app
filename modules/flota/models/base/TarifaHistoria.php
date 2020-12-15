@@ -26,7 +26,7 @@ namespace flota\models\base;
  * @property \comun\models\base\Delegacion $delegacion
  * @property Tarifa $tarifa
  * @property Tipo $tipo
- * @property \opreacion\models\base\OrdenTarifa $ordenTarifas
+ * @property \operacion\models\base\OrdenTarifa $ordenTarifas
  */
 class TarifaHistoria extends \kyubi\base\ActiveRecord
 {
@@ -98,13 +98,13 @@ class TarifaHistoria extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[\opreacion\models\base\OrdenTarifa]].
+     * Gets query for [[\operacion\models\base\OrdenTarifa]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getOrdenTarifas()
     {
-        return $this->hasMany(\opreacion\models\base\OrdenTarifa::className(), ['tarifa_id' => 'id']);
+        return $this->hasMany(\operacion\models\base\OrdenTarifa::className(), ['tarifa_id' => 'id']);
     }
 
 	/**
@@ -117,7 +117,7 @@ class TarifaHistoria extends \kyubi\base\ActiveRecord
 			'delegacion' => ['type'=>'hasOne','refClass'=>'\\comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
 			'tarifa' => ['type'=>'hasOne','refClass'=>'Tarifa','refColumn'=>'id','column'=>'tarifa_id'],
 			'tipo' => ['type'=>'hasOne','refClass'=>'Tipo','refColumn'=>'id','column'=>'tipo_id'],
-			'ordenTarifas' => ['type'=>'hasMany','refClass'=>'\\opreacion\\models\\base\\OrdenTarifa','refColumn'=>'tarifa_id','column'=>'id']
+			'ordenTarifas' => ['type'=>'hasMany','refClass'=>'\\operacion\\models\\base\\OrdenTarifa','refColumn'=>'tarifa_id','column'=>'id']
 		];
 	}
 }

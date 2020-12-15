@@ -1,2 +1,8 @@
 es:
-  name: operacion
+  name: Operaciones
+  operacion/presupuesto: Presupuesto
+  operacion/reserva: Reserva
+  operacion/contrato: Contrato
+  #
+  'create {controller}': '{controller} <span class="btn btn-sm btn-success">Nuevo</span>'
+  

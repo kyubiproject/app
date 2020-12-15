@@ -79,8 +79,8 @@ class OrdenVehiculo extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'orden' => ['type'=>'hasOne','refClass'=>'Orden','refColumn'=>'id','column'=>'id'],
-			'vehiculo' => ['type'=>'hasOne','refClass'=>'\\flota\\models\\base\\Vehiculo','refColumn'=>'matricula','column'=>'vehiculo_matricula']
+			'orden' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'id'],
+			'vehiculo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Vehiculo','refColumn'=>'matricula','column'=>'vehiculo_matricula']
 		];
 	}
 }

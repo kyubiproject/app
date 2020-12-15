@@ -63,7 +63,7 @@ class OrdenObservacion extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'orden' => ['type'=>'hasOne','refClass'=>'Orden','refColumn'=>'id','column'=>'id']
+			'orden' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'id']
 		];
 	}
 }

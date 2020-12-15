@@ -130,11 +130,11 @@ class OrdenHistoria extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'delegacion' => ['type'=>'hasOne','refClass'=>'\\comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
-			'orden' => ['type'=>'hasOne','refClass'=>'Orden','refColumn'=>'id','column'=>'orden_id'],
-			'tarifa' => ['type'=>'hasOne','refClass'=>'\\flota\\models\\base\\Tarifa','refColumn'=>'id','column'=>'tarifa_id'],
-			'tipo' => ['type'=>'hasOne','refClass'=>'\\flota\\models\\base\\Tipo','refColumn'=>'id','column'=>'tipo_id'],
-			'vehiculo' => ['type'=>'hasOne','refClass'=>'\\flota\\models\\base\\Vehiculo','refColumn'=>'matricula','column'=>'vehiculo_matricula']
+			'delegacion' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
+			'orden' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'orden_id'],
+			'tarifa' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Tarifa','refColumn'=>'id','column'=>'tarifa_id'],
+			'tipo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Tipo','refColumn'=>'id','column'=>'tipo_id'],
+			'vehiculo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Vehiculo','refColumn'=>'matricula','column'=>'vehiculo_matricula']
 		];
 	}
 }

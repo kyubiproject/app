@@ -17558,8 +17558,8 @@ CREATE TABLE `flota__vehiculo_historia` (
   `delegacion_id` smallint(5) unsigned DEFAULT NULL,
   `estado` enum('DISPONIBLE','RESERVADO','CONTRATADO','AVERIADO','MANTENIMIENTO','BAJA','ENTREGADO','RECIBIDO','RENOVADO','SISTEMA') NOT NULL,
   `fecha_transaccion` timestamp NULL DEFAULT NULL,
-  `km` mediumint(8) unsigned DEFAULT NULL,
-  `combustible` tinyint(4) DEFAULT NULL,
+  `km` smallint(6) unsigned DEFAULT NULL,
+  `combustible` tinyint(3) DEFAULT NULL,
   `fecha` date NOT NULL,
   `contrato_numero` char(16) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
@@ -17602,8 +17602,8 @@ CREATE TABLE `flota__vehiculo_situacion` (
   `fecha_transaccion` timestamp NOT NULL DEFAULT current_timestamp(),
   `descripcion` text NOT NULL,
   `emplazamiento` text DEFAULT NULL,
-  `km` mediumint(8) unsigned NOT NULL,
-  `combustible` tinyint(2) unsigned NOT NULL,
+  `km` smallint(6) unsigned NOT NULL,
+  `combustible` tinyint(3) unsigned NOT NULL,
   `codigo_llave` varchar(10) DEFAULT NULL,
   `codigo_radio` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -17615,6 +17615,176 @@ CREATE TABLE `flota__vehiculo_situacion` (
 /*Data for the table `flota__vehiculo_situacion` */
 
 insert  into `flota__vehiculo_situacion`(`id`,`delegacion_id`,`estado`,`fecha_transaccion`,`descripcion`,`emplazamiento`,`km`,`combustible`,`codigo_llave`,`codigo_radio`) values (32774,44,'CONTRATADO','2020-12-14 21:09:01','PRUEBA','111111111',1,11,'1',NULL);
+
+/*Table structure for table `operacion__orden` */
+
+DROP TABLE IF EXISTS `operacion__orden`;
+
+CREATE TABLE `operacion__orden` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `delegacion_id` smallint(5) unsigned DEFAULT NULL,
+  `cliente` varchar(100) DEFAULT NULL,
+  `tipo_contrato` enum('CP','LP') NOT NULL,
+  `tipo_id` char(3) NOT NULL,
+  `tipo_tarifa` enum('HORA','DIA','MES') NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_operacion__orden_comun__cliente1_idx` (`cliente`),
+  KEY `delegacion_id` (`delegacion_id`),
+  KEY `tipo_id` (`tipo_id`),
+  CONSTRAINT `operacion__orden_ibfk_1` FOREIGN KEY (`delegacion_id`) REFERENCES `comun__delegacion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `operacion__orden_ibfk_2` FOREIGN KEY (`tipo_id`) REFERENCES `flota__tipo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+
+/*Data for the table `operacion__orden` */
+
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (1,14,'PRUEBA','CP','A','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (2,14,'PRUEBA','CP','A','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (3,14,'PRUEBA','CP','A','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (4,14,'PRUEBA','CP','A','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (5,14,'PRUEBA','CP','A','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (6,14,'PRUEBA','CP','A','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (7,14,'PRUEBA','CP','A-C','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (8,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (9,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (10,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (11,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (12,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (13,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (14,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (15,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (16,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (17,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (18,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (19,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (20,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (21,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (22,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (23,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (24,8,'1111111111','CP','A+','HORA');
+insert  into `operacion__orden`(`id`,`delegacion_id`,`cliente`,`tipo_contrato`,`tipo_id`,`tipo_tarifa`) values (25,8,'1111111111','CP','A+','HORA');
+
+/*Table structure for table `operacion__orden_detalles` */
+
+DROP TABLE IF EXISTS `operacion__orden_detalles`;
+
+CREATE TABLE `operacion__orden_detalles` (
+  `id` int(10) unsigned NOT NULL,
+  `fecha_entrega` date NOT NULL,
+  `hora_entrega` time NOT NULL,
+  `entrega_directa` bit(1) DEFAULT NULL,
+  `fecha_recogida` date NOT NULL,
+  `hora_recogida` time NOT NULL,
+  `recogida_directa` bit(1) DEFAULT NULL,
+  `comisionista` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `operacion__orden_detalles_ibfk_1` FOREIGN KEY (`id`) REFERENCES `operacion__orden` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `operacion__orden_detalles` */
+
+/*Table structure for table `operacion__orden_historia` */
+
+DROP TABLE IF EXISTS `operacion__orden_historia`;
+
+CREATE TABLE `operacion__orden_historia` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `orden_id` int(10) unsigned NOT NULL,
+  `estado_orden` enum('PRESUPUESTO','RESERVA','CONTRATO') NOT NULL,
+  `codigo` char(16) NOT NULL,
+  `delegacion_id` smallint(5) unsigned NOT NULL,
+  `tipo_contrato` enum('CP','LP') DEFAULT NULL,
+  `fecha_entrega` date DEFAULT NULL,
+  `fecha_recogida` date DEFAULT NULL,
+  `vehiculo_matricula` varchar(10) DEFAULT NULL,
+  `tipo_id` char(3) DEFAULT NULL,
+  `tarifa_id` int(10) unsigned DEFAULT NULL,
+  `cliente` varchar(100) DEFAULT NULL,
+  `estado` enum('EN VIGOR','ANULADO','FINALIZADO') NOT NULL DEFAULT 'EN VIGOR',
+  `fecha_transaccion` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `codigo_UNIQUE` (`codigo`),
+  KEY `orden_id` (`orden_id`),
+  KEY `delegacion_id` (`delegacion_id`),
+  KEY `vehiculo_matricula` (`vehiculo_matricula`),
+  KEY `tipo_id` (`tipo_id`),
+  KEY `tarifa_id` (`tarifa_id`),
+  CONSTRAINT `operacion__orden_historia_ibfk_1` FOREIGN KEY (`orden_id`) REFERENCES `operacion__orden` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `operacion__orden_historia_ibfk_2` FOREIGN KEY (`delegacion_id`) REFERENCES `comun__delegacion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `operacion__orden_historia_ibfk_3` FOREIGN KEY (`vehiculo_matricula`) REFERENCES `flota__vehiculo` (`matricula`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `operacion__orden_historia_ibfk_4` FOREIGN KEY (`tipo_id`) REFERENCES `flota__tipo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `operacion__orden_historia_ibfk_5` FOREIGN KEY (`tarifa_id`) REFERENCES `flota__tarifa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `operacion__orden_historia` */
+
+/*Table structure for table `operacion__orden_observacion` */
+
+DROP TABLE IF EXISTS `operacion__orden_observacion`;
+
+CREATE TABLE `operacion__orden_observacion` (
+  `id` int(10) unsigned NOT NULL,
+  `observacion` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `operacion__orden_observacion_ibfk_1` FOREIGN KEY (`id`) REFERENCES `operacion__orden` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `operacion__orden_observacion` */
+
+insert  into `operacion__orden_observacion`(`id`,`observacion`) values (7,'HOLA');
+insert  into `operacion__orden_observacion`(`id`,`observacion`) values (25,'aaaaaaaaaaa');
+
+/*Table structure for table `operacion__orden_situacion` */
+
+DROP TABLE IF EXISTS `operacion__orden_situacion`;
+
+CREATE TABLE `operacion__orden_situacion` (
+  `id` int(10) unsigned NOT NULL,
+  `codigo` char(16) NOT NULL,
+  `estado_orden` enum('PRESUPUESTO','RESERVA','CONTRATO') NOT NULL,
+  `estado` enum('EN VIGOR','ANULADO','FINALIZADO') DEFAULT NULL,
+  `orden_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `codigo_UNIQUE` (`codigo`),
+  KEY `orden_id` (`orden_id`),
+  CONSTRAINT `operacion__orden_situacion_ibfk_1` FOREIGN KEY (`id`) REFERENCES `operacion__orden` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `operacion__orden_situacion_ibfk_2` FOREIGN KEY (`orden_id`) REFERENCES `operacion__orden_situacion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `operacion__orden_situacion` */
+
+/*Table structure for table `operacion__orden_vehiculo` */
+
+DROP TABLE IF EXISTS `operacion__orden_vehiculo`;
+
+CREATE TABLE `operacion__orden_vehiculo` (
+  `id` int(10) unsigned NOT NULL,
+  `vehiculo_matricula` varchar(10) DEFAULT NULL,
+  `km` smallint(6) unsigned NOT NULL,
+  `combustible` tinyint(3) unsigned NOT NULL,
+  `detalle` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `vehiculo_matricula` (`vehiculo_matricula`),
+  CONSTRAINT `operacion__orden_vehiculo_ibfk_2` FOREIGN KEY (`id`) REFERENCES `operacion__orden` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `operacion__orden_vehiculo_ibfk_3` FOREIGN KEY (`vehiculo_matricula`) REFERENCES `flota__vehiculo` (`matricula`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `operacion__orden_vehiculo` */
+
+/*Table structure for table `operacion_orden_tarifa` */
+
+DROP TABLE IF EXISTS `operacion_orden_tarifa`;
+
+CREATE TABLE `operacion_orden_tarifa` (
+  `id` int(10) unsigned NOT NULL,
+  `tarifa_id` int(10) unsigned DEFAULT NULL,
+  `fecha_transaccion` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `tarifa_id` (`tarifa_id`),
+  CONSTRAINT `operacion_orden_tarifa_ibfk_1` FOREIGN KEY (`id`) REFERENCES `operacion__orden` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `operacion_orden_tarifa_ibfk_2` FOREIGN KEY (`tarifa_id`) REFERENCES `flota__tarifa_historia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `operacion_orden_tarifa` */
 
 /* Trigger structure for table `flota__tarifa` */
 

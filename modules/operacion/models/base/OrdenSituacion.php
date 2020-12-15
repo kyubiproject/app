@@ -93,9 +93,9 @@ class OrdenSituacion extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'orden' => ['type'=>'hasOne','refClass'=>'Orden','refColumn'=>'id','column'=>'id'],
-			'' => ['type'=>'hasOne','refClass'=>'OrdenSituacion','refColumn'=>'id','column'=>'orden_id'],
-			's' => ['type'=>'hasMany','refClass'=>'OrdenSituacion','refColumn'=>'orden_id','column'=>'id']
+			'orden' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'id'],
+			'' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenSituacion','refColumn'=>'id','column'=>'orden_id'],
+			's' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenSituacion','refColumn'=>'orden_id','column'=>'id']
 		];
 	}
 }

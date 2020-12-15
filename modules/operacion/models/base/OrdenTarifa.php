@@ -1,8 +1,8 @@
 <?php
-namespace opreacion\models\base;
+namespace operacion\models\base;
 
 /**
- * This is the model class for table "opreacion_orden_tarifa".
+ * This is the model class for table "operacion_orden_tarifa".
  *
  * Columns:
 * @property integer $id  
@@ -10,7 +10,7 @@ namespace opreacion\models\base;
    
  *
  * Relations:
- * @property \operacion\models\base\Orden $orden
+ * @property Orden $orden
  * @property \flota\models\base\TarifaHistoria $tarifaHistoria
  */
 class OrdenTarifa extends \kyubi\base\ActiveRecord
@@ -19,19 +19,19 @@ class OrdenTarifa extends \kyubi\base\ActiveRecord
      *
      * @var string
      */
-    protected static $_table = 'opreacion_orden_tarifa';
+    protected static $_table = 'operacion_orden_tarifa';
     
 	/**
      *
      * @var string
      */
-    protected static $_config = 'opreacion/config/models/orden-tarifa';
+    protected static $_config = 'operacion/config/models/orden-tarifa';
 
     /**
      *
      * @var string
      */
-    protected static $_lang = 'opreacion/lang/models/orden-tarifa';
+    protected static $_lang = 'operacion/lang/models/orden-tarifa';
 
     /**
      * 
@@ -49,13 +49,13 @@ class OrdenTarifa extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[\operacion\models\base\Orden]].
+     * Gets query for [[Orden]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getOrden()
     {
-        return $this->hasOne(\operacion\models\base\Orden::className(), ['id' => 'id']);
+        return $this->hasOne(Orden::className(), ['id' => 'id']);
     }
 
     /**
@@ -75,8 +75,8 @@ class OrdenTarifa extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'orden' => ['type'=>'hasOne','refClass'=>'\\operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'id'],
-			'tarifaHistoria' => ['type'=>'hasOne','refClass'=>'\\flota\\models\\base\\TarifaHistoria','refColumn'=>'id','column'=>'tarifa_id']
+			'orden' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'id'],
+			'tarifaHistoria' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\TarifaHistoria','refColumn'=>'id','column'=>'tarifa_id']
 		];
 	}
 }

@@ -2,7 +2,9 @@ scenarios:
   default: 'delegacion_id cliente tipo_contrato tipo_tarifa tipo_id'
   'create update': 'delegacion_id estado cliente tipo_contrato tipo_tarifa tipo_id'
 sections:
-  'observacion@create update view':
+  'detalles@create update view':
+    relation: detalles
+  'observacion.presupuesto@create update view':
     relation: observacion
 attributes:
   estado:
