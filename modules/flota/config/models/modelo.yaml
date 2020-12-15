@@ -2,11 +2,6 @@ scenarios:
   default: 'tipo_id marca_id nombre descripcion'
   search: 'marca.nombre nombre tipo_id descripcion'
   search-rel: 'nombre tipo_id descripcion'
-relations:
-  marca: 'flota\models\base\Marca marca_id'
-  caracteristicas: flota\models\base\ModeloCaracteristicas
-  carga: flota\models\base\ModeloCarga
-  vehiculos: 'hasMany flota\models\base\Vehiculo modelo_id'
 sections:
   vehiculos@view:
     relation: vehiculos

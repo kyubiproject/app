@@ -116,3 +116,12 @@ form[data-required] .form-group.required label:after {
 .pr-30 {padding-right: 30% !important;}
 .pr-50 {padding-right: 50% !important;}
 .pr-70 {padding-right: 70% !important;}
+
+
+td[data-type=decimal] {
+	text-align: right;
+}
+
+td[data-type^=date], td[data-type^=time], td[data-type^=integer], td[data-type^=enum] {
+	text-align: center;
+}

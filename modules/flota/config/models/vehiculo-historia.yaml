@@ -1,7 +1,5 @@
 scenarios:
   default: 'fecha fecha_transaccion delegacion.nombre estado km combustible contrato_numero'
-relations:
-  vehiculo: 'flota\models\base\Vehiculo vehiculo_id'
 sections:
   delegacion:
     relation: delegacion
@@ -13,6 +11,10 @@ attributes:
   fecha:
     format: date
   km:
+    format:
+      - decimal
+      - 0
+  combustible:
     format:
       - decimal
       - 0

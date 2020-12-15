@@ -18,6 +18,8 @@ namespace flota\models\base;
  * @property VehiculoCaracteristicas $caracteristicas
  * @property VehiculoObservacion $observacion
  * @property VehiculoSituacion $situacion
+ * @property \operacion\models\base\OrdenHistoria $ordenHistorias
+ * @property \operacion\models\base\OrdenVehiculo $ordenVehiculos
  * @property VehiculoHistoria $historias
  */
 class Vehiculo extends \kyubi\base\ActiveRecord
@@ -52,7 +54,6 @@ class Vehiculo extends \kyubi\base\ActiveRecord
 			[['matricula'], 'string', 'max' => 10],
 			[['bastidor'], 'string', 'max' => 30],
 			[['fecha_matricula'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['modelo_id', 'delegacion_id'], 'number'],
 			[['modelo_id', 'delegacion_id'], 'integer'],
 			[['bastidor', 'matricula'], 'unique'],
 			[['modelo_id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['modelo_id' => 'id']],
@@ -111,6 +112,26 @@ class Vehiculo extends \kyubi\base\ActiveRecord
     }
 
     /**
+     * Gets query for [[\operacion\models\base\OrdenHistoria]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrdenHistorias()
+    {
+        return $this->hasMany(\operacion\models\base\OrdenHistoria::className(), ['vehiculo_matricula' => 'matricula']);
+    }
+
+    /**
+     * Gets query for [[\operacion\models\base\OrdenVehiculo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrdenVehiculos()
+    {
+        return $this->hasMany(\operacion\models\base\OrdenVehiculo::className(), ['vehiculo_matricula' => 'matricula']);
+    }
+
+    /**
      * Gets query for [[VehiculoHistoria]].
      *
      * @return \yii\db\ActiveQuery
@@ -119,4 +140,22 @@ class Vehiculo extends \kyubi\base\ActiveRecord
     {
         return $this->hasMany(VehiculoHistoria::className(), ['vehiculo_id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'delegacion' => ['type'=>'hasOne','refClass'=>'\\comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
+			'modelo' => ['type'=>'hasOne','refClass'=>'Modelo','refColumn'=>'id','column'=>'modelo_id'],
+			'caracteristicas' => ['type'=>'hasOne','refClass'=>'VehiculoCaracteristicas','refColumn'=>'id','column'=>'id'],
+			'observacion' => ['type'=>'hasOne','refClass'=>'VehiculoObservacion','refColumn'=>'id','column'=>'id'],
+			'situacion' => ['type'=>'hasOne','refClass'=>'VehiculoSituacion','refColumn'=>'id','column'=>'id'],
+			'ordenHistorias' => ['type'=>'hasMany','refClass'=>'\\operacion\\models\\base\\OrdenHistoria','refColumn'=>'vehiculo_matricula','column'=>'matricula'],
+			'ordenVehiculos' => ['type'=>'hasMany','refClass'=>'\\operacion\\models\\base\\OrdenVehiculo','refColumn'=>'vehiculo_matricula','column'=>'matricula'],
+			'historias' => ['type'=>'hasMany','refClass'=>'VehiculoHistoria','refColumn'=>'vehiculo_id','column'=>'id']
+		];
+	}
 }

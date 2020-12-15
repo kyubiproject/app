@@ -1,0 +1,14 @@
+controllers:
+  presupuesto:
+    class: app\base\Controller
+    modelClass: operacion\models\PresupuestoModel
+  orden: ~
+  orden-situacion: ~
+navbar:
+  links:
+    -
+      presupuesto: ~
+    -
+      reserva: ~
+    -
+      contrato: ~

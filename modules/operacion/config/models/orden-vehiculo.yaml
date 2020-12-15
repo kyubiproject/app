@@ -1,0 +1,5 @@
+scenarios:
+  default: 'vehiculo_matricula km combustible detalle'
+sections:
+  vehiculo:
+    relation: vehiculo

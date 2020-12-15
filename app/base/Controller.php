@@ -9,15 +9,6 @@ class Controller extends \kyubi\api\controllers\CrudController
 
     /**
      *
-     * @return \ReflectionClass
-     */
-    public function reflection()
-    {
-        return ref($this)->getParentClass();
-    }
-
-    /**
-     *
      * @param array $params
      * @return NULL|string
      */

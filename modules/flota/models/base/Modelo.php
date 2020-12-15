@@ -49,7 +49,6 @@ class Modelo extends \kyubi\base\ActiveRecord
 			[['nombre'], 'required'],
 			[['nombre'], 'string', 'max' => 100],
 			[['tipo_id'], 'string', 'max' => 3],
-			[['marca_id'], 'number'],
 			[['marca_id'], 'integer'],
 			[['marca_id'], 'exist', 'targetClass' => Marca::className(), 'targetAttribute' => ['marca_id' => 'id']],
 			[['tipo_id'], 'exist', 'targetClass' => Tipo::className(), 'targetAttribute' => ['tipo_id' => 'id']]        
@@ -105,4 +104,19 @@ class Modelo extends \kyubi\base\ActiveRecord
     {
         return $this->hasMany(Vehiculo::className(), ['modelo_id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'marca' => ['type'=>'hasOne','refClass'=>'Marca','refColumn'=>'id','column'=>'marca_id'],
+			'caracteristicas' => ['type'=>'hasOne','refClass'=>'ModeloCaracteristicas','refColumn'=>'id','column'=>'id'],
+			'carga' => ['type'=>'hasOne','refClass'=>'ModeloCarga','refColumn'=>'id','column'=>'id'],
+			'tipo' => ['type'=>'hasOne','refClass'=>'Tipo','refColumn'=>'id','column'=>'tipo_id'],
+			'vehiculos' => ['type'=>'hasMany','refClass'=>'Vehiculo','refColumn'=>'modelo_id','column'=>'id']
+		];
+	}
 }

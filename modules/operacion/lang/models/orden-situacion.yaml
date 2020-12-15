@@ -1,0 +1,14 @@
+es:
+  __attributes:
+    codigo: Código
+    estado_orden: Estado de orden
+    estado: Estado
+  __options:
+    estado_orden:
+      PRESUPUESTO: Presupuesto
+      RESERVA: Reserva
+      CONTRATO: Contrato
+    estado:
+      'EN VIGOR': En vigor
+      ANULADO: Anulado
+      FINALIZADO: Finalizado

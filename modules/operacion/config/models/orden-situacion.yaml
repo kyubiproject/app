@@ -1,0 +1,7 @@
+scenarios:
+  default: 'codigo estado_orden estado'
+sections:
+  '':
+    relation: ''
+  s@view:
+    relation: s

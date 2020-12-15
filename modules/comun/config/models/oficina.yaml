@@ -1,8 +1,5 @@
 scenarios:
   default: 'nombre descripcion direccion horario ubicacion correo telefono whatsapp delegacion_id'
-attributes: ~
-relations:
-  delegacion: 'comun\models\base\Delegacion delegacion_id'
 sections:
-  'delegacion@create update view':
+  delegacion:
     relation: delegacion

@@ -45,7 +45,6 @@ class ModeloCarga extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id'], 'required'],
-			[['id', 'largo', 'ancho', 'alto'], 'number'],
 			[['id'], 'integer'],
 			[['peso', 'volumen'], 'string', 'max' => 10],
 			[['id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['id' => 'id']]        
@@ -61,4 +60,15 @@ class ModeloCarga extends \kyubi\base\ActiveRecord
     {
         return $this->hasOne(Modelo::className(), ['id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'modelo' => ['type'=>'hasOne','refClass'=>'Modelo','refColumn'=>'id','column'=>'id']
+		];
+	}
 }

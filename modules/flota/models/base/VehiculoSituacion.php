@@ -49,7 +49,6 @@ class VehiculoSituacion extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id', 'estado', 'descripcion', 'km', 'combustible'], 'required'],
-			[['id', 'delegacion_id', 'km', 'combustible'], 'number'],
 			[['id', 'delegacion_id', 'km', 'combustible'], 'integer'],
 			[['estado'], 'in', 'range' => ['DISPONIBLE', 'RESERVADO', 'CONTRATADO', 'AVERIADO', 'MANTENIMIENTO', 'BAJA', 'ENTREGADO', 'RECIBIDO', 'RENOVADO'], 'strict' => true],
 			[['codigo_llave', 'codigo_radio'], 'string', 'max' => 10],
@@ -77,4 +76,16 @@ class VehiculoSituacion extends \kyubi\base\ActiveRecord
     {
         return $this->hasOne(Vehiculo::className(), ['id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'delegacion' => ['type'=>'hasOne','refClass'=>'\\comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
+			'vehiculo' => ['type'=>'hasOne','refClass'=>'Vehiculo','refColumn'=>'id','column'=>'id']
+		];
+	}
 }

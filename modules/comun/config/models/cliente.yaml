@@ -1,14 +1,2 @@
 scenarios:
   default: 'tipo observacion'
-attributes: ~
-relations:
-  persona: comun\models\base\Persona
-  ordens: 'hasMany operacion\models\base\Orden cliente_id'
-  conductors: 'hasMany comun\models\base\Conductor conductor_id'
-sections:
-  ordens@view:
-    relation: ordens
-  'persona@create update view':
-    relation: persona
-  conductors@view:
-    relation: conductors

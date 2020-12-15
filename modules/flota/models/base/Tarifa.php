@@ -24,6 +24,7 @@ namespace flota\models\base;
  * Relations:
  * @property \comun\models\base\Delegacion $delegacion
  * @property Tipo $tipo
+ * @property \operacion\models\base\OrdenHistoria $ordenHistorias
  * @property TarifaHistoria $historias
  */
 class Tarifa extends \kyubi\base\ActiveRecord
@@ -55,7 +56,6 @@ class Tarifa extends \kyubi\base\ActiveRecord
     {
         return [
 			[['hasta', 'tipo_tarifa', 'fecha_inicio', 'tipo_id'], 'required'],
-			[['desde', 'hasta', 'km', 'eur_km', 'eur_lt', 'hora', 'eur_hora', 'eur_dia', 'eur_mes', 'delegacion_id'], 'number'],
 			[['desde', 'hasta', 'delegacion_id'], 'integer'],
 			[['tipo_tarifa'], 'in', 'range' => ['DIA', 'MES', 'HORA'], 'strict' => true],
 			[['fecha_inicio', 'fecha_fin'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
@@ -86,6 +86,16 @@ class Tarifa extends \kyubi\base\ActiveRecord
     }
 
     /**
+     * Gets query for [[\operacion\models\base\OrdenHistoria]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrdenHistorias()
+    {
+        return $this->hasMany(\operacion\models\base\OrdenHistoria::className(), ['tarifa_id' => 'id']);
+    }
+
+    /**
      * Gets query for [[TarifaHistoria]].
      *
      * @return \yii\db\ActiveQuery
@@ -94,4 +104,18 @@ class Tarifa extends \kyubi\base\ActiveRecord
     {
         return $this->hasMany(TarifaHistoria::className(), ['tarifa_id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'delegacion' => ['type'=>'hasOne','refClass'=>'\\comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
+			'tipo' => ['type'=>'hasOne','refClass'=>'Tipo','refColumn'=>'id','column'=>'tipo_id'],
+			'ordenHistorias' => ['type'=>'hasMany','refClass'=>'\\operacion\\models\\base\\OrdenHistoria','refColumn'=>'tarifa_id','column'=>'id'],
+			'historias' => ['type'=>'hasMany','refClass'=>'TarifaHistoria','refColumn'=>'tarifa_id','column'=>'id']
+		];
+	}
 }

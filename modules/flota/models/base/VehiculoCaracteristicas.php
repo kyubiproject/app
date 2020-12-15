@@ -46,7 +46,6 @@ class VehiculoCaracteristicas extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id'], 'required'],
-			[['id', 'plazas', 'puertas'], 'number'],
 			[['id', 'plazas', 'puertas'], 'integer'],
 			[['color'], 'string', 'max' => 20],
 			[['anio'], 'string', 'max' => 4],
@@ -65,4 +64,15 @@ class VehiculoCaracteristicas extends \kyubi\base\ActiveRecord
     {
         return $this->hasOne(Vehiculo::className(), ['id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'vehiculo' => ['type'=>'hasOne','refClass'=>'Vehiculo','refColumn'=>'id','column'=>'id']
+		];
+	}
 }

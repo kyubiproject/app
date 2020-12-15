@@ -1,5 +1,3 @@
 scenarios:
   default: 'potencia combustible combustible_cap largo ancho alto'
-relations:
-  modelo: flota\models\base\Modelo
 attributes: ~

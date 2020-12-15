@@ -48,7 +48,6 @@ class VehiculoHistoria extends \kyubi\base\ActiveRecord
     {
         return [
 			[['vehiculo_id', 'estado', 'fecha'], 'required'],
-			[['vehiculo_id', 'delegacion_id', 'km', 'combustible'], 'number'],
 			[['vehiculo_id', 'delegacion_id', 'km', 'combustible'], 'integer'],
 			[['estado'], 'in', 'range' => ['DISPONIBLE', 'RESERVADO', 'CONTRATADO', 'AVERIADO', 'MANTENIMIENTO', 'BAJA', 'ENTREGADO', 'RECIBIDO', 'RENOVADO', 'SISTEMA'], 'strict' => true],
 			[['fecha'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
@@ -77,4 +76,16 @@ class VehiculoHistoria extends \kyubi\base\ActiveRecord
     {
         return $this->hasOne(Vehiculo::className(), ['id' => 'vehiculo_id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'delegacion' => ['type'=>'hasOne','refClass'=>'\\comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
+			'vehiculo' => ['type'=>'hasOne','refClass'=>'Vehiculo','refColumn'=>'id','column'=>'vehiculo_id']
+		];
+	}
 }

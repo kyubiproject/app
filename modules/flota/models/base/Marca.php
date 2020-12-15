@@ -57,4 +57,15 @@ class Marca extends \kyubi\base\ActiveRecord
     {
         return $this->hasMany(Modelo::className(), ['marca_id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'modelos' => ['type'=>'hasMany','refClass'=>'Modelo','refColumn'=>'marca_id','column'=>'id']
+		];
+	}
 }

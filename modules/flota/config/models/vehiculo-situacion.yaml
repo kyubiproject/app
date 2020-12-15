@@ -1,9 +1,6 @@
 scenarios:
   default: 'delegacion_id estado descripcion emplazamiento km codigo_llave combustible codigo_radio'
   view: 'delegacion.nombre estado descripcion emplazamiento km codigo_llave combustible codigo_radio fecha_transaccion'
-relations:
-  delegacion: 'comun\models\base\Delegacion delegacion_id'
-  vehiculo: flota\models\base\Vehiculo
 sections:
   delegacion:
     relation: delegacion
@@ -48,4 +45,4 @@ attributes:
       container:
         class: col-12
       input:
-        class: 'border-0 pl-0 d-inline'
+        class: 'form-control-plaintext d-inline'

@@ -1,0 +1,10 @@
+es:
+  __attributes:
+    id: Id
+    fecha_entrega: 'Fecha entrega'
+    hora_entrega: 'Hora entrega'
+    entrega_directa: 'Entrega directa'
+    fecha_recogida: 'Fecha recogida'
+    hora_recogida: 'Hora recogida'
+    recogida_directa: 'Recogida directa'
+    comisionista: Comisionista

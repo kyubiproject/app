@@ -1,5 +1,2 @@
 scenarios:
   default: 'largo ancho alto peso volumen'
-relations:
-  modelo: flota\models\base\Modelo
-attributes: ~

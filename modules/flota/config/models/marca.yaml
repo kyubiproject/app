@@ -1,7 +1,5 @@
 scenarios:
   default: 'nombre descripcion correo telefono'
-relations:
-  modelos: 'hasMany flota\models\base\Modelo marca_id'
 sections:
   modelos@view:
     relation: modelos

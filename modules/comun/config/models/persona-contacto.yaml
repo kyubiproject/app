@@ -1,8 +1,5 @@
 scenarios:
   default: 'informacion descripcion tipo clase persona_id'
-attributes: ~
-relations:
-  persona: 'comun\models\base\Persona persona_id'
 sections:
-  'persona@create update view':
+  persona:
     relation: persona

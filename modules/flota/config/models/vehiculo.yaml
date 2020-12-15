@@ -2,13 +2,6 @@ scenarios:
   default: 'matricula fecha_matricula bastidor modelo_id'
   search: 'matricula fecha_matricula bastidor modelo.nombre situacion.estado'
   search-rel: 'matricula fecha_matricula bastidor situacion.fecha_estado situacion.estado'
-relations:
-  delegacion: 'comun\models\base\Delegacion delegacion_id'
-  modelo: 'flota\models\base\Modelo modelo_id'
-  caracteristicas: flota\models\base\VehiculoCaracteristicas
-  observacion: flota\models\base\VehiculoObservacion
-  situacion: flota\models\base\VehiculoSituacion
-  historias: 'hasMany flota\models\base\VehiculoHistoria vehiculo_id'
 sections:
   situacion:
     relation: situacion

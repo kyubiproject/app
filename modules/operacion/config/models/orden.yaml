@@ -1,0 +1,17 @@
+scenarios:
+  default: 'delegacion_id cliente tipo_contrato tipo_tarifa tipo_id'
+  create update: 'delegacion_id estado cliente tipo_contrato tipo_tarifa tipo_id'
+attributes:
+  estado:
+    options:
+      container:
+        class: col-12 col-md-6 offset-lg-4 col-lg-4
+      input:
+        readonly: true
+  cliente:
+    options:
+      container:
+        class: col-12
+sections:
+  'observacion@create update view':
+    relation: observacion

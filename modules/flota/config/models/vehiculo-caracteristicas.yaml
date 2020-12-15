@@ -1,5 +1,2 @@
 scenarios:
   default: 'color anio transmision plazas puertas extra'
-relations:
-  vehiculo: flota\models\base\Vehiculo
-attributes: ~

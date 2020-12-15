@@ -1,0 +1,15 @@
+es:
+  __attributes:
+    delegacion_id: Delegación
+    cliente: Cliente
+    tipo_contrato: Tipo de contrato
+    tipo_id: Grupo de tarificación
+    tipo_tarifa: Tipo de tarifa
+  __options:
+    tipo_contrato:
+      CP: Corto plazo
+      LP: Largo plazo
+    tipo_tarifa:
+      HORA: Hora
+      DIA: Día
+      MES: Mes

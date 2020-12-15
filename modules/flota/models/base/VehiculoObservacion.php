@@ -41,7 +41,6 @@ class VehiculoObservacion extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id'], 'required'],
-			[['id'], 'number'],
 			[['id'], 'integer'],
 			[['id'], 'exist', 'targetClass' => Vehiculo::className(), 'targetAttribute' => ['id' => 'id']]        
         ];
@@ -56,4 +55,15 @@ class VehiculoObservacion extends \kyubi\base\ActiveRecord
     {
         return $this->hasOne(Vehiculo::className(), ['id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'vehiculo' => ['type'=>'hasOne','refClass'=>'Vehiculo','refColumn'=>'id','column'=>'id']
+		];
+	}
 }

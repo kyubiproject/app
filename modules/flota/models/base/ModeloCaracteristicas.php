@@ -46,7 +46,6 @@ class ModeloCaracteristicas extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id'], 'required'],
-			[['id', 'combustible_cap', 'largo', 'ancho', 'alto'], 'number'],
 			[['id', 'combustible_cap'], 'integer'],
 			[['potencia'], 'string', 'max' => 10],
 			[['combustible'], 'in', 'range' => ['GASOLINA', 'DIESEL', 'ELECTRICO', 'HIBRIDO'], 'strict' => true],
@@ -63,4 +62,15 @@ class ModeloCaracteristicas extends \kyubi\base\ActiveRecord
     {
         return $this->hasOne(Modelo::className(), ['id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'modelo' => ['type'=>'hasOne','refClass'=>'Modelo','refColumn'=>'id','column'=>'id']
+		];
+	}
 }

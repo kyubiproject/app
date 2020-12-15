@@ -15,6 +15,8 @@ namespace flota\models\base;
  *
  * Relations:
  * @property Modelo $modelos
+ * @property \operacion\models\base\OrdenHistoria $ordenHistorias
+ * @property \operacion\models\base\Orden $ordens
  * @property TarifaHistoria $tarifaHistorias
  * @property Tarifa $tarifas
  */
@@ -49,8 +51,7 @@ class Tipo extends \kyubi\base\ActiveRecord
 			[['id', 'nombre'], 'required'],
 			[['id'], 'string', 'max' => 3],
 			[['nombre'], 'string', 'max' => 100],
-			[['tipo_vehiculo'], 'in', 'range' => ['COMERCIAL', 'ESPECIAL', 'MONOVOLUMEN', 'TODOTERRENO', 'TURISMO'], 'strict' => true],
-			[['fianza', 'franquicia'], 'number']        
+			[['tipo_vehiculo'], 'in', 'range' => ['COMERCIAL', 'ESPECIAL', 'MONOVOLUMEN', 'TODOTERRENO', 'TURISMO'], 'strict' => true]        
         ];
     }
 
@@ -62,6 +63,26 @@ class Tipo extends \kyubi\base\ActiveRecord
     public function getModelos()
     {
         return $this->hasMany(Modelo::className(), ['tipo_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\operacion\models\base\OrdenHistoria]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrdenHistorias()
+    {
+        return $this->hasMany(\operacion\models\base\OrdenHistoria::className(), ['tipo_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\operacion\models\base\Orden]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrdens()
+    {
+        return $this->hasMany(\operacion\models\base\Orden::className(), ['tipo_id' => 'id']);
     }
 
     /**
@@ -83,4 +104,19 @@ class Tipo extends \kyubi\base\ActiveRecord
     {
         return $this->hasMany(Tarifa::className(), ['tipo_id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'modelos' => ['type'=>'hasMany','refClass'=>'Modelo','refColumn'=>'tipo_id','column'=>'id'],
+			'ordenHistorias' => ['type'=>'hasMany','refClass'=>'\\operacion\\models\\base\\OrdenHistoria','refColumn'=>'tipo_id','column'=>'id'],
+			'ordens' => ['type'=>'hasMany','refClass'=>'\\operacion\\models\\base\\Orden','refColumn'=>'tipo_id','column'=>'id'],
+			'tarifaHistorias' => ['type'=>'hasMany','refClass'=>'TarifaHistoria','refColumn'=>'tipo_id','column'=>'id'],
+			'tarifas' => ['type'=>'hasMany','refClass'=>'Tarifa','refColumn'=>'tipo_id','column'=>'id']
+		];
+	}
 }

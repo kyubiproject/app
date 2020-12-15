@@ -1,0 +1,13 @@
+scenarios:
+  default: 'orden_id estado_orden codigo delegacion_id tipo_contrato fecha_entrega fecha_recogida vehiculo_matricula tipo_id tarifa_id cliente estado'
+sections:
+  delegacion:
+    relation: delegacion
+  orden:
+    relation: orden
+  tarifa:
+    relation: tarifa
+  tipo:
+    relation: tipo
+  vehiculo:
+    relation: vehiculo

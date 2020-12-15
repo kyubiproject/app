@@ -1,0 +1,32 @@
+es:
+  __attributes:
+    orden_id: 'Orden id'
+    estado_orden: 'Estado orden'
+    codigo: Codigo
+    delegacion_id: 'Delegacion id'
+    tipo_contrato: 'Tipo contrato'
+    fecha_entrega: 'Fecha entrega'
+    fecha_recogida: 'Fecha recogida'
+    vehiculo_matricula: 'Vehiculo matricula'
+    tipo_id: 'Tipo id'
+    tarifa_id: 'Tarifa id'
+    cliente: Cliente
+    estado: Estado
+  __options:
+    estado_orden:
+      PRESUPUESTO: Presupuesto
+      RESERVA: Reserva
+      CONTRATO: Contrato
+    tipo_contrato:
+      CP: Cp
+      LP: Lp
+    estado:
+      'EN VIGOR': 'En Vigor'
+      ANULADO: Anulado
+      FINALIZADO: Finalizado
+  __sections:
+    delegacion: Delegacion
+    orden: Orden
+    tarifa: Tarifa
+    tipo: Tipo
+    vehiculo: Vehiculo

@@ -1,8 +1,0 @@
-scenarios:
-  default: 'hasta tipo_tarifa tipos periodos tarifa_id'
-attributes: ~
-relations:
-  tarifaTarifa: 'app\models\base\TarifaTarifa tarifa_id'
-sections:
-  'tarifa-tarifa@create update view':
-    relation: tarifaTarifa

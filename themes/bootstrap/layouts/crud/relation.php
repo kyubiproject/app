@@ -4,7 +4,7 @@ use kyubi\helper\Str;
 use kyubi\ui\widgets\DetailView;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use kyubi\base\model\RelationBehavior;
+use kyubi\base\model\BaseBehavior;
 use yii\data\ActiveDataProvider;
 
 if ($rel = model()->relations()[$relation] ?? null) {
@@ -39,7 +39,7 @@ if ($rel = model()->relations()[$relation] ?? null) {
 //$("header .btn-toolbar").append("<button class=\"btn btn-light text-danger\" data-forms>' . str_replace('"', '\"', t('app', 'Save all')) . '</button>");
 $("header .btn-toolbar button[data-form]").attr("data-form", null).attr("data-forms", true);
 $(document).on("click", "button[data-forms]", function(e) {
-    $("form:first").prepend("<input type=\"hidden\" name=\"' . RelationBehavior::INPUT_NAME . '\" value=true>");
+    $("form:first").prepend("<input type=\"hidden\" name=\"' . BaseBehavior::INPUT_NAME . '\" value=true>");
     $.post("", $("form").serialize());
     return true;
 });

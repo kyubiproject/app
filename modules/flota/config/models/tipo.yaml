@@ -1,7 +1,5 @@
 scenarios:
   default: 'id tipo_vehiculo nombre descripcion fianza franquicia'
-relations:
-  tarifas: 'hasMany flota\models\base\Tarifa tipo_id'
 sections:
   modelos@view:
     relation: modelos

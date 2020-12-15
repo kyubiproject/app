@@ -1,20 +1,19 @@
 scenarios:
   default: 'nombre descripcion correo telefono whatsapp'
-attributes: ~
-relations:
-  oficinas: 'hasMany comun\models\base\Oficina delegacion_id'
-  tarifaHistoricos: 'hasMany flota\models\base\TarifaHistorico delegacion_id'
-  tarifas: 'hasMany flota\models\base\Tarifa delegacion_id'
-  vehiculoDelegacions: 'hasMany flota\models\base\VehiculoDelegacion delegacion_id'
-  vehiculos: 'hasMany flota\models\base\Vehiculo vehiculo_id'
 sections:
   oficinas@view:
     relation: oficinas
-  tarifa-historicos@view:
-    relation: tarifaHistoricos
+  orden-historias@view:
+    relation: ordenHistorias
+  ordens@view:
+    relation: ordens
+  tarifa-historias@view:
+    relation: tarifaHistorias
   tarifas@view:
     relation: tarifas
-  vehiculo-delegacions@view:
-    relation: vehiculoDelegacions
+  vehiculo-historias@view:
+    relation: vehiculoHistorias
+  vehiculo-situacions@view:
+    relation: vehiculoSituacions
   vehiculos@view:
     relation: vehiculos
