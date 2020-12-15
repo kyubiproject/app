@@ -5,7 +5,6 @@ namespace comun\models\base;
  * This is the model class for table "comun__persona".
  *
  * Columns:
-* @property integer $id  
 * @property string $nombre  
 * @property string $dni  
 * @property string $pais_dni  
@@ -15,7 +14,6 @@ namespace comun\models\base;
  *
  * Relations:
  * @property Cliente $cliente
- * @property Conductor $conductor
  * @property PersonaContacto $contactos
  * @property PersonaDireccion $direccions
  */
@@ -48,7 +46,6 @@ class Persona extends \kyubi\base\ActiveRecord
     {
         return [
 			[['nombre', 'dni', 'pais_dni'], 'required'],
-			[['id'], 'number'],
 			[['nombre'], 'string', 'max' => 100],
 			[['dni'], 'string', 'max' => 20],
 			[['pais_dni', 'nacionalidad'], 'string', 'max' => 45],
@@ -65,16 +62,6 @@ class Persona extends \kyubi\base\ActiveRecord
     public function getCliente()
     {
         return $this->hasOne(Cliente::className(), ['id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Conductor]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getConductor()
-    {
-        return $this->hasOne(Conductor::className(), ['id' => 'id']);
     }
 
     /**
@@ -96,4 +83,17 @@ class Persona extends \kyubi\base\ActiveRecord
     {
         return $this->hasMany(PersonaDireccion::className(), ['persona_id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'cliente' => ['type'=>'hasOne','refClass'=>'Cliente','refColumn'=>'id','column'=>'id'],
+			'contactos' => ['type'=>'hasMany','refClass'=>'PersonaContacto','refColumn'=>'persona_id','column'=>'id'],
+			'direccions' => ['type'=>'hasMany','refClass'=>'PersonaDireccion','refColumn'=>'persona_id','column'=>'id']
+		];
+	}
 }

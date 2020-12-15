@@ -1,0 +1,6 @@
+es:
+  __attributes:
+    id: Id
+    tarifa_id: 'Tarifa id'
+  __sections:
+    tarifa-historia: 'Tarifa historia'

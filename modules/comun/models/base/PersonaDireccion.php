@@ -5,7 +5,6 @@ namespace comun\models\base;
  * This is the model class for table "comun__persona_direccion".
  *
  * Columns:
-* @property integer $id  
 * @property string $direccion  
 * @property string|null $problacion  
 * @property string|null $codigo_postal  
@@ -45,10 +44,10 @@ class PersonaDireccion extends \kyubi\base\ActiveRecord
     {
         return [
 			[['direccion', 'persona_id'], 'required'],
-			[['id', 'persona_id'], 'number'],
 			[['problacion'], 'string', 'max' => 45],
 			[['codigo_postal'], 'string', 'max' => 15],
-			[['clase'], 'in', 'range' => ['PRINCIPAL', 'FISCAL', 'OFICINA', 'CASA']],
+			[['clase'], 'in', 'range' => ['PRINCIPAL', 'FISCAL', 'OFICINA', 'CASA'], 'allowArray' => true],
+			[['persona_id'], 'integer'],
 			[['persona_id'], 'exist', 'targetClass' => Persona::className(), 'targetAttribute' => ['persona_id' => 'id']]        
         ];
     }
@@ -62,4 +61,15 @@ class PersonaDireccion extends \kyubi\base\ActiveRecord
     {
         return $this->hasOne(Persona::className(), ['id' => 'persona_id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'persona' => ['type'=>'hasOne','refClass'=>'Persona','refColumn'=>'id','column'=>'persona_id']
+		];
+	}
 }

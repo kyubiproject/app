@@ -1,0 +1,5 @@
+scenarios:
+  default: tarifa_id
+sections:
+  tarifa-historia:
+    relation: tarifaHistoria

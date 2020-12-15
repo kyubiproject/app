@@ -5,7 +5,6 @@ namespace comun\models\base;
  * This is the model class for table "comun__oficina".
  *
  * Columns:
-* @property integer $id  
 * @property string $nombre  
 * @property string|null $descripcion  
 * @property string|null $direccion  
@@ -49,10 +48,10 @@ class Oficina extends \kyubi\base\ActiveRecord
     {
         return [
 			[['nombre', 'delegacion_id'], 'required'],
-			[['id', 'delegacion_id'], 'number'],
 			[['nombre', 'telefono'], 'string', 'max' => 100],
 			[['ubicacion'], 'string', 'max' => 30],
 			[['correo', 'whatsapp'], 'string', 'max' => 20],
+			[['delegacion_id'], 'integer'],
 			[['delegacion_id'], 'exist', 'targetClass' => Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']]        
         ];
     }
@@ -66,4 +65,15 @@ class Oficina extends \kyubi\base\ActiveRecord
     {
         return $this->hasOne(Delegacion::className(), ['id' => 'delegacion_id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'delegacion' => ['type'=>'hasOne','refClass'=>'Delegacion','refColumn'=>'id','column'=>'delegacion_id']
+		];
+	}
 }

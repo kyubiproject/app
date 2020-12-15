@@ -12,8 +12,6 @@ namespace comun\models\base;
  *
  * Relations:
  * @property Persona $persona
- * @property Conductor $conductors
- * @property \operacion\models\base\Orden $ordens
  */
 class Cliente extends \kyubi\base\ActiveRecord
 {
@@ -44,7 +42,7 @@ class Cliente extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id', 'tipo'], 'required'],
-			[['id'], 'number'],
+			[['id'], 'integer'],
 			[['tipo'], 'in', 'range' => ['PERSONA', 'EMPRESA'], 'strict' => true],
 			[['id'], 'exist', 'targetClass' => Persona::className(), 'targetAttribute' => ['id' => 'id']]        
         ];
@@ -60,23 +58,14 @@ class Cliente extends \kyubi\base\ActiveRecord
         return $this->hasOne(Persona::className(), ['id' => 'id']);
     }
 
-    /**
-     * Gets query for [[Conductor]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getConductors()
-    {
-        return $this->hasMany(Conductor::className(), ['id' => 'conductor_id'])->viaTable('comun__cliente_conductor', ['cliente_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[\operacion\models\base\Orden]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getOrdens()
-    {
-        return $this->hasMany(\operacion\models\base\Orden::className(), ['cliente_id' => 'id']);
-    }
+	/**
+	 * {@inheritdoc}
+	 * @return array
+	 */
+	public function relations(): array
+	{
+		return [
+			'persona' => ['type'=>'hasOne','refClass'=>'Persona','refColumn'=>'id','column'=>'id']
+		];
+	}
 }
