@@ -1,24 +1,34 @@
 scenarios:
-  default: 'matricula fecha_matricula bastidor modelo_id estado'
-  'view search': 'matricula fecha_matricula bastidor modelo.nombre estado'
-  search-rel: 'matricula fecha_matricula bastidor estado fecha_Estado'
+  default: 'matricula fecha_matricula bastidor modelo_id'
+  search: 'matricula fecha_matricula bastidor modelo.nombre situacion.estado'
+  search-rel: 'matricula fecha_matricula bastidor situacion.fecha_estado situacion.estado'
+relations:
+  delegacion: 'comun\models\base\Delegacion delegacion_id'
+  modelo: 'flota\models\base\Modelo modelo_id'
+  caracteristicas: flota\models\base\VehiculoCaracteristicas
+  observacion: flota\models\base\VehiculoObservacion
+  situacion: flota\models\base\VehiculoSituacion
+  historias: 'hasMany flota\models\base\VehiculoHistoria vehiculo_id'
+sections:
+  situacion:
+    relation: situacion
+  historias@view:
+    relation: historias
+  caracteristicas:
+    relation: caracteristicas
+  observacion:
+    relation: observacion
 attributes:
   modelo.nombre:
     label: modelo_id
-relations:
-  modelo: 'flota\models\base\Modelo modelo_id'
-  caracteristicas: flota\models\base\VehiculoCaracteristicas
-  delegacions: 'hasMany flota\models\base\VehiculoDelegacion vehiculo_id'
-  ordenVehiculos: 'hasMany operacion\models\base\OrdenVehiculo vehiculo_id'
-  movimientos: 'hasMany flota\models\base\VehiculoMovimiento'
-sections:
-  'modelo@create update view':
-    relation: modelo
-  delegacions@view:
-    relation: delegacions
-  orden-vehiculos@view:
-    relation: ordenVehiculos
-  movimientos@view:
-    relation: movimientos
-  'caracteristicas@create update view':
-    relation: caracteristicas
+    options:
+      container:
+        class: 'col-12 col-md-6 col-lg-8'
+  modelo_id@view:
+    value: 'php:(($marca = $this->modelo->marca) ? "$marca->nombre : " : null ) . ($this->modelo ? ($this->modelo->nombre . (($tipo = $this->modelo->tipo) ? " ( {$tipo->id} ) - {$tipo->nombre}" : null)) : null)'
+  modelo_id:
+    options:
+      select:
+        scenario: select
+      container:
+        class: col-12

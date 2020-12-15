@@ -1,11 +1,8 @@
 es:
   __attributes:
-    id: Id
     matricula: Matrícula
     fecha_matricula: 'Fecha matrícula'
     bastidor: 'Número de bastidor'
-    estado: 'Estado actual'
-    fecha_estado: 'Fecha de estado'
     modelo_id: Modelo
   __options:
     estado:
@@ -16,9 +13,7 @@ es:
       MANTENIMIENTO: 'En mantenimiento'
       BAJA: 'Fuera de servicio'
   __sections:
-    modelo: Modelo
-    delegacions: Delegacions
-    orden-vehiculos: 'Orden vehiculos'
-    movimientos: Movimientos
-    caracteristicas: Características
-    ordens: Ordens
+    situacion: 'Datos<br><small>de situación</small>'
+    historias: 'Histórico<br><small>de situación</small>'
+    caracteristicas: 'Características<br><small>del vehículo</small>'
+    observacion: Observaciones<br><small>Internas</small>

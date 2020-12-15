@@ -16,5 +16,6 @@ es:
   __sections:
     modelo-tipos: 'Modelo tipos'
     modelos: Modelos
+    tarifa-historicos: 'Tarifa historicos'
     tarifa-tipos: 'Tarifa tipos'
     tarifas: Tarifas

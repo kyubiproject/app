@@ -1,7 +1,0 @@
-es:
-  __attributes:
-    orden_id: 'Orden id'
-    vehiculo_id: 'Vehiculo id'
-  __sections:
-    flota-vehiculo: 'Flota vehiculo'
-    operacion-orden: 'Operacion orden'

@@ -1,36 +1,43 @@
 scenarios:
-  default: 'marca_id nombre descripcion'
-  'view search': 'marca.nombre nombre descripcion'
-attributes:
-  marca.nombre:
-    label: marca_id
-    options:
-      container:
-        class: 'col-12 col-sm-6 col-md-4 col-lg-3'
-  marca_id:
-    options:
-      container:
-        class: 'col-12 col-sm-6 col-md-4 col-lg-3'
-  nombre:
-    options:
-      container:
-        class: 'col-12 col-sm-6 col-md-8 col-lg-9'
-  descripcion:
-    options:
-      container:
-        class: col-12
+  default: 'tipo_id marca_id nombre descripcion'
+  search: 'marca.nombre nombre tipo_id descripcion'
+  search-rel: 'nombre tipo_id descripcion'
 relations:
   marca: 'flota\models\base\Marca marca_id'
   caracteristicas: flota\models\base\ModeloCaracteristicas
   carga: flota\models\base\ModeloCarga
   vehiculos: 'hasMany flota\models\base\Vehiculo modelo_id'
-  tipos: 'hasMany flota\models\base\Tipo tipo_id'
 sections:
-  'marca@create update view':
-    relation: marca
   vehiculos@view:
     relation: vehiculos
-  'caracteristicas@create update view':
-    relation: caracteristicas
-  'carga@create update view':
-    relation: carga
+name@select: 'php:$this->marca ? ("{$this->marca->nombre} : $this->nombre" . (($tipo = $this->tipo) ? " ( $tipo->id ) - {$tipo->nombre}" : null)) : null'
+attributes:
+  tipo_id@view:
+    value: 'php:($tipo = $this->tipo) ? "( $tipo->id ) - {$tipo->nombre}" : null'
+  tipo_id:
+    options:
+      select:
+        scenario: select
+      container:
+        class: 'col-12 col-sm-6 col-md-6 col-lg-8'
+  marca.nombre:
+    label: marca_id
+    options:
+      container:
+        class: 'col-12 col-sm-6 col-md-6 col-lg-4'
+  marca_id@view:
+    value: marca.nombre
+  marca_id:
+    options:
+      container:
+        class: 'col-12 col-sm-6 col-md-6 col-lg-4'
+  nombre:
+    options:
+      container:
+        class: col-12
+  descripcion:
+    options:
+      input:
+        class: vh-30
+      container:
+        class: col-12

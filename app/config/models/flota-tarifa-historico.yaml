@@ -1,0 +1,14 @@
+scenarios:
+  default: 'tarifa_id desde hasta tipo_tarifa fecha_inicio fecha_fin km eur_km lt eur_lt hora eur_hora dia eur_dia tipo_id delegacion_id'
+attributes: ~
+relations:
+  comunDelegacion: 'app\models\base\ComunDelegacion delegacion_id'
+  flotaTarifa: 'app\models\base\FlotaTarifa tarifa_id'
+  flotaTipo: 'app\models\base\FlotaTipo tipo_id'
+sections:
+  'comun-delegacion@create update view':
+    relation: comunDelegacion
+  'flota-tarifa@create update view':
+    relation: flotaTarifa
+  'flota-tipo@create update view':
+    relation: flotaTipo

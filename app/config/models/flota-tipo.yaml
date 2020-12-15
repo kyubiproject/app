@@ -1,0 +1,17 @@
+scenarios:
+  default: 'id nombre descripcion tipo_vehiculo fianza franquicia'
+attributes: ~
+relations:
+  flotaModeloTipos: 'hasMany app\models\base\FlotaModeloTipo tipo_id'
+  flotaTarifaHistoricos: 'hasMany app\models\base\FlotaTarifaHistorico tipo_id'
+  flotaTarifas: 'hasMany app\models\base\FlotaTarifa tipo_id'
+  tarifaTarifaTipos: 'hasMany app\models\base\TarifaTarifaTipo tipo_id'
+sections:
+  flota-modelo-tipos@view:
+    relation: flotaModeloTipos
+  flota-tarifa-historicos@view:
+    relation: flotaTarifaHistoricos
+  flota-tarifas@view:
+    relation: flotaTarifas
+  tarifa-tarifa-tipos@view:
+    relation: tarifaTarifaTipos

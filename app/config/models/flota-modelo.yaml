@@ -2,12 +2,20 @@ scenarios:
   default: 'nombre descripcion marca_id'
 attributes: ~
 relations:
+  flotaMarca: 'app\models\base\FlotaMarca marca_id'
   caracteristicas: app\models\base\FlotaModeloCaracteristicas
   carga: app\models\base\FlotaModeloCarga
+  tipos: 'hasMany app\models\base\FlotaModeloTipo modelo_id'
   flotaVehiculos: 'hasmany app\models\base\FlotaVehiculo modelo_id'
   tarifaGrupoModelos: 'hasmany app\models\base\TarifaGrupoModelo modelo_id'
   tarifaGrupos: 'hasmany app\models\base\TarifaGrupo grupo_id tarifaGrupoModelos'
 sections:
+  'flota-marca@create update view':
+    relation: flotaMarca
+  tipos@view:
+    relation: tipos
+  flota-vehiculos@view:
+    relation: flotaVehiculos
   'caracteristicas@create update view':
     relation: caracteristicas
   'carga@create update view':

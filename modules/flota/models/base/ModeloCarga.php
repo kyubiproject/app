@@ -45,8 +45,8 @@ class ModeloCarga extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id'], 'required'],
-			[['id'], 'number'],
-			[['largo', 'ancho', 'alto'], 'is', 'type' => 'float', 'size' => '5, 2'],
+			[['id', 'largo', 'ancho', 'alto'], 'number'],
+			[['id'], 'integer'],
 			[['peso', 'volumen'], 'string', 'max' => 10],
 			[['id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['id' => 'id']]        
         ];

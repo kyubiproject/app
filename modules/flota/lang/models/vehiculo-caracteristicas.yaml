@@ -1,12 +1,11 @@
 es:
   __attributes:
-    id: Id
     color: Color
-    anio: Anio
-    transmision: Transmision
-    plazas: Plazas
-    puertas: Puertas
-    extra: Extra
+    anio: Año
+    transmision: 'Tipo de tránsmision'
+    plazas: 'Nº de plazas'
+    puertas: 'Nº de puertas'
+    extra: 'Accesorios adicionales'
   __options:
     transmision:
       MANUAL: Manual

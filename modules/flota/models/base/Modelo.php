@@ -5,17 +5,17 @@ namespace flota\models\base;
  * This is the model class for table "flota__modelo".
  *
  * Columns:
-* @property integer $id  
 * @property string $nombre  
 * @property string|null $descripcion  
 * @property integer|null $marca_id  
+* @property string|null $tipo_id  
    
  *
  * Relations:
  * @property Marca $marca
  * @property ModeloCaracteristicas $caracteristicas
  * @property ModeloCarga $carga
- * @property Tipo $tipos
+ * @property Tipo $tipo
  * @property Vehiculo $vehiculos
  */
 class Modelo extends \kyubi\base\ActiveRecord
@@ -47,9 +47,12 @@ class Modelo extends \kyubi\base\ActiveRecord
     {
         return [
 			[['nombre'], 'required'],
-			[['id', 'marca_id'], 'number'],
 			[['nombre'], 'string', 'max' => 100],
-			[['marca_id'], 'exist', 'targetClass' => Marca::className(), 'targetAttribute' => ['marca_id' => 'id']]        
+			[['tipo_id'], 'string', 'max' => 3],
+			[['marca_id'], 'number'],
+			[['marca_id'], 'integer'],
+			[['marca_id'], 'exist', 'targetClass' => Marca::className(), 'targetAttribute' => ['marca_id' => 'id']],
+			[['tipo_id'], 'exist', 'targetClass' => Tipo::className(), 'targetAttribute' => ['tipo_id' => 'id']]        
         ];
     }
 
@@ -88,9 +91,9 @@ class Modelo extends \kyubi\base\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getTipos()
+    public function getTipo()
     {
-        return $this->hasMany(Tipo::className(), ['id' => 'tipo_id'])->viaTable('flota__modelo_tipo', ['modelo_id' => 'id']);
+        return $this->hasOne(Tipo::className(), ['id' => 'tipo_id']);
     }
 
     /**

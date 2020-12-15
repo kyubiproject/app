@@ -2,11 +2,19 @@ scenarios:
   default: 'codigo tipo estado document_id'
 attributes: ~
 relations:
+  '': 'app\models\base\OperacionDocument document_id'
+  operacionMomentoOrden: app\models\base\OperacionMomentoOrden
   flotaVehiculoMovimientos: 'hasmany app\models\base\FlotaVehiculoMovimiento documento_codigo codigo'
   s: 'hasmany app\models\base\OperacionDocument document_id'
   operacionOrdenDocuments: 'hasmany app\models\base\OperacionOrdenDocument document_id'
   operacionOrdens: 'hasmany app\models\base\OperacionOrden orden_id operacionOrdenDocuments'
 sections:
+  '@create update view':
+    relation: ''
+  flota-vehiculo-movimientos@view:
+    relation: flotaVehiculoMovimientos
+  s@view:
+    relation: s
   'flota-vehiculo-movimientos@create update view':
     relation: flotaVehiculoMovimientos
   's@create update view':

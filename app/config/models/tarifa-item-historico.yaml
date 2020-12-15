@@ -1,0 +1,8 @@
+scenarios:
+  default: 'magnitud tarifa incluido item_id'
+attributes: ~
+relations:
+  tarifaItem: 'app\models\base\TarifaItem item_id'
+sections:
+  'tarifa-item@create update view':
+    relation: tarifaItem

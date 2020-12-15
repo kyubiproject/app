@@ -1,7 +1,0 @@
-es:
-  __attributes:
-    tarifa_id: 'Tarifa id'
-    item_id: 'Item id'
-  __sections:
-    tarifa-item: 'Tarifa item'
-    tarifa-tarifa: 'Tarifa tarifa'

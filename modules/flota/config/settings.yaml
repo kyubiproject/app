@@ -3,6 +3,10 @@ controllers:
   modelo: ~
   tipo: ~
   vehiculo: ~
+  tarifa: ~
+  tarifa-historico: ~
+  vehiculo-movimiento: ~
+  tarifa-historia: ~
 navbar:
   links:
     -
@@ -24,4 +28,4 @@ navbar:
       tipo: ~
     - separator
     -
-      tarifas: false
+      tarifa: ~

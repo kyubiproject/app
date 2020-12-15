@@ -1,15 +1,8 @@
 es:
   __attributes:
-    id: Id
     nombre: Nombre
     descripcion: Descripcion
     marca_id: Marca
+    tipo_id: 'Tipo de vehículo'
   __sections:
-    marca: Marca
-    tipos: Tipos
-    vehiculos: 'Vehículos registrados'
-    caracteristicas: Características
-    carga: 'Espacio de carga'
-    modelo-caracteristicas: 'Modelo caracteristicas'
-    modelo-carga: 'Modelo carga'
-    modelo-tipos: 'Modelo tipos'
+    vehiculos: Vehículos<br><small>registrados</small>

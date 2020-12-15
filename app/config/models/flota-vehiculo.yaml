@@ -2,13 +2,23 @@ scenarios:
   default: 'matricula fecha_matricula bastidor estado modelo_id'
 attributes: ~
 relations:
+  flotaModelo: 'app\models\base\FlotaModelo modelo_id'
   caracteristicas: app\models\base\FlotaVehiculoCaracteristicas
-  comunDelegacions: 'hasmany app\models\base\ComunDelegacion delegacion_id flotaVehiculoDelegacions'
+  observacion: app\models\base\FlotaVehiculoObservacion
   delegacions: 'hasmany app\models\base\FlotaVehiculoDelegacion vehiculo_id'
   movimientos: 'hasmany app\models\base\FlotaVehiculoMovimiento'
   operacionOrdenVehiculos: 'hasmany app\models\base\OperacionOrdenVehiculo vehiculo_id'
+  comunDelegacions: 'hasmany app\models\base\ComunDelegacion delegacion_id flotaVehiculoDelegacions'
   operacionOrdens: 'hasmany app\models\base\OperacionOrden orden_id operacionOrdenVehiculos'
 sections:
+  'flota-modelo@create update view':
+    relation: flotaModelo
+  delegacions@view:
+    relation: delegacions
+  movimientos@view:
+    relation: movimientos
+  operacion-orden-vehiculos@view:
+    relation: operacionOrdenVehiculos
   'caracteristicas@create update view':
     relation: caracteristicas
   'comun-delegacions@create update view':

@@ -1,8 +1,0 @@
-es:
-  __attributes:
-    tarifa_id: 'Tarifa id'
-    tipo_id: 'Tipo id'
-    grupo_id: 'Grupo id'
-  __sections:
-    tarifa: Tarifa
-    tipo: Tipo

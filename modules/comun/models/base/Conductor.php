@@ -50,7 +50,7 @@ class Conductor extends \kyubi\base\ActiveRecord
 			[['carnet'], 'string', 'max' => 20],
 			[['carnet_pais'], 'string', 'max' => 45],
 			[['fecha_expedicion', 'fecha_vencimiento'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['carnet', 'carnet_pais'], 'unique', 'targetAttribute' => ['carnet', 'carnet_pais']],
+			[['carnet_pais', 'carnet'], 'unique', 'targetAttribute' => ['carnet_pais', 'carnet']],
 			[['id'], 'exist', 'targetClass' => Persona::className(), 'targetAttribute' => ['id' => 'id']]        
         ];
     }

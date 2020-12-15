@@ -1,0 +1,9 @@
+scenarios:
+  default: orden_id
+attributes: ~
+relations:
+  operacionDocument: app\models\base\OperacionDocument
+  operacionOrden: 'app\models\base\OperacionOrden orden_id'
+sections:
+  'operacion-orden@create update view':
+    relation: operacionOrden

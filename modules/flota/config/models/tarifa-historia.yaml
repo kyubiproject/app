@@ -1,0 +1,11 @@
+scenarios:
+  default: 'fecha_transaccion tipo_tarifa desde hasta fecha_inicio fecha_fin km eur_km eur_lt hora eur_hora eur_dia eur_mes'
+relations:
+  tarifa: 'flota\models\base\Tarifa tarifa_id'
+sections:
+  delegacion:
+    relation: delegacion
+  tarifa:
+    relation: tarifa
+  tipo:
+    relation: tipo

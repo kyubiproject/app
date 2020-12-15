@@ -1,5 +1,10 @@
 scenarios:
   default: 'nombre descripcion correo telefono'
+relations:
+  modelos: 'hasMany flota\models\base\Modelo marca_id'
+sections:
+  modelos@view:
+    relation: modelos
 attributes:
   nombre:
     options:
@@ -7,6 +12,8 @@ attributes:
         class: col-12
   descripcion:
     options:
+      input:
+        class: vh-30
       container:
         class: col-12
   correo:
@@ -18,8 +25,3 @@ attributes:
     options:
       container:
         class: 'col-12 col-md-6'
-relations:
-  modelos: 'hasMany flota\models\base\Modelo marca_id'
-sections:
-  modelos@view:
-    relation: modelos

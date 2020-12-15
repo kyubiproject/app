@@ -1,3 +1,8 @@
 scenarios:
   default: 'direccion problacion codigo_postal clase persona_id'
 attributes: ~
+relations:
+  comunPersona: 'app\models\base\ComunPersona persona_id'
+sections:
+  'comun-persona@create update view':
+    relation: comunPersona

@@ -14,10 +14,9 @@ namespace flota\models\base;
    
  *
  * Relations:
- * @property ModeloTipo $modeloTipos
  * @property Modelo $modelos
- * @property \tarifa\models\base\TarifaTipo $tarifaTipos
- * @property \tarifa\models\base\Tarifa $tarifas
+ * @property TarifaHistoria $tarifaHistorias
+ * @property Tarifa $tarifas
  */
 class Tipo extends \kyubi\base\ActiveRecord
 {
@@ -51,18 +50,8 @@ class Tipo extends \kyubi\base\ActiveRecord
 			[['id'], 'string', 'max' => 3],
 			[['nombre'], 'string', 'max' => 100],
 			[['tipo_vehiculo'], 'in', 'range' => ['COMERCIAL', 'ESPECIAL', 'MONOVOLUMEN', 'TODOTERRENO', 'TURISMO'], 'strict' => true],
-			[['fianza', 'franquicia'], 'is', 'type' => 'float', 'size' => '7, 2']        
+			[['fianza', 'franquicia'], 'number']        
         ];
-    }
-
-    /**
-     * Gets query for [[ModeloTipo]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getModeloTipos()
-    {
-        return $this->hasMany(ModeloTipo::className(), ['tipo_id' => 'id']);
     }
 
     /**
@@ -72,26 +61,26 @@ class Tipo extends \kyubi\base\ActiveRecord
      */
     public function getModelos()
     {
-        return $this->hasMany(Modelo::className(), ['id' => 'modelo_id'])->viaTable('flota__modelo_tipo', ['tipo_id' => 'id']);
+        return $this->hasMany(Modelo::className(), ['tipo_id' => 'id']);
     }
 
     /**
-     * Gets query for [[\tarifa\models\base\TarifaTipo]].
+     * Gets query for [[TarifaHistoria]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getTarifaTipos()
+    public function getTarifaHistorias()
     {
-        return $this->hasMany(\tarifa\models\base\TarifaTipo::className(), ['tipo_id' => 'id']);
+        return $this->hasMany(TarifaHistoria::className(), ['tipo_id' => 'id']);
     }
 
     /**
-     * Gets query for [[\tarifa\models\base\Tarifa]].
+     * Gets query for [[Tarifa]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getTarifas()
     {
-        return $this->hasMany(\tarifa\models\base\Tarifa::className(), ['id' => 'tarifa_id'])->viaTable('tarifa__tarifa_tipo', ['tipo_id' => 'id']);
+        return $this->hasMany(Tarifa::className(), ['tipo_id' => 'id']);
     }
 }

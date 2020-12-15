@@ -5,21 +5,20 @@ namespace flota\models\base;
  * This is the model class for table "flota__vehiculo".
  *
  * Columns:
-* @property integer $id  
 * @property string $matricula  
 * @property string|null $fecha_matricula  
 * @property string|null $bastidor  
-* @property string|null $estado  
-* @property string $fecha_estado  
 * @property integer|null $modelo_id  
+* @property integer|null $delegacion_id  
    
  *
  * Relations:
+ * @property \comun\models\base\Delegacion $delegacion
  * @property Modelo $modelo
  * @property VehiculoCaracteristicas $caracteristicas
- * @property VehiculoDelegacion $delegacions
- * @property \operacion\models\base\OrdenVehiculo $ordenVehiculos
- * @property VehiculoMovimiento $movimientos
+ * @property VehiculoObservacion $observacion
+ * @property VehiculoSituacion $situacion
+ * @property VehiculoHistoria $historias
  */
 class Vehiculo extends \kyubi\base\ActiveRecord
 {
@@ -50,15 +49,25 @@ class Vehiculo extends \kyubi\base\ActiveRecord
     {
         return [
 			[['matricula'], 'required'],
-			[['id', 'modelo_id'], 'number'],
 			[['matricula'], 'string', 'max' => 10],
 			[['bastidor'], 'string', 'max' => 30],
 			[['fecha_matricula'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['fecha_estado'], 'date', 'type' => 'datetime', 'format' => 'yyyy-mm-dd hh:mm:ss'],
-			[['estado'], 'in', 'range' => ['DISPONIBLE', 'RESERVADO', 'CONTRATADO', 'AVERIADO', 'MANTENIMIENTO', 'BAJA'], 'strict' => true],
+			[['modelo_id', 'delegacion_id'], 'number'],
+			[['modelo_id', 'delegacion_id'], 'integer'],
 			[['bastidor', 'matricula'], 'unique'],
-			[['modelo_id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['modelo_id' => 'id']]        
+			[['modelo_id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['modelo_id' => 'id']],
+			[['delegacion_id'], 'exist', 'targetClass' => \comun\models\base\Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']]        
         ];
+    }
+
+    /**
+     * Gets query for [[\comun\models\base\Delegacion]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDelegacion()
+    {
+        return $this->hasOne(\comun\models\base\Delegacion::className(), ['id' => 'delegacion_id']);
     }
 
     /**
@@ -82,32 +91,32 @@ class Vehiculo extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[VehiculoDelegacion]].
+     * Gets query for [[VehiculoObservacion]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getDelegacions()
+    public function getObservacion()
     {
-        return $this->hasMany(VehiculoDelegacion::className(), ['vehiculo_id' => 'id']);
+        return $this->hasOne(VehiculoObservacion::className(), ['id' => 'id']);
     }
 
     /**
-     * Gets query for [[\operacion\models\base\OrdenVehiculo]].
+     * Gets query for [[VehiculoSituacion]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getOrdenVehiculos()
+    public function getSituacion()
     {
-        return $this->hasMany(\operacion\models\base\OrdenVehiculo::className(), ['vehiculo_id' => 'id']);
+        return $this->hasOne(VehiculoSituacion::className(), ['id' => 'id']);
     }
 
     /**
-     * Gets query for [[VehiculoMovimiento]].
+     * Gets query for [[VehiculoHistoria]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getMovimientos()
+    public function getHistorias()
     {
-        return $this->hasMany(VehiculoMovimiento::className(), ['vehiculo_id' => 'id']);
+        return $this->hasMany(VehiculoHistoria::className(), ['vehiculo_id' => 'id']);
     }
 }

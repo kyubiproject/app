@@ -1,9 +1,0 @@
-es:
-  __attributes:
-    id: Id
-    nombre: Nombre
-    descripcion: Descripcion
-    correo: Correo
-    telefono: Telefono
-  __sections:
-    flota-modelos: 'Flota modelos'

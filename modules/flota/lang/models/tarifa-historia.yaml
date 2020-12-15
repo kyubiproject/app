@@ -1,0 +1,22 @@
+es:
+  __attributes:
+    desde: Desde
+    hasta: Hasta
+    tipo_tarifa: 'Tipo de tarifa'
+    fecha_inicio: 'Inicio de período'
+    fecha_fin: 'Fin de período'
+    km: 'Incluye Km(s)'
+    eur_km: €/Km
+    eur_lt: €/Lt
+    hora: 'Incluye hora(s)'
+    eur_hora: €/Hora
+    eur_dia: €/Dia
+    eur_mes: €/Mes
+    tipo_id: 'Tipo de vehículo'
+    delegacion_id: Delegación
+    fecha_transaccion: 'Fecha de actualización'
+  __options:
+    tipo_tarifa:
+      DIA: Día
+      MES: Mes
+      HORA: 'Hor  a'

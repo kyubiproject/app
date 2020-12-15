@@ -9,8 +9,8 @@ namespace flota\models\base;
 * @property string|null $color  
 * @property integer|null $anio  
 * @property string|null $transmision  
-* @property boolean|null $plazas  
-* @property boolean|null $puertas  
+* @property integer|null $plazas  
+* @property integer|null $puertas  
 * @property array|null $extra  
    
  *
@@ -46,12 +46,12 @@ class VehiculoCaracteristicas extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id'], 'required'],
-			[['id'], 'number'],
+			[['id', 'plazas', 'puertas'], 'number'],
+			[['id', 'plazas', 'puertas'], 'integer'],
 			[['color'], 'string', 'max' => 20],
-			[['anio'], 'is', 'type' => 'year'],
-			[['plazas', 'puertas'], 'is', 'type' => 'tinyint'],
+			[['anio'], 'string', 'max' => 4],
 			[['transmision'], 'in', 'range' => ['MANUAL', 'AUTOMATICO', 'DUAL'], 'strict' => true],
-			[['extra'], 'in', 'range' => ['GPS', 'AIRE', '4X4', 'MULTIMEDIA', 'ALARMA']],
+			[['extra'], 'in', 'range' => ['GPS', 'AIRE', '4X4', 'MULTIMEDIA', 'ALARMA'], 'allowArray' => true],
 			[['id'], 'exist', 'targetClass' => Vehiculo::className(), 'targetAttribute' => ['id' => 'id']]        
         ];
     }

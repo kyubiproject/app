@@ -1,8 +1,0 @@
-es:
-  __attributes:
-    id: Id
-    nombre: Nombre
-    fecha_inicio: 'Fecha inicio'
-    fecha_fin: 'Fecha fin'
-  __sections:
-    tarifa-tarifas: 'Tarifa tarifas'

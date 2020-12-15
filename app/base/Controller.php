@@ -25,7 +25,6 @@ class Controller extends \kyubi\api\controllers\CrudController
     {
         switch ($action = action()->id) {
             case 'index':
-                $params['{controller}'] = Str::pluralize(t($this->module->id, $this->uniqueId));
                 $string = '{controller}';
                 break;
             case 'create':

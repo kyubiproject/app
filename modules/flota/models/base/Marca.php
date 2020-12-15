@@ -5,7 +5,6 @@ namespace flota\models\base;
  * This is the model class for table "flota__marca".
  *
  * Columns:
-* @property integer $id  
 * @property string $nombre  
 * @property string|null $descripcion  
 * @property string|null $correo  
@@ -44,7 +43,6 @@ class Marca extends \kyubi\base\ActiveRecord
     {
         return [
 			[['nombre'], 'required'],
-			[['id'], 'number'],
 			[['nombre', 'correo'], 'string', 'max' => 100],
 			[['telefono'], 'string', 'max' => 20]        
         ];

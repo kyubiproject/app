@@ -1,0 +1,22 @@
+es:
+  __attributes:
+    delegacion_id: Delegación
+    descripcion: Descripción
+    fecha: 'Fecha de estado'
+    combustible: Lts
+    km: Km
+    estado: Estado
+    contrato_numero: Contrato
+    fecha_transaccion: 'Fecha de transacción'
+  __options:
+    estado:
+      DISPONIBLE: Disponible
+      RESERVADO: Reservado
+      CONTRATADO: Contratado
+      AVERIADO: Averiado
+      MANTENIMIENTO: Mantenimiento
+      BAJA: Baja
+      ENTREGADO: Entregado
+      RECIBIDO: Recibido
+      RENOVADO: Renovado
+      SISTEMA: Sistema

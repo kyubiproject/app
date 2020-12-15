@@ -1,9 +1,8 @@
 es:
   __attributes:
-    id: Marca
     nombre: Nombre
     descripcion: Descripción
     correo: 'Correo electrónico'
     telefono: Teléfono
   __sections:
-    modelos: 'Modelos relacionados'
+    modelos: 'Modelo<br><small>de vehículos</small>'

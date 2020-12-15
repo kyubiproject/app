@@ -1,7 +1,0 @@
-es:
-  __attributes:
-    grupo_id: 'Grupo id'
-    modelo_id: 'Modelo id'
-  __sections:
-    flota-modelo: 'Flota modelo'
-    tarifa-grupo: 'Tarifa grupo'

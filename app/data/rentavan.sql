@@ -29,7 +29,7 @@ CREATE TABLE `comun__cliente` (
   PRIMARY KEY (`id`),
   KEY `fk_comun__persona_has_operacion__orden_comun__persona1_idx` (`id`),
   CONSTRAINT `fk_comun__persona_has_operacion__orden_comun__persona1` FOREIGN KEY (`id`) REFERENCES `comun__persona` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,7 +55,7 @@ CREATE TABLE `comun__cliente_conductor` (
   KEY `fk_comun__cliente_has_comun__conductor_comun__conductor1_idx` (`conductor_id`),
   CONSTRAINT `fk_comun__cliente_has_comun__conductor_comun__cliente1` FOREIGN KEY (`cliente_id`) REFERENCES `comun__cliente` (`id`),
   CONSTRAINT `fk_comun__cliente_has_comun__conductor_comun__conductor1` FOREIGN KEY (`conductor_id`) REFERENCES `comun__conductor` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,7 +83,7 @@ CREATE TABLE `comun__conductor` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index2` (`carnet`,`carnet_pais`),
   CONSTRAINT `fk_comun__conductor_comun__persona1` FOREIGN KEY (`id`) REFERENCES `comun__persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,7 +171,7 @@ CREATE TABLE `comun__persona` (
   `fecha_nacimiento` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `dni_UNIQUE` (`dni`,`pais_dni`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +200,7 @@ CREATE TABLE `comun__persona_contacto` (
   PRIMARY KEY (`id`),
   KEY `fk_comun__persona_contacto_comun__persona1_idx` (`persona_id`),
   CONSTRAINT `fk_comun__persona_contacto_comun__persona1` FOREIGN KEY (`persona_id`) REFERENCES `comun__persona` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -229,7 +229,7 @@ CREATE TABLE `comun__persona_direccion` (
   PRIMARY KEY (`id`),
   KEY `fk_comun__persona_contacto_comun__persona1_idx` (`persona_id`),
   CONSTRAINT `fk_comun__persona_contacto_comun__persona10` FOREIGN KEY (`persona_id`) REFERENCES `comun__persona` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -548,7 +548,7 @@ CREATE TABLE `flota__vehiculo_observacion` (
   `observacion` text,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_flota__vehiculo_flota__vehiculo1` FOREIGN KEY (`id`) REFERENCES `flota__vehiculo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -780,7 +780,7 @@ CREATE TABLE `tarifa__periodo` (
   `fecha_fin` date DEFAULT NULL,
   `estado` enum('ACTIVO','VENCIDO','NO DISPONIBLE') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

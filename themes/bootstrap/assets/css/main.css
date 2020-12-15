@@ -104,3 +104,15 @@ form[data-required]:after {
 form[data-required] .form-group.required label:after {
 	content: " *";
 }
+
+.vh-30 {height: 30vh !important;}
+.vh-50 {height: 50vh !important;}
+.vh-70 {height: 70vh !important;}
+
+.pl-30 {padding-left: 30% !important;}
+.pl-50 {padding-left: 50% !important;}
+.pl-70 {padding-left: 70% !important;}
+
+.pr-30 {padding-right: 30% !important;}
+.pr-50 {padding-right: 50% !important;}
+.pr-70 {padding-right: 70% !important;}

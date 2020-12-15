@@ -3,11 +3,24 @@ scenarios:
 attributes: ~
 relations:
   operacionOrdens: 'hasmany app\models\base\OperacionOrden tarifa_id'
+  tarifaItems: 'hasmany app\models\base\TarifaItem item_id tarifaTarifaItems'
+  historicos: 'hasMany app\models\base\TarifaTarifaHistorico tarifa_id'
+  periodos: 'hasMany app\models\base\TarifaTarifaPeriodo tarifa_id'
+  tipos: 'hasMany app\models\base\TarifaTarifaTipo tarifa_id'
   tarifaGrupoTarifas: 'hasmany app\models\base\TarifaGrupoTarifa tarifa_id'
   tarifaGrupos: 'hasmany app\models\base\TarifaGrupo grupo_id tarifaGrupoTarifas'
-  tarifaItems: 'hasmany app\models\base\TarifaItem item_id tarifaTarifaItems'
   items: 'hasmany app\models\base\TarifaTarifaItem tarifa_id'
 sections:
+  operacion-ordens@view:
+    relation: operacionOrdens
+  tarifa-items@view:
+    relation: tarifaItems
+  historicos@view:
+    relation: historicos
+  periodos@view:
+    relation: periodos
+  tipos@view:
+    relation: tipos
   'operacion-ordens@create update view':
     relation: operacionOrdens
   'tarifa-grupo-tarifas@create update view':

@@ -8,5 +8,7 @@ es:
     whatsapp: Whatsapp
   __sections:
     oficinas: Oficinas
+    tarifa-historicos: 'Tarifa historicos'
+    tarifas: Tarifas
     vehiculo-delegacions: 'Vehiculo delegacions'
     vehiculos: Vehiculos

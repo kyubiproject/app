@@ -1,6 +1,27 @@
 scenarios:
   default: 'id tipo_vehiculo nombre descripcion fianza franquicia'
+relations:
+  tarifas: 'hasMany flota\models\base\Tarifa tipo_id'
+sections:
+  modelos@view:
+    relation: modelos
+  tarifas@view:
+    relation: tarifas
 attributes:
+  fianza:
+    format:
+      - decimal
+      - 2
+    options:
+      container:
+        class: 'col-12 col-md-6'
+  franquicia:
+    format:
+      - decimal
+      - 2
+    options:
+      container:
+        class: 'col-12 col-md-6'
   id:
     options:
       container:
@@ -11,31 +32,13 @@ attributes:
         class: 'col-12 col-md-6'
   descripcion:
     options:
+      input:
+        class: vh-30
       container:
         class: col-12
   tipo_vehiculo:
     options:
       container:
         class: 'col-6 col-md-4'
-  fianza:
-    options:
-      container:
-        class: 'col-12 col-md-6'
-  franquicia:
-    options:
-      container:
-        class: 'col-12 col-md-6'
-relations:
-  modeloTipos: 'hasMany flota\models\base\ModeloTipo tipo_id'
-  tarifaTipos: 'hasMany tarifa\models\base\TarifaTipo grupo_id'
-  modelos: 'hasMany flota\models\base\Modelo modelo_id'
-  tarifas: 'hasMany tarifa\models\base\Tarifa tarifa_id'
-sections:
-  modelo-tipos@view:
-    relation: modeloTipos
-  tarifa-tipos@view:
-    relation: tarifaTipos
-  modelos@view:
-    relation: modelos
-  tarifas@view:
-    relation: tarifas
+name: '{id}'
+name@select: 'php:"( $this->id ) $this->nombre"'

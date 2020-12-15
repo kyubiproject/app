@@ -1,7 +1,0 @@
-es:
-  __attributes:
-    cliente_id: 'Cliente id'
-    conductor_id: 'Conductor id'
-  __sections:
-    comun-cliente: 'Comun cliente'
-    comun-conductor: 'Comun conductor'

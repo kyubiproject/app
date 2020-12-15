@@ -1,0 +1,51 @@
+scenarios:
+  default: 'delegacion_id estado descripcion emplazamiento km codigo_llave combustible codigo_radio'
+  view: 'delegacion.nombre estado descripcion emplazamiento km codigo_llave combustible codigo_radio fecha_transaccion'
+relations:
+  delegacion: 'comun\models\base\Delegacion delegacion_id'
+  vehiculo: flota\models\base\Vehiculo
+sections:
+  delegacion:
+    relation: delegacion
+attributes:
+  delegacion.nombre:
+    label: delegacion_id
+  estado:
+    options:
+      container:
+        class: 'col-12 col-md-6 offset-lg-4 col-lg-4'
+  descripcion:
+    options:
+      container:
+        class: col-12
+      input:
+        class: vh-30
+  emplazamiento:
+    options:
+      container:
+        class: col-12
+      input:
+        class: vh-30
+  km:
+    options:
+      container:
+        class: 'col-12 col-md-6 col-lg-4'
+  codigo_llave:
+    options:
+      container:
+        class: 'col-12 col-md-6 offset-lg-4 col-lg-4'
+  combustible:
+    options:
+      container:
+        class: 'col-12 col-md-6 col-lg-4'
+  codigo_radio:
+    options:
+      container:
+        class: 'col-12 col-md-6 offset-lg-4 col-lg-4'
+  fecha_transaccion:
+    template: '<div class="w-100 text-right">Última actualización {value}</div>'
+    options:
+      container:
+        class: col-12
+      input:
+        class: 'border-0 pl-0 d-inline'

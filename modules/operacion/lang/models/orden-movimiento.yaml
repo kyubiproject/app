@@ -1,7 +1,0 @@
-es:
-  __attributes:
-    orden_vehiculo_id: 'Orden vehiculo id'
-    movimiento_id: 'Movimiento id'
-  __sections:
-    orden-vehiculo: 'Orden vehiculo'
-    vehiculo-movimiento: 'Vehiculo movimiento'

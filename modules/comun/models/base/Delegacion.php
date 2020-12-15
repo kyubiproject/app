@@ -15,6 +15,8 @@ namespace comun\models\base;
  *
  * Relations:
  * @property Oficina $oficinas
+ * @property \flota\models\base\TarifaHistorico $tarifaHistoricos
+ * @property \flota\models\base\Tarifa $tarifas
  * @property \flota\models\base\VehiculoDelegacion $vehiculoDelegacions
  * @property \flota\models\base\Vehiculo $vehiculos
  */
@@ -61,6 +63,26 @@ class Delegacion extends \kyubi\base\ActiveRecord
     public function getOficinas()
     {
         return $this->hasMany(Oficina::className(), ['delegacion_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\flota\models\base\TarifaHistorico]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTarifaHistoricos()
+    {
+        return $this->hasMany(\flota\models\base\TarifaHistorico::className(), ['delegacion_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\flota\models\base\Tarifa]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTarifas()
+    {
+        return $this->hasMany(\flota\models\base\Tarifa::className(), ['delegacion_id' => 'id']);
     }
 
     /**

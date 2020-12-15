@@ -6,6 +6,8 @@ relations:
   comunClienteConductors: 'hasmany app\models\base\ComunClienteConductor conductor_id'
   comunClientes: 'hasmany app\models\base\ComunCliente cliente_id comunClienteConductors'
 sections:
+  comun-cliente-conductors@view:
+    relation: comunClienteConductors
   'comun-persona@create update view':
     relation: comunPersona
   'comun-cliente-conductors@create update view':

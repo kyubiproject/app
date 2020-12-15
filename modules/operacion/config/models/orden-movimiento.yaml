@@ -1,3 +1,0 @@
-scenarios:
-  default: 'orden_vehiculo_id movimiento_id'
-attributes: ~

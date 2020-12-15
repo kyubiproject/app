@@ -1,0 +1,5 @@
+scenarios:
+  default: observacion
+attributes: ~
+relations:
+  flotaVehiculo: app\models\base\FlotaVehiculo
