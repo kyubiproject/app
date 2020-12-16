@@ -33,7 +33,7 @@ class Controller extends \kyubi\api\controllers\CrudController
                 return;
         }
         $params['{controller}'] = $params['{controller}'] ?? t($this->module->id, $this->uniqueId);
-        return t($params['t'] ?? 'app/base', $string, $params);
+        return t($params['t'] ?? $this->module->id, $string, $params);
     }
 
     /**

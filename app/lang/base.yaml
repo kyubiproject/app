@@ -5,7 +5,10 @@ es:
   update: <i class="fa fa-pencil"></i> Editar
   view: <i class="fa fa-eye"></i> Mostrar
   delete: <i class="fa fa-trash"></i> Eliminar
-  Save all: <i class="fa fa-save"></i> Guardar todo
+  # [Grid]
+  search: <i class="fa fa-search"></i> Buscar
+  refresh: <i class="fa fa-refresh"></i> Actualizar
+  reset-search: <i class="fa fa-eraser"></i> Borrar filtros de busqueda
   # [Header content]
   '{controller}': '{controller}'
   '{action} {controller}': '{controller} <small>{action}</small>'

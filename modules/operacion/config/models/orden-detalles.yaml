@@ -3,5 +3,5 @@ scenarios:
 attributes:
   comisionista:
     options:
-      container: 
+      container:
         class: col-12

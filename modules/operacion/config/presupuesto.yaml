@@ -1,18 +1,24 @@
+name:
+  view: codigo
+table:
+  search: operacion__presupuesto_search
 scenarios:
-  default: 'delegacion_id cliente tipo_contrato tipo_tarifa tipo_id'
-  'create update': 'delegacion_id estado cliente tipo_contrato tipo_tarifa tipo_id'
+  default: delegacion_id estado cliente tipo_contrato tipo_tarifa tipo_id
+  search: codigo delegacion_nombre tipo_contrato fecha_entrega fecha_recogida tipo_id cliente estado
 sections:
-  'detalles@create update view':
+  detalles:
     relation: detalles
-  'observacion.presupuesto@create update view':
+  observacion.presupuesto:
     relation: observacion
 attributes:
+  delegacion_id:
+    value: delegacion.nombre
+  tipo_contrato@search:
+    value: old.tipo_contrato
   estado:
     options:
       container:
-        class: 'col-12 col-md-6 offset-lg-4 col-lg-4'
-      input:
-        readonly: true
+        class: col-12 col-md-6 offset-lg-4 col-lg-4
   cliente:
     options:
       container:

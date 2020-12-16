@@ -6,11 +6,11 @@ namespace operacion\models\base;
  *
  * Columns:
 * @property integer $id  
-* @property string $fecha_entrega  
-* @property string $hora_entrega  
+* @property string|null $fecha_entrega  
+* @property string|null $hora_entrega  
 * @property boolean|null $entrega_directa  
-* @property string $fecha_recogida  
-* @property string $hora_recogida  
+* @property string|null $fecha_recogida  
+* @property string|null $hora_recogida  
 * @property boolean|null $recogida_directa  
 * @property string|null $comisionista  
    
@@ -46,7 +46,7 @@ class OrdenDetalles extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['id', 'fecha_entrega', 'hora_entrega', 'fecha_recogida', 'hora_recogida'], 'required'],
+			[['id'], 'required'],
 			[['id'], 'integer'],
 			[['fecha_entrega', 'fecha_recogida'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
 			[['hora_entrega', 'hora_recogida'], 'date', 'type' => 'time', 'format' => 'hh:mm:ss'],

@@ -5,6 +5,9 @@ es:
     tipo_contrato: 'Tipo de contrato'
     tipo_id: 'Grupo de tarificación'
     tipo_tarifa: 'Tipo de tarifa'
+    momento: 'Estado de orden'
+    estado: Estado
+    codigo: Código
   __options:
     tipo_contrato:
       CP: 'Corto plazo'
@@ -13,8 +16,16 @@ es:
       HORA: Hora
       DIA: Día
       MES: Mes
+    momento:
+      PRESUPUESTO: Presupuesto
+      RESERVA: Reserva
+      CONTRATO: Contrato
+    estado:
+      'EN VIGOR': 'En vigor'
+      ANULADO: Anulado
+      FINALIZADO: Finalizado
   __sections:
-    detalles: Detalles<br><small>de entrega y recogida</small>
+    detalles: 'Detalles<br><small>de entrega y recogida</small>'
     observacion.presupuesto: 'Observación<br><small>Imprimir en presupuesto</small>'
     observacion.reserva: 'Observación<br><small>Imprimir en reserva</small>'
     observacion.contrato: 'Observación<br><small>Imprimir en contrato</small>'

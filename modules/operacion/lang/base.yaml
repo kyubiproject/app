@@ -5,4 +5,7 @@ es:
   operacion/contrato: Contrato
   #
   'create {controller}': '{controller} <span class="btn btn-sm btn-success">Nuevo</span>'
+  'view {controller} {model}': '{controller} <strong>{model}</strong>'
+  'update {controller} {model}': '{controller} <strong>{model}</strong> <i class="fa fa-pencil text-warning"></i></small>'
+  
   

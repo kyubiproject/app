@@ -1,5 +1,5 @@
 <?php
-if (count($sections = controller()->sections ?? [])) :
+if (controller()->defaultAction !== action()->id && count($sections = controller()->sections ?? [])) :
 switch (controller()->uniqueId):
     case 'flota/tarifa':
 ?>

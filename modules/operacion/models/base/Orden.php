@@ -5,22 +5,27 @@ namespace operacion\models\base;
  * This is the model class for table "operacion__orden".
  *
  * Columns:
-* @property integer|null $delegacion_id  
+* @property integer $delegacion_id  
 * @property string|null $cliente  
 * @property string $tipo_contrato  
 * @property string $tipo_id  
 * @property string $tipo_tarifa  
+* @property string|null $momento  
+* @property string|null $estado  
+* @property string $codigo  
+* @property integer|null $orden_id  
    
  *
  * Relations:
  * @property \comun\models\base\Delegacion $delegacion
+ * @property Orden $
  * @property OrdenDetalles $detalles
  * @property OrdenObservacion $observacion
- * @property OrdenSituacion $situacion
  * @property OrdenTarifa $tarifa
  * @property OrdenVehiculo $vehiculo
  * @property \flota\models\base\Tipo $tipo
  * @property OrdenHistoria $historias
+ * @property Orden $s
  */
 class Orden extends \kyubi\base\ActiveRecord
 {
@@ -50,14 +55,19 @@ class Orden extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['tipo_contrato', 'tipo_id', 'tipo_tarifa'], 'required'],
-			[['delegacion_id'], 'integer'],
+			[['delegacion_id', 'tipo_contrato', 'tipo_id', 'tipo_tarifa', 'codigo'], 'required'],
+			[['delegacion_id', 'orden_id'], 'integer'],
 			[['cliente'], 'string', 'max' => 100],
 			[['tipo_id'], 'string', 'max' => 3],
+			[['codigo'], 'string', 'max' => 16],
 			[['tipo_contrato'], 'in', 'range' => ['CP', 'LP'], 'strict' => true],
 			[['tipo_tarifa'], 'in', 'range' => ['HORA', 'DIA', 'MES'], 'strict' => true],
+			[['momento'], 'in', 'range' => ['PRESUPUESTO', 'RESERVA', 'CONTRATO'], 'strict' => true],
+			[['estado'], 'in', 'range' => ['EN VIGOR', 'ANULADO', 'FINALIZADO'], 'strict' => true],
+			[['codigo'], 'unique'],
 			[['delegacion_id'], 'exist', 'targetClass' => \comun\models\base\Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']],
-			[['tipo_id'], 'exist', 'targetClass' => \flota\models\base\Tipo::className(), 'targetAttribute' => ['tipo_id' => 'id']]        
+			[['tipo_id'], 'exist', 'targetClass' => \flota\models\base\Tipo::className(), 'targetAttribute' => ['tipo_id' => 'id']],
+			[['orden_id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['orden_id' => 'id']]        
         ];
     }
 
@@ -69,6 +79,16 @@ class Orden extends \kyubi\base\ActiveRecord
     public function getDelegacion()
     {
         return $this->hasOne(\comun\models\base\Delegacion::className(), ['id' => 'delegacion_id']);
+    }
+
+    /**
+     * Gets query for [[Orden]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function get()
+    {
+        return $this->hasOne(Orden::className(), ['id' => 'orden_id']);
     }
 
     /**
@@ -89,16 +109,6 @@ class Orden extends \kyubi\base\ActiveRecord
     public function getObservacion()
     {
         return $this->hasOne(OrdenObservacion::className(), ['id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[OrdenSituacion]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSituacion()
-    {
-        return $this->hasOne(OrdenSituacion::className(), ['id' => 'id']);
     }
 
     /**
@@ -141,6 +151,16 @@ class Orden extends \kyubi\base\ActiveRecord
         return $this->hasMany(OrdenHistoria::className(), ['orden_id' => 'id']);
     }
 
+    /**
+     * Gets query for [[Orden]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getS()
+    {
+        return $this->hasMany(Orden::className(), ['orden_id' => 'id']);
+    }
+
 	/**
 	 * {@inheritdoc}
 	 * @return array
@@ -149,13 +169,14 @@ class Orden extends \kyubi\base\ActiveRecord
 	{
 		return [
 			'delegacion' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
+			'' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'orden_id'],
 			'detalles' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenDetalles','refColumn'=>'id','column'=>'id'],
 			'observacion' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenObservacion','refColumn'=>'id','column'=>'id'],
-			'situacion' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenSituacion','refColumn'=>'id','column'=>'id'],
 			'tarifa' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenTarifa','refColumn'=>'id','column'=>'id'],
 			'vehiculo' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenVehiculo','refColumn'=>'id','column'=>'id'],
 			'tipo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Tipo','refColumn'=>'id','column'=>'tipo_id'],
-			'historias' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenHistoria','refColumn'=>'orden_id','column'=>'id']
+			'historias' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenHistoria','refColumn'=>'orden_id','column'=>'id'],
+			's' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'orden_id','column'=>'id']
 		];
 	}
 }

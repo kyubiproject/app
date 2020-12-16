@@ -12,11 +12,11 @@ use yii\helpers\Html;
 $formId = $grid->id . '-form';
 ?>
 <div class="grid-buttons text-right">
-	<a class="btn btn-sm btn-outline-primary" data-toggle="modal"
-		data-target="#<?= $formId ?>" href="#"> <i class="fa fa-filter"></i>
-	</a> <a class="btn btn-sm btn-outline-primary" href="#"
-		data-id="<?= $grid->id ?>" data-grid="refresh"> <i
-		class="fa fa-refresh"></i>
+	<a class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#<?= $formId ?>" href="#">
+		<?=t('app/base', 'search')?>
+	</a>
+	<a class="btn btn-sm btn-outline-primary" href="#" data-id="<?= $grid->id ?>" data-grid="refresh">
+		<?=t('app/base', 'refresh')?>
 	</a>
 </div>
 <?php
@@ -66,12 +66,11 @@ echo Html::endTag('div');
 ?>
 </div>
 		<div class="modal-footer d-flex justify-content-between">
-			<button type="reset" class="btn btn-warning text-light"
-				data-dismiss="modal">
-				<i class="fa fa-eraser"></i> <?=t('app/base', 'Borrar filtros')?>
+			<button type="reset" class="btn btn-warning text-light" data-dismiss="modal">
+				<?=t('app/base', 'reset-search')?>
 			</button>
 			<button type="submit" class="btn btn-success">
-				<i class="fa fa-search"></i> <?=t('app/base', 'Buscar')?>
+				<?=t('app/base', 'search')?>
 			</button>
 		</div>
 	</div>

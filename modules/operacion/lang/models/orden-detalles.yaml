@@ -1,9 +1,9 @@
 es:
   __attributes:
-    fecha_entrega: Fecha de entrega
-    hora_entrega: Hora de entrega
-    entrega_directa: Entrega directa
-    fecha_recogida: Fecha de recogida
-    hora_recogida: Hora de recogida
-    recogida_directa: Recogida directa
+    fecha_entrega: 'Fecha de entrega'
+    hora_entrega: 'Hora de entrega'
+    entrega_directa: 'Entrega directa'
+    fecha_recogida: 'Fecha de recogida'
+    hora_recogida: 'Hora de recogida'
+    recogida_directa: 'Recogida directa'
     comisionista: Comisionista

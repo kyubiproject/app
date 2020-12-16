@@ -7,8 +7,8 @@ namespace operacion\models\base;
  * Columns:
 * @property integer $id  
 * @property string|null $vehiculo_matricula  
-* @property integer $km  
-* @property integer $combustible  
+* @property integer|null $km  
+* @property integer|null $combustible  
 * @property string|null $detalle  
    
  *
@@ -44,7 +44,7 @@ class OrdenVehiculo extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['id', 'km', 'combustible'], 'required'],
+			[['id'], 'required'],
 			[['id', 'km', 'combustible'], 'integer'],
 			[['vehiculo_matricula'], 'string', 'max' => 10],
 			[['id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['id' => 'id']],

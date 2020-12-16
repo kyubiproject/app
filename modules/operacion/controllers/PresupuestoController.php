@@ -18,18 +18,11 @@ class PresupuestoController extends \app\base\Controller
      */
     public function getTitle(array $params = [])
     {
-        switch ($action = action()->id) {
+        switch (action()->id) {
             case 'index':
                 $params['{controller}'] = Str::pluralize(t($this->module->id, $this->uniqueId));
-                $string = '{controller}';
-                break;
-            case 'create':
-                $string = $action. ' {controller}';
-                break;
             default:
-                return parent::getTitle($params);
         }
-        $params['{controller}'] = $params['{controller}'] ?? t($this->module->id, $this->uniqueId);
-        return t($this->module->id, $string, $params);
+        return parent::getTitle($params);
     }
 }
