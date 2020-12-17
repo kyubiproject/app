@@ -18,14 +18,14 @@ namespace operacion\models\base;
  *
  * Relations:
  * @property \comun\models\base\Delegacion $delegacion
- * @property Orden $
+ * @property Orden $orden
  * @property OrdenDetalles $detalles
  * @property OrdenObservacion $observacion
  * @property OrdenTarifa $tarifa
  * @property OrdenVehiculo $vehiculo
  * @property \flota\models\base\Tipo $tipo
  * @property OrdenHistoria $historias
- * @property Orden $s
+ * @property Orden $ordens
  */
 class Orden extends \kyubi\base\ActiveRecord
 {
@@ -86,7 +86,7 @@ class Orden extends \kyubi\base\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function get()
+    public function getOrden()
     {
         return $this->hasOne(Orden::className(), ['id' => 'orden_id']);
     }
@@ -156,7 +156,7 @@ class Orden extends \kyubi\base\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getS()
+    public function getOrdens()
     {
         return $this->hasMany(Orden::className(), ['orden_id' => 'id']);
     }
@@ -169,14 +169,14 @@ class Orden extends \kyubi\base\ActiveRecord
 	{
 		return [
 			'delegacion' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
-			'' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'orden_id'],
+			'orden' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'orden_id'],
 			'detalles' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenDetalles','refColumn'=>'id','column'=>'id'],
 			'observacion' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenObservacion','refColumn'=>'id','column'=>'id'],
 			'tarifa' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenTarifa','refColumn'=>'id','column'=>'id'],
 			'vehiculo' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenVehiculo','refColumn'=>'id','column'=>'id'],
 			'tipo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Tipo','refColumn'=>'id','column'=>'tipo_id'],
 			'historias' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenHistoria','refColumn'=>'orden_id','column'=>'id'],
-			's' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'orden_id','column'=>'id']
+			'ordens' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'orden_id','column'=>'id']
 		];
 	}
 }

@@ -1,5 +1,5 @@
 name:
-  view: codigo
+  view update: codigo
 table:
   search: operacion__presupuesto_search
 scenarios:
@@ -8,7 +8,7 @@ scenarios:
 sections:
   detalles:
     relation: detalles
-  observacion.presupuesto:
+  observacion-presupuesto:
     relation: observacion
 attributes:
   delegacion_id:

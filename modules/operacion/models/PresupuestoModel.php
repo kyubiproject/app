@@ -10,7 +10,6 @@ class PresupuestoModel extends Orden
 
     public function init()
     {
-        parent::init();
         if ($this->isNewRecord) {
             $this->momento = 'PRESUPUESTO';
             $this->estado = 'EN VIGOR';

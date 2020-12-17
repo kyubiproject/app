@@ -3,8 +3,6 @@ use kyubi\ui\widgets\GridView;
 use kyubi\helper\Str;
 use kyubi\ui\widgets\DetailView;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use kyubi\base\model\BaseBehavior;
 use yii\data\ActiveDataProvider;
 
 if ($rel = model()->relations()[$relation] ?? null) {
@@ -17,34 +15,16 @@ if ($rel = model()->relations()[$relation] ?? null) {
             switch (model()->getScenario()) {
                 case 'create':
                 case 'update':
-                    $model->setScenario($model->isNewRecord ? 'create' : model()->getScenario());
-                    $form = ActiveForm::begin([
-                        'action' => '#',
-                        'fieldClass' => '\kyubi\ui\widgets\ActiveField',
-                        'errorCssClass' => 'is-invalid',
-                        'successCssClass' => 'is-valid',
-                        'validationStateOn' => 'input',
-                        'options' => [
-                            'data-required' => false
-                        ]
-                    ]);
-                    echo Html::beginTag('div', [
-                        'class' => 'form-row'
-                    ]);
-                    foreach ($model->safeAttributes() as $attribute) {
-                        echo $form->field($model, $attribute);
+                    if ($form = get_param('__form')) {
+                        $model->setScenario($model->isNewRecord ? 'create' : model()->getScenario());
+                        echo Html::beginTag('div', [
+                            'class' => 'form-row'
+                        ]);
+                        foreach ($model->safeAttributes() as $attribute) {
+                            echo $form->field($model, $attribute);
+                        }
+                        echo Html::endTag('div');
                     }
-                    echo Html::endTag('div');
-                    view()->registerJs('
-//$("header .btn-toolbar").append("<button class=\"btn btn-light text-danger\" data-forms>' . str_replace('"', '\"', t('app', 'Save all')) . '</button>");
-$("header .btn-toolbar button[data-form]").attr("data-form", null).attr("data-forms", true);
-$(document).on("click", "button[data-forms]", function(e) {
-    $("form:first").prepend("<input type=\"hidden\" name=\"' . BaseBehavior::INPUT_NAME . '\" value=true>");
-    $.post("", $("form").serialize());
-    return true;
-});
-            ', view()::POS_END, 'catch-all');
-                    $form->end();
                     break;
                 default:
                     if (! $model->isNewRecord) {

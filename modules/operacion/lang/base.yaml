@@ -1,5 +1,6 @@
 es:
   name: Operaciones
+  operacion: Operaciones
   operacion/presupuesto: Presupuesto
   operacion/reserva: Reserva
   operacion/contrato: Contrato

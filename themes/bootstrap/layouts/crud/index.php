@@ -7,7 +7,6 @@ use kyubi\ui\widgets\GridView;
 use yii\widgets\Pjax;
 use kyubi\helper\Str;
 
-view()->blocks['toolbar'] = $model->toolbar ?? null;
 Pjax::begin([
     'clientOptions' => [
         'method' => 'POST'

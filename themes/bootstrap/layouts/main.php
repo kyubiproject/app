@@ -4,6 +4,7 @@
  * @var string $content
  */
 use kyubi\helper\Str;
+use yii\helpers\Html;
 
 \themes\bootstrap\Asset::register($this);
 
@@ -30,8 +31,18 @@ if (request()->isPatch) {
     </header>
 	<main class="container-lg pt-2">
     	<?= get_block('header') ?>
-    	<?= $content ?>
-    	<?= get_block('sections') ?>
+    	<?php
+    if ($form = get_param('__form')) {
+        echo Html::beginForm($form->action, $form->method, $form->options);
+        $form->registerClientScript();
+        echo $content;
+        echo get_block('sections');
+        echo Html::endForm();
+    } else {
+        echo $content;
+        echo get_block('sections');
+    }
+    ?>
 	</main>
 	<footer>
     	<?= get_block('footer') ?>
