@@ -4,13 +4,13 @@ components:
   request:
     cookieValidationKey: 5d7cff7c24278171c8044ef8f5301014
   db:
-    dsn: 'mysql:host=168.235.86.115;dbname=rentavan'
+    dsn: 'mysql:host=localhost;dbname=rentavan'
     username: root
     password: root
     charset: utf8
   dbsys:
     class: yii\db\Connection
-    dsn: 'mysql:host=168.235.86.115;dbname=webapp'
+    dsn: 'mysql:host=localhost;dbname=webapp'
     username: root
     password: root
     charset: utf8

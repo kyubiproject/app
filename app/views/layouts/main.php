@@ -16,10 +16,7 @@
 </head>
 <body>
 <?php $this->beginBody() ?>
-<main class="container">
-    <?= $content ?>
-</main>
-<footer><?= powered() ?></footer>
+<?= $content ?>
 <?php $this->endBody() ?>
 </body>
 </html>

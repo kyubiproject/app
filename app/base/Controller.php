@@ -2,10 +2,41 @@
 namespace app\base;
 
 use kyubi\helper\Str;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\helpers\Html;
 
 class Controller extends \kyubi\api\controllers\CrudController
 {
+
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+//         $behaviors['access'] = [
+//             'class' => AccessControl::className(),
+//             'only' => [
+//                 'create',
+//                 'update'
+//             ],
+//             'rules' => [
+//                 [
+//                     'allow' => true,
+//                     'roles' => [
+//                         '@'
+//                     ]
+//                 ]
+//             ]
+//         ];
+//         $behaviors['verbs-logout'] = [
+//             'class' => VerbFilter::className(),
+//             'actions' => [
+//                 'logout' => [
+//                     'post'
+//                 ]
+//             ]
+//         ];
+        return $behaviors;
+    }
 
     /**
      *

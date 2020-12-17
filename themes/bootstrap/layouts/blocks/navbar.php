@@ -10,9 +10,9 @@
 		<?= get_block('navbar-user') ?>
 	</div>
 </nav>
-<div class="collapse show d-flex justify-content-between align-items-center" id="navbar-toggle">
-	<?= get_block('breadcrumb') ?>
+<div class="collapse show d-flex justify-content-between flex-row-reverse align-items-center" id="navbar-toggle">
 	<blockquote class="blockquote d-none d-md-block">
-		<footer class="blockquote-footer"> Compañía localidad Localidad </footer>
+		<footer class="blockquote-footer"><?= user('delegacion') ?></footer>
 	</blockquote>
+	<?= get_block('breadcrumb') ?>
 </div>
