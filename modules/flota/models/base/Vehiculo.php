@@ -148,14 +148,14 @@ class Vehiculo extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'delegacion' => ['type'=>'hasOne','refClass'=>'\\comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
-			'modelo' => ['type'=>'hasOne','refClass'=>'Modelo','refColumn'=>'id','column'=>'modelo_id'],
-			'caracteristicas' => ['type'=>'hasOne','refClass'=>'VehiculoCaracteristicas','refColumn'=>'id','column'=>'id'],
-			'observacion' => ['type'=>'hasOne','refClass'=>'VehiculoObservacion','refColumn'=>'id','column'=>'id'],
-			'situacion' => ['type'=>'hasOne','refClass'=>'VehiculoSituacion','refColumn'=>'id','column'=>'id'],
-			'ordenHistorias' => ['type'=>'hasMany','refClass'=>'\\operacion\\models\\base\\OrdenHistoria','refColumn'=>'vehiculo_matricula','column'=>'matricula'],
-			'ordenVehiculos' => ['type'=>'hasMany','refClass'=>'\\operacion\\models\\base\\OrdenVehiculo','refColumn'=>'vehiculo_matricula','column'=>'matricula'],
-			'historias' => ['type'=>'hasMany','refClass'=>'VehiculoHistoria','refColumn'=>'vehiculo_id','column'=>'id']
+			'delegacion' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
+			'modelo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Modelo','refColumn'=>'id','column'=>'modelo_id'],
+			'caracteristicas' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\VehiculoCaracteristicas','refColumn'=>'id','column'=>'id'],
+			'observacion' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\VehiculoObservacion','refColumn'=>'id','column'=>'id'],
+			'situacion' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\VehiculoSituacion','refColumn'=>'id','column'=>'id'],
+			'ordenHistorias' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenHistoria','refColumn'=>'vehiculo_matricula','column'=>'matricula'],
+			'ordenVehiculos' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenVehiculo','refColumn'=>'vehiculo_matricula','column'=>'matricula'],
+			'historias' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\VehiculoHistoria','refColumn'=>'vehiculo_id','column'=>'id']
 		];
 	}
 }

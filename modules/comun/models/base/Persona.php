@@ -50,7 +50,7 @@ class Persona extends \kyubi\base\ActiveRecord
 			[['dni'], 'string', 'max' => 20],
 			[['pais_dni', 'nacionalidad'], 'string', 'max' => 45],
 			[['fecha_nacimiento'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['dni', 'pais_dni'], 'unique', 'targetAttribute' => ['dni', 'pais_dni']]        
+			[['pais_dni', 'dni'], 'unique', 'targetAttribute' => ['pais_dni', 'dni']]        
         ];
     }
 
@@ -91,9 +91,9 @@ class Persona extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'cliente' => ['type'=>'hasOne','refClass'=>'Cliente','refColumn'=>'id','column'=>'id'],
-			'contactos' => ['type'=>'hasMany','refClass'=>'PersonaContacto','refColumn'=>'persona_id','column'=>'id'],
-			'direccions' => ['type'=>'hasMany','refClass'=>'PersonaDireccion','refColumn'=>'persona_id','column'=>'id']
+			'cliente' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Cliente','refColumn'=>'id','column'=>'id'],
+			'contactos' => ['type'=>'hasMany','refClass'=>'comun\\models\\base\\PersonaContacto','refColumn'=>'persona_id','column'=>'id'],
+			'direccions' => ['type'=>'hasMany','refClass'=>'comun\\models\\base\\PersonaDireccion','refColumn'=>'persona_id','column'=>'id']
 		];
 	}
 }

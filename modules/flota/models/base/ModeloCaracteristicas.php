@@ -70,7 +70,7 @@ class ModeloCaracteristicas extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'modelo' => ['type'=>'hasOne','refClass'=>'Modelo','refColumn'=>'id','column'=>'id']
+			'modelo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Modelo','refColumn'=>'id','column'=>'id']
 		];
 	}
 }

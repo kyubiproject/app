@@ -6,11 +6,11 @@ scenarios:
   default: delegacion_id estado cliente tipo_contrato tipo_tarifa tipo_id
   search: codigo delegacion_nombre tipo_contrato fecha_entrega fecha_recogida matricula tipo_id cliente estado
 sections:
-  detalles:
-    relation: detalles
   vehiculo:
     view: operacion/views/reserva/vehiculo
     relation: vehiculo
+  detalles:
+    relation: detalles
   observacion-reserva:
     relation: observacion
 attributes:

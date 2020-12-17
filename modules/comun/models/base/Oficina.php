@@ -73,7 +73,7 @@ class Oficina extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'delegacion' => ['type'=>'hasOne','refClass'=>'Delegacion','refColumn'=>'id','column'=>'delegacion_id']
+			'delegacion' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id']
 		];
 	}
 }

@@ -12,4 +12,3 @@ echo DetailView::widget([
         'class' => 'form-row'
     ]
 ]);
-echo get_block('sections');

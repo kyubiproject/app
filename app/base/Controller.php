@@ -27,7 +27,7 @@ class Controller extends \kyubi\api\controllers\CrudController
                     return;
                 }
                 $string = $action . ' {controller} {model}';
-                $params['{model}'] = model()->name ?? null;
+                $params['{model}'] = $params['{model}'] ?? model()->name ?? null;
                 break;
             default:
                 return;

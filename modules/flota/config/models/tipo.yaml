@@ -31,7 +31,7 @@ attributes:
   descripcion:
     options:
       input:
-        class: vh-30
+        class: line-2
       container:
         class: col-12
   tipo_vehiculo:

@@ -69,7 +69,7 @@ class PersonaContacto extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'persona' => ['type'=>'hasOne','refClass'=>'Persona','refColumn'=>'id','column'=>'persona_id']
+			'persona' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Persona','refColumn'=>'id','column'=>'persona_id']
 		];
 	}
 }

@@ -112,11 +112,11 @@ class Modelo extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'marca' => ['type'=>'hasOne','refClass'=>'Marca','refColumn'=>'id','column'=>'marca_id'],
-			'caracteristicas' => ['type'=>'hasOne','refClass'=>'ModeloCaracteristicas','refColumn'=>'id','column'=>'id'],
-			'carga' => ['type'=>'hasOne','refClass'=>'ModeloCarga','refColumn'=>'id','column'=>'id'],
-			'tipo' => ['type'=>'hasOne','refClass'=>'Tipo','refColumn'=>'id','column'=>'tipo_id'],
-			'vehiculos' => ['type'=>'hasMany','refClass'=>'Vehiculo','refColumn'=>'modelo_id','column'=>'id']
+			'marca' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Marca','refColumn'=>'id','column'=>'marca_id'],
+			'caracteristicas' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\ModeloCaracteristicas','refColumn'=>'id','column'=>'id'],
+			'carga' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\ModeloCarga','refColumn'=>'id','column'=>'id'],
+			'tipo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Tipo','refColumn'=>'id','column'=>'tipo_id'],
+			'vehiculos' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\Vehiculo','refColumn'=>'modelo_id','column'=>'id']
 		];
 	}
 }

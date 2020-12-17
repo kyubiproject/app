@@ -63,7 +63,7 @@ class VehiculoObservacion extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'vehiculo' => ['type'=>'hasOne','refClass'=>'Vehiculo','refColumn'=>'id','column'=>'id']
+			'vehiculo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Vehiculo','refColumn'=>'id','column'=>'id']
 		];
 	}
 }

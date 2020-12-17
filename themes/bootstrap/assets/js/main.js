@@ -10,6 +10,10 @@ $(document).on("click", "a[submit]", function() {
 			headers: {
 				"X-CSRF-Token": $app.request.csrf
 			}
+		}).then(response => {
+			if (response.redirected) {
+				window.location.href = response.url.replace(/\/index$/, '');
+			}
 		});
 	}
 });

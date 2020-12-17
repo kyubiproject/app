@@ -114,10 +114,10 @@ class TarifaHistoria extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'delegacion' => ['type'=>'hasOne','refClass'=>'\\comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
-			'tarifa' => ['type'=>'hasOne','refClass'=>'Tarifa','refColumn'=>'id','column'=>'tarifa_id'],
-			'tipo' => ['type'=>'hasOne','refClass'=>'Tipo','refColumn'=>'id','column'=>'tipo_id'],
-			'ordenTarifas' => ['type'=>'hasMany','refClass'=>'\\operacion\\models\\base\\OrdenTarifa','refColumn'=>'tarifa_id','column'=>'id']
+			'delegacion' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
+			'tarifa' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Tarifa','refColumn'=>'id','column'=>'tarifa_id'],
+			'tipo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Tipo','refColumn'=>'id','column'=>'tipo_id'],
+			'ordenTarifas' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenTarifa','refColumn'=>'tarifa_id','column'=>'id']
 		];
 	}
 }

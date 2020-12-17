@@ -65,7 +65,7 @@ class Marca extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'modelos' => ['type'=>'hasMany','refClass'=>'Modelo','refColumn'=>'marca_id','column'=>'id']
+			'modelos' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\Modelo','refColumn'=>'marca_id','column'=>'id']
 		];
 	}
 }

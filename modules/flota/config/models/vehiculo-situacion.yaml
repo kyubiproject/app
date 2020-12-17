@@ -16,13 +16,13 @@ attributes:
       container:
         class: col-12
       input:
-        class: vh-30
+        class: line-2
   emplazamiento:
     options:
       container:
         class: col-12
       input:
-        class: vh-30
+        class: line-2
   km:
     options:
       container:

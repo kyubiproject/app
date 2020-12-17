@@ -89,7 +89,7 @@ input[type=color] {
 	padding: unset;
 }
 
-.btn-group + .btn-group:not(:empty), *:not(.btn-group) > .btn + .btn:not(:empty)  {
+.btn-toolbar .btn-group + .btn-group:not(:empty), .btn-toolbar *:not(.btn-group) > .btn + .btn:not(:empty)  {
 	margin-left: 15px;
 }
 
@@ -107,8 +107,8 @@ form[data-required]:after {
 	content: " *";
 }
 
-.line-2 {height: 13rem !important;}
-.line-3 {height: 18rem !important;}
+.line-2 {height: 8rem !important;}
+.line-3 {height: 13rem !important;}
 
 .pl-30 {padding-left: 30% !important;}
 .pl-50 {padding-left: 50% !important;}
