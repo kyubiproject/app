@@ -15,6 +15,9 @@ foreach (Kyubi::config('modules') ?? [] as $name => $module) {
 <div class="collapse navbar-collapse" id="navbar-menu">
 	<ul class="navbar-nav">
 	<?php foreach (Arr::sort($navbar) as $name => $item): ?>
+		<?php if (! in_array($name, [
+		    'operacion', 'flota'
+		])) continue; ?>
     	<li class="nav-item dropdown">
     		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
     			<?= t($name, $item['label'] ?? $name) ?>

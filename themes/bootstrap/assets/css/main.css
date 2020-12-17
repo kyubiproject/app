@@ -89,7 +89,7 @@ input[type=color] {
 	padding: unset;
 }
 
-.btn-group:not(:empty) + .btn-group:not(:empty), *:not(.btn-group) > .btn:not(:empty) + .btn:not(:empty)  {
+.btn-group + .btn-group:not(:empty), *:not(.btn-group) > .btn + .btn:not(:empty)  {
 	margin-left: 15px;
 }
 
@@ -125,4 +125,17 @@ td[data-type=decimal] {
 
 td[data-type^=date], td[data-type^=time], td[data-type^=integer], td[data-type^=enum] {
 	text-align: center;
+}
+
+body > main > header > h1 {
+	font-size: 1.5rem !important;
+}
+
+a:not([href]) {
+	cursor: default !important;
+	opacity: 0.5;
+}
+
+a[href] i {
+	cursor: pointer !important;
 }

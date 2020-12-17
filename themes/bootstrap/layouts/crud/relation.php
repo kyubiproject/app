@@ -9,7 +9,7 @@ if ($rel = model()->relations()[$relation] ?? null) {
     $fn = 'get' . ucfirst($relation);
     switch ($rel['type']) {
         case 'hasOne':
-            $modelClass = $rel['refClass'];
+            $modelClass = model()->$fn()->modelClass;
             $model = model()->$fn()->one() ?? (new $modelClass());
             switch ($model->getScenario()) {
                 case 'create':
@@ -26,15 +26,13 @@ if ($rel = model()->relations()[$relation] ?? null) {
                     }
                     break;
                 default:
-                    if (! $model->isNewRecord) {
-                        echo DetailView::widget([
-                            'model' => $model,
-                            'options' => [
-                                'tag' => 'section',
-                                'class' => 'form-row'
-                            ]
-                        ]);
-                    }
+                    echo DetailView::widget([
+                        'model' => $model,
+                        'options' => [
+                            'tag' => 'section',
+                            'class' => 'form-row'
+                        ]
+                    ]);
             }
             break;
         case 'hasMany':

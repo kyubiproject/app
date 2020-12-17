@@ -1,12 +1,7 @@
 <?php
 namespace operacion\controllers;
 
-use kyubi\helper\Str;
-
-/**
- * Default controller for the `operacion` module
- */
-class ContratoController extends PresupuestoController
+class ContratoController extends OrdenController
 {
 
     public $modelClass = 'operacion\models\ContratoModel';

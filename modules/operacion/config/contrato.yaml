@@ -1,7 +1,7 @@
 name:
   view update: codigo
 table:
-  search: operacion__presupuesto_search
+  search: operacion__contrato_search
 scenarios:
   default: delegacion_id estado cliente tipo_contrato tipo_tarifa tipo_id
   search: codigo delegacion_nombre tipo_contrato fecha_entrega fecha_recogida tipo_id cliente estado

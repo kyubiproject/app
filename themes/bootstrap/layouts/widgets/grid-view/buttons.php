@@ -13,10 +13,10 @@ $formId = $grid->id . '-form';
 ?>
 <div class="grid-buttons text-right">
 	<a class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#<?= $formId ?>" href="#">
-		<?=t('app/base', 'search')?>
+		<i class="fa fa-search"></i>
 	</a>
-	<a class="btn btn-sm btn-outline-primary" href="#" data-id="<?= $grid->id ?>" data-grid="refresh">
-		<?=t('app/base', 'refresh')?>
+	<a class="btn btn-sm btn-outline-primary ml-0" href="#" data-id="<?= $grid->id ?>" data-grid="refresh">
+		<i class="fa fa-refresh"></i>
 	</a>
 </div>
 <?php
