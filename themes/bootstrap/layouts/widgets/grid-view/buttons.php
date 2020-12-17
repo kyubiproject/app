@@ -57,7 +57,7 @@ echo Html::beginTag('div', [
 ]);
 eval('$model = new ' . get_class(model()) . ';');
 $model->setScenario(basename(__DIR__));
-$model->unsetAttributes();
+//$model->unsetAttributes();
 $model->setAttributes(get('t', []));
 foreach ($model->safeAttributes() as $attribute) {
     echo $form->field($model, $attribute);

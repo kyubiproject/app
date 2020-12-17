@@ -26,6 +26,7 @@ es:
       FINALIZADO: Finalizado
   __sections:
     detalles: 'Detalles<br><small>de entrega y recogida</small>'
+    vehiculo: 'Vehículo<br><small>detalles de asignación</small>'
     observacion-presupuesto: 'Observación<br><small>Imprimir en presupuesto</small>'
     observacion-reserva: 'Observación<br><small>Imprimir en reserva</small>'
     observacion-contrato: 'Observación<br><small>Imprimir en contrato</small>'

@@ -11,7 +11,7 @@ namespace operacion\models\base;
 * @property string $tipo_id  
 * @property string $tipo_tarifa  
 * @property string|null $momento  
-* @property string|null $estado  
+* @property string $estado  
 * @property string $codigo  
 * @property integer|null $orden_id  
    

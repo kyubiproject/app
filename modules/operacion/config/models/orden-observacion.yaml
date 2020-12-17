@@ -6,6 +6,6 @@ attributes:
       container:
         class: col-12
       input:
-        class: vh-50
+        class: line-3
       label:
         class: d-none

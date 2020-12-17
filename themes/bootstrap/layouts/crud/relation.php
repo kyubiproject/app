@@ -6,20 +6,19 @@ use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 
 if ($rel = model()->relations()[$relation] ?? null) {
-    $relation = 'get' . ucfirst($relation);
-    $relation = model()->$relation();
+    $fn = 'get' . ucfirst($relation);
     switch ($rel['type']) {
         case 'hasOne':
-            $modelClass = $relation->modelClass;
-            $model = $relation->one() ?? (new $modelClass());
-            switch (model()->getScenario()) {
+            $modelClass = $rel['refClass'];
+            $model = model()->$fn()->one() ?? (new $modelClass());
+            switch ($model->getScenario()) {
                 case 'create':
                 case 'update':
                     if ($form = get_param('__form')) {
                         $model->setScenario($model->isNewRecord ? 'create' : model()->getScenario());
-                        echo Html::beginTag('div', [
+                        echo Html::beginTag('div', array_merge([
                             'class' => 'form-row'
-                        ]);
+                        ], model()->config('sections')[$relation]['options'] ?? []));
                         foreach ($model->safeAttributes() as $attribute) {
                             echo $form->field($model, $attribute);
                         }
@@ -39,10 +38,10 @@ if ($rel = model()->relations()[$relation] ?? null) {
             }
             break;
         case 'hasMany':
-            if (is_object($relation)) {
+            if (is_object($query = model()->$fn())) {
                 echo GridView::widget([
                     'dataProvider' => new ActiveDataProvider([
-                        'query' => $relation
+                        'query' => $query
                     ]),
                     'tableOptions' => [
                         'class' => 'table table-striped table-bordered'

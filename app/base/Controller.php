@@ -113,16 +113,17 @@ class Controller extends \kyubi\api\controllers\CrudController
                 $term = explode('@', $name, 2);
                 $name = array_shift($term);
                 if (! count($term) || in_array(model()->getScenario(), Str::toArray(array_pop($term), ' '))) {
-                    if (is_array($section)) {
-                        if (isset($section['relation'])) {
-                            $section['view'] = '@themes/bootstrap/layouts/crud/relation';
-                            $section['params']['relation'] = $section['relation'];
-                        }
-                        $sections[$name] = $section;
-                    } elseif (is_string($section)) {
+                    if (is_string($section)) {
                         $sections[$name] = [
                             'view' => $section
                         ];
+                    }
+                    if (is_array($section)) {
+                        if (isset($section['relation'])) {
+                            $section['view'] = $section['view'] ?? '@themes/bootstrap/layouts/crud/relation';
+                            $section['params']['relation'] = $section['relation'];
+                        }
+                        $sections[$name] = $section;
                     }
                 }
             }

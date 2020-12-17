@@ -99,15 +99,16 @@ input[type=color] {
 
 form[data-required]:after {
 	content: attr(data-required);
+	float: right;
+	color: var(--info) !important;
 }
 
 .form-group.required label:after {
 	content: " *";
 }
 
-.vh-30 {height: 30vh !important;}
-.vh-50 {height: 50vh !important;}
-.vh-70 {height: 70vh !important;}
+.line-2 {height: 13rem !important;}
+.line-3 {height: 18rem !important;}
 
 .pl-30 {padding-left: 30% !important;}
 .pl-50 {padding-left: 50% !important;}

@@ -1,0 +1,28 @@
+name:
+  view update: codigo
+table:
+  search: operacion__reserva_search
+scenarios:
+  default: delegacion_id estado cliente tipo_contrato tipo_tarifa tipo_id
+  search: codigo delegacion_nombre tipo_contrato fecha_entrega fecha_recogida matricula tipo_id cliente estado
+sections:
+  detalles:
+    relation: detalles
+  vehiculo:
+    view: operacion/views/reserva/vehiculo
+    relation: vehiculo
+  observacion-reserva:
+    relation: observacion
+attributes:
+  delegacion_id:
+    value: delegacion.nombre
+  tipo_contrato@search:
+    value: old.tipo_contrato
+  estado:
+    options:
+      container:
+        class: col-12 col-md-6 offset-lg-4 col-lg-4
+  cliente:
+    options:
+      container:
+        class: col-12
