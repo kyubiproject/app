@@ -29,21 +29,21 @@ abstract class OrdenController extends \app\base\Controller
         if (! $model->isNewRecord) {
             switch ($model::DEFAULT_MOMENTO) {
                 case 'CONTRATO':
-                    if (in_array($model->getOldAttribute('momento'), [
+                    if (! in_array($model->getOldAttribute('momento'), [
                         $model::DEFAULT_MOMENTO,
                         'EXTENSION'
                     ])) {
-                        return $model;
+                        throw new NotFoundHttpException('Model not found.', 404);
                     }
                     break;
 
                 default:
-                    if ($model->getOldAttribute('momento') === $model::DEFAULT_MOMENTO) {
-                        return $model;
+                    if ($model->getOldAttribute('momento') !== $model::DEFAULT_MOMENTO) {
+                        throw new NotFoundHttpException('Model not found.', 404);
                     }
             }
         }
-        throw new NotFoundHttpException('Model not found.', 404);
+        return $model;
     }
 
     /**
