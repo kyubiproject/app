@@ -1,9 +1,8 @@
 es:
   __attributes:
-    id: Id
     nombre: Nombre
-    descripcion: Descripcion
-    correo: Correo
+    descripcion: Descripción
+    correo: 'Correo electrónico'
     telefono: Telefono
     whatsapp: Whatsapp
   __sections:

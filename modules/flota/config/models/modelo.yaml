@@ -1,5 +1,6 @@
 scenarios:
-  default: 'tipo_id marca_id nombre descripcion'
+  default: 'marca_id nombre descripcion'
+  'create update view': 'tipo_id marca_id nombre descripcion'
   search: 'marca.nombre nombre tipo_id descripcion'
   search-rel: 'nombre tipo_id descripcion'
 sections:
@@ -8,11 +9,11 @@ sections:
 name@select: 'php:$this->marca ? ("{$this->marca->nombre} : $this->nombre" . (($tipo = $this->tipo) ? " ( $tipo->id ) - {$tipo->nombre}" : null)) : null'
 attributes:
   tipo_id@view:
-    value: 'php:($tipo = $this->tipo) ? "( $tipo->id ) - {$tipo->nombre}" : null'
+    value: 'php:($tipo = $this->tipo) ? ("( $tipo->id ) $tipo->nombre") : null'
   tipo_id:
+    relation:
+      name: 'php:"( $this->id ) $this->nombre"'
     options:
-      select:
-        scenario: select
       container:
         class: 'col-12 col-sm-6 col-md-6 col-lg-8'
   marca.nombre:

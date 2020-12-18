@@ -6,12 +6,12 @@ namespace flota\models\base;
  *
  * Columns:
 * @property integer $id  
-* @property integer|null $delegacion_id  
+* @property integer $delegacion_id  
 * @property string $estado  
-* @property string $descripcion  
+* @property string|null $descripcion  
 * @property string|null $emplazamiento  
-* @property integer $km  
-* @property integer $combustible  
+* @property integer|null $km  
+* @property integer|null $combustible  
 * @property string|null $codigo_llave  
 * @property string|null $codigo_radio  
    
@@ -48,7 +48,7 @@ class VehiculoSituacion extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['id', 'estado', 'descripcion', 'km', 'combustible'], 'required'],
+			[['id', 'delegacion_id'], 'required'],
 			[['id', 'delegacion_id', 'km', 'combustible'], 'integer'],
 			[['estado'], 'in', 'range' => ['DISPONIBLE', 'RESERVADO', 'CONTRATADO', 'AVERIADO', 'MANTENIMIENTO', 'BAJA', 'ENTREGADO', 'RECIBIDO', 'RENOVADO'], 'strict' => true],
 			[['codigo_llave', 'codigo_radio'], 'string', 'max' => 10],

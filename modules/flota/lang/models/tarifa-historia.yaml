@@ -17,6 +17,7 @@ es:
     fecha_transaccion: 'Fecha de actualización'
   __options:
     tipo_tarifa:
-      DIA: Día
-      MES: Mes
-      HORA: 'Hor  a'
+      DAY: Día
+      MONTH: Mes
+      HOUR: Hora
+      

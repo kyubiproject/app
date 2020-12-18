@@ -11,10 +11,13 @@ sections:
   observacion-presupuesto:
     relation: observacion
 attributes:
+  tipo_id:
+    relation:
+      name: 'php:"( $this->id ) $this->nombre"'
   delegacion_id:
     value: delegacion.nombre
   tipo_contrato@search:
-    value: old.tipo_contrato
+    value: old:tipo_contrato
   estado:
     options:
       container:

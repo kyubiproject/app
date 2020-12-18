@@ -1,7 +1,7 @@
 es:
   __attributes:
     nombre: Nombre
-    descripcion: Descripcion
+    descripcion: Descripción
     marca_id: Marca
     tipo_id: 'Tipo de vehículo'
   __sections:

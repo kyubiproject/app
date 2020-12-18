@@ -12,29 +12,29 @@ class Controller extends \kyubi\api\controllers\CrudController
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-//         $behaviors['access'] = [
-//             'class' => AccessControl::className(),
-//             'only' => [
-//                 'create',
-//                 'update'
-//             ],
-//             'rules' => [
-//                 [
-//                     'allow' => true,
-//                     'roles' => [
-//                         '@'
-//                     ]
-//                 ]
-//             ]
-//         ];
-//         $behaviors['verbs-logout'] = [
-//             'class' => VerbFilter::className(),
-//             'actions' => [
-//                 'logout' => [
-//                     'post'
-//                 ]
-//             ]
-//         ];
+        // $behaviors['access'] = [
+        // 'class' => AccessControl::className(),
+        // 'only' => [
+        // 'create',
+        // 'update'
+        // ],
+        // 'rules' => [
+        // [
+        // 'allow' => true,
+        // 'roles' => [
+        // '@'
+        // ]
+        // ]
+        // ]
+        // ];
+        // $behaviors['verbs-logout'] = [
+        // 'class' => VerbFilter::className(),
+        // 'actions' => [
+        // 'logout' => [
+        // 'post'
+        // ]
+        // ]
+        // ];
         return $behaviors;
     }
 
@@ -209,7 +209,7 @@ class Controller extends \kyubi\api\controllers\CrudController
                 'next'
             ] as $it) {
                 $item = model()->find()
-                    ->where('id' . ($it == 'next' ? '>' : '<') . ':t0', [
+                    ->andWhere('id' . ($it == 'next' ? '>' : '<') . ':t0', [
                     ':t0' => model()->primaryKey
                 ])
                     ->one();

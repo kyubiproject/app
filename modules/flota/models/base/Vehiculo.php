@@ -9,11 +9,9 @@ namespace flota\models\base;
 * @property string|null $fecha_matricula  
 * @property string|null $bastidor  
 * @property integer|null $modelo_id  
-* @property integer|null $delegacion_id  
    
  *
  * Relations:
- * @property \comun\models\base\Delegacion $delegacion
  * @property Modelo $modelo
  * @property VehiculoCaracteristicas $caracteristicas
  * @property VehiculoObservacion $observacion
@@ -54,21 +52,10 @@ class Vehiculo extends \kyubi\base\ActiveRecord
 			[['matricula'], 'string', 'max' => 10],
 			[['bastidor'], 'string', 'max' => 30],
 			[['fecha_matricula'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['modelo_id', 'delegacion_id'], 'integer'],
+			[['modelo_id'], 'integer'],
 			[['bastidor', 'matricula'], 'unique'],
-			[['modelo_id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['modelo_id' => 'id']],
-			[['delegacion_id'], 'exist', 'targetClass' => \comun\models\base\Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']]        
+			[['modelo_id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['modelo_id' => 'id']]        
         ];
-    }
-
-    /**
-     * Gets query for [[\comun\models\base\Delegacion]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getDelegacion()
-    {
-        return $this->hasOne(\comun\models\base\Delegacion::className(), ['id' => 'delegacion_id']);
     }
 
     /**
@@ -148,7 +135,6 @@ class Vehiculo extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'delegacion' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
 			'modelo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Modelo','refColumn'=>'id','column'=>'modelo_id'],
 			'caracteristicas' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\VehiculoCaracteristicas','refColumn'=>'id','column'=>'id'],
 			'observacion' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\VehiculoObservacion','refColumn'=>'id','column'=>'id'],

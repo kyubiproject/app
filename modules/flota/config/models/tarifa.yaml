@@ -1,6 +1,6 @@
 scenarios:
   default: 'delegacion_id tipo_id tipo_tarifa desde hasta fecha_inicio fecha_fin km eur_km eur_lt hora eur_hora eur_dia eur_mes'
-  'search view': 'delegacion.nombre tipo_id tipo_tarifa desde hasta fecha_inicio fecha_fin km eur_km eur_lt hora eur_hora eur_dia eur_mes'
+  search: 'delegacion.nombre tipo_id tipo_tarifa desde hasta fecha_inicio fecha_fin km eur_km eur_lt hora eur_hora eur_dia eur_mes'
   search-maestros: 'delegacion_id tipo_id tipo_tarifa fecha_inicio'
 sections:
   historias@view:
@@ -10,10 +10,12 @@ attributes:
     format: date
   delegacion.nombre:
     label: delegacion_id
+  delegacion_id@view:
+    value: delegacion.nombre
   tipo_id@view:
     value: 'php:($tipo = $this->tipo) ? "( $tipo->id ) - {$tipo->nombre}" : null'
   tipo_id:
-    options:
-      select:
-        scenario: select
-name: 'php: intval($this->desde) . ($t = lcfirst($this->tipo_tarifa[0])) . " - $this->hasta$t"'
+    relation:
+      name: 'php:"( $this->id ) $this->nombre"'
+name:
+  view: 'old:id'

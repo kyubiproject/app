@@ -18,10 +18,10 @@ attributes:
       container:
         class: 'col-12 col-md-6 col-lg-8'
   modelo_id@view:
-    value: 'php:(($marca = $this->modelo->marca) ? "$marca->nombre : " : null ) . ($this->modelo ? ($this->modelo->nombre . (($tipo = $this->modelo->tipo) ? " ( {$tipo->id} ) - {$tipo->nombre}" : null)) : null)'
+    value: 'php:(($marca = $this->modelo->marca) ? "$marca->nombre : " : null ) . (($modelo = $this->modelo) ? ($modelo->nombre . (($tipo = $modelo->tipo) ? " ( {$tipo->id} ) - {$tipo->nombre}" : null)) : null)'
   modelo_id:
+    relation:
+      name: 'php:(($marca = $this->marca) ? ($marca->nombre . " : ") : null) . $this->nombre . (($tipo = $this->tipo) ? " ( {$tipo->id} ) - {$tipo->nombre}" : null)'
     options:
-      select:
-        scenario: select
       container:
         class: col-12

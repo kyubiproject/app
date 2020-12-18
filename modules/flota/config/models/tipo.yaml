@@ -38,5 +38,3 @@ attributes:
     options:
       container:
         class: 'col-6 col-md-4'
-name:
-  select: 'php:"( $this->id ) $this->nombre"'

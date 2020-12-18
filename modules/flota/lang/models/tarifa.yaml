@@ -16,8 +16,8 @@ es:
     delegacion_id: Delegación
   __options:
     tipo_tarifa:
-      DIA: Dia
-      MES: Mes
-      HORA: Hora
+      DAY: Día
+      MONTH: Mes
+      HOUR: Hora
   __sections:
     historias: 'Histórico de tarifas'

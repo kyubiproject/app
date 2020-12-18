@@ -2,7 +2,7 @@ es:
   __attributes:
     id: Grupo
     nombre: Nombre
-    descripcion: Descripcion
+    descripcion: Descripción
     tipo_vehiculo: 'Tipo de vehículo'
     fianza: 'Tarifa fianza'
     franquicia: 'Tarifa franquicia'

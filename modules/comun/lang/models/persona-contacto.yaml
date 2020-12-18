@@ -2,7 +2,7 @@ es:
   __attributes:
     id: Id
     informacion: Informacion
-    descripcion: Descripcion
+    descripcion: Descripción
     tipo: Tipo
     clase: Clase
     persona_id: 'Persona id'

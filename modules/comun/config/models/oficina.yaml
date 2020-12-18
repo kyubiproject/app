@@ -1,5 +1,31 @@
 scenarios:
-  default: 'nombre descripcion direccion horario ubicacion correo telefono whatsapp delegacion_id'
+  default: 'nombre delegacion_id descripcion direccion horario ubicacion correo telefono whatsapp'
 sections:
   delegacion:
     relation: delegacion
+attributes:
+  nombre:
+    options:
+      container:
+        class: 'col-12 col-md-6  col-lg-8'
+  descripcion:
+    options:
+      input:
+        class: line-2
+      container:
+        class: col-12
+  direccion:
+    format: text
+    options:
+      container:
+        class: col-12
+  horario:
+    format: text
+    options:
+      container:
+        class: 'col-12 col-md-6'
+  ubicacion:
+    format: text
+    options:
+      container:
+        class: 'col-12 col-md-6'

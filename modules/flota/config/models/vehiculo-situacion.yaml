@@ -1,22 +1,20 @@
 scenarios:
   default: 'delegacion_id estado descripcion emplazamiento km codigo_llave combustible codigo_radio'
-  view: 'delegacion.nombre estado descripcion emplazamiento km codigo_llave combustible codigo_radio fecha_transaccion'
+  view: 'delegacion_id estado descripcion emplazamiento km codigo_llave combustible codigo_radio fecha_transaccion'
 sections:
   delegacion:
     relation: delegacion
 attributes:
-  delegacion.nombre:
-    label: delegacion_id
   estado:
     options:
       container:
         class: 'col-12 col-md-6 offset-lg-4 col-lg-4'
   descripcion:
     options:
-      container:
-        class: col-12
       input:
         class: line-2
+      container:
+        class: col-12
   emplazamiento:
     options:
       container:
@@ -24,6 +22,9 @@ attributes:
       input:
         class: line-2
   km:
+    format:
+      - decimal
+      - 2
     options:
       container:
         class: 'col-12 col-md-6 col-lg-4'
@@ -32,6 +33,9 @@ attributes:
       container:
         class: 'col-12 col-md-6 offset-lg-4 col-lg-4'
   combustible:
+    format:
+      - decimal
+      - 2
     options:
       container:
         class: 'col-12 col-md-6 col-lg-4'

@@ -6,3 +6,10 @@ controllers:
   persona: ~
   persona-contacto: ~
   persona-direccion: ~
+navbar:
+  order: 5
+  links:
+    -
+      delegacion: ~
+    -
+      oficina: ~

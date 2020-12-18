@@ -50,7 +50,7 @@ class Persona extends \kyubi\base\ActiveRecord
 			[['dni'], 'string', 'max' => 20],
 			[['pais_dni', 'nacionalidad'], 'string', 'max' => 45],
 			[['fecha_nacimiento'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['pais_dni', 'dni'], 'unique', 'targetAttribute' => ['pais_dni', 'dni']]        
+			[['dni', 'pais_dni'], 'unique', 'targetAttribute' => ['dni', 'pais_dni']]        
         ];
     }
 

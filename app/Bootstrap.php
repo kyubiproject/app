@@ -2,14 +2,15 @@
 namespace app;
 
 use kyubi\base\ActiveRecord;
+use kyubi\helper\Str;
 use yii\base\Event;
 use yii\db\ActiveQuery;
+use kyubi\ui\widgets\ActiveField;
+use kyubi\ui\widgets\GridView;
 use yii\web\NotFoundHttpException;
 
 class Bootstrap extends \kyubi\base\Bootstrap
 {
-
-    public static $catch;
 
     /**
      *
@@ -18,22 +19,78 @@ class Bootstrap extends \kyubi\base\Bootstrap
      */
     public function bootWeb($app): void
     {
-        if (is_int(user('delegacion_id'))) {
-            Event::on(ActiveQuery::className(), ActiveQuery::EVENT_INIT, function (Event $event) {
-                if (isset($event->sender->modelClass::getTableSchema()->columns['delegacion_id'])) {
-                    $event->sender->andWhere('delegacion_id=' . user('delegacion_id'));
+        app()->setComponents([
+            'user' => [
+                'class' => 'yii\web\User',
+                'identityClass' => 'app\models\User'
+            ]
+        ]);
+        if (user('delegacion_id')) {
+            Event::on(ActiveRecord::className(), ActiveRecord::EVENT_BEFORE_VALIDATE, function (Event $event) {
+                if ($event->sender->hasAttribute('delegacion_id')) {
+                    $event->sender->delegacion_id = user('delegacion_id');
                 }
             });
-            $foo = &self::$catch;
-            Event::on(ActiveRecord::className(), ActiveRecord::EVENT_AFTER_FIND, function (Event $event) use (&$foo) {
-                if (is_null($foo)) {
-                    if (is_numeric($delegacion = $event->sender->delegacion_id ?? null)) {
-                        if ($delegacion !== user('delegacion_id')) {
-                            throw new NotFoundHttpException('Model not found.', 404);
+            Event::on(ActiveRecord::className(), ActiveRecord::EVENT_INIT, function (Event $event) {
+                if ($event->sender->hasAttribute('delegacion_id')) {
+                    $event->sender->configure([
+                        'attributes' => [
+                            'delegacion_id' => [
+                                'value' => ':' . user('delegacion'),
+                                'format' => 'label',
+                                'options' => [
+                                    'input' => [
+                                        'class' => 'disabled'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]);
+                    $event->sender->delegacion_id = user('delegacion_id');
+                }
+            });
+            Event::on(GridView::className(), GridView::EVENT_BEFORE_RUN, function (Event $event) {
+                $columns = $event->sender->columns;
+                foreach ($columns as $c => $column) {
+                    if ($column->options['filtrer'] ?? true) {
+                        if (Str::startWith($column->attribute, 'delegacion')) {
+                            unset($event->sender->columns[$c]);
                         }
                     }
                 }
-                $foo = true;
+            });
+            Event::on(ActiveQuery::className(), ActiveQuery::EVENT_INIT, function (Event $event) {
+                $modelClass = $event->sender->modelClass;
+                if (method_exists($modelClass, 'recordScenario')) {
+                    switch ($modelClass::recordScenario()) {
+                        case 'search':
+                        case 'view':
+                            if (model() && model()::tableName() !== $modelClass::tableName()) {
+                                return;
+                            }
+                        case 'create':
+                        case 'update':
+                            if (isset($modelClass::getTableSchema()->columns['delegacion_id'])) {
+                                $event->sender->andWhere('delegacion_id=' . user('delegacion_id'));
+                            }
+                            break;
+                        default:
+                    }
+                }
+            });
+            Event::on(ActiveRecord::className(), ActiveRecord::EVENT_AFTER_FIND, function (Event $event) {
+                if (! defined('FILTER_MODEL')) {
+                    $model = $event->sender;
+                    switch ($model->getScenario()) {
+                        case 'search':
+                            break;
+                        default:
+                            if ($model->hasAttribute('delegacion_id') && $model->delegacion_id !== user('delegacion_id')) {
+                                throw new NotFoundHttpException('Model not found.', 404);
+                            }
+                    }
+                    define('FILTER_MODEL', true);
+                }
             });
         }
     }

@@ -62,7 +62,7 @@ class Orden extends \kyubi\base\ActiveRecord
 			[['codigo'], 'string', 'max' => 16],
 			[['tipo_contrato'], 'in', 'range' => ['CP', 'LP'], 'strict' => true],
 			[['tipo_tarifa'], 'in', 'range' => ['HORA', 'DIA', 'MES'], 'strict' => true],
-			[['momento'], 'in', 'range' => ['PRESUPUESTO', 'RESERVA', 'CONTRATO'], 'strict' => true],
+			[['momento'], 'in', 'range' => ['PRESUPUESTO', 'RESERVA', 'CONTRATO', 'EXTENSION'], 'strict' => true],
 			[['estado'], 'in', 'range' => ['EN VIGOR', 'ANULADO', 'FINALIZADO'], 'strict' => true],
 			[['codigo'], 'unique'],
 			[['delegacion_id'], 'exist', 'targetClass' => \comun\models\base\Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']],

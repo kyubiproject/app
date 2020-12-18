@@ -14,7 +14,3 @@ attributes:
     format:
       - decimal
       - 0
-  combustible:
-    format:
-      - decimal
-      - 0

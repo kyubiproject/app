@@ -21,7 +21,7 @@ $form = ActiveForm::begin([
 ]);
 ?>
 <center>
-	<img class="mb-4" src="/assets/91bf2a16/img/bootstrap-solid.svg" alt=""
+	<img class="mb-4" src="<?= asset('@themes/bootstrap/assets')?>/img/bootstrap-solid.svg" alt=""
 		width="72" height="72">
 	<h1 class="h3 mb-3 font-weight-normal"><?=t('app/base', 'Bienvenido')?></h1>
 </center>
@@ -37,9 +37,9 @@ echo $form->field($model, 'password', [
 ])->passwordInput([
     'placeholder' => $model->getAttributeLabel('password')
 ]);
-echo $form->field($model, 'rememberMe')->checkbox([
-    'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>"
-]);
+// echo $form->field($model, 'rememberMe')->checkbox([
+// 'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>"
+// ]);
 ?>
 
 <div class="form-group">

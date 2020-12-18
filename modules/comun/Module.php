@@ -6,4 +6,5 @@ namespace comun;
  */
 class Module extends \kyubi\base\Module
 {
+    public $modelController = 'app\base\Controller';
 }

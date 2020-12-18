@@ -3,17 +3,22 @@ scenarios:
 sections:
   oficinas@view:
     relation: oficinas
-  orden-historias@view:
-    relation: ordenHistorias
   ordens@view:
     relation: ordens
-  tarifa-historias@view:
-    relation: tarifaHistorias
   tarifas@view:
     relation: tarifas
-  vehiculo-historias@view:
-    relation: vehiculoHistorias
   vehiculo-situacions@view:
     relation: vehiculoSituacions
   vehiculos@view:
     relation: vehiculos
+attributes:
+  nombre:
+    options:
+      container:
+        class: col-12
+  descripcion:
+    options:
+      input:
+        class: line-2
+      container:
+        class: col-12

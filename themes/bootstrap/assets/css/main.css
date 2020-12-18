@@ -105,7 +105,7 @@ form[data-required]:after {
 	color: var(--info) !important;
 }
 
-.form-group.required label:after {
+.form-group.required label:not(.form-control):after {
 	content: " *";
 }
 
@@ -161,4 +161,8 @@ a:not([href]) {
 
 a[href] i {
 	cursor: pointer !important;
+}
+
+.form-control.disabled {
+	background-color: var(--light);
 }
