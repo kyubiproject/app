@@ -55,9 +55,9 @@ class Tarifa extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['hasta', 'tipo_tarifa', 'fecha_inicio', 'tipo_id'], 'required'],
+			[['hasta', 'fecha_inicio', 'tipo_id'], 'required'],
 			[['desde', 'hasta', 'delegacion_id'], 'integer'],
-			[['tipo_tarifa'], 'in', 'range' => ['DIA', 'MES', 'HORA'], 'strict' => true],
+			[['tipo_tarifa'], 'in', 'range' => ['DAY', 'MONTH', 'HOUR'], 'strict' => true],
 			[['fecha_inicio', 'fecha_fin'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
 			[['tipo_id'], 'string', 'max' => 3],
 			[['tipo_id'], 'exist', 'targetClass' => Tipo::className(), 'targetAttribute' => ['tipo_id' => 'id']],

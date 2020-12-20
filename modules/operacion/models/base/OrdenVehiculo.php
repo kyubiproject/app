@@ -6,10 +6,10 @@ namespace operacion\models\base;
  *
  * Columns:
 * @property integer $id  
-* @property string $vehiculo_matricula  
-* @property integer|null $km  
-* @property integer|null $combustible  
-* @property string|null $detalle  
+* @property integer $vehiculo_id  
+* @property string $fecha_entrega  
+* @property string $fecha_recogida  
+* @property string $momento  
    
  *
  * Relations:
@@ -44,11 +44,13 @@ class OrdenVehiculo extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['id', 'vehiculo_matricula'], 'required'],
-			[['id', 'km', 'combustible'], 'integer'],
-			[['vehiculo_matricula'], 'string', 'max' => 10],
+			[['id', 'vehiculo_id', 'fecha_entrega', 'fecha_recogida'], 'required'],
+			[['id', 'vehiculo_id'], 'integer'],
+			[['fecha_entrega', 'fecha_recogida'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
+			[['momento'], 'in', 'range' => ['RESERVA', 'CONTRATO'], 'strict' => true],
+			[['id'], 'unique'],
 			[['id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['id' => 'id']],
-			[['vehiculo_matricula'], 'exist', 'targetClass' => \flota\models\base\Vehiculo::className(), 'targetAttribute' => ['vehiculo_matricula' => 'matricula']]        
+			[['vehiculo_id'], 'exist', 'targetClass' => \flota\models\base\Vehiculo::className(), 'targetAttribute' => ['vehiculo_id' => 'id']]        
         ];
     }
 
@@ -69,7 +71,7 @@ class OrdenVehiculo extends \kyubi\base\ActiveRecord
      */
     public function getVehiculo()
     {
-        return $this->hasOne(\flota\models\base\Vehiculo::className(), ['matricula' => 'vehiculo_matricula']);
+        return $this->hasOne(\flota\models\base\Vehiculo::className(), ['id' => 'vehiculo_id']);
     }
 
 	/**
@@ -80,7 +82,7 @@ class OrdenVehiculo extends \kyubi\base\ActiveRecord
 	{
 		return [
 			'orden' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'id'],
-			'vehiculo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Vehiculo','refColumn'=>'matricula','column'=>'vehiculo_matricula']
+			'vehiculo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Vehiculo','refColumn'=>'id','column'=>'vehiculo_id']
 		];
 	}
 }

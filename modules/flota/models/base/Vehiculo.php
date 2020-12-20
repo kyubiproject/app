@@ -9,13 +9,16 @@ namespace flota\models\base;
 * @property string|null $fecha_matricula  
 * @property string|null $bastidor  
 * @property integer|null $modelo_id  
+* @property integer $delegacion_id  
    
  *
  * Relations:
+ * @property \comun\models\base\Delegacion $delegacion
  * @property Modelo $modelo
  * @property VehiculoCaracteristicas $caracteristicas
  * @property VehiculoObservacion $observacion
  * @property VehiculoSituacion $situacion
+ * @property \operacion\models\base\OrdenDetalles $ordenDetalles
  * @property \operacion\models\base\OrdenHistoria $ordenHistorias
  * @property \operacion\models\base\OrdenVehiculo $ordenVehiculos
  * @property VehiculoHistoria $historias
@@ -48,14 +51,25 @@ class Vehiculo extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['matricula'], 'required'],
+			[['matricula', 'delegacion_id'], 'required'],
 			[['matricula'], 'string', 'max' => 10],
 			[['bastidor'], 'string', 'max' => 30],
 			[['fecha_matricula'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['modelo_id'], 'integer'],
+			[['modelo_id', 'delegacion_id'], 'integer'],
 			[['bastidor', 'matricula'], 'unique'],
-			[['modelo_id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['modelo_id' => 'id']]        
+			[['modelo_id'], 'exist', 'targetClass' => Modelo::className(), 'targetAttribute' => ['modelo_id' => 'id']],
+			[['delegacion_id'], 'exist', 'targetClass' => \comun\models\base\Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']]        
         ];
+    }
+
+    /**
+     * Gets query for [[\comun\models\base\Delegacion]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDelegacion()
+    {
+        return $this->hasOne(\comun\models\base\Delegacion::className(), ['id' => 'delegacion_id']);
     }
 
     /**
@@ -99,6 +113,16 @@ class Vehiculo extends \kyubi\base\ActiveRecord
     }
 
     /**
+     * Gets query for [[\operacion\models\base\OrdenDetalles]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrdenDetalles()
+    {
+        return $this->hasMany(\operacion\models\base\OrdenDetalles::className(), ['vehiculo_id' => 'id']);
+    }
+
+    /**
      * Gets query for [[\operacion\models\base\OrdenHistoria]].
      *
      * @return \yii\db\ActiveQuery
@@ -115,7 +139,7 @@ class Vehiculo extends \kyubi\base\ActiveRecord
      */
     public function getOrdenVehiculos()
     {
-        return $this->hasMany(\operacion\models\base\OrdenVehiculo::className(), ['vehiculo_matricula' => 'matricula']);
+        return $this->hasMany(\operacion\models\base\OrdenVehiculo::className(), ['vehiculo_id' => 'id']);
     }
 
     /**
@@ -135,12 +159,14 @@ class Vehiculo extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
+			'delegacion' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
 			'modelo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Modelo','refColumn'=>'id','column'=>'modelo_id'],
 			'caracteristicas' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\VehiculoCaracteristicas','refColumn'=>'id','column'=>'id'],
 			'observacion' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\VehiculoObservacion','refColumn'=>'id','column'=>'id'],
 			'situacion' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\VehiculoSituacion','refColumn'=>'id','column'=>'id'],
+			'ordenDetalles' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenDetalles','refColumn'=>'vehiculo_id','column'=>'id'],
 			'ordenHistorias' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenHistoria','refColumn'=>'vehiculo_matricula','column'=>'matricula'],
-			'ordenVehiculos' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenVehiculo','refColumn'=>'vehiculo_matricula','column'=>'matricula'],
+			'ordenVehiculos' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenVehiculo','refColumn'=>'vehiculo_id','column'=>'id'],
 			'historias' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\VehiculoHistoria','refColumn'=>'vehiculo_id','column'=>'id']
 		];
 	}

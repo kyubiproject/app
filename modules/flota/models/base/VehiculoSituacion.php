@@ -50,7 +50,7 @@ class VehiculoSituacion extends \kyubi\base\ActiveRecord
         return [
 			[['id', 'delegacion_id'], 'required'],
 			[['id', 'delegacion_id', 'km', 'combustible'], 'integer'],
-			[['estado'], 'in', 'range' => ['DISPONIBLE', 'RESERVADO', 'CONTRATADO', 'AVERIADO', 'MANTENIMIENTO', 'BAJA', 'ENTREGADO', 'RECIBIDO', 'RENOVADO'], 'strict' => true],
+			[['estado'], 'in', 'range' => ['DISPONIBLE', 'RESERVA', 'CONTRATO', 'ENTREGADO', 'AVERIADO', 'MANTENIMIENTO', 'BAJA'], 'strict' => true],
 			[['codigo_llave', 'codigo_radio'], 'string', 'max' => 10],
 			[['delegacion_id'], 'exist', 'targetClass' => \comun\models\base\Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']],
 			[['id'], 'exist', 'targetClass' => Vehiculo::className(), 'targetAttribute' => ['id' => 'id']]        

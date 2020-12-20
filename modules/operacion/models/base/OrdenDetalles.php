@@ -13,10 +13,12 @@ namespace operacion\models\base;
 * @property string|null $hora_recogida  
 * @property boolean|null $recogida_directa  
 * @property string|null $comisionista  
+* @property integer|null $vehiculo_id  
    
  *
  * Relations:
  * @property Orden $orden
+ * @property \flota\models\base\Vehiculo $vehiculo
  */
 class OrdenDetalles extends \kyubi\base\ActiveRecord
 {
@@ -47,12 +49,13 @@ class OrdenDetalles extends \kyubi\base\ActiveRecord
     {
         return [
 			[['id', 'fecha_entrega', 'fecha_recogida'], 'required'],
-			[['id'], 'integer'],
+			[['id', 'vehiculo_id'], 'integer'],
 			[['fecha_entrega', 'fecha_recogida'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
 			[['hora_entrega', 'hora_recogida'], 'date', 'type' => 'time', 'format' => 'hh:mm:ss'],
 			[['entrega_directa', 'recogida_directa'], 'boolean'],
 			[['comisionista'], 'string', 'max' => 100],
-			[['id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['id' => 'id']]        
+			[['id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['id' => 'id']],
+			[['vehiculo_id'], 'exist', 'targetClass' => \flota\models\base\Vehiculo::className(), 'targetAttribute' => ['vehiculo_id' => 'id']]        
         ];
     }
 
@@ -66,6 +69,16 @@ class OrdenDetalles extends \kyubi\base\ActiveRecord
         return $this->hasOne(Orden::className(), ['id' => 'id']);
     }
 
+    /**
+     * Gets query for [[\flota\models\base\Vehiculo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getVehiculo()
+    {
+        return $this->hasOne(\flota\models\base\Vehiculo::className(), ['id' => 'vehiculo_id']);
+    }
+
 	/**
 	 * {@inheritdoc}
 	 * @return array
@@ -73,7 +86,8 @@ class OrdenDetalles extends \kyubi\base\ActiveRecord
 	public function relations(): array
 	{
 		return [
-			'orden' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'id']
+			'orden' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'id','column'=>'id'],
+			'vehiculo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Vehiculo','refColumn'=>'id','column'=>'vehiculo_id']
 		];
 	}
 }

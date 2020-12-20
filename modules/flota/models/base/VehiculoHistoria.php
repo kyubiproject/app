@@ -10,13 +10,12 @@ namespace flota\models\base;
 * @property string $estado  
 * @property integer|null $km  
 * @property integer|null $combustible  
-* @property string $fecha  
-* @property string|null $contrato_numero  
-* @property string|null $descripcion  
+* @property string|null $orden_codigo  
    
  *
  * Relations:
  * @property \comun\models\base\Delegacion $delegacion
+ * @property \operacion\models\base\Orden $orden
  * @property Vehiculo $vehiculo
  */
 class VehiculoHistoria extends \kyubi\base\ActiveRecord
@@ -47,13 +46,13 @@ class VehiculoHistoria extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['vehiculo_id', 'estado', 'fecha'], 'required'],
+			[['vehiculo_id', 'estado'], 'required'],
 			[['vehiculo_id', 'delegacion_id', 'km', 'combustible'], 'integer'],
-			[['estado'], 'in', 'range' => ['DISPONIBLE', 'RESERVADO', 'CONTRATADO', 'AVERIADO', 'MANTENIMIENTO', 'BAJA', 'ENTREGADO', 'RECIBIDO', 'RENOVADO', 'SISTEMA'], 'strict' => true],
-			[['fecha'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['contrato_numero'], 'string', 'max' => 16],
+			[['estado'], 'in', 'range' => ['DISPONIBLE', 'RESERVA', 'CONTRATO', 'ENTREGADO', 'AVERIADO', 'MANTENIMIENTO', 'BAJA'], 'strict' => true],
+			[['orden_codigo'], 'string', 'max' => 16],
 			[['delegacion_id'], 'exist', 'targetClass' => \comun\models\base\Delegacion::className(), 'targetAttribute' => ['delegacion_id' => 'id']],
-			[['vehiculo_id'], 'exist', 'targetClass' => Vehiculo::className(), 'targetAttribute' => ['vehiculo_id' => 'id']]        
+			[['vehiculo_id'], 'exist', 'targetClass' => Vehiculo::className(), 'targetAttribute' => ['vehiculo_id' => 'id']],
+			[['orden_codigo'], 'exist', 'targetClass' => \operacion\models\base\Orden::className(), 'targetAttribute' => ['orden_codigo' => 'codigo']]        
         ];
     }
 
@@ -65,6 +64,16 @@ class VehiculoHistoria extends \kyubi\base\ActiveRecord
     public function getDelegacion()
     {
         return $this->hasOne(\comun\models\base\Delegacion::className(), ['id' => 'delegacion_id']);
+    }
+
+    /**
+     * Gets query for [[\operacion\models\base\Orden]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrden()
+    {
+        return $this->hasOne(\operacion\models\base\Orden::className(), ['codigo' => 'orden_codigo']);
     }
 
     /**
@@ -85,6 +94,7 @@ class VehiculoHistoria extends \kyubi\base\ActiveRecord
 	{
 		return [
 			'delegacion' => ['type'=>'hasOne','refClass'=>'comun\\models\\base\\Delegacion','refColumn'=>'id','column'=>'delegacion_id'],
+			'orden' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'codigo','column'=>'orden_codigo'],
 			'vehiculo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Vehiculo','refColumn'=>'id','column'=>'vehiculo_id']
 		];
 	}

@@ -21,6 +21,7 @@ namespace comun\models\base;
  * @property \app\models\base\User $users
  * @property \flota\models\base\VehiculoHistoria $vehiculoHistorias
  * @property \flota\models\base\VehiculoSituacion $vehiculoSituacions
+ * @property \flota\models\base\Vehiculo $vehiculos
  */
 class Delegacion extends \kyubi\base\ActiveRecord
 {
@@ -136,6 +137,16 @@ class Delegacion extends \kyubi\base\ActiveRecord
         return $this->hasMany(\flota\models\base\VehiculoSituacion::className(), ['delegacion_id' => 'id']);
     }
 
+    /**
+     * Gets query for [[\flota\models\base\Vehiculo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getVehiculos()
+    {
+        return $this->hasMany(\flota\models\base\Vehiculo::className(), ['delegacion_id' => 'id']);
+    }
+
 	/**
 	 * {@inheritdoc}
 	 * @return array
@@ -150,7 +161,8 @@ class Delegacion extends \kyubi\base\ActiveRecord
 			'tarifas' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\Tarifa','refColumn'=>'delegacion_id','column'=>'id'],
 			'users' => ['type'=>'hasMany','refClass'=>'app\\models\\base\\User','refColumn'=>'delegacion_id','column'=>'id'],
 			'vehiculoHistorias' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\VehiculoHistoria','refColumn'=>'delegacion_id','column'=>'id'],
-			'vehiculoSituacions' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\VehiculoSituacion','refColumn'=>'delegacion_id','column'=>'id']
+			'vehiculoSituacions' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\VehiculoSituacion','refColumn'=>'delegacion_id','column'=>'id'],
+			'vehiculos' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\Vehiculo','refColumn'=>'delegacion_id','column'=>'id']
 		];
 	}
 }
