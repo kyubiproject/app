@@ -3,11 +3,15 @@ scenarios:
 sections:
   delegacion:
     relation: delegacion
-  '':
-    relation: ''
+  orden:
+    relation: orden
   tipo:
     relation: tipo
   historias@view:
     relation: historias
-  s@view:
-    relation: s
+  tarifas@view:
+    relation: tarifas
+  ordens@view:
+    relation: ordens
+  vehiculo-historias@view:
+    relation: vehiculoHistorias

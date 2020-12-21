@@ -102,7 +102,7 @@ input[type=color] {
 form[data-required]:after {
 	content: attr(data-required);
 	float: right;
-	color: var(--info) !important;
+	color: var(--danger) !important;
 }
 
 .form-group.required label:not(.form-control):after {

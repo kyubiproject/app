@@ -16,15 +16,15 @@ $form = ActiveForm::begin([
     'successCssClass' => 'is-valid',
     'validationStateOn' => 'container',
     'options' => [
-        'class' => 'col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 mt-0 mt-md-5 pt-lg-5'
+        'class' => 'container-lg d-flex flex-column align-items-center justify-content-between'
     ]
 ]);
 ?>
-<center>
-	<img class="mb-4" src="<?= asset('@themes/bootstrap/assets')?>/img/bootstrap-solid.svg" alt=""
-		width="72" height="72">
-	<h1 class="h3 mb-3 font-weight-normal"><?=t('app/base', 'Bienvenido')?></h1>
-</center>
+<div class="col-12 col-md-6 col-lg-4 text-center mt-3 mt-md-5 pt-lg-5">
+	<img
+		src="<?= asset('@themes/bootstrap/assets')?>/img/bootstrap-solid.svg"
+		alt="" width="72" height="72">
+	<h1 class="h3 mt-2 mb-3 font-weight-normal"><?=t('app/base', 'Bienvenido')?></h1>
 <?php
 echo $form->field($model, 'username', [
     'template' => '{input}{error}'
@@ -42,10 +42,8 @@ echo $form->field($model, 'password', [
 // ]);
 ?>
 
-<div class="form-group">
-	<div class="col-lg-offset-1 col-lg-11"></div>
+<?= Html::submitButton('<i class="fa fa-sign-in"></i> Iniciar sesión', ['class' => 'mt-3 btn btn-primary btn-block', 'name' => 'login-button']) ?>
 </div>
 
-<?= Html::submitButton('<i class="fa fa-sign-in"></i> Iniciar sesión', ['class' => 'btn btn-lg btn-primary btn-block', 'name' => 'login-button']) ?>
-<p class="mt-5 mb-3 text-muted text-center"><?= powered() ?> © <?= date('Y') ?></p>
+<small class="mt-3 mb-3 text-muted text-center"><?= powered() ?> © <?= date('Y') ?></small>
 <?php $form->end(); ?>

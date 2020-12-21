@@ -26,6 +26,7 @@ namespace operacion\models\base;
  * @property OrdenVehiculo $vehiculo
  * @property \flota\models\base\Tipo $tipo
  * @property OrdenHistoria $historias
+ * @property OrdenTarifa $tarifas
  * @property Orden $ordens
  * @property \flota\models\base\VehiculoHistoria $vehiculoHistorias
  */
@@ -164,6 +165,16 @@ class Orden extends \kyubi\base\ActiveRecord
     }
 
     /**
+     * Gets query for [[OrdenTarifa]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTarifas()
+    {
+        return $this->hasMany(OrdenTarifa::className(), ['orden_id' => 'id']);
+    }
+
+    /**
      * Gets query for [[Orden]].
      *
      * @return \yii\db\ActiveQuery
@@ -199,6 +210,7 @@ class Orden extends \kyubi\base\ActiveRecord
 			'vehiculo' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenVehiculo','refColumn'=>'id','column'=>'id'],
 			'tipo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Tipo','refColumn'=>'id','column'=>'tipo_id'],
 			'historias' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenHistoria','refColumn'=>'orden_id','column'=>'id'],
+			'tarifas' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenTarifa','refColumn'=>'orden_id','column'=>'id'],
 			'ordens' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'orden_id','column'=>'id'],
 			'vehiculoHistorias' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\VehiculoHistoria','refColumn'=>'orden_codigo','column'=>'codigo']
 		];

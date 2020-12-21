@@ -2,7 +2,6 @@
 namespace operacion\controllers;
 
 use kyubi\helper\Str;
-use kyubi\base\ActiveRecord;
 use kyubi\db\Query;
 use yii\web\NotFoundHttpException;
 

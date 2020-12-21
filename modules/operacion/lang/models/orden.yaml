@@ -13,9 +13,9 @@ es:
       CP: 'Corto plazo'
       LP: 'Largo plazo'
     tipo_tarifa:
-      HORA: Hora
-      DIA: Día
-      MES: Mes
+      DAY: Día
+      HOUR: Hora
+      MONTH: Mes
     momento:
       PRESUPUESTO: Presupuesto
       RESERVA: Reserva
@@ -25,8 +25,8 @@ es:
       ANULADO: Anulado
       FINALIZADO: Finalizado
   __sections:
-    detalles: 'Detalles<br><small>de entrega y recogida</small>'
-    vehiculo: 'Vehículo<br><small>detalles de asignación</small>'
+    tarifas: 'Tarifa de alquiler<br><small>Detalle de costos</small>'
+    detalles: 'Detalles<br><small>Entrega y recogida</small>'
     observacion-presupuesto: 'Observación<br><small>Imprimir en presupuesto</small>'
     observacion-reserva: 'Observación<br><small>Imprimir en reserva</small>'
     observacion-contrato: 'Observación<br><small>Imprimir en contrato</small>'

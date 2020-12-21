@@ -5,13 +5,13 @@ es:
     tipo_tarifa: 'Tipo de tarifa'
     fecha_inicio: 'Inicio de período'
     fecha_fin: 'Fin de período'
-    km: 'Incluye Km(s)'
-    eur_km: €/Km
-    eur_lt: €/Lt
+    km: 'Incluye km(s)'
+    eur_km: €/km
+    eur_lt: €/lt
     hora: 'Incluye hora(s)'
-    eur_hora: €/Hora
-    eur_dia: €/Dia
-    eur_mes: €/Mes
+    eur_hora: €/hora
+    eur_dia: €/día
+    eur_mes: €/mes
     tipo_id: 'Tipo de vehículo'
     delegacion_id: Delegación
   __options:

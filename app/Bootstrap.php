@@ -19,6 +19,7 @@ class Bootstrap extends \kyubi\base\Bootstrap
      */
     public function bootWeb($app): void
     {
+        defined('BASE_IVA') or define('BASE_IVA', 0.21);
         app()->setComponents([
             'user' => [
                 'class' => 'yii\web\User',

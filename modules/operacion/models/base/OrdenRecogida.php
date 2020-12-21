@@ -47,7 +47,7 @@ class OrdenRecogida extends \kyubi\base\ActiveRecord
 			[['id', 'fecha', 'hora', 'km', 'combustible'], 'required'],
 			[['id', 'km', 'combustible'], 'integer'],
 			[['fecha'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['hora'], 'date', 'type' => 'time', 'format' => 'hh:mm:ss'],
+			[['hora'], 'date', 'type' => 'time', 'format' => 'HH:mm:ss'],
 			[['id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['id' => 'id']]        
         ];
     }

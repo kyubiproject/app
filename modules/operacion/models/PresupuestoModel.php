@@ -3,7 +3,7 @@ namespace operacion\models;
 
 use operacion\models\base\Orden;
 
-class PresupuestoModel extends Orden
+class PresupuestoModel extends OrdenModel
 {
 
     const DEFAULT_MOMENTO = 'PRESUPUESTO';

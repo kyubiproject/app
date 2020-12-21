@@ -1,9 +1,7 @@
 <?php
 namespace operacion\models;
 
-use operacion\models\base\Orden;
-
-class ReservaModel extends Orden
+class ReservaModel extends OrdenModel
 {
 
     const DEFAULT_MOMENTO = 'RESERVA';

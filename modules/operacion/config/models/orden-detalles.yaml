@@ -1,8 +1,11 @@
 scenarios:
   default: 'fecha_entrega hora_entrega entrega_directa fecha_recogida hora_recogida recogida_directa comisionista'
-sections:
-  vehiculo:
-    relation: vehiculo
+  update: 'fecha_entrega hora_entrega entrega_directa fecha_recogida hora_recogida recogida_directa comisionista'
+rules:
+  -
+    compare: fecha_recogida
+    compareAttribute: fecha_entrega
+    operator: '>='
 attributes:
   comisionista:
     options:

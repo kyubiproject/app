@@ -1,5 +1,7 @@
 scenarios:
-  default: tarifa_id
+  default: 'orden_id tarifa_id periodo fraccion fecha_inicio fecha_fin fecha_entrega fecha_recogida'
 sections:
+  orden:
+    relation: orden
   tarifa-historia:
     relation: tarifaHistoria

@@ -51,7 +51,7 @@ class OrdenDetalles extends \kyubi\base\ActiveRecord
 			[['id', 'fecha_entrega', 'fecha_recogida'], 'required'],
 			[['id', 'vehiculo_id'], 'integer'],
 			[['fecha_entrega', 'fecha_recogida'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['hora_entrega', 'hora_recogida'], 'date', 'type' => 'time', 'format' => 'hh:mm:ss'],
+			[['hora_entrega', 'hora_recogida'], 'date', 'type' => 'time', 'format' => 'HH:mm:ss'],
 			[['entrega_directa', 'recogida_directa'], 'boolean'],
 			[['comisionista'], 'string', 'max' => 100],
 			[['id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['id' => 'id']],

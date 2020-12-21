@@ -5,12 +5,27 @@ table:
 scenarios:
   default: delegacion_id estado cliente tipo_contrato tipo_tarifa tipo_id
   search: codigo delegacion_nombre tipo_contrato fecha_entrega fecha_recogida tipo_id cliente estado
+  update: delegacion_id estado cliente tipo_contrato tipo_tarifa tipo_id advertencia
 sections:
+  tarifas@view:
+    relation: tarifas
+    view: operacion/views/orden/tarifas
   detalles:
     relation: detalles
   observacion-presupuesto:
     relation: observacion
 attributes:
+  advertencia:
+    format: span
+    layout: "{value}"
+    value: 'php:"Si modifica el tipo de tarifa, grupo de tarificación, alguna fecha u hora, la tarifá será actualizada."'
+    options:
+      input:
+        class: text-danger text-right border-0 pl-0 my-0
+      label:
+        class: d-none
+      container:
+        class: col-12 my-0
   tipo_id:
     relation:
       name: 'php:"( $this->id ) $this->nombre"'
@@ -18,6 +33,9 @@ attributes:
     value: delegacion.nombre
   tipo_contrato@search:
     value: old:tipo_contrato
+  estado@create:
+    value: 'php:"En vigor"'
+    format: label
   estado:
     options:
       container:
