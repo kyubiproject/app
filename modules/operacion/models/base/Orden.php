@@ -23,10 +23,10 @@ namespace operacion\models\base;
  * @property OrdenEntrega $entrega
  * @property OrdenObservacion $observacion
  * @property OrdenRecogida $recogida
- * @property OrdenVehiculo $vehiculo
  * @property \flota\models\base\Tipo $tipo
  * @property OrdenHistoria $historias
  * @property OrdenTarifa $tarifas
+ * @property \flota\models\base\Vehiculo $vehiculos
  * @property Orden $ordens
  * @property \flota\models\base\VehiculoHistoria $vehiculoHistorias
  */
@@ -135,16 +135,6 @@ class Orden extends \kyubi\base\ActiveRecord
     }
 
     /**
-     * Gets query for [[OrdenVehiculo]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getVehiculo()
-    {
-        return $this->hasOne(OrdenVehiculo::className(), ['id' => 'id']);
-    }
-
-    /**
      * Gets query for [[\flota\models\base\Tipo]].
      *
      * @return \yii\db\ActiveQuery
@@ -172,6 +162,16 @@ class Orden extends \kyubi\base\ActiveRecord
     public function getTarifas()
     {
         return $this->hasMany(OrdenTarifa::className(), ['orden_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[\flota\models\base\Vehiculo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getVehiculos()
+    {
+        return $this->hasMany(\flota\models\base\Vehiculo::className(), ['id' => 'vehiculo_id'])->viaTable('operacion__orden_vehiculo', ['id' => 'id']);
     }
 
     /**
@@ -207,10 +207,10 @@ class Orden extends \kyubi\base\ActiveRecord
 			'entrega' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenEntrega','refColumn'=>'id','column'=>'id'],
 			'observacion' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenObservacion','refColumn'=>'id','column'=>'id'],
 			'recogida' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenRecogida','refColumn'=>'id','column'=>'id'],
-			'vehiculo' => ['type'=>'hasOne','refClass'=>'operacion\\models\\base\\OrdenVehiculo','refColumn'=>'id','column'=>'id'],
 			'tipo' => ['type'=>'hasOne','refClass'=>'flota\\models\\base\\Tipo','refColumn'=>'id','column'=>'tipo_id'],
 			'historias' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenHistoria','refColumn'=>'orden_id','column'=>'id'],
 			'tarifas' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\OrdenTarifa','refColumn'=>'orden_id','column'=>'id'],
+			'vehiculos' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\Vehiculo','refColumn'=>'id','column'=>'vehiculo_id'],
 			'ordens' => ['type'=>'hasMany','refClass'=>'operacion\\models\\base\\Orden','refColumn'=>'orden_id','column'=>'id'],
 			'vehiculoHistorias' => ['type'=>'hasMany','refClass'=>'flota\\models\\base\\VehiculoHistoria','refColumn'=>'orden_codigo','column'=>'codigo']
 		];

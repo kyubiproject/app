@@ -131,6 +131,9 @@ class Controller extends \kyubi\api\controllers\CrudController
                 $term = explode('@', $name, 2);
                 $name = array_shift($term);
                 if (! count($term) || in_array(model()->getScenario(), Str::toArray(array_pop($term), ' '))) {
+                    if (empty($section)) {
+                        $section = $name;
+                    }
                     if (is_string($section)) {
                         $sections[$name] = [
                             'view' => $section

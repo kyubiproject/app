@@ -166,3 +166,7 @@ a[href] i {
 .form-control.disabled {
 	background-color: var(--light);
 }
+
+section + section {
+	padding-top: 1em;
+}

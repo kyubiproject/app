@@ -61,36 +61,37 @@ class Bootstrap extends \kyubi\base\Bootstrap
                 }
             });
             Event::on(ActiveQuery::className(), ActiveQuery::EVENT_INIT, function (Event $event) {
-                $modelClass = $event->sender->modelClass;
-                if (method_exists($modelClass, 'recordScenario')) {
-                    switch ($modelClass::recordScenario()) {
-                        case 'search':
-                        case 'view':
-                            if (model() && model()::tableName() !== $modelClass::tableName()) {
-                                return;
-                            }
-                        case 'create':
-                        case 'update':
-                            if (isset($modelClass::getTableSchema()->columns['delegacion_id'])) {
-                                $event->sender->andWhere('delegacion_id=' . user('delegacion_id'));
-                            }
-                            break;
-                        default:
+                if (controller()->uniqueId != 'data') {
+                    $modelClass = $event->sender->modelClass;
+                    if (method_exists($modelClass, 'recordScenario')) {
+                        switch ($modelClass::recordScenario()) {
+                            case 'search':
+                            case 'view':
+                                if (model() && model()::tableName() !== $modelClass::tableName()) {
+                                    return;
+                                }
+                            default:
+                                if (isset($modelClass::getTableSchema()->columns['delegacion_id'])) {
+                                    $event->sender->andWhere('delegacion_id=' . user('delegacion_id'));
+                                }
+                        }
                     }
                 }
             });
             Event::on(ActiveRecord::className(), ActiveRecord::EVENT_AFTER_FIND, function (Event $event) {
-                if (! defined('FILTER_MODEL')) {
-                    $model = $event->sender;
-                    switch ($model->getScenario()) {
-                        case 'search':
-                            break;
-                        default:
-                            if ($model->hasAttribute('delegacion_id') && $model->delegacion_id !== user('delegacion_id')) {
-                                throw new NotFoundHttpException('Model not found.', 404);
-                            }
+                if (controller()->uniqueId != 'data') {
+                    if (! defined('FILTER_MODEL')) {
+                        $model = $event->sender;
+                        switch ($model->getScenario()) {
+                            case 'search':
+                                break;
+                            default:
+                                if ($model->hasAttribute('delegacion_id') && $model->delegacion_id !== user('delegacion_id')) {
+                                    throw new NotFoundHttpException('Model not found.', 404);
+                                }
+                        }
+                        define('FILTER_MODEL', true);
                     }
-                    define('FILTER_MODEL', true);
                 }
             });
         }

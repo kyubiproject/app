@@ -1,0 +1,135 @@
+/* GENERAL */
+h1 {
+    font-size: 1.5rem !important;
+}
+
+
+
+
+/* TABLA */
+.table td, 
+.table th {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+}
+table button, 
+table input {
+    padding: 0rem .75rem!important;
+}
+table thead th.festivo, 
+table tbody td.festivo {
+    background-color: #ffe6e6!important;
+    color: #F56C6C!important;
+}
+table thead th.current-day {
+    background-color:#409EFF!important;
+    color: white!important;
+}
+table tbody td.current-day {
+    background-color: rgb(253, 246, 236);
+}
+
+.table-bordered thead td, 
+.table-bordered thead th {
+    color: #909090;
+    font-weight: 500;
+}
+table thead th.dia {
+    color: #525252;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgb(249 249 249);
+}
+table button.btn {
+    width: 100%;
+    font-weight: 500;
+}
+.table-hover tbody tr:hover {
+    background-color: #efefef!important;
+}
+/* estilo cabecera */
+table thead tr th.Matricula {
+    width: 80px;
+}
+table thead tr th.Grupo {
+    width: 60px;
+}
+table thead tr th.Estado {
+    width: 115px;
+}
+table thead tr th.dia {
+    width: 70px;
+}
+/* estilo cuerpo */
+table tbody td.matricula {
+    color: #7d7d7d;
+    font-size: 0.95rem;
+}
+table tbody td.modelo,
+table tbody td.grupo,
+table tbody td.estado {
+    font-weight: 500;
+    color: #565656;
+    font-size: 0.95rem;
+}
+table tbody td.dia,
+table tbody td.grupo {
+    text-align: center;
+}
+table tbody td.dia input {
+    text-align: center!important;
+    background-color: white!important;
+    box-shadow: unset!important;
+    border-color: #dee2e6!important;
+}
+
+/* reserva */
+table tbody td.booking, 
+table tbody td.booking-start, 
+table tbody td.booking-end {
+    background-color:#00bcd421;
+}
+table tbody td.booking button, 
+table tbody td.booking-start button, 
+table tbody td.booking-end button {
+    background-color: #00BCD4;
+    color: white;
+}
+
+/* contrato */
+table tbody td.contract, 
+table tbody td.contract-start, 
+table tbody td.contract-end {
+    background-color: rgb(225, 243, 216);
+}
+table tbody td.contract button, 
+table tbody td.contract-start button, 
+table tbody td.contract-end  button {
+    background-color: #67C23A;
+    color: white;
+}
+
+/* Linea no disponible */
+table tbody td.not-available {
+    color:red!important;
+}
+
+
+/* TOOLTIP */
+.tooltip p {
+    margin-bottom: 0px;
+    font-size: 13px;
+}
+
+/* Formulario */
+#formFilters .form-row {
+    justify-content: space-between;
+}
+#formFilters .form-row .form-left {
+    display: flex;
+    align-items: center;
+}
+#formFilters .form-row .form-right {
+    display: flex;
+    align-items: center;
+}

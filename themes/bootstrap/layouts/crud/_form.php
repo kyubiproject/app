@@ -20,6 +20,12 @@ echo Html::beginTag('div', [
 foreach ($model->safeAttributes() as $attribute) {
     echo $form->field($model, $attribute);
 }
+
+if (count($errors = $model->getErrorSummary('__error'))) {
+    echo strtr('<span class="alert alert-danger col-12 my-0 mx-1 px-3">{errors}</span>', [
+        '{errors}' => implode('<br>', $errors)
+    ]);
+}
 echo Html::endTag('div');
 
 view()->registerJs('

@@ -1,8 +1,7 @@
 es:
   __attributes:
-    id: Id
     fecha: Fecha
     hora: Hora
     km: Km
     combustible: Combustible
-    detalle: Detalle
+    descripcion: 'Observaciones y/o detalles del vehículo'

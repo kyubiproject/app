@@ -1,0 +1,1426 @@
+{
+  "data": {
+    "headers": [
+      {
+        "lable": "Matricula",
+        "value": "matricula",
+        "festivo": false
+      },
+      {
+        "lable": "Modelo",
+        "value": "modelo",
+        "festivo": false
+      },
+      {
+        "lable": "Grupo",
+        "value": "grupo",
+        "festivo": false
+      },
+      {
+        "lable": "Estado",
+        "value": "estado",
+        "festivo": false
+      },
+      {
+        "label": "26/12",
+        "value": "d6",
+        "date": "2020-12-26",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "27/12",
+        "value": "d7",
+        "date": "2020-12-27",
+        "festivo": true,
+        "current_day": false
+      },
+      {
+        "label": "28/12",
+        "value": "d8",
+        "date": "2020-12-28",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "29/12",
+        "value": "d9",
+        "date": "2020-12-29",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "30/12",
+        "value": "d10",
+        "date": "2020-12-30",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "31/12",
+        "value": "d11",
+        "date": "2020-12-31",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "01/01",
+        "value": "d12",
+        "date": "2021-01-01",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "02/01",
+        "value": "d13",
+        "date": "2021-01-02",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "03/01",
+        "value": "d14",
+        "date": "2021-01-03",
+        "festivo": true,
+        "current_day": false
+      },
+      {
+        "label": "04/01",
+        "value": "d15",
+        "date": "2021-01-04",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "05/01",
+        "value": "d16",
+        "date": "2021-01-05",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "06/01",
+        "value": "d17",
+        "date": "2021-01-06",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "07/01",
+        "value": "d18",
+        "date": "2021-01-07",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "08/01",
+        "value": "d19",
+        "date": "2021-01-08",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "09/01",
+        "value": "d20",
+        "date": "2021-01-09",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "10/01",
+        "value": "d21",
+        "date": "2021-01-10",
+        "festivo": true,
+        "current_day": false
+      },
+      {
+        "label": "11/01",
+        "value": "d22",
+        "date": "2021-01-11",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "12/01",
+        "value": "d23",
+        "date": "2021-01-12",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "13/01",
+        "value": "d24",
+        "date": "2021-01-13",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "14/01",
+        "value": "d25",
+        "date": "2021-01-14",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "15/01",
+        "value": "d26",
+        "date": "2021-01-15",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "16/01",
+        "value": "d27",
+        "date": "2021-01-16",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "17/01",
+        "value": "d28",
+        "date": "2021-01-17",
+        "festivo": true,
+        "current_day": false
+      },
+      {
+        "label": "18/01",
+        "value": "d29",
+        "date": "2021-01-18",
+        "festivo": false,
+        "current_day": false
+      },
+      {
+        "label": "19/01",
+        "value": "d30",
+        "date": "2021-01-19",
+        "festivo": false,
+        "current_day": false
+      }
+    ],
+    "content": [
+      {
+        "delegacion_id": 3,
+        "grupo_id": "A",
+        "matricula": "AB706RD",
+        "modelo": "COROLLA",
+        "grupo": "A",
+        "estado": "Disponible",
+        "available": true,
+        "calendar": [
+          {
+            "label": "26/12",
+            "value": "d6",
+            "date": "2020-12-26",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "27/12",
+            "value": "d7",
+            "date": "2020-12-27",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "28/12",
+            "value": "d8",
+            "date": "2020-12-28",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "29/12",
+            "value": "d9",
+            "date": "2020-12-29",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "30/12",
+            "value": "d10",
+            "date": "2020-12-30",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "31/12",
+            "value": "d11",
+            "date": "2020-12-31",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "01/01",
+            "value": "d12",
+            "date": "2021-01-01",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "02/01",
+            "value": "d13",
+            "date": "2021-01-02",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "03/01",
+            "value": "d14",
+            "date": "2021-01-03",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "04/01",
+            "value": "d15",
+            "date": "2021-01-04",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "05/01",
+            "value": "d16",
+            "date": "2021-01-05",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "06/01",
+            "value": "d17",
+            "date": "2021-01-06",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "07/01",
+            "value": "d18",
+            "date": "2021-01-07",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "08/01",
+            "value": "d19",
+            "date": "2021-01-08",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "09/01",
+            "value": "d20",
+            "date": "2021-01-09",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00003</p><p><i>desde</i>2020-12-10</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/reserva/119"
+          },
+          {
+            "label": "10/01",
+            "value": "d21",
+            "date": "2021-01-10"
+          },
+          {
+            "label": "11/01",
+            "value": "d22",
+            "date": "2021-01-11"
+          },
+          {
+            "label": "12/01",
+            "value": "d23",
+            "date": "2021-01-12"
+          },
+          {
+            "label": "13/01",
+            "value": "d24",
+            "date": "2021-01-13"
+          },
+          {
+            "label": "14/01",
+            "value": "d25",
+            "date": "2021-01-14"
+          },
+          {
+            "label": "15/01",
+            "value": "d26",
+            "date": "2021-01-15"
+          },
+          {
+            "label": "16/01",
+            "value": "d27",
+            "date": "2021-01-16"
+          },
+          {
+            "label": "17/01",
+            "value": "d28",
+            "date": "2021-01-17"
+          },
+          {
+            "label": "18/01",
+            "value": "d29",
+            "date": "2021-01-18"
+          },
+          {
+            "label": "19/01",
+            "value": "d30",
+            "date": "2021-01-19"
+          }
+        ]
+      },
+      {
+        "delegacion_id": 3,
+        "grupo_id": "A+",
+        "matricula": "00AB4XL",
+        "modelo": "SIENA TAXI FIRE",
+        "grupo": "A+",
+        "estado": "Disponible",
+        "available": true,
+        "calendar": [
+          {
+            "label": "26/12",
+            "value": "d6",
+            "date": "2020-12-26"
+          },
+          {
+            "label": "27/12",
+            "value": "d7",
+            "date": "2020-12-27"
+          },
+          {
+            "label": "28/12",
+            "value": "d8",
+            "date": "2020-12-28"
+          },
+          {
+            "label": "29/12",
+            "value": "d9",
+            "date": "2020-12-29"
+          },
+          {
+            "label": "30/12",
+            "value": "d10",
+            "date": "2020-12-30"
+          },
+          {
+            "label": "31/12",
+            "value": "d11",
+            "date": "2020-12-31"
+          },
+          {
+            "label": "01/01",
+            "value": "d12",
+            "date": "2021-01-01"
+          },
+          {
+            "label": "02/01",
+            "value": "d13",
+            "date": "2021-01-02"
+          },
+          {
+            "label": "03/01",
+            "value": "d14",
+            "date": "2021-01-03"
+          },
+          {
+            "label": "04/01",
+            "value": "d15",
+            "date": "2021-01-04"
+          },
+          {
+            "label": "05/01",
+            "value": "d16",
+            "date": "2021-01-05"
+          },
+          {
+            "label": "06/01",
+            "value": "d17",
+            "date": "2021-01-06"
+          },
+          {
+            "label": "07/01",
+            "value": "d18",
+            "date": "2021-01-07"
+          },
+          {
+            "label": "08/01",
+            "value": "d19",
+            "date": "2021-01-08"
+          },
+          {
+            "label": "09/01",
+            "value": "d20",
+            "date": "2021-01-09"
+          },
+          {
+            "label": "10/01",
+            "value": "d21",
+            "date": "2021-01-10"
+          },
+          {
+            "label": "11/01",
+            "value": "d22",
+            "date": "2021-01-11"
+          },
+          {
+            "label": "12/01",
+            "value": "d23",
+            "date": "2021-01-12"
+          },
+          {
+            "label": "13/01",
+            "value": "d24",
+            "date": "2021-01-13"
+          },
+          {
+            "label": "14/01",
+            "value": "d25",
+            "date": "2021-01-14"
+          },
+          {
+            "label": "15/01",
+            "value": "d26",
+            "date": "2021-01-15"
+          },
+          {
+            "label": "16/01",
+            "value": "d27",
+            "date": "2021-01-16"
+          },
+          {
+            "label": "17/01",
+            "value": "d28",
+            "date": "2021-01-17"
+          },
+          {
+            "label": "18/01",
+            "value": "d29",
+            "date": "2021-01-18"
+          },
+          {
+            "label": "19/01",
+            "value": "d30",
+            "date": "2021-01-19"
+          }
+        ]
+      },
+      {
+        "delegacion_id": 3,
+        "grupo_id": "A+",
+        "matricula": "00AD4LL",
+        "modelo": "SIENA TAXI FIRE",
+        "grupo": "A+",
+        "estado": "Disponible",
+        "available": true,
+        "calendar": [
+          {
+            "label": "26/12",
+            "value": "d6",
+            "date": "2020-12-26",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "27/12",
+            "value": "d7",
+            "date": "2020-12-27",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "28/12",
+            "value": "d8",
+            "date": "2020-12-28",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "29/12",
+            "value": "d9",
+            "date": "2020-12-29",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "30/12",
+            "value": "d10",
+            "date": "2020-12-30",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "31/12",
+            "value": "d11",
+            "date": "2020-12-31",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "01/01",
+            "value": "d12",
+            "date": "2021-01-01",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "02/01",
+            "value": "d13",
+            "date": "2021-01-02",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "03/01",
+            "value": "d14",
+            "date": "2021-01-03",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "04/01",
+            "value": "d15",
+            "date": "2021-01-04",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "05/01",
+            "value": "d16",
+            "date": "2021-01-05",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "06/01",
+            "value": "d17",
+            "date": "2021-01-06",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "07/01",
+            "value": "d18",
+            "date": "2021-01-07",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "08/01",
+            "value": "d19",
+            "date": "2021-01-08",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "09/01",
+            "value": "d20",
+            "date": "2021-01-09",
+            "booking": "CONTRATO",
+            "tooltip": "<p>Contrato nº 03CP/2020-00004</p><p><i>desde</i>2020-12-01</p> <p><i>hasta</i>2021-01-04</p>",
+            "link": "/operacion/contrato/120"
+          },
+          {
+            "label": "10/01",
+            "value": "d21",
+            "date": "2021-01-10"
+          },
+          {
+            "label": "11/01",
+            "value": "d22",
+            "date": "2021-01-11"
+          },
+          {
+            "label": "12/01",
+            "value": "d23",
+            "date": "2021-01-12"
+          },
+          {
+            "label": "13/01",
+            "value": "d24",
+            "date": "2021-01-13"
+          },
+          {
+            "label": "14/01",
+            "value": "d25",
+            "date": "2021-01-14"
+          },
+          {
+            "label": "15/01",
+            "value": "d26",
+            "date": "2021-01-15"
+          },
+          {
+            "label": "16/01",
+            "value": "d27",
+            "date": "2021-01-16"
+          },
+          {
+            "label": "17/01",
+            "value": "d28",
+            "date": "2021-01-17"
+          },
+          {
+            "label": "18/01",
+            "value": "d29",
+            "date": "2021-01-18"
+          },
+          {
+            "label": "19/01",
+            "value": "d30",
+            "date": "2021-01-19"
+          }
+        ]
+      },
+      {
+        "delegacion_id": 3,
+        "grupo_id": "A+",
+        "matricula": "01AB1CL",
+        "modelo": "SIENA TAXI FIRE",
+        "grupo": "A+",
+        "estado": "Disponible",
+        "available": true,
+        "calendar": [
+          {
+            "label": "26/12",
+            "value": "d6",
+            "date": "2020-12-26"
+          },
+          {
+            "label": "27/12",
+            "value": "d7",
+            "date": "2020-12-27"
+          },
+          {
+            "label": "28/12",
+            "value": "d8",
+            "date": "2020-12-28"
+          },
+          {
+            "label": "29/12",
+            "value": "d9",
+            "date": "2020-12-29"
+          },
+          {
+            "label": "30/12",
+            "value": "d10",
+            "date": "2020-12-30"
+          },
+          {
+            "label": "31/12",
+            "value": "d11",
+            "date": "2020-12-31"
+          },
+          {
+            "label": "01/01",
+            "value": "d12",
+            "date": "2021-01-01"
+          },
+          {
+            "label": "02/01",
+            "value": "d13",
+            "date": "2021-01-02"
+          },
+          {
+            "label": "03/01",
+            "value": "d14",
+            "date": "2021-01-03"
+          },
+          {
+            "label": "04/01",
+            "value": "d15",
+            "date": "2021-01-04"
+          },
+          {
+            "label": "05/01",
+            "value": "d16",
+            "date": "2021-01-05"
+          },
+          {
+            "label": "06/01",
+            "value": "d17",
+            "date": "2021-01-06"
+          },
+          {
+            "label": "07/01",
+            "value": "d18",
+            "date": "2021-01-07"
+          },
+          {
+            "label": "08/01",
+            "value": "d19",
+            "date": "2021-01-08"
+          },
+          {
+            "label": "09/01",
+            "value": "d20",
+            "date": "2021-01-09"
+          },
+          {
+            "label": "10/01",
+            "value": "d21",
+            "date": "2021-01-10"
+          },
+          {
+            "label": "11/01",
+            "value": "d22",
+            "date": "2021-01-11"
+          },
+          {
+            "label": "12/01",
+            "value": "d23",
+            "date": "2021-01-12"
+          },
+          {
+            "label": "13/01",
+            "value": "d24",
+            "date": "2021-01-13"
+          },
+          {
+            "label": "14/01",
+            "value": "d25",
+            "date": "2021-01-14"
+          },
+          {
+            "label": "15/01",
+            "value": "d26",
+            "date": "2021-01-15"
+          },
+          {
+            "label": "16/01",
+            "value": "d27",
+            "date": "2021-01-16"
+          },
+          {
+            "label": "17/01",
+            "value": "d28",
+            "date": "2021-01-17"
+          },
+          {
+            "label": "18/01",
+            "value": "d29",
+            "date": "2021-01-18"
+          },
+          {
+            "label": "19/01",
+            "value": "d30",
+            "date": "2021-01-19"
+          }
+        ]
+      },
+      {
+        "delegacion_id": 3,
+        "grupo_id": "B",
+        "matricula": "01AD7LL",
+        "modelo": "TERIOS COOL SIN",
+        "grupo": "B",
+        "estado": "Disponible",
+        "available": true,
+        "calendar": [
+          {
+            "label": "26/12",
+            "value": "d6",
+            "date": "2020-12-26"
+          },
+          {
+            "label": "27/12",
+            "value": "d7",
+            "date": "2020-12-27"
+          },
+          {
+            "label": "28/12",
+            "value": "d8",
+            "date": "2020-12-28"
+          },
+          {
+            "label": "29/12",
+            "value": "d9",
+            "date": "2020-12-29"
+          },
+          {
+            "label": "30/12",
+            "value": "d10",
+            "date": "2020-12-30"
+          },
+          {
+            "label": "31/12",
+            "value": "d11",
+            "date": "2020-12-31"
+          },
+          {
+            "label": "01/01",
+            "value": "d12",
+            "date": "2021-01-01"
+          },
+          {
+            "label": "02/01",
+            "value": "d13",
+            "date": "2021-01-02"
+          },
+          {
+            "label": "03/01",
+            "value": "d14",
+            "date": "2021-01-03"
+          },
+          {
+            "label": "04/01",
+            "value": "d15",
+            "date": "2021-01-04"
+          },
+          {
+            "label": "05/01",
+            "value": "d16",
+            "date": "2021-01-05"
+          },
+          {
+            "label": "06/01",
+            "value": "d17",
+            "date": "2021-01-06"
+          },
+          {
+            "label": "07/01",
+            "value": "d18",
+            "date": "2021-01-07"
+          },
+          {
+            "label": "08/01",
+            "value": "d19",
+            "date": "2021-01-08"
+          },
+          {
+            "label": "09/01",
+            "value": "d20",
+            "date": "2021-01-09"
+          },
+          {
+            "label": "10/01",
+            "value": "d21",
+            "date": "2021-01-10"
+          },
+          {
+            "label": "11/01",
+            "value": "d22",
+            "date": "2021-01-11"
+          },
+          {
+            "label": "12/01",
+            "value": "d23",
+            "date": "2021-01-12"
+          },
+          {
+            "label": "13/01",
+            "value": "d24",
+            "date": "2021-01-13"
+          },
+          {
+            "label": "14/01",
+            "value": "d25",
+            "date": "2021-01-14"
+          },
+          {
+            "label": "15/01",
+            "value": "d26",
+            "date": "2021-01-15"
+          },
+          {
+            "label": "16/01",
+            "value": "d27",
+            "date": "2021-01-16"
+          },
+          {
+            "label": "17/01",
+            "value": "d28",
+            "date": "2021-01-17"
+          },
+          {
+            "label": "18/01",
+            "value": "d29",
+            "date": "2021-01-18"
+          },
+          {
+            "label": "19/01",
+            "value": "d30",
+            "date": "2021-01-19"
+          }
+        ]
+      },
+      {
+        "delegacion_id": 3,
+        "grupo_id": "A+",
+        "matricula": "02AA7XP",
+        "modelo": "BLAZER 4X2",
+        "grupo": "A+",
+        "estado": "Disponible",
+        "available": true,
+        "calendar": [
+          {
+            "label": "26/12",
+            "value": "d6",
+            "date": "2020-12-26"
+          },
+          {
+            "label": "27/12",
+            "value": "d7",
+            "date": "2020-12-27"
+          },
+          {
+            "label": "28/12",
+            "value": "d8",
+            "date": "2020-12-28"
+          },
+          {
+            "label": "29/12",
+            "value": "d9",
+            "date": "2020-12-29"
+          },
+          {
+            "label": "30/12",
+            "value": "d10",
+            "date": "2020-12-30"
+          },
+          {
+            "label": "31/12",
+            "value": "d11",
+            "date": "2020-12-31"
+          },
+          {
+            "label": "01/01",
+            "value": "d12",
+            "date": "2021-01-01"
+          },
+          {
+            "label": "02/01",
+            "value": "d13",
+            "date": "2021-01-02"
+          },
+          {
+            "label": "03/01",
+            "value": "d14",
+            "date": "2021-01-03"
+          },
+          {
+            "label": "04/01",
+            "value": "d15",
+            "date": "2021-01-04"
+          },
+          {
+            "label": "05/01",
+            "value": "d16",
+            "date": "2021-01-05"
+          },
+          {
+            "label": "06/01",
+            "value": "d17",
+            "date": "2021-01-06"
+          },
+          {
+            "label": "07/01",
+            "value": "d18",
+            "date": "2021-01-07"
+          },
+          {
+            "label": "08/01",
+            "value": "d19",
+            "date": "2021-01-08"
+          },
+          {
+            "label": "09/01",
+            "value": "d20",
+            "date": "2021-01-09"
+          },
+          {
+            "label": "10/01",
+            "value": "d21",
+            "date": "2021-01-10"
+          },
+          {
+            "label": "11/01",
+            "value": "d22",
+            "date": "2021-01-11"
+          },
+          {
+            "label": "12/01",
+            "value": "d23",
+            "date": "2021-01-12"
+          },
+          {
+            "label": "13/01",
+            "value": "d24",
+            "date": "2021-01-13"
+          },
+          {
+            "label": "14/01",
+            "value": "d25",
+            "date": "2021-01-14"
+          },
+          {
+            "label": "15/01",
+            "value": "d26",
+            "date": "2021-01-15"
+          },
+          {
+            "label": "16/01",
+            "value": "d27",
+            "date": "2021-01-16"
+          },
+          {
+            "label": "17/01",
+            "value": "d28",
+            "date": "2021-01-17"
+          },
+          {
+            "label": "18/01",
+            "value": "d29",
+            "date": "2021-01-18"
+          },
+          {
+            "label": "19/01",
+            "value": "d30",
+            "date": "2021-01-19"
+          }
+        ]
+      },
+      {
+        "delegacion_id": 3,
+        "grupo_id": "A+",
+        "matricula": "02AA8FX",
+        "modelo": "SIENA TAXI FIRE",
+        "grupo": "A+",
+        "estado": "Disponible",
+        "available": true,
+        "calendar": [
+          {
+            "label": "26/12",
+            "value": "d6",
+            "date": "2020-12-26"
+          },
+          {
+            "label": "27/12",
+            "value": "d7",
+            "date": "2020-12-27"
+          },
+          {
+            "label": "28/12",
+            "value": "d8",
+            "date": "2020-12-28"
+          },
+          {
+            "label": "29/12",
+            "value": "d9",
+            "date": "2020-12-29"
+          },
+          {
+            "label": "30/12",
+            "value": "d10",
+            "date": "2020-12-30"
+          },
+          {
+            "label": "31/12",
+            "value": "d11",
+            "date": "2020-12-31"
+          },
+          {
+            "label": "01/01",
+            "value": "d12",
+            "date": "2021-01-01"
+          },
+          {
+            "label": "02/01",
+            "value": "d13",
+            "date": "2021-01-02"
+          },
+          {
+            "label": "03/01",
+            "value": "d14",
+            "date": "2021-01-03"
+          },
+          {
+            "label": "04/01",
+            "value": "d15",
+            "date": "2021-01-04"
+          },
+          {
+            "label": "05/01",
+            "value": "d16",
+            "date": "2021-01-05"
+          },
+          {
+            "label": "06/01",
+            "value": "d17",
+            "date": "2021-01-06"
+          },
+          {
+            "label": "07/01",
+            "value": "d18",
+            "date": "2021-01-07"
+          },
+          {
+            "label": "08/01",
+            "value": "d19",
+            "date": "2021-01-08"
+          },
+          {
+            "label": "09/01",
+            "value": "d20",
+            "date": "2021-01-09"
+          },
+          {
+            "label": "10/01",
+            "value": "d21",
+            "date": "2021-01-10"
+          },
+          {
+            "label": "11/01",
+            "value": "d22",
+            "date": "2021-01-11"
+          },
+          {
+            "label": "12/01",
+            "value": "d23",
+            "date": "2021-01-12"
+          },
+          {
+            "label": "13/01",
+            "value": "d24",
+            "date": "2021-01-13"
+          },
+          {
+            "label": "14/01",
+            "value": "d25",
+            "date": "2021-01-14"
+          },
+          {
+            "label": "15/01",
+            "value": "d26",
+            "date": "2021-01-15"
+          },
+          {
+            "label": "16/01",
+            "value": "d27",
+            "date": "2021-01-16"
+          },
+          {
+            "label": "17/01",
+            "value": "d28",
+            "date": "2021-01-17"
+          },
+          {
+            "label": "18/01",
+            "value": "d29",
+            "date": "2021-01-18"
+          },
+          {
+            "label": "19/01",
+            "value": "d30",
+            "date": "2021-01-19"
+          }
+        ]
+      },
+      {
+        "delegacion_id": 3,
+        "grupo_id": "A+",
+        "matricula": "02AB4VT",
+        "modelo": "SIENA TAXI FIRE",
+        "grupo": "A+",
+        "estado": "Disponible",
+        "available": true,
+        "calendar": [
+          {
+            "label": "26/12",
+            "value": "d6",
+            "date": "2020-12-26"
+          },
+          {
+            "label": "27/12",
+            "value": "d7",
+            "date": "2020-12-27"
+          },
+          {
+            "label": "28/12",
+            "value": "d8",
+            "date": "2020-12-28"
+          },
+          {
+            "label": "29/12",
+            "value": "d9",
+            "date": "2020-12-29"
+          },
+          {
+            "label": "30/12",
+            "value": "d10",
+            "date": "2020-12-30",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "31/12",
+            "value": "d11",
+            "date": "2020-12-31",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "01/01",
+            "value": "d12",
+            "date": "2021-01-01",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "02/01",
+            "value": "d13",
+            "date": "2021-01-02",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "03/01",
+            "value": "d14",
+            "date": "2021-01-03",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "04/01",
+            "value": "d15",
+            "date": "2021-01-04",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "05/01",
+            "value": "d16",
+            "date": "2021-01-05",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "06/01",
+            "value": "d17",
+            "date": "2021-01-06",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "07/01",
+            "value": "d18",
+            "date": "2021-01-07",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "08/01",
+            "value": "d19",
+            "date": "2021-01-08",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "09/01",
+            "value": "d20",
+            "date": "2021-01-09",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "10/01",
+            "value": "d21",
+            "date": "2021-01-10",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "11/01",
+            "value": "d22",
+            "date": "2021-01-11",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "12/01",
+            "value": "d23",
+            "date": "2021-01-12",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "13/01",
+            "value": "d24",
+            "date": "2021-01-13",
+            "booking": "RESERVA",
+            "tooltip": "<p>Reserva nº 03CP/2020-00013</p><p><i>desde</i>2020-12-25</p> <p><i>hasta</i>2021-01-08</p>",
+            "link": "/operacion/reserva/129"
+          },
+          {
+            "label": "14/01",
+            "value": "d25",
+            "date": "2021-01-14"
+          },
+          {
+            "label": "15/01",
+            "value": "d26",
+            "date": "2021-01-15"
+          },
+          {
+            "label": "16/01",
+            "value": "d27",
+            "date": "2021-01-16"
+          },
+          {
+            "label": "17/01",
+            "value": "d28",
+            "date": "2021-01-17"
+          },
+          {
+            "label": "18/01",
+            "value": "d29",
+            "date": "2021-01-18"
+          },
+          {
+            "label": "19/01",
+            "value": "d30",
+            "date": "2021-01-19"
+          }
+        ]
+      }
+    ]
+  }
+}

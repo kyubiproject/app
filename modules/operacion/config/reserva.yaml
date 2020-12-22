@@ -5,6 +5,11 @@ table:
 scenarios:
   default: delegacion_id estado cliente tipo_contrato tipo_tarifa tipo_id
   search: codigo delegacion_nombre tipo_contrato fecha_entrega fecha_recogida matricula tipo_id cliente estado
+relations:
+  detalles:
+    scenario: reserva
+  detalles@view:
+    scenario: reservaview
 sections:
   tarifas@view:
     relation: tarifas

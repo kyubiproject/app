@@ -27,6 +27,7 @@ es:
   __sections:
     tarifas: 'Tarifa de alquiler<br><small>Detalle de costos</small>'
     detalles: 'Detalles<br><small>Entrega y recogida</small>'
+    vehiculo: 'Vehículos<br><small>Condiciones y estado</small>'
     observacion-presupuesto: 'Observación<br><small>Imprimir en presupuesto</small>'
     observacion-reserva: 'Observación<br><small>Imprimir en reserva</small>'
     observacion-contrato: 'Observación<br><small>Imprimir en contrato</small>'

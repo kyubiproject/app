@@ -6,10 +6,8 @@ namespace operacion\models\base;
  *
  * Columns:
 * @property integer $id  
+* @property string $fecha  
 * @property integer $vehiculo_id  
-* @property string $fecha_entrega  
-* @property string $fecha_recogida  
-* @property string $momento  
    
  *
  * Relations:
@@ -44,11 +42,10 @@ class OrdenVehiculo extends \kyubi\base\ActiveRecord
     public function rules(): array
     {
         return [
-			[['id', 'vehiculo_id', 'fecha_entrega', 'fecha_recogida'], 'required'],
+			[['id', 'fecha', 'vehiculo_id'], 'required'],
 			[['id', 'vehiculo_id'], 'integer'],
-			[['fecha_entrega', 'fecha_recogida'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['momento'], 'in', 'range' => ['RESERVA', 'CONTRATO'], 'strict' => true],
-			[['id'], 'unique'],
+			[['fecha'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
+			[['id', 'fecha'], 'unique', 'targetAttribute' => ['id', 'fecha']],
 			[['id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['id' => 'id']],
 			[['vehiculo_id'], 'exist', 'targetClass' => \flota\models\base\Vehiculo::className(), 'targetAttribute' => ['vehiculo_id' => 'id']]        
         ];

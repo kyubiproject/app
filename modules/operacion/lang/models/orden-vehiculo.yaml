@@ -1,9 +1,0 @@
-es:
-  __attributes:
-    id: Id
-    vehiculo_matricula: 'Vehiculo matricula'
-    km: Km
-    combustible: Combustible
-    detalle: Detalle
-  __sections:
-    vehiculo: Vehiculo

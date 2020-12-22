@@ -51,7 +51,7 @@ class SiteController extends \kyubi\web\Controller
     public function actionLogout()
     {
         app()->user->logout();
-        app()->getSession()->open(); 
+        app()->getSession()->open();
         return $this->goHome();
     }
 

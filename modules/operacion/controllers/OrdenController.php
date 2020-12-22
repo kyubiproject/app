@@ -69,24 +69,6 @@ abstract class OrdenController extends \app\base\Controller
 
     /**
      *
-     * @param string $id
-     */
-    public function actionNext(string $id)
-    {
-        $query = Query::instance()->createCommand();
-        $query->setRawSql(strtr('INSERT INTO operacion__orden (orden_id) VALUES (:t0)', [
-            ':t0' => intval($id)
-        ]));
-        $query->execute();
-        $id = $query->setRawSql('SELECT LAST_INSERT_ID();')->queryScalar();
-        return controller()->redirect([
-            '/operacion/' . ($this->id == 'presupuesto' ? 'reserva' : 'contrato') . '/view',
-            'id' => $id
-        ]);
-    }
-
-    /**
-     *
      * {@inheritdoc}
      * @see \app\base\Controller::buttons()
      */

@@ -50,8 +50,8 @@ class OrdenTarifa extends \kyubi\base\ActiveRecord
 			[['orden_id', 'tarifa_id'], 'required'],
 			[['orden_id', 'tarifa_id', 'periodo', 'fraccion'], 'integer'],
 			[['fecha_inicio', 'fecha_fin', 'fecha_entrega', 'fecha_recogida'], 'date', 'type' => 'date', 'format' => 'yyyy-mm-dd'],
-			[['orden_id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['orden_id' => 'id']],
-			[['tarifa_id'], 'exist', 'targetClass' => \flota\models\base\TarifaHistoria::className(), 'targetAttribute' => ['tarifa_id' => 'id']]        
+			[['tarifa_id'], 'exist', 'targetClass' => \flota\models\base\TarifaHistoria::className(), 'targetAttribute' => ['tarifa_id' => 'id']],
+			[['orden_id'], 'exist', 'targetClass' => Orden::className(), 'targetAttribute' => ['orden_id' => 'id']]        
         ];
     }
 

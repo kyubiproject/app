@@ -1,12 +1,23 @@
 scenarios:
   default: 'fecha_entrega hora_entrega entrega_directa fecha_recogida hora_recogida recogida_directa comisionista'
-  update: 'fecha_entrega hora_entrega entrega_directa fecha_recogida hora_recogida recogida_directa comisionista'
+  'reserva reservaview contrato contratoview': 'vehiculo_id fecha_entrega hora_entrega entrega_directa fecha_recogida hora_recogida recogida_directa comisionista'
+sections:
+  vehiculo:
+    relation: vehiculo
 rules:
   -
     compare: fecha_recogida
     compareAttribute: fecha_entrega
     operator: '>='
 attributes:
+  'vehiculo_id@reservaview contratoview':
+    value: 'php:($vehiculo = $this->vehiculo) ? ($vehiculo->matricula . " - ". (($modelo = $vehiculo->modelo) ? ((($marca = $modelo->marca) ? ($marca->nombre . " : ") : null) . $modelo->nombre) : null)) : null'
+  vehiculo_id:
+    relation:
+      name: 'php:$this->matricula . " - ". (($modelo = $this->modelo) ? ((($marca = $modelo->marca) ? ($marca->nombre . " : ") : null) . $modelo->nombre) : null)'
+    options:
+      container:
+        class: col-12
   comisionista:
     options:
       container:

@@ -1,0 +1,92 @@
+{
+  "data": {
+    "delegaciones": [
+      {
+        "label": "Madrid",
+        "value": 1
+      },
+      {
+        "label": "Almería",
+        "value": 2
+      },
+      {
+        "label": "Barcelona",
+        "value": 3
+      },
+      {
+        "label": "Granada",
+        "value": 4
+      },
+      {
+        "label": "Málaga",
+        "value": 5
+      },
+      {
+        "label": "Burgos",
+        "value": 6
+      },
+      {
+        "label": "Córdoba",
+        "value": 7
+      },
+      {
+        "label": "Sevilla",
+        "value": 8
+      },
+      {
+        "label": "San Sebastian",
+        "value": 9
+      },
+      {
+        "label": "Bilbao",
+        "value": 10
+      },
+      {
+        "label": "Cantabria",
+        "value": 11
+      },
+      {
+        "label": "Asturias",
+        "value": 12
+      },
+      {
+        "label": "Pontevedra",
+        "value": 13
+      },
+      {
+        "label": "Murcia",
+        "value": 14
+      }
+    ],
+    "grupos": [
+      {
+        "label": "A",
+        "value": "A"
+      },
+      {
+        "label": "A+",
+        "value": "A+"
+      },
+      {
+        "label": "A-C",
+        "value": "A-C"
+      },
+      {
+        "label": "A1",
+        "value": "A1"
+      },
+      {
+        "label": "B",
+        "value": "B"
+      },
+      {
+        "label": "C",
+        "value": "C"
+      },
+      {
+        "label": "D",
+        "value": "D"
+      }
+    ]
+  }
+}
