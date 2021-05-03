@@ -2,10 +2,28 @@
 namespace app\base;
 
 use kyubi\helper\Str;
+use yii\filters\AccessControl;
 use yii\helpers\Html;
 
 class Controller extends \kyubi\api\controllers\CrudController
 {
+
+//     public function behaviors()
+//     {
+//         $behaviors = parent::behaviors();
+//         $behaviors['access'] = [
+//             'class' => AccessControl::className(),
+//             'rules' => [
+//                 [
+//                     'allow' => true,
+//                     'roles' => [
+//                         '@'
+//                     ]
+//                 ]
+//             ]
+//         ];
+//         return $behaviors;
+//     }
 
     /**
      *
@@ -16,13 +34,16 @@ class Controller extends \kyubi\api\controllers\CrudController
     {
         switch ($action = action()->id) {
             case 'index':
+                $title = $this->uniqueId;
                 $string = '{controller}';
                 break;
             case 'create':
+                $title = $this->id;
                 $string = $action . ' {controller}';
                 break;
             case 'view':
             case 'update':
+                $title = $this->id;
                 if (! model()) {
                     return;
                 }
@@ -32,8 +53,8 @@ class Controller extends \kyubi\api\controllers\CrudController
             default:
                 return;
         }
-        $params['{controller}'] = $params['{controller}'] ?? t($this->module->id, $this->uniqueId);
-        return t($params['t'] ?? $this->module->id, $string, $params);
+        $params['{controller}'] = t($title, $this->module->id);
+        return t($string, $params['t'] ?? $this->module->id, $params);
     }
 
     /**
@@ -85,16 +106,16 @@ class Controller extends \kyubi\api\controllers\CrudController
      */
     public function renderButton(string $action, array $options = [])
     {
-        $label = $options['label'] ?? t(module()->id, $action);
+        $label = $options['label'] ?? t($action, module()->id);
         $url = $options['url'] ?? $this->createUrl($action, $options['params'] ?? []);
         $options['class'] = $options['class'] ?? 'btn btn-sm btn-light';
         if (($options['type'] ?? 'GET') !== 'GET') {
             $options['submit'] = $url;
-            if (! isset($options['before-send']) && ($options['confirm'] ?? true) !== false) {
-                $options['confirm'] = t(module()->id, $options['confirm'] ?? 'Are you sure you want to {action} this item?', [
-                    'action' => Str::lower(strip_tags(t(module()->id, $action)))
+            if (($options['confirm'] ?? true) !== false) {
+                $options['confirm'] = t($options['confirm'] ?? 'Are you sure you want to {action} this item?', module()->id, [
+                    'action' => Str::lower(strip_tags(t($action, module()->id)))
                 ]);
-                $options['before-send'] = 'confirm("' . preg_quote($options['confirm']) . '")';
+                $options['confirm'] = preg_quote($options['confirm']);
             }
             $url = '#';
         }
@@ -113,6 +134,9 @@ class Controller extends \kyubi\api\controllers\CrudController
                 $term = explode('@', $name, 2);
                 $name = array_shift($term);
                 if (! count($term) || in_array(model()->getScenario(), Str::toArray(array_pop($term), ' '))) {
+                    if (empty($section)) {
+                        $section = $name;
+                    }
                     if (is_string($section)) {
                         $sections[$name] = [
                             'view' => $section
@@ -121,8 +145,8 @@ class Controller extends \kyubi\api\controllers\CrudController
                     if (is_array($section)) {
                         if (isset($section['relation'])) {
                             $section['view'] = $section['view'] ?? '@themes/bootstrap/layouts/crud/relation';
-                            $section['params']['relation'] = $section['relation'];
                         }
+                        $section['params'] = $section;
                         $sections[$name] = $section;
                     }
                 }
@@ -146,14 +170,14 @@ class Controller extends \kyubi\api\controllers\CrudController
             }
             $buttons['curd']['buttons']['create'] = [
                 'url' => url('create', true),
-                'on' => 'search view update'
+                'on' => 'search view'
             ];
-            $buttons['curd']['buttons']['view'] = [
-                'url' => url(array_merge([
-                    'view'
-                ], $params), true),
-                'on' => 'update'
-            ];
+            // $buttons['curd']['buttons']['view'] = [
+            // 'url' => url(array_merge([
+            // 'view'
+            // ], $params), true),
+            // 'on' => 'update'
+            // ];
             $buttons['curd']['buttons']['update'] = [
                 'url' => url(array_merge([
                     'update'
@@ -171,14 +195,14 @@ class Controller extends \kyubi\api\controllers\CrudController
                 ],
                 'on' => 'view',
                 'type' => 'POST',
-                'after-send' => 'location.href = "' . url('/' . controller()->uniqueId) . '"'
+                'on-success' => 'location.href = "' . url('/' . controller()->uniqueId) . '"'
             ];
             foreach ([
                 'prev',
                 'next'
             ] as $it) {
                 $item = model()->find()
-                    ->where('id' . ($it == 'next' ? '>' : '<') . ':t0', [
+                    ->andWhere('id' . ($it == 'next' ? '>' : '<') . ':t0', [
                     ':t0' => model()->primaryKey
                 ])
                     ->one();
@@ -192,6 +216,6 @@ class Controller extends \kyubi\api\controllers\CrudController
                 ];
             }
         }
-        return $buttons;
+        return $buttons ?? [];
     }
 }

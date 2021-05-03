@@ -1,2 +1,19 @@
 <?php
-return $config ?? [];
+return [
+    'bootstrap' => [
+        'log'
+    ],
+    'components' => [
+        'log' => [
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => [
+                        'error',
+                        'warning'
+                    ]
+                ]
+            ]
+        ]
+    ]
+];

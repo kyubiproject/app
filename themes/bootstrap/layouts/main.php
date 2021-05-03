@@ -9,7 +9,7 @@ use yii\helpers\Html;
 \themes\bootstrap\Asset::register($this);
 
 $this->beginPage();
-if (request()->isPatch) {
+if (request()->isPjax) {
     $this->beginBody();
     echo $content;
     $this->endBody();
@@ -18,7 +18,7 @@ if (request()->isPatch) {
 <!DOCTYPE html>
 <html lang="<?= app()->language ?>">
 <head>
-<title><?= $this->title ?></title>
+<title><?= strip_tags(controller()->title ?? $this->title ?? app()->name) ?></title>
 <meta charset="<?= app()->charset ?>">
     <?php $this->registerCsrfMetaTags() ?>
     <?php $this->head() ?>
@@ -36,11 +36,9 @@ if (request()->isPatch) {
         echo Html::beginForm($form->action, $form->method, $form->options);
         $form->registerClientScript();
         echo $content;
-        echo get_block('sections');
         echo Html::endForm();
     } else {
         echo $content;
-        echo get_block('sections');
     }
     ?>
 	</main>

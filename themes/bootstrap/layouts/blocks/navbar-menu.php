@@ -1,8 +1,9 @@
 <?php
 use kyubi\helper\Arr;
 
+$modules = Kyubi::config('modules') ?? [];
 $navbar = [];
-foreach (Kyubi::config('modules') ?? [] as $name => $module) {
+foreach ($modules as $name => $module) {
     if (isset($module['settings']) && $item = $module['settings']['navbar'] ?? []) {
         $navbar[$name] = $item;
     }
@@ -10,17 +11,14 @@ foreach (Kyubi::config('modules') ?? [] as $name => $module) {
 ?>
 <button class="navbar-toggler" data-toggle="collapse"
 	data-target="#navbar-menu">
-	<span class="navbar-toggler-icon"></span>
+	<i class="fa fa-bars text-dark"></i>
 </button>
 <div class="collapse navbar-collapse" id="navbar-menu">
 	<ul class="navbar-nav">
 	<?php foreach (Arr::sort($navbar) as $name => $item): ?>
-		<?php if (! in_array($name, [
-		    'operacion', 'flota'
-		])) continue; ?>
-    	<li class="nav-item dropdown">
-    		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-    			<?= t($name, $item['label'] ?? $name) ?>
+    	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+			href="#" data-toggle="dropdown">
+    			<?= t($item['label'] ?? $name, $name) ?>
 			</a>
 			<div class="dropdown-menu">
     		<?php
@@ -29,14 +27,14 @@ foreach (Kyubi::config('modules') ?? [] as $name => $module) {
             if (is_string($link)) {
                 $tpl = '<div class=":class">:label</div>';
                 $terms[':class'] = $link == 'separator' ? 'dropdown-divider' : 'dropdown-item disabled font-weight-bold';
-                $terms[':label'] = $link == 'separator' ? null : t($name, $name .'/'. $link);
+                $terms[':label'] = $link == 'separator' ? null : t($name . '/' . $link, $name);
             } elseif (is_array($link)) {
                 $term = array_key_first($link);
                 $href = array_shift($link);
                 $tpl = '<a class=":class" href=":href">:label</a>';
                 $terms[':class'] = 'dropdown-item' . ($href === false ? " disabled" : null);
                 $terms[':href'] = url($href ?? ($term[0] !== '/' ? "/$name/" : null) . $term);
-                $terms[':label'] = t($name, $name . '/' . $term);
+                $terms[':label'] = t($name . '/' . $term, $name);
             } else {
                 continue;
             }
@@ -46,8 +44,7 @@ foreach (Kyubi::config('modules') ?? [] as $name => $module) {
         $last = $link;
     }
     ?>
-			</div>
-		</li>
+			</div></li>
 	<?php endforeach; ?>
     </ul>
 </div>

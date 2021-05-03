@@ -1,6 +1,8 @@
 ---
 es:
-  index: <i class="fa fa-list-alt"></i> Listar
+  Cancel: <i class="fa fa-times"></i> Cancelar
+  #
+  index: <i class="fa fa-list-alt"></i> Listado
   create: <i class="fa fa-plus"></i> Nuevo
   update: <i class="fa fa-pencil"></i> Editar
   view: <i class="fa fa-eye"></i> Mostrar
@@ -8,17 +10,20 @@ es:
   # [Nav]
   prev: <i class="fa fa-caret-left" title="Anterior" data-toggle="tooltip"></i>
   next: <i class="fa fa-caret-right" title="Siguiente" data-toggle="tooltip"></i>
+  print: <i class="fa fa-print" title="Imprimir" data-toggle="tooltip"></i>
   # [Grid]
   search: <i class="fa fa-search"></i> Buscar
+  filter: <i class="fa fa-filter"></i> Filtrar
   refresh: <i class="fa fa-refresh"></i> Actualizar
   reset-search: <i class="fa fa-eraser"></i> Borrar filtros de busqueda
   # [Header content]
   '{controller}': '{controller}'
-  '{action} {controller}': '{controller} <small>{action}</small>'
-  '{action} {controller} {model}': '{controller} <strong>{model}</strong> <small>{action}</small>'
-  'create {controller}': 'Nuevo registro <small><i class="fa fa-plus text-success"></i></small>'
-  'view {controller} {model}': '<strong>{model}</strong>'
-  'update {controller} {model}': '<strong>{model}</strong> <small><i class="fa fa-pencil text-warning"></i></small>'
+  '{action} {controller}': '{controller}&nbsp;<small>{action}</small>'
+  '{action} {controller} {model}': '{controller}&nbsp;<strong>{model}</strong> <small>{action}</small>'
+  'create {controller}': '{controller}&nbsp;<span class="btn btn-sm btn-success px-1 py-0 ml-2">Nuevo</span>'
+  'view {controller} {model}': '{controller}&nbsp;<strong>{model}</strong>'
+  'update {controller} {model}': '{controller}&nbsp;<strong>{model}</strong>&nbsp;<i class="fa fa-pencil text-warning"></i></small>'
   # [Other content]
   "Select option": ---
+  site: Dashboard
 ...

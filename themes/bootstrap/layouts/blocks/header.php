@@ -1,7 +1,7 @@
 <?php if (is_null($header = controller()->header ?? null)): ?>
-<header class="mb-2 d-flex justify-content-between align-items-center">
+<header class="d-flex justify-content-between align-items-center">
 	<h1>
-		<?= controller()->title ?? controller()->name ?? controller()->id ?>
+		<?= controller()->title ?? null ?>
 	</h1>
 	<div class="btn-toolbar">
 		<?=controller()->toolbar ?? null?>

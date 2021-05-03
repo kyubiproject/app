@@ -4,4 +4,4 @@ define('DIR_ROOT', __DIR__);
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-Kyubi::console();
+Kyubi::console(false, 'dev');

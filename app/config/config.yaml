@@ -1,27 +1,17 @@
+name: IBERFURGO
 language: es
-timeZone: America/Caracas
 components:
   request:
     cookieValidationKey: 5d7cff7c24278171c8044ef8f5301014
-  db:
-    dsn: 'mysql:host=localhost;dbname=rentavan'
-    username: root
-    password: root
-    charset: utf8
-  dbsys:
-    class: yii\db\Connection
-    dsn: 'mysql:host=localhost;dbname=webapp'
-    username: root
-    password: root
-    charset: utf8
   formatter:
     dateFormat: php:d/m/Y
-    datetimeFormat: php:d/m/Y H:m
-    timeFormat: php:H:m
+    datetimeFormat: php:d/m/Y H:i
+    timeFormat: php:H:i
+    thousandSeparator: "."
+    decimalSeparator: ","
+    currencyDecimalSeparator: ","
     nullDisplay: ""
+  urlManager:
+     enablePrettyUrl: false
   view:
     theme: themes\bootstrap\Theme
-params:
-  admin:
-    name: Admin
-    email: admin@mail.com

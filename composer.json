@@ -24,14 +24,12 @@
 	"prefer-stable" : true,
 	"require" : {
 		"kyubi/core" : "@dev",
-		"kyubi/helper" : "@dev",
+		"kyubi/api" : "@dev",
 		"kyubi/ui" : "@dev",
-		"kyubi/validate" : "@dev",
-		"kyubi/make" : "@dev",
-		"kyubi/api" : "@dev"
+		"kyubi/auth": "@dev"
 	},
 	"require-dev" : {
-		"yiisoft/yii2-gii" : "~2.2",
-		"yiisoft/yii2-debug" : "~2.1"
+		"kyubi/make" : "@dev",
+		"kyubi/cloud" : "@dev"
 	}
 }

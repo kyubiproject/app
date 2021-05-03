@@ -1,10 +1,14 @@
-#navbar-toggle .container  > * {
+body {
+	padding-bottom: 3em !important;
+}
+
+#navbar-toggle .container>* {
 	background-color: transparent;
 	margin: 0 !important;
 	padding: 0 !important;
 }
 
-#navbar-toggle > * {
+#navbar-toggle>* {
 	border: none;
 	background-color: transparent;
 	padding: unset;
@@ -19,8 +23,8 @@
 	margin: 0;
 }
 
- .dropdown-menu {
- 	margin-top: 0.65rem;
+.dropdown-menu {
+	margin-top: 0.65rem;
 }
 
 .dropdown-item {
@@ -38,11 +42,11 @@ table {
 
 table thead th {
 	text-align: center;
-	white-space: nowrap; 
+	white-space: nowrap;
 }
 
 table thead a {
-	text-decoration: none !important; 
+	text-decoration: none !important;
 }
 
 table thead a:before {
@@ -72,8 +76,6 @@ table tr[data-key]:not(:hover) {
 }
 
 .form-group div.form-control {
-	height: auto;
-	min-height: 38px;
 	background: var(--light);
 }
 
@@ -81,7 +83,8 @@ table tr[data-key]:not(:hover) {
 	background-color: transparent;
 }
 
-.btn-group:not(:empty) + .btn-group:not(:empty), .btn-group:not(:empty) + .btn:not(:empty)  {
+.btn-group:not(:empty)+.btn-group:not(:empty), .btn-group:not(:empty)+.btn:not(:empty)
+	{
 	margin-left: 15px;
 }
 
@@ -89,7 +92,8 @@ input[type=color] {
 	padding: unset;
 }
 
-.btn-toolbar .btn-group + .btn-group:not(:empty), .btn-toolbar *:not(.btn-group) > .btn + .btn:not(:empty)  {
+.btn-toolbar .btn-group+.btn-group:not(:empty), .btn-toolbar *:not(.btn-group)>.btn+.btn:not(:empty)
+	{
 	margin-left: 15px;
 }
 
@@ -97,37 +101,76 @@ input[type=color] {
 	padding: unset;
 }
 
-form[data-required]:after {
+form[data-required] {
+	margin-top: -.5em;
+}
+
+form[data-required]:before {
 	content: attr(data-required);
-	float: right;
-	color: var(--info) !important;
+	color: var(--danger) !important;
+	display: block;
+	text-align: right;
+	font-size: .9em;
 }
 
-.form-group.required label:after {
+form:not([data-required=""]):not(#search-form) .form-group.required .control-label:after {
 	content: " *";
 }
 
-.line-2 {height: 8rem !important;}
-.line-3 {height: 13rem !important;}
+.line-2 {
+	min-height: 4rem !important;
+	height: auto;
+}
 
-.pl-30 {padding-left: 30% !important;}
-.pl-50 {padding-left: 50% !important;}
-.pl-70 {padding-left: 70% !important;}
+.line-3 {
+	min-height: 10rem !important;
+	height: auto;
+}
 
-.pr-30 {padding-right: 30% !important;}
-.pr-50 {padding-right: 50% !important;}
-.pr-70 {padding-right: 70% !important;}
+.pl-30 {
+	padding-left: 30% !important;
+}
 
+.pl-50 {
+	padding-left: 50% !important;
+}
+
+.pl-70 {
+	padding-left: 70% !important;
+}
+
+.pr-30 {
+	padding-right: 30% !important;
+}
+
+.pr-50 {
+	padding-right: 50% !important;
+}
+
+.pr-70 {
+	padding-right: 70% !important;
+}
+
+td, th {
+	padding: 0.25em !important;
+}
 
 td[data-type=decimal] {
 	text-align: right;
+	white-space: nowrap;
 }
 
-td[data-type^=date], td[data-type^=time], td[data-type^=integer], td[data-type^=enum] {
+td[data-type=integer], td[data-type=enum] {
 	text-align: center;
 }
 
-body > main > header > h1 {
+td[data-type^=date], td[data-type^=time], td[data-type$=time]
+	{
+	text-align: center;
+	white-space: nowrap;
+}
+
+body>main>header>h1 {
 	font-size: 1.5rem !important;
 }
 
@@ -138,4 +181,121 @@ a:not([href]) {
 
 a[href] i {
 	cursor: pointer !important;
+}
+
+.form-control.disabled {
+	background-color: var(--light);
+}
+
+section + section {
+	padding-top: 1em;
+}
+
+.form-group input[type=checkbox].form-control {
+	width: unset;
+	margin-left: 1em;
+	margin-bottom: 0.2em;
+}
+
+.select2-selection, .select2 .select2-selection__rendered {
+	height: calc(1.5em + .5rem + 2px) !important;
+	font-size: .875rem;
+	line-height: 1.5 !important;
+	padding-top: 0.15em;
+}
+
+.select2-selection__choice, .select2-search__field {
+	margin-top: 1px !important;
+}
+
+.select2-selection__clear {
+	margin-top: -3px !important;
+}
+
+[data-type=select] {
+	display: flex;
+	flex-direction: column;
+}
+
+.navbar-brand img {
+	filter: invert(100%);
+}
+
+.breadcrumb-item a label, header h1 strong label {
+	min-width: unset !important;
+	margin-bottom: unset;
+}
+
+.select2-results__option {
+	padding: 0.15em;
+}
+
+.select2 {
+	width: 100% !important;
+}
+
+
+.form-group[data-type=resource] div.form-control:not(:empty) {
+	height: inherit !important;
+	min-height: calc(1.5em + .5rem + 2px);	
+	white-space: break-spaces;
+}
+
+.form-alquiler, .form-compra {
+	display: none;
+}
+
+[data-adquisicion=COMPRA] .form-compra {
+	display: flex !important;
+}
+
+[data-adquisicion=ALQUILER] .form-alquiler {
+	display: flex !important;
+}
+
+.invisible {
+	display: none;
+}
+
+.tooltip-inner {
+    max-width: unset !important;
+}
+
+#grid-planning {
+	overflow: auto;
+}
+
+#grid-planning .table td {
+	vertical-align: middle;
+}
+
+td>a.presupuesto {
+	color: white !important;
+}
+
+td>a.presupuesto::before {
+	content: "P";
+}
+
+td>a.reserva::before {
+	content: "R";
+}
+
+td>a.contrato::before, td>a.extension::before {
+	content: "C";
+}
+
+td>a.day-start.day-end::after {
+	font-family: "FontAwesome";
+	content: " \f066";
+}
+
+td>a.day-end:not(.day-start)::after {
+	font-family: "FontAwesome";
+	content: " \f0d9";
+}
+
+td>a.day-start:not(.day-end)::after {
+	font-family: "FontAwesome";
+	content: " \f0da";
 }

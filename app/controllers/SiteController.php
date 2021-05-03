@@ -6,7 +6,7 @@ class SiteController extends \kyubi\web\Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return controller()->render('index');
     }
 
     public function actionError()
@@ -20,10 +20,5 @@ class SiteController extends \kyubi\web\Controller
                 'trace' => $exception->getTraceAsString()
             ]);
         }
-    }
-
-    public function getHeader()
-    {
-        return false;
     }
 }

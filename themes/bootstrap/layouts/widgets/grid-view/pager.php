@@ -6,11 +6,10 @@ use yii\widgets\LinkPager;
  *
  * @var \kyubi\ui\widgets\GridView $grid
  * @var \yii\data\Pagination $pagination
- * @var \kyubi\base\ActiveRecord $model
+ * @var \kyubi\model\ActiveRecord $model
  */
 
 if ($pagination !== false && $grid->dataProvider->getCount()) {
-    $pagination->pageSize = get('per-page', $grid::$PAGE_SIZE);
     $pager = $grid->pager;
     $class = ArrayHelper::remove($pager, 'class', LinkPager::className());
     $pager['pagination'] = $pagination;
